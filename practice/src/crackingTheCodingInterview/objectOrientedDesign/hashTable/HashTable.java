@@ -1,7 +1,6 @@
-package crackingTheCodingInterview.hashTable;
+package crackingTheCodingInterview.objectOrientedDesign.hashTable;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class HashTable<K, V> {
     private static class LinkedListNode<K, V> {

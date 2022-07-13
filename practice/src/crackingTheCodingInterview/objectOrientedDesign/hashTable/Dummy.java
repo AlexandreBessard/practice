@@ -1,4 +1,4 @@
-package crackingTheCodingInterview.hashTable;
+package crackingTheCodingInterview.objectOrientedDesign.hashTable;
 
 public class Dummy {
     private String name;
