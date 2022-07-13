@@ -11,7 +11,8 @@ public class ReverseString {
         }
     }
 
-    //Approach 2, Recursive (Space complexity: O(n)
+    //Approach 1, Recursive (Space complexity: O(n)
+    //Time complexity: O(N)
     static void reverseRecursivve(char[] s) {
         helper(s, 0, s.length - 1);
     }
@@ -23,6 +24,7 @@ public class ReverseString {
         s[right] = temp;
         helper(s, ++left, --right);
     }
+
     //Approach 2 O(1) space
     //Time complexity: O(N)
     static void reverseString(char[] s) {
