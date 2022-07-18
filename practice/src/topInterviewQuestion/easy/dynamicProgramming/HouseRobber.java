@@ -14,7 +14,8 @@ public class HouseRobber {
 
     //Approach 2 : Dynamic Programming (Bottom-up)
     /*
-
+    Time complexity: O(N) since we loop from 2 to ... n
+    Space complexity: O(N)
      */
     static int robDynamicProgramingBottomUp(int[] nums) {
         int n = nums.length;
