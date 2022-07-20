@@ -7,6 +7,7 @@ public class Test {
     public static void main(String[] args) {
         String[] strs2 = {"leets", "leetcode", "leetc", "leeds"};
         System.out.println(longestCommonPrefixBinarySearch(strs2));
+
     }
 
     static String longestCommonPrefixBinarySearch(String[] strs) {
