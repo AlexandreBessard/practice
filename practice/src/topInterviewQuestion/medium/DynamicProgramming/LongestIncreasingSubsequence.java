@@ -17,6 +17,10 @@ public class LongestIncreasingSubsequence {
 
 
     //Approach 3: Improve with Binary Search
+    /*
+    Time complexity: O(N x Log(N))
+    Space complexity: O(N)
+     */
     static int lengthOfLISBinarySearch(int[] nums) {
         ArrayList<Integer> sub = new ArrayList<>();
         sub.add(nums[0]);
