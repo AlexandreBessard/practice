@@ -6,7 +6,6 @@ public class DesignTicTacToe {
 
     }
 
-
     /*
     OPTIMIZED
      */
