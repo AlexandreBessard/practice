@@ -32,6 +32,9 @@ public class LongestSubstringWithoutRepeatingCharacter {
     /*
     Time complexity: O(N) in worst case scenario like 'AAAAAAAAAAAB'
     Space compelexity:O(1)
+    -> Given a string s, find the length of the longest substring without repeating characters.
+    Input: s = "pwwkew"
+    Output: 3
      */
     static int lengthOfLongestSubstringSlidingWindow(String s) { // pwwkew
         int[] chars = new int[128];
@@ -61,7 +64,7 @@ public class LongestSubstringWithoutRepeatingCharacter {
         int n = s.length();
         int res = 0;
         for(int i = 0; i < n; i++) {
-            for(int j = i; i < n; j++) {
+            for(int j = i; j < n; j++) {
                 if(checkRepetitions(s, i, j)) {
                     res = Math.max(res, j - i + 1);
                 }

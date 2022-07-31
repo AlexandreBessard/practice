@@ -9,6 +9,9 @@ public class TwoSum {
         int[] nums = {3,2,4};
         int target = 6;
         //Output: [1, 2] -> 2 + 4 == 6
+        for(int i : twoSumHashTableOnePass(nums, target)) {
+            System.out.print(i + ", ");
+        }
     }
 
 
@@ -57,7 +60,7 @@ public class TwoSum {
      */
     static int[] twoSum(int[] nums, int target) {
         for(int i = 0; i < nums.length; i++) {
-            for(int j = i + 1; j < nums.length; i++) {
+            for(int j = i + 1; j < nums.length; j++) {
                 if(nums[j] == target - nums[i])
                     return new int[] {i, j};
             }
