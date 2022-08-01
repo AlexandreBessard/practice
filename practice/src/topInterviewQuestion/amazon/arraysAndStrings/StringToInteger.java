@@ -18,6 +18,10 @@ public class StringToInteger {
         System.out.println(obj.myAtoi("   -42"));
     }
 
+    /*
+    Time complexity: O(N), we iterate through the string exactly once, state transition -> constant time
+    Space complexity: O(1)
+     */
     public int myAtoi(String s) {
         StateMachine Q = new StateMachine();
         for (int i = 0; i < s.length() && Q.getState() != State.qd; ++i) {

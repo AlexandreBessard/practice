@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.DynamicProgramming;
+package topInterviewQuestion.medium.dynamicProgramming;
 
 import java.util.Arrays;
 
