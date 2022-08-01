@@ -39,18 +39,17 @@ public class RomanToInteger {
         map.put('I', 1);
     }
 
-
     /*
+    Approach: left to right pass
     Time complexity: O(1)
     Space complexity: 0(1)
      */
-    int romanToInt(String s) { //"LVIII"
+    int romanToInt(String s) { //"MCMXXV"
         int number = 0;
         if(s.length() < 2)
             return map.get(s.charAt(0));
         for(int i = 0; i < s.length(); i++) {
-            if(i < s.length() - 1
-                    && map.get(s.charAt(i + 1)) > map.get(s.charAt(i)))
+            if(i < s.length() - 1 && map.get(s.charAt(i + 1)) > map.get(s.charAt(i)))
             {
                 number += map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
                 i++;
