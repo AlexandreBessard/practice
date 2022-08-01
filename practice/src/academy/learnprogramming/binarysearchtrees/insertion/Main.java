@@ -1,4 +1,4 @@
-package academy.learnprogramming.binarysearchtrees;
+package academy.learnprogramming.binarysearchtrees.insertion;
 
 public class Main {
 

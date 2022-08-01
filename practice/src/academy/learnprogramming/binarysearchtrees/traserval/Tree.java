@@ -1,4 +1,4 @@
-package academy.learnprogramming.binarysearchtrees;
+package academy.learnprogramming.binarysearchtrees.traserval;
 
 public class Tree {
 
@@ -10,6 +10,12 @@ public class Tree {
         }
         else {
             root.insert(value);
+        }
+    }
+
+    public void traverseInOrder() {
+        if (root != null) {
+            root.traverseInOrder();
         }
     }
 
