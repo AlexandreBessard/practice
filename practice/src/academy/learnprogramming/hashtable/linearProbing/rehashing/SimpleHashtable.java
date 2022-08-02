@@ -40,6 +40,7 @@ public class SimpleHashtable {
         return hashtable[hashedKey].employee;
     }
 
+    //Rehashing
     public Employee remove(String key) {
         int hashedKey = findKey(key);
         if (hashedKey == -1) {

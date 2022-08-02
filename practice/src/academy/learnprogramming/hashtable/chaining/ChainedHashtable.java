@@ -1,5 +1,6 @@
 package academy.learnprogramming.hashtable.chaining;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -68,7 +69,7 @@ public class ChainedHashtable {
             }
             else {
                 System.out.print("Position " + i + ": ");
-                ListIterator<StoredEmployee> iterator = hashtable[i].listIterator();
+                Iterator<StoredEmployee> iterator = hashtable[i].iterator();
                 while (iterator.hasNext()) {
                     System.out.print(iterator.next().employee);
                     System.out.print("->");
