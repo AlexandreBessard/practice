@@ -10,6 +10,10 @@ public class ImplementStrStr {
         System.out.println(strStr(haystack, needle));
     }
 
+    /*
+    Time complexity: O(n²)
+    Space complexity: O(1)
+     */
     static int strStr(String haystack, String needle) {
         if(needle.length() == 0)
             return 0;

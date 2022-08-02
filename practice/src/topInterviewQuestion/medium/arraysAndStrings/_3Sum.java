@@ -11,8 +11,12 @@ public class _3Sum {
         Output: [[-1,-1,2],[-1,0,1]]
          */
         int[] nums = {-1,0,1,2,-1,-4};
+        int[] nums3 = {-1,-1,-1,-1,2,4};
+
         int[] nums2 = {-4, -1, -1, 0, 1, 2};
         List<List<Integer>> result = threeSumNoSort(nums);
+        List<List<Integer>> result1 = threeSum(nums3);
+
         for(List<Integer> l1 : result) {
             System.out.println();
             for(int i : l1) {
@@ -21,7 +25,7 @@ public class _3Sum {
         }
     }
 
-    //Approach 3 : No-Sort
+    //Approach 3 : No-Sort, -> If you can not modify the input array
     /*
     Time complexity: O(n²) we have outer and inner loops
     Space complexity: O(n) for hashSet/hashMap
@@ -105,7 +109,7 @@ public class _3Sum {
                 lo++;
             } else if(sum > 0) {
                 hi--;
-            } else { //Have 0 value
+            } else { //Avoid duplicate results ex: -1 -1 -1 -1, 2, 4 -> get (-1, -1  2) once
                 res.add(Arrays.asList(nums[i], nums[lo++], nums[hi++]));
                 while(lo < hi && nums[lo] == nums[lo - 1])
                     lo++;

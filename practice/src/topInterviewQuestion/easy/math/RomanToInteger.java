@@ -27,17 +27,17 @@ public class RomanToInteger {
         System.out.println(obj.romanToInt("MCMXXV"));
     }
 
-    static Map<Character, Integer> map = new HashMap<>();
-
-    static {
-        map.put('M', 1000);
-        map.put('D', 500);
-        map.put('C', 100);
-        map.put('L', 50);
-        map.put('X', 10);
-        map.put('V', 5);
-        map.put('I', 1);
-    }
+    static Map<Character, Integer> map = new HashMap<>() {
+        {
+            put('M', 1000);
+            put('D', 500);
+            put('C', 100);
+            put('L', 50);
+            put('X', 10);
+            put('V', 5);
+            put('I', 1);
+        }
+    };
 
     /*
     Approach: left to right pass

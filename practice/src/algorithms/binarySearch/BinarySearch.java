@@ -1,4 +1,4 @@
-package algo.binarySearch;
+package algorithms.binarySearch;
 
 //https://leetcode.com/explore/learn/card/binary-search/138/background/971/
 public class BinarySearch {

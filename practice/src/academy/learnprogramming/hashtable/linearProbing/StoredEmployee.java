@@ -2,7 +2,7 @@ package academy.learnprogramming.hashtable.linearProbing;
 
 public class StoredEmployee {
 
-    public String key;
+    public String key; //Raw key like "Mary", "John" etc....
     public Employee employee;
 
     public StoredEmployee(String key, Employee employee) {
