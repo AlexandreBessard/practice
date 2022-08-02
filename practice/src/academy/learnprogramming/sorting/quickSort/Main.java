@@ -12,6 +12,12 @@ public class Main {
         }
     }
 
+    /*
+    The average time complexity of quick sort is O(N log(N)).
+    The derivation is based on the following notation: T(N) = Time Complexity of Quick Sort for input of size N.
+    At each step, the input of size N is broken into two parts say J and N-J.
+    Space complexity: O(1)
+     */
     public static void quickSort(int[] input, int start, int end) {
         if (end - start < 2) { //If it remains 2 elements to sort, stop here
             return;
