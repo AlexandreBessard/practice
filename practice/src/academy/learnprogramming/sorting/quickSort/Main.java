@@ -1,5 +1,7 @@
 package academy.learnprogramming.sorting.quickSort;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -37,7 +39,6 @@ public class Main {
         int j = end;
 
         while (i < j) {
-
             // NOTE: empty loop body
             while (i < j && input[--j] >= pivot){
                 //Body is empty
@@ -45,7 +46,6 @@ public class Main {
             if (i < j) {
                 input[i] = input[j];
             }
-
             // NOTE: empty loop body
             while (i < j && input[++i] <= pivot){
                 //Body is empty
@@ -55,9 +55,7 @@ public class Main {
             }
 
         }
-
         input[j] = pivot;
         return j;
-
     }
 }

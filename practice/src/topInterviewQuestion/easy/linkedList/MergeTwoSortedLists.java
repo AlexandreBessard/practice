@@ -17,7 +17,7 @@ public class MergeTwoSortedLists {
 
     /*
     Recursive
-    Time complexity: O(n + m)
+    Time complexity: O(n + m) -> n and m represents l1 and l2 respectively
     Space complexity: O(n + m)
      */
     static ListNode mergeTwoSortedListRecursive(ListNode l1, ListNode l2) {
