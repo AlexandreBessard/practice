@@ -1,4 +1,4 @@
-package academy.learnprogramming.linearsearch;
+package academy.learnprogramming.searching.linearSearch;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package academy.learnprogramming.binarysearch;
+package academy.learnprogramming.searching.binarySearch;
 
 public class Main {
 
