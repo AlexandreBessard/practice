@@ -9,12 +9,13 @@ public class Heap {
         heap = new int[capacity];
     }
 
+    //O(log N) due to fix the heap
     public void insert(int value) {
         if (isFull()) {
             throw new IndexOutOfBoundsException("Heap is full");
         }
 
-        heap[size] = value;
+        heap[size] = value; //constant time
 
         fixHeapAbove(size);
         size++;
@@ -28,6 +29,7 @@ public class Heap {
         return heap[0];
     }
 
+    //O(log N) log N is to fix the heap
     public int delete(int index) {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Heap is empty");
@@ -51,13 +53,15 @@ public class Heap {
 
     }
 
+    //Sort in increasing order, the root will become the smaller element of the heap
     public void sort() {
-        int lastHeapIndex = size - 1;
-        for (int i = 0; i < lastHeapIndex; i++) {
-            int tmp = heap[0];
+        int lastHeapIndex = size - 1; //Get last index
+        for (int i = 0; i < lastHeapIndex; i++) { //heap reduce by one in each iteration
+            int tmp = heap[0]; //swap root (largest value) with the last item
             heap[0] = heap[lastHeapIndex - i];
             heap[lastHeapIndex - i] = tmp;
-
+            //Swap the root -> index 0
+            // after Swapped, we exclude the old root placed at last index : (lastHeapIndex - i - 1)
             fixHeapBelow(0, lastHeapIndex - i - 1);
         }
     }

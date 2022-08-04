@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 public class Main {
 
     public static void main(String[] args) {
-        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(new Comparator<Integer>() {
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(new Comparator<Integer>() { //Min heap, lower number higher priority
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1 - o2;
@@ -22,7 +22,7 @@ public class Main {
         pq.add(429);
 
         //System.out.println(pq.peek());
-        pq.remove();
+        pq.remove(); //remove element with the higher priority (lower element based on the comparator)
         //System.out.println(pq.peek());
         pq.poll();
         System.out.println(pq.peek());
