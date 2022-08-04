@@ -4,13 +4,13 @@ public class BinaryTreeMaximumPathSum {
 
     public static void main(String[] args) {
 
-
-
     }
 
     //Approach 1: Recursion
     /*
     Post order traversal tree -> Left, right, node
+    Time complexity: O(N)
+    Space complexity: O(N)
      */
     int maxValue;
     public int maxPathSum(TreeNode root) {
