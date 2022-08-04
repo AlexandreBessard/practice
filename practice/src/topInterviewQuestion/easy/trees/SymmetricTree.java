@@ -13,6 +13,9 @@ public class SymmetricTree {
         one.right = new TreeNode(2);
         one.right.left = new TreeNode(4);
         one.right.right = new TreeNode(3);
+
+        System.out.println(isSymetricIterative(one));
+
     }
 
     //Approach 2: Iterative

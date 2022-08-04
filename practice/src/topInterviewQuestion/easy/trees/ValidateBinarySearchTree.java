@@ -14,6 +14,7 @@ public class ValidateBinarySearchTree {
         System.out.println(isValidBSTIterativeInorderTraversal(two));
 
     }
+
     //Approach 4: Iterative Inorder Traversal
     static boolean isValidBSTIterativeInorderTraversal(TreeNode root) {
         Deque<TreeNode> stack = new ArrayDeque<>();
