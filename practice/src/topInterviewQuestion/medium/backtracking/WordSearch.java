@@ -31,6 +31,7 @@ public class WordSearch {
     }
     private static boolean  backtrack(int row, int col, String word, int index) {
         //Bottom case
+        // # If the solution is found
         if(index >= word.length()) {
             return true;
         }
@@ -45,7 +46,9 @@ public class WordSearch {
         board[row][col] = '#';
         int[] rowOffsets = {0, 1, 0, -1};
         int[] colOffsets = {1, 0, -1, 0};
+        // # Iterate all possible candidates
         for(int d = 0; d < 4; d++) { //(0,1,2,3)
+            //# Move on the next element in 2d array
             ret = backtrack(row + rowOffsets[d],
                     col + colOffsets[d],
                     word,
@@ -54,6 +57,7 @@ public class WordSearch {
                 break;
         }
         //Clean upa and return result
+        // # Backtrack
         board[row][col] = word.charAt(index);
         return ret;
     }

@@ -34,25 +34,31 @@ public class GenerateParentheses {
                            int close,
                            int max)
     {
+        // # If the solution is found
         if(cur.length() == max * 2) {
             ans.add(cur.toString());
             return;
         }
         if(open < max) {
+            //# Try this partial candidate solution
             cur.append("(");
+            //# Move on to the next candidate
             backtrack(ans, cur, open + 1, close, max);
+            // Backtrack
             cur.deleteCharAt(cur.length() - 1);
         }
         if(close < open) {
+            // # Try this partial solution
             cur.append(")");
+            //# Move on to the next candidate
             backtrack(ans, cur, open, close + 1, max);
+            //# Backtrack
             cur.deleteCharAt(cur.length() - 1);
         }
     }
 
 
-
-        //Approach 1: Brut force
+    //Approach 1: Brut force
     /*
     Time complexity: O(22nn)
     Space complexity: O(22nn)
@@ -73,6 +79,7 @@ public class GenerateParentheses {
             generateAll(current, pos+1, result);
         }
     }
+
     public boolean valid(char[] current) {
         int balance = 0;
         for (char c: current) {
