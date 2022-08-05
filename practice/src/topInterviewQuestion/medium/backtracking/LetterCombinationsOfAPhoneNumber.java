@@ -26,7 +26,9 @@ public class LetterCombinationsOfAPhoneNumber {
             '2', "abc", '3', "def", '4', "ghi", '5', "jkl",
             '6', "mno", '7', "pqrs", '8', "tuv", '9', "wxyz"
     );
-    static String phoneDigits;
+
+    static String phoneDigits;  //23
+
     static List<String> letterCombinations(String digits) {
         if(digits.length() == 0)
             return combinations;
@@ -36,16 +38,20 @@ public class LetterCombinationsOfAPhoneNumber {
         return combinations;
     }
     private static void backtracking(int index, StringBuilder path) {
+        // # If solution is found
         if(path.length() == phoneDigits.length()) {
             combinations.add(path.toString());
             return; //Backtrack
         }
         //Get the letters that the current digit maps to, and loop through them
+        // # Iterate all possible candidates
         String possibleLetters = letters.get(phoneDigits.charAt(index));
         for(char letter: possibleLetters.toCharArray()) {
             //Add the letter to our current path
+            // # Try this partial candidate solution
             path.append(letter);
-            //Move on to the next digit
+            //Given the candidate, explore further.
+            // # Move on to the next digit
             backtracking(index + 1, path);
             //Backtrack by removing the letter before moving onto the next
             path.deleteCharAt(path.length() - 1);
