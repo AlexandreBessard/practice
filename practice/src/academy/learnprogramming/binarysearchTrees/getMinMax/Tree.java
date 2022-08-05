@@ -1,4 +1,4 @@
-package academy.learnprogramming.binarysearchtrees.getMinMax;
+package academy.learnprogramming.binarysearchTrees.getMinMax;
 
 public class Tree {
 

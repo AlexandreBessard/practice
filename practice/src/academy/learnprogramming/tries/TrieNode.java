@@ -1,4 +1,4 @@
-package academy.learnprogramming.trie;
+package academy.learnprogramming.tries;
 
 import java.util.HashMap;
 import java.util.Map;

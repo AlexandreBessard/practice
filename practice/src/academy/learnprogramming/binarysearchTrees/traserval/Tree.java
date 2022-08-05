@@ -1,4 +1,4 @@
-package academy.learnprogramming.binarysearchtrees.traserval;
+package academy.learnprogramming.binarysearchTrees.traserval;
 
 public class Tree {
 
