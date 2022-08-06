@@ -74,22 +74,16 @@ public class SearchInRotatedSortedArray {
     }
 
     private static int searchEntireArray(int left, int right) {
-        boolean trueLeft = false;
-        boolean trueRight = false;
         while (left <= right) {
-            if ((trueLeft = (nums[left] == target)) || (trueRight = (nums[right] == target))) {
-                if (trueLeft) {
-                    return left;
-                } else if (trueRight) {
-                    return right;
-                }
+            if(nums[left] == target) {
+                return left;
+            } else if (nums[right] == target) {
+                return right;
             } else {
                 left++;
-                right--;
+                right++;
             }
         }
         return -1;
     }
-
-
 }
