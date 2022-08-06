@@ -24,11 +24,9 @@ class Main {
         trie.insert("way");
         trie.insert("of");
         trie.insert("life");
-
          */
         trie.delete("is");
     }
-
 }
 
 class TrieNode {
@@ -44,6 +42,8 @@ class TrieNode {
         this.endOfWord = endOfWord;
     }
 }
+
+//---------------------------------------------
 class Trie {
     private TrieNode root;
 
