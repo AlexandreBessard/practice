@@ -27,6 +27,7 @@ public class MergeIntervals {
     /*
     Time complexity: O(n log n) caused by Arrays sort
     Space complexity: O(log n) caused by sorting itself or O(n)..
+    Dont even bother to look at 1st solution, 2nd one is better and more reliable during interviews
      */
     static int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
