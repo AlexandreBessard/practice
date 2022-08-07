@@ -12,8 +12,33 @@ public class GroupAnagrams {
         An Anagram is a word or phrase formed by rearranging the letters of a
         different word or phrase, typically using all the original letters exactly once.
          */
-
+        groupAnagramsHashMap(strs);
     }
+
+
+    //Approach 3: No sorting using Hashmap
+    /*
+    Time complexity: O(NM)
+    Space complexity: O(N) -> cause by hashmap
+     */
+    static List<List<String>> groupAnagramsHashMap(String[] strs) {
+        if(strs == null || strs.length == 0)
+            return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for(String s : strs) {
+            char[] ca = new char[26]; // new char[126] if we include all characters
+            for(char c : s.toCharArray()) {
+                ca[c  - 'a']++;
+            }
+            String keyStr = String.valueOf(ca);
+            if( ! map.containsKey(keyStr)) {
+                map.put(keyStr, new ArrayList<>());
+            }
+            map.get(keyStr).add(s);
+        }
+        return new ArrayList<>(map.values());
+    }
+
 
     //Approach 2: Categorize by Count
     /*
