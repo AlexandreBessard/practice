@@ -39,7 +39,6 @@ public class GroupAnagrams {
         return new ArrayList<>(map.values());
     }
 
-
     //Approach 2: Categorize by Count
     /*
     Time complexity: O(NK), we go through each strs element  and count every each string.
