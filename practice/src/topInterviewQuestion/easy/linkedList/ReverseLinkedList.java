@@ -28,7 +28,7 @@ public class ReverseLinkedList {
             ListNode p = reverseListRecursive(head.next);
             head.next.next = head;
             head.next = null;
-            return p;
+            return p; //Return the header along the way (latest linkedList element)
         }
 
     /*
