@@ -11,7 +11,7 @@ public class IntersectionOfTwoArrays2 {
         int[] nums1 = {4, 9, 5};
         int[] nums2 = {9,4,9,8,4};
         //Output: [4, 9]
-        for(int i : intersectHashMap(nums1, nums2)) {
+        for(int i : intersectSort(nums1, nums2)) {
             System.out.print(i + ", ");
         }
     }
@@ -25,13 +25,14 @@ public class IntersectionOfTwoArrays2 {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
         int i = 0, j = 0, k = 0;
-        while(i < nums1.length && j < nums2.length) {
-            if(nums1[i] < nums2[j]) {
-                i++;
-            } else if(nums1[i] > nums2[j]) {
-                j++;
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] < nums2[j]) {
+                ++i;
+            } else if (nums1[i] > nums2[j]) {
+                ++j;
             } else {
                 nums1[k++] = nums1[i++];
+                ++j;
             }
         }
         return Arrays.copyOfRange(nums1, 0, k);
@@ -47,21 +48,21 @@ public class IntersectionOfTwoArrays2 {
      */
     static int[] intersectHashMap(int[] nums1, int[] nums2) {
         //nums1 is always the smallest array
-        if(nums1.length > nums2.length)
+        if (nums1.length > nums2.length) {
             return intersectHashMap(nums2, nums1);
-        Map<Integer, Integer> m = new HashMap<>();
-        for(int n : nums1) {
-            m.put(n, m.getOrDefault(m, 0) + 1);
+        }
+        HashMap<Integer, Integer> m = new HashMap<>();
+        for (int n : nums1) {
+            m.put(n, m.getOrDefault(n, 0) + 1);
         }
         int k = 0;
-        for(int n : nums2) {
+        for (int n : nums2) {
             int cnt = m.getOrDefault(n, 0);
-            if(cnt > 0) {
+            if (cnt > 0) {
                 nums1[k++] = n;
                 m.put(n, cnt - 1);
             }
         }
         return Arrays.copyOfRange(nums1, 0, k);
     }
-
 }
