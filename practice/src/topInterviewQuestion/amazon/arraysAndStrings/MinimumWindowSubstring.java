@@ -19,6 +19,10 @@ public class MinimumWindowSubstring {
 
 
     //Approach 1: Sliding Window
+    /*
+    Time: O(S + T) where S and T represent the lengths of Strings S and T
+    Space: O(S + T)
+     */
     public static String minWindow(String s, String t) {
         if (s.length() == 0 || t.length() == 0) {
             return "";
