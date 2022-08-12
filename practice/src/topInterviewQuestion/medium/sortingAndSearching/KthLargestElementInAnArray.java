@@ -1,14 +1,19 @@
 package topInterviewQuestion.medium.sortingAndSearching;
 
+import java.util.PriorityQueue;
 import java.util.Random;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/800/
 public class KthLargestElementInAnArray {
 
     public static void main(String[] args) {
+        //This approach is a slight modification of the previous approach.
+        // If the array is almost/fully sorted and if we pick the rightmost
+        // element as a pivot, the partition of left and right subarrays
+        // will be highly uneven.
         int[] nums = {3,2,1,5,6,4};
         int k = 2;
-
+        System.out.println(findKthLargest(nums, k));
     }
 
     private static int[] nums;
@@ -59,6 +64,27 @@ public class KthLargestElementInAnArray {
         int tmp = nums[a];
         nums[a] = nums[b];
         nums[b] = tmp;
+    }
+
+
+
+    //Approach 1: Heap
+    /*
+    Time: O(N log N) caused by the heap
+    Space: O(k) to store the heap elements
+     */
+    public int findKthLargestHeap(int[] nums, int k) {
+        //init heap, the smallest element first (smallest element are the priority)
+        PriorityQueue<Integer> heap =
+                new PriorityQueue<>((n1, n2) -> n1 - n2);
+        //keep k largest element in the heap
+        for(int n : nums) {
+            heap.add(n);
+            if(heap.size() > k) {
+                heap.poll(); //Remove the smallest element from the heap
+            }
+        }
+        return heap.poll();
     }
 
 
