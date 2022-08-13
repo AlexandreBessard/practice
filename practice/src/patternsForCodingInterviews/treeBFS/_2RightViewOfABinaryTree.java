@@ -22,6 +22,10 @@ public class _2RightViewOfABinaryTree {
         }
     }
 
+    /*
+    Time: O(N)
+    Space: O(N)
+     */
     public static List<TreeNode> traverse(TreeNode root) {
         List<TreeNode> result = new ArrayList<>();
         if(root == null)
