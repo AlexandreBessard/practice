@@ -15,7 +15,35 @@ public class ValidParentheses {
     Input: s = "(]"
     Output: false
      */
+
+     var obj = new ValidParentheses();
+        System.out.println(obj.isValidWithConditions("([)]"));
+        System.out.println(obj.isValid("(())"));
+
     }
+
+
+    /*
+    More simple than the solution below
+    Time: O(N)
+    Space: O(N)
+     */
+    public boolean isValidWithConditions(String s) {
+        Stack<Character> stack = new Stack<Character>();
+        for (char c : s.toCharArray()) {
+            if (c == '(')
+                stack.push(')');
+            else if (c == '{')
+                stack.push('}');
+            else if (c == '[')
+                stack.push(']');
+            else if (stack.isEmpty() || stack.pop() != c)
+                return false;
+        }
+        return stack.isEmpty();
+    }
+
+
 
 
     private static Map<Character, Character> mappings = new HashMap<>() {
