@@ -19,6 +19,8 @@ public class MaximumDepthOfABinaryTree {
 
     /*
     Find the MAXIMUM Depth
+    Time: O(N)
+    Space O(N)
      */
     public static int findMaxDepth(TreeNode root) {
         if(root == null)
