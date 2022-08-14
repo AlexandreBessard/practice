@@ -1,4 +1,4 @@
-package algorithms.binarySearch.traversalMethod;
+package algorithms.traversalTree;
 
 import java.util.ArrayList;
 import java.util.List;
