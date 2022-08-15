@@ -2,15 +2,20 @@ package topInterviewQuestion.easy.array;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class TwoSum {
 
     public static void main(String[] args) {
         int[] nums = {3,2,4};
+        int[] nums2 = {2, 7, 11, 15};
         int target = 6;
+        int[] res = twoSumHashTableOnePass(nums2, 9);
         //Output: [1, 2] -> 2 + 4 == 6
-        for(int i : twoSumHashTableOnePass(nums, target)) {
-            System.out.print(i + ", ");
+        if(res != null) {
+            for(int i : res) {
+                System.out.print(i + ", ");
+            }
         }
     }
 
