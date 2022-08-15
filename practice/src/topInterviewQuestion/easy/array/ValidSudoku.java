@@ -25,7 +25,8 @@ public class ValidSudoku {
 
     //Approach 2 : Array of Fixed Length
     /*
-
+    Time: O(N²), we need to traverse every position in the board
+    Space: O(N²), cause we need to create 3N arrays each
      */
     static boolean isValidSudokuArrayFixedLength(char[][] board) {
         int N = 9;
@@ -68,7 +69,7 @@ public class ValidSudoku {
         for(int r = 0; r < N; r++) {
             rows[r] = new HashSet<>();
             cols[r] = new HashSet<>();
-            boxes[r] = new HashSet<>();
+            boxes[r] = new HashSet<>(); // 0 to 8 boxes (total of 9)
         }
         for(int r = 0; r < N; r++) {
             for(int c = 0; c < N; c++) {
@@ -83,6 +84,12 @@ public class ValidSudoku {
                     return false;
                 cols[r].add(val);
                 //Check box
+                /*
+                Alternatively, we can use the numbers 0 through 8 to represent these boxes,
+                 where (r/3) * 3 + (c/3) is used calculate
+                 a number in the range from 0 to 8. I.e. the square
+                 located at (r, c) belongs to the box (r/3) * 3 + (c/3).
+                 */
                 int idx = (r / 3) * 3 + c / 3;
                 if(boxes[idx].contains(val))
                     return false;
