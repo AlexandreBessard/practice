@@ -33,6 +33,7 @@ public class RemoveDuplicates {
 
 
     /*
+    Approach 1:
     Time complexity: O(N)
     Space complexity: O(1)
      */
