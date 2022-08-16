@@ -12,6 +12,10 @@ public class TripletSumCloseToTarget {
         System.out.println(searchTriplet(new int[] { 1, 0, 1, 1 }, 100));
     }
 
+    /*
+    Time: O(N log N), the function will take O(N * log N + N²) -> O(N²)
+    Space:  O(N) caused by sorted array
+     */
     public static int searchTriplet(int[] arr, int targetSum) {
         if(arr == null || arr.length < 3)
             throw new IllegalArgumentException();
