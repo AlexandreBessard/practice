@@ -5,6 +5,9 @@ import java.util.HashMap;
 
 public class ValidAnagram {
 
+    /*
+    We can use SLIDING WINDOW
+     */
     public static void main(String[] args) {
         /*
         An Anagram is a word or phrase formed by rearranging the letters

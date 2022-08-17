@@ -1,15 +1,16 @@
 package topInterviewQuestion.easy.strings;
 
 import java.util.*;
-
+//https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/881/
 public class FirstUniqueCharacterInAString {
 
     public static void main(String[] args) {
         String s = "lovelee";
         //First Unique character is index 2 : 'v'
-        System.out.println(firstUniqueChar(s));
-        System.out.println(firstUniqueCharacterLinkedHashMap(s));
+        //System.out.println(firstUniqueChar(s));
+        //System.out.println(firstUniqueCharacterLinkedHashMap(s));
         System.out.println(firstUniqueCharacterWithArray(s));
+
 
     }
 
@@ -23,6 +24,7 @@ public class FirstUniqueCharacterInAString {
             char c = s.charAt(i);
             if( ! set.contains(c)){
                 set.add(c);
+                //Store the index
                 pos[c - 'a'] = i;
             } else {
                 pos[c - 'a'] = -1;
@@ -31,6 +33,7 @@ public class FirstUniqueCharacterInAString {
         int minIndex = Integer.MAX_VALUE;
         for(int i = 0; i < 26; i++) {
             if(pos[i] != -1) {
+                //Get min index (First non-repeating character)
                 minIndex = Math.min(minIndex, pos[i]);
             }
         }
