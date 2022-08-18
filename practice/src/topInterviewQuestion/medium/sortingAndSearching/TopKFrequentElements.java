@@ -7,10 +7,44 @@ public class TopKFrequentElements {
 
     public static void main(String[] args) {
         int[] nums = {1, 1, 1, 2, 2, 3};
-        topKFrequent(nums, 2);
+        int[] nums2 = {1, 1, 1, 2, 2, 2, 3, 3, 3};
+        int[] res = topKFrequentQuickSelect(nums, 2);
+        System.out.println(Arrays.toString(res));
+        /*
         for(int i : topKFrequentQuickSelect(nums, 2)) {
             System.out.print(i + ", ");
         }
+
+         */
+    }
+
+    //https://leetcode.com/problems/top-k-frequent-elements/discuss/81602/Java-O(n)-Solution-Bucket-Sort
+    //Approach 3: Bucket Sort
+    public static List<Integer> topKFrequentBucketSorted(int[] nums, int k) {
+        LinkedList<Integer>[] bucket = new LinkedList[nums.length + 1];
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int n : nums) {
+            frequencyMap.put(n, frequencyMap.getOrDefault(n, 0) + 1);
+        }
+        for (int key : frequencyMap.keySet()) {
+            //Key based on the most frequent element
+            int frequency = frequencyMap.get(key);
+            if (bucket[frequency] == null) {
+                bucket[frequency] = new LinkedList<>();
+            }
+            bucket[frequency].add(key);
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int pos = bucket.length - 1; pos >= 0; pos--) {
+            if (bucket[pos] != null) {
+                LinkedList<Integer> elements = bucket[pos];
+                int idx = elements.size() - 1;
+                while(res.size() < k && idx >= 0) {
+                    res.add(elements.get(idx--));
+                }
+            }
+        }
+        return res;
     }
 
 
@@ -61,9 +95,9 @@ public class TopKFrequentElements {
             quickselect(pivot_index + 1, right, k_smallest);
         }
     }
-    static int[] topKFrequentQuickSelect(int[] nums, int k) {
+    public static int[] topKFrequentQuickSelect(int[] nums, int k) {
         // build hash map : character and how often it appears
-        count = new HashMap();
+        count = new HashMap<Integer, Integer>();
         for (int num: nums) {
             count.put(num, count.getOrDefault(num, 0) + 1);
         }

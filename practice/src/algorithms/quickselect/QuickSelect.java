@@ -8,7 +8,9 @@ public class QuickSelect {
         System.out.println(kthSmallest(arr, 0, arr.length - 1, k));
     }
 
-    public static int partition(int[] arr, int low,
+    //Get the latest element has pivot
+    //All smallest values are swapped to the left side
+    private static int partition(int[] arr, int low,
                                 int high)
     {
         int pivot = arr[high], pivotloc = low;

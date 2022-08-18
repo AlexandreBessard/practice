@@ -14,6 +14,7 @@ public class MeetingsRoomsII {
                 {15, 20}
         };
         System.out.println(minMeetingRooms(nums));
+        System.out.println(minMeetingRoomsChronologicalOrdering(nums));
     }
 
 
@@ -47,4 +48,40 @@ public class MeetingsRoomsII {
         return allocator.size();
     }
 
+    //Approach 2: Chronological Ordering
+    /*
+    Time: O(N log N) caused by sorted array
+    Space: O(N) caused by array size
+     */
+    public static int minMeetingRoomsChronologicalOrdering(int[][] intervals) {
+        if(intervals.length == 0) {
+            return 0;
+        }
+        Integer[] start = new Integer[intervals.length];
+        Integer[] end = new Integer[intervals.length];
+
+        for(int i = 0; i < intervals.length; i++) {
+            start[i] = intervals[i][0];
+            end[i] = intervals[i][1];
+        }
+        Arrays.sort(end, (a, b) -> a - b);
+        Arrays.sort(start, (a, b) -> a - b);
+        //The two pointers in the algo
+        int startPointer = 0;
+        int endPointer = 0;
+        //Keep track of max number of rooms used
+        int usedRooms = 0;
+        //Iterate
+        while (startPointer < intervals.length) {
+            // If there is a meeting that has ended by the
+            // time the meeting at `start_pointer` starts
+            if(start[startPointer] >= end[endPointer]) {
+                usedRooms--;
+                endPointer--;
+            }
+            usedRooms++;
+            startPointer++;
+        }
+        return usedRooms;
+    }
 }

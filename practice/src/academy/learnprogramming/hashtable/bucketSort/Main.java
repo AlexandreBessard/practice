@@ -33,7 +33,7 @@ public class Main {
             buckets[hash(input[i])].add(input[i]);
         }
 
-        for (List bucket: buckets) {
+        for (List<Integer> bucket: buckets) {
             Collections.sort(bucket);
         }
 
