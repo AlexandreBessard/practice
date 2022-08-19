@@ -88,6 +88,8 @@ public class LongestCommonPrefix {
             return "";
         String prefix = strs[0];
         for(int i = 1; i < strs.length; i++) {
+            //IndexOf() returns -1 each time the string is not the same
+            // else 0 if string into the prefix is entirely contains in the String
             while(strs[i].indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
                 if(prefix.isEmpty())

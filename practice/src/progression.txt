@@ -1,0 +1,36 @@
+Amazon Questions:
+Arrays And Strings -> DONE
+LinkedList -> DONE
+Trees and Graphs -> DONE
+Recursion -> DONE
+Sorting And Searching -> Kth Largest Element in an Array included done
+Dynamic Programming ->
+Design ->
+
+Reviewed Question easy:
+Array (easy) -> DONE 14/Aout
+String (easy) -> DONE 15/04
+LinkedList (easy) ->
+
+Reviewed Algorithms:
+
+Divide And Conquer -> link: https://leetcode.com/explore/learn/card/recursion-ii/
+QuickSelect -> 12/08 DONE
+Depth First Search -> 11/08 DONE
+Breadth First Search -> 13/08 DONE
+Binary Search -> 13/08 DONE
+Two Pointers -> 17/08 subarrays with product less than a target excluded
+Sliding Window -> DONE 17/08
+Merge Intervals
+Fast and Slow pointers
+Monotonic Stack
+Union Find
+Memoization
+Topological Sort -> DONE 16/08 (must be consolidated to see difference between DFS and Topological Sort)
+Segment Tree
+
+
+MUST KNOW:
+Data structures you should know: Arrays, Stacks, Queues, Linked lists, Trees, Graphs, Hash tables
+
+Algorithms you should know: Breadth First Search, Depth First Search, Binary Search, Quicksort, Mergesort, Dynamic programming, Divide and Conquer

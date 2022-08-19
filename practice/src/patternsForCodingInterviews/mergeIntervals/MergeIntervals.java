@@ -69,14 +69,4 @@ public class MergeIntervals {
         mergedIntervals.add(new Interval(start, end));
         return mergedIntervals;
     }
-
-    static class Interval{
-        int start;
-        int end;
-        public Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
-
 }
