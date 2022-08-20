@@ -1,6 +1,6 @@
 package patternsForCodingInterviews.treeDFS;
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743963987_59Unit
-public class TreeDiameter {
+public class _1TreeDiameter {
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);

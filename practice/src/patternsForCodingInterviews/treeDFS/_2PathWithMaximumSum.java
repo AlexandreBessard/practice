@@ -1,6 +1,6 @@
 package patternsForCodingInterviews.treeDFS;
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743967658_60Unit
-public class PathWithMaximumSum {
+public class _2PathWithMaximumSum {
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
