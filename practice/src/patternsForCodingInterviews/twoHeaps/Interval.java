@@ -1,8 +1,9 @@
-package patternsForCodingInterviews.mergeIntervals;
+package patternsForCodingInterviews.twoHeaps;
+
 class Interval {
     int start;
     int end;
-    public Interval(int start, int end) {
+    Interval(int start, int end) {
         this.start = start;
         this.end = end;
     }

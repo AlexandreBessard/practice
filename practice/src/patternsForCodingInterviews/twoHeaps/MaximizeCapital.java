@@ -13,8 +13,8 @@ public class MaximizeCapital {
         System.out.println("Maximum capital: " + result);
 
          */
-        result = MaximizeCapital.findMaximumCapital(new int[] { 0, 1, 2, 3 },
-                new int[] { 1, 2, 3, 5 }, 3, 0);
+        result = MaximizeCapital.findMaximumCapital(new int[] { 10, 1, 3, 2 },
+                new int[] { 1, 2, 3, 5 }, 3, 1);
         System.out.println("Maximum capital: " + result);
     }
 
