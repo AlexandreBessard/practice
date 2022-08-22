@@ -42,7 +42,7 @@ public class AllPathsForASum {
                 && currentNode.left == null
                 && currentNode.right == null)
         {
-            allPaths.add(currentPath);
+            allPaths.add(new ArrayList<>(currentPath));
         }
         else
         {
