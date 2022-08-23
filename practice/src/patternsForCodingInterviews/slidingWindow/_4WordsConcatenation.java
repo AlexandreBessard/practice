@@ -31,7 +31,7 @@ public class _4WordsConcatenation {
         int wordCounts = words.length;
         int wordLength = words[0].length();
         //str.length() - wordCounts * wordLength because we have a second loop to look
-        //the words from the list. Avoid indexOutOfBoundException.
+        //the words from the list. Avoid indexOutOfBoundException when we expand the window
         for(int i = 0; i <= str.length() - wordCounts * wordLength; i++) {
             Map<String, Integer> wordsSeen = new HashMap<>();
             //Look further in the string based on words we have
