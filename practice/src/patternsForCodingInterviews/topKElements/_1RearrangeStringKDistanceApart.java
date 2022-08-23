@@ -16,12 +16,16 @@ public class _1RearrangeStringKDistanceApart {
                 reorganizeString("aappa", 3));
     }
 
+    /*
+    Time: O(N * logN) where N is the number of characters in the input
+    Space: O(N) in worst case, we need to store all the N characters in the HashMap
+     */
     public static String reorganizeString(String str, int k) {
-        if(k <= 1) {
+        if (k <= 1) {
             return str;
         }
         Map<Character, Integer> charFrequencyMap = new HashMap<>();
-        for(char chr : str.toCharArray()) {
+        for (char chr : str.toCharArray()) {
             charFrequencyMap.put(chr, charFrequencyMap.getOrDefault(chr, 0) + 1);
         }
         PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>(
@@ -31,7 +35,7 @@ public class _1RearrangeStringKDistanceApart {
         maxHeap.addAll(charFrequencyMap.entrySet());
         Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
         StringBuilder resultString = new StringBuilder();
-        while( ! maxHeap.isEmpty()) {
+        while (!maxHeap.isEmpty()) {
             Map.Entry<Character, Integer> currentEntry = maxHeap.poll();
             // append the current character to the result string and decrement its count
             resultString.append(currentEntry.getKey());
@@ -39,9 +43,9 @@ public class _1RearrangeStringKDistanceApart {
             //can keep track of previous  character in a queue to insert them back in the heap after K iterations
             queue.offer(currentEntry);
             //After k iteration, we re-insert the character after k iterations
-            if(queue.size() == k) {
+            if (queue.size() == k) {
                 Map.Entry<Character, Integer> entry = queue.poll();
-                if(entry.getValue() > 0) {
+                if (entry.getValue() > 0) {
                     maxHeap.add(entry);
                 }
             }
