@@ -26,6 +26,10 @@ public class _1PermutationInAString {
 
     }
 
+    /*
+    Time: O(N + M) N: number of characters in the input and pattern respectively.
+    Space: O(M) hashMap
+     */
     public static boolean findPermutation(String str, String pattern) {
         int windowStart = 0;
         int matched = 0;
