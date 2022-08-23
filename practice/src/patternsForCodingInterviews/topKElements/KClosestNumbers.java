@@ -34,12 +34,12 @@ public class KClosestNumbers {
         );
         // add all candidate elements to the min heap, sorted by their absolute difference
         // from 'X'
-        for(int i = low; i <= high; i++) {
+        for (int i = low; i <= high; i++) {
             minHeap.add(new Entry(Math.abs(arr[i] - X), i));
         }
         // we need the top 'K' elements having smallest difference from 'X'
         List<Integer> result = new ArrayList<>();
-        for(int i = 0; i < K; i++) {
+        for (int i = 0; i < K; i++) {
             result.add(arr[minHeap.poll().value]);
         }
         Collections.sort(result);
@@ -74,30 +74,27 @@ public class KClosestNumbers {
     private static int binarySearch(int[] arr, int target) {
         int low = 0;
         int high = arr.length - 1;
-        while(low <= high) {
+        while (low <= high) {
             int mid = low + (high - low) / 2;
-            if(arr[mid] == target){
+            if (arr[mid] == target) {
                 return mid;
             }
-            if(arr[mid] < target) {
+            if (arr[mid] < target) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
             }
         }
-        if(low > 0) {
+        if (low > 0) {
             return low - 1;
         }
         return low;
     }
 
-
-
-
-
     static class Entry {
         int key;
         int value;
+
         Entry(int key, int value) {
             this.key = key;
             this.value = value;
