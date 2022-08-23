@@ -6,11 +6,11 @@ import java.util.*;
 public class _2SchedulingTasks {
 
     public static void main(String[] args) {
-        char[] tasks = new char[] { 'a', 'a', 'a', 'b', 'c', 'c' };
+        char[] tasks = new char[]{'a', 'a', 'a', 'b', 'c', 'c'};
         System.out.println("Minimum intervals needed to execute all tasks: " +
                 scheduleTasks(tasks, 2));
 
-        tasks = new char[] { 'a', 'b', 'a' };
+        tasks = new char[]{'a', 'b', 'a'};
         System.out.println("Minimum intervals needed to execute all tasks: " +
                 scheduleTasks(tasks, 3));
     }
@@ -22,8 +22,8 @@ public class _2SchedulingTasks {
     public static int scheduleTasks(char[] tasks, int k) {
         int intervalCount = 0;
         Map<Character, Integer> taskFrequencyMap = new HashMap<>();
-        for(char chr : tasks) {
-            taskFrequencyMap.put(chr, taskFrequencyMap.getOrDefault(chr , 0) + 1);
+        for (char chr : tasks) {
+            taskFrequencyMap.put(chr, taskFrequencyMap.getOrDefault(chr, 0) + 1);
         }
         //Execute the highest frequency task
         PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>(
@@ -31,13 +31,13 @@ public class _2SchedulingTasks {
         );
         //add all tasks to the maxHeap
         maxHeap.addAll(taskFrequencyMap.entrySet());
-        while( ! maxHeap.isEmpty()) {
+        while (!maxHeap.isEmpty()) {
             List<Map.Entry<Character, Integer>> waitList = new ArrayList<>();
             int n = k + 1; // try to execute as many as 'k+1' tasks from the max-heap
-            for(; n > 0 && !maxHeap.isEmpty(); n--) { //Try to execute as many tasks as k + 1
+            for (; n > 0 && !maxHeap.isEmpty(); n--) { //Try to execute as many tasks as k + 1
                 intervalCount++;
                 Map.Entry<Character, Integer> currentEntry = maxHeap.poll();
-                if(currentEntry.getValue() > 1) {
+                if (currentEntry.getValue() > 1) {
                     //Decrease frequency
                     currentEntry.setValue(currentEntry.getValue() - 1);
                     //Put in in a waiting list
@@ -45,7 +45,7 @@ public class _2SchedulingTasks {
                 }
             }
             maxHeap.addAll(waitList); // put all the waiting list back on the heap
-            if( ! maxHeap.isEmpty()) {
+            if (!maxHeap.isEmpty()) {
                 intervalCount += n; // we'll be having 'n' idle intervals for the next iteration
             }
         }
