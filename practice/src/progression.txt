@@ -23,12 +23,16 @@ Depth First Search -> 21/08 DONE
 Breadth First Search -> 13/08 DONE
 Binary Search -> 13/08 DONE
 Two Pointers -> DONE
-Sliding Window -> DONE 17/08
+Sliding Window -> DONE 22/08
 Merge Intervals -> 20/08 DONE
 Fast and Slow pointers -> DONE 20/08
 Two Heaps -> DONE 21/08
+Top 'K' elements ->
+Modified Binary Search Tree ->
+Subsets ->
 Matrix Traversal
-Topological Sort -> In progress
+Topological Sort -> DONE 22/08
+Backtracking
 
 Monotonic Stack
 Union Find
