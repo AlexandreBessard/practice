@@ -13,6 +13,10 @@ public class MergeSort {
         }
     }
 
+    /*
+    Time: O(n log n)
+    Space: O(N)
+     */
     static int[] merge_sort(int[] input) {
         if(input.length <= 1)
             return input;
