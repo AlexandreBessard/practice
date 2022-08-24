@@ -21,14 +21,13 @@ Divide And Conquer -> link: https://leetcode.com/explore/learn/card/recursion-ii
 QuickSelect -> 12/08 DONE
 Depth First Search -> 21/08 DONE
 Breadth First Search -> 13/08 DONE
-Binary Search -> 13/08 DONE
 Two Pointers -> 14/08 DONE
 Sliding Window -> DONE 22/08
 Merge Intervals -> 20/08 DONE
 Fast and Slow pointers -> DONE 20/08
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 22/08
-Modified Binary Search Tree ->
+Modified Binary Search Tree -> 24/08 DONE
 Subsets ->
 Matrix Traversal
 Topological Sort -> DONE 22/08
