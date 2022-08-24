@@ -10,6 +10,7 @@ public class BitonicArrayMaximum {
     }
 
     /*
+    Template #2 src/algorithms/binarySearch/templates/Template2.java
     Time: O(logN)
     Space: O(1)
      */
