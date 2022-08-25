@@ -24,7 +24,7 @@ public class ReverseLevelOrderTraversal {
     Space: O(N)
      */
     public static List<List<Integer>> traverse(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> result = new LinkedList<>();
         if(root == null)
             return result;
         Queue<TreeNode> queue = new LinkedList<>();

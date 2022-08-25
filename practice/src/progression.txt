@@ -13,14 +13,14 @@ Reviewed Grokking the Coding Interview: Patterns for Coding Questions
 Reviewed Question easy:
 Array (easy) -> DONE 14/Aout
 String (easy) -> DONE 15/04
-LinkedList (easy) ->
+LinkedList (easy) -> DONE 24/08
 
 Reviewed Algorithms:
 
-Divide And Conquer -> link: https://leetcode.com/explore/learn/card/recursion-ii/
+Divide And Conquer -> 24/08 (QuickSort & MergeSort)
 QuickSelect -> 12/08 DONE
 Depth First Search -> 21/08 DONE
-Breadth First Search -> 13/08 DONE
+Breadth First Search -> 24/08 DONE
 Two Pointers -> 14/08 DONE
 Sliding Window -> DONE 22/08
 Merge Intervals -> 20/08 DONE
@@ -30,8 +30,13 @@ Top 'K' elements -> DONE 22/08
 Modified Binary Search Tree -> 24/08 DONE
 Subsets ->
 Matrix Traversal
+K way merge ->
+Cyclic sort ->
+In Place reversal of LinkedList ->
+MultiThreaded ->
+Miscellaneous ->
 Topological Sort -> DONE 22/08
-Backtracking
+Backtracking -> 24/08
 
 Monotonic Stack
 Union Find

@@ -11,6 +11,11 @@ public class PalindromeLinkedList {
         one.next.next = new ListNode(2);
         one.next.next.next = new ListNode(1);
         System.out.println(isPalindromeReverseSecondHalf(one));
+        ListNode head = one;
+        while(head != null) {
+            System.out.print(head.val + ", ");
+            head = head.next;
+        }
     }
 
     //Approach 3: Reverse Second Half In-place
@@ -34,7 +39,7 @@ public class PalindromeLinkedList {
             p2 = p2.next;
         }
         //Restore the list and return the result
-        firstHalfEnd.next = reverseList(secondHalfStart);
+        firstHalfEnd = reverseList(secondHalfStart);
         return result;
     }
     private static ListNode reverseList(ListNode head) {
@@ -51,7 +56,7 @@ public class PalindromeLinkedList {
     private static ListNode endFirstHalf(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
-        while(fast.next != null && fast.next.next != null) {
+        while(fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
