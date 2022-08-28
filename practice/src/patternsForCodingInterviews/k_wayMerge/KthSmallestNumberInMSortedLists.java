@@ -1,6 +1,7 @@
 package patternsForCodingInterviews.k_wayMerge;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -11,7 +12,7 @@ public class KthSmallestNumberInMSortedLists {
         Integer[] l1 = new Integer[]{2, 6, 8};
         Integer[] l2 = new Integer[]{3, 6, 7};
         Integer[] l3 = new Integer[]{1, 3, 4};
-        List<Integer[]> lists = new ArrayList<Integer[]>();
+        LinkedList<Integer[]> lists = new LinkedList<>();
         lists.add(l1);
         lists.add(l2);
         lists.add(l3);
@@ -23,7 +24,7 @@ public class KthSmallestNumberInMSortedLists {
     Time: O(K * log M) k elements among all the arrays, M total number of input arrays.
     Space: O(M) because at any time, our min-heap will be storing one number from all M input arrays.
      */
-    public static int findKthSmallest(List<Integer[]> lists, int k) {
+    public static int findKthSmallest(LinkedList<Integer[]> lists, int k) {
         PriorityQueue<Node> minHeap = new PriorityQueue<>(
                 (n1, n2) -> lists.get(n1.arrayIndex)[n1.elementIndex] -
                         lists.get(n2.arrayIndex)[n2.elementIndex]
