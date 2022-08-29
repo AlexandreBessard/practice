@@ -19,6 +19,12 @@ public class SmallestNumberRange {
         System.out.print("Smallest range is: [" + result[0] + ", " + result[1] + "]");
     }
 
+    /*
+    Time: O(N * log M)
+    Where N is the total number of elements in all the M input arrays.
+    Space: O(M), at any time, min-heap will be store one number from all the M input
+    arrays.
+     */
     public static int[] findSmallestRange(List<Integer[]> lists) {
         PriorityQueue<Node> minHeap = new PriorityQueue<>(
                 (n1, n2) -> lists.get(n1.arrayIndex)[n1.elementIndex]
