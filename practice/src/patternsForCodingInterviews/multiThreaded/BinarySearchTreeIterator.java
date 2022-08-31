@@ -51,7 +51,7 @@ public class BinarySearchTreeIterator {
 
         //If the previous thread is active, wait before it finishes
         private void checkThread() {
-            if(t1 != null && t1.isAlive()) {
+            if (t1 != null && t1.isAlive()) {
                 try {
                     t1.join(); //Wait for this thread to die
                 } catch (InterruptedException e) {
@@ -66,7 +66,7 @@ public class BinarySearchTreeIterator {
                 @Override
                 public void run() {
                     TreeNode tmp = node;
-                    while(tmp != null) {
+                    while (tmp != null) {
                         stack.push(tmp);
                         tmp = tmp.left;
                     }
@@ -99,7 +99,7 @@ public class BinarySearchTreeIterator {
 
         //traverse the left subtree to push all the node on the stack
         private void traverseleft(TreeNode node) {
-            while(node != null) {
+            while (node != null) {
                 stack.push(node);
                 node = node.left;
             }
