@@ -9,6 +9,8 @@ Design ->
 
 Reviewed Grokking the Coding Interview: Patterns for Coding Questions
 
+Reviewed Amazon questions:
+Arrays ->
 
 Reviewed Question easy:
 Array (easy) -> DONE 14/Aout
@@ -18,28 +20,28 @@ LinkedList (easy) -> DONE 24/08
 Reviewed Algorithms:
 
 Divide And Conquer -> 24/08 (QuickSort & MergeSort)
-QuickSelect -> 12/08 DONE
+QuickSelect -> 01/09 DONE
 Depth First Search -> 21/08 DONE
 Breadth First Search -> 24/08 DONE
-Two Pointers -> 14/08 DONE
+Two Pointers -> 25/08 DONE
 Sliding Window -> DONE 22/08
-Merge Intervals -> 20/08 DONE
+Merge Intervals -> 01/09 DONE
 Fast and Slow pointers -> DONE 20/08
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 22/08
 Modified Binary Search Tree -> 24/08 DONE
-Subsets ->
-Matrix Traversal
-K way merge ->
-Cyclic sort ->
-In Place reversal of LinkedList ->
-MultiThreaded ->
-Miscellaneous ->
+Subsets -> 25/08 DONE
+Matrix Traversal -> 28/08 DONE
+K way merge -> 29/08 DONE
+Cyclic sort -> 27/08 DONE
+In Place reversal of LinkedList -> 30/08 DONE
+MultiThreaded -> DONE 30/08
+Miscellaneous -> 31/08 DONE
 Topological Sort -> DONE 22/08
 Backtracking -> 24/08
+Union Find -> 31/08
 
 Monotonic Stack
-Union Find
 Memoization
 Segment Tree
 
@@ -48,3 +50,14 @@ MUST KNOW:
 Data structures you should know: Arrays, Stacks, Queues, Linked lists, Trees, Graphs, Hash tables
 
 Algorithms you should know: Breadth First Search, Depth First Search, Binary Search, Quicksort, Mergesort, Dynamic programming, Divide and Conquer
+
+Depth First Search (250)
+Breadth First Search(198)
+Binary Search (186)
+Two Pointers (147)
+Sliding Window (72)
+Monotonic Stack (44)
+Union Find (63)
+Memoization (32)
+Topological Sort (28)
+Segment Tree (27)
