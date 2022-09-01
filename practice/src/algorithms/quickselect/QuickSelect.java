@@ -44,6 +44,8 @@ public class QuickSelect {
         // find the partition
         int partition = partition(arr, low, high);
 
+        //recurs only for the part that contains the kth smallest element
+
         // if partition value is equal to the kth position,
         // return value at k.
         if (partition == k - 1)
