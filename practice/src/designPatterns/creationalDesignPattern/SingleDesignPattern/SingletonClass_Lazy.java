@@ -1,4 +1,4 @@
-package designPatterns.creationalDesignPatterns.SingleDesignPattern;
+package designPatterns.creationalDesignPattern.SingleDesignPattern;
 //https://medium.com/@kevalpatel2106/how-to-make-the-perfect-singleton-de6b951dfdb0
 public class SingletonClass_Lazy {
 

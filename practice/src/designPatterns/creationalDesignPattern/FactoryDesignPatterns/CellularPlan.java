@@ -1,4 +1,4 @@
-package designPatterns.creationalDesignPatterns.FactoryDesignPatterns;
+package designPatterns.creationalDesignPattern.FactoryDesignPatterns;
 
 public abstract class CellularPlan {
     protected double rate;

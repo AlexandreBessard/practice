@@ -1,4 +1,4 @@
-package designPatterns.structuralDesignPatterns.AdapterDesignPattern;
+package designPatterns.structuralDesignPattern.AdapterDesignPattern;
 
 public interface LibraryCard {
     void giveLibraryDetails();

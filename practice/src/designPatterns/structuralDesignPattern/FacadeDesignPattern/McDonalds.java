@@ -1,4 +1,4 @@
-package designPatterns.structuralDesignPatterns.FacadeDesignPattern;
+package designPatterns.structuralDesignPattern.FacadeDesignPattern;
 
 public class McDonalds implements Franchise {
 

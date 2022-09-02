@@ -1,4 +1,4 @@
-package designPatterns.structuralDesignPatterns.AdapterDesignPattern;
+package designPatterns.structuralDesignPattern.AdapterDesignPattern;
 
 public class LibraryDetails {
     private String LibraryName;
