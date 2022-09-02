@@ -1,0 +1,10 @@
+DAO Design Pattern: DAO is a pattern in
+which objects are dedicated to the
+communication with the Data Layer.
+These objects instantiate “SessionFactories”
+and handle all of the logic behind communicating
+with the database.
+
+Advantages:
+
+It uses common calls to retrieve objects.

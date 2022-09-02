@@ -1,0 +1,17 @@
+MVC Design Pattern: MVC Design Pattern is defined as follows:
+
+Models are basically objects used as blueprints for all
+of the objects that will be used in the application.
+
+Views are used to represent the presentational aspect
+of the information and data located in the models.
+
+Controllers control and act as both of the Models as
+well as Views. They serve as a connection between the Models and Views.
+Controllers are capable to instantiate, update and delete models.
+They load them with information and then send the data to the views
+to present to the end-user.
+
+Advantages:
+
+It support multiple views for a model.
