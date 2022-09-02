@@ -1,0 +1,10 @@
+Singleton Design Pattern:
+It follows “define a class that has
+only one instance and provides a global point of access to it“.
+The class must ensure that only a single instance should be
+created and a single object can be used by all other classes.
+
+Advantages:
+
+It is designed to save memory.
+The object is not created on every request, instead, a single instance is reused.
