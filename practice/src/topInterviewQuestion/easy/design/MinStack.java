@@ -20,11 +20,13 @@ class MinStackApproach3 {
     public void push(int x) {
         stack.push(x);
         if(minStack.isEmpty() || x < minStack.peek()[0])
+            //second value indicates how many times that minimum was repeated
             minStack.push(new int[]{x, 1});
         else if(x == minStack.peek()[0]){
             minStack.peek()[1]++;
         }
     }
+
     public void pop() {
         if (stack.peek().equals(minStack.peek()[0])) {
             minStack.peek()[1]--;
@@ -37,6 +39,7 @@ class MinStackApproach3 {
     public int top() {
         return stack.peek();
     }
+    //retrieves the minimum element in the stack
     public int getMin() {
         return minStack.peek()[0];
     }
