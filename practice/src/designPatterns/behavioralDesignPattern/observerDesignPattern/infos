@@ -1,0 +1,9 @@
+Observer Design Pattern: It defines a one-to-one dependency
+so that when one object changes state, all its dependents
+are notified and updated automatically. The Memento pattern
+is also known as Dependents or Publish-Subscribe.
+
+Advantages:
+
+It illustrates the coupling between the objects and the observer.
+It provides support for broadcast-type communication
