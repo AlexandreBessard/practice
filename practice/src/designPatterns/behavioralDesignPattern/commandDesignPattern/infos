@@ -1,0 +1,11 @@
+Command Design Pattern: It encapsulates a request under an object
+ as a command and passes it to the invoker object.
+ Invoker object looks for the appropriate object
+ which can handle this command and pass the command to the
+ corresponding object and that object executes the command.
+ It is also known as Action or Transaction.
+
+Advantages:
+
+It separates the object that invokes the operation with
+the object that actually performs the operation.

@@ -1,0 +1,7 @@
+Strategy Design Pattern: It defines a family of functionality
+and encapsulates each one, and make them interchangeable.
+The Strategy Pattern is also known as Policy.
+
+Advantages:
+
+It is designed to provide a substitute for sub-classes.
