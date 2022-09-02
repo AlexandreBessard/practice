@@ -1,0 +1,7 @@
+Facade Design Pattern: Describes a higher-level interface
+that makes the subsystem easier to use.
+Every Abstract Factory is a Facade Design Pattern.
+
+Advantages:
+
+It protects the end-users from the complex sub-system components.
