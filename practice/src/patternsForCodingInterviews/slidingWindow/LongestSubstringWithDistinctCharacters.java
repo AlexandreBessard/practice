@@ -29,6 +29,7 @@ public class LongestSubstringWithDistinctCharacters {
                 // its previous index and if 'windowStart' is already ahead of the last index of
                 // 'rightChar', we'll keep 'windowStart'
                 windowStart = Math.max(
+                        //Reduce the window
                         windowStart, charIndexMap.get(rightChar) + 1
                 );
             }
