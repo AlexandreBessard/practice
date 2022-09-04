@@ -1,27 +1,26 @@
 Amazon Questions:
-Arrays And Strings -> DONE
-LinkedList -> DONE
-Trees and Graphs -> DONE
-Recursion -> DONE
-Sorting And Searching -> DONE
 Dynamic Programming ->
 Design ->
-
-Reviewed Grokking the Coding Interview: Patterns for Coding Questions
-
+--------------------------------------------
 Reviewed Amazon questions:
 Arrays ->
-
+--------------------------------------------------
 Reviewed Question easy:
+
 Array (easy) -> DONE 14/Aout
 String (easy) -> DONE 15/04
 LinkedList (easy) -> DONE 24/08
+Desing (easy) -> DONE 01/09
 
+---------------------------------------------------
+Reviewed Object-Oriented Design (Cracking the coding interview)
+
+--------------------------------------
 Reviewed Algorithms:
 
 Divide And Conquer -> 24/08 (QuickSort & MergeSort)
 QuickSelect -> 01/09 DONE
-Depth First Search -> 21/08 DONE
+Depth First Search -> 03/09 DONE
 Breadth First Search -> 24/08 DONE
 Two Pointers -> 25/08 DONE
 Sliding Window -> DONE 22/08
@@ -44,6 +43,12 @@ Union Find -> 31/08
 Monotonic Stack
 Memoization
 Segment Tree
+
+----------------------------------------------
+Design Pattern
+
+
+
 
 
 MUST KNOW:
