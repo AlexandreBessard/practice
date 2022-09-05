@@ -35,7 +35,7 @@ public class _3Sum {
         Set<Integer> dups = new HashSet<>();
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (dups.add(nums[i])) {
+            if (dups.add(nums[i])) { //If existing element, return false
                 for (int j = i + 1; j < nums.length; j++) {
                     int complement = -nums[i] - nums[j]; //Complement - 1 + 0 == 1 to have 0
                     if (seen.containsKey(complement) && seen.get(complement) == i) {

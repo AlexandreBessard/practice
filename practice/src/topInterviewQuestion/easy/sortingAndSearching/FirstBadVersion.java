@@ -3,7 +3,9 @@ package topInterviewQuestion.easy.sortingAndSearching;
 public class FirstBadVersion {
 
     public static void main(String[] args) {
-
+        int n = 5;
+        int bad = 4;
+        System.out.println(firstBadVersion(5));
     }
 
 
@@ -15,15 +17,19 @@ public class FirstBadVersion {
     static int firstBadVersion(int n) {
         int left = 1;
         int right = n;
-        while(left < right) {
+        while(left <= right) {
             int mid = left + (right - left) / 2;
+            System.out.println("Check version : " + mid );
             if(isBadVersion(mid)){
-                right = mid;
+                right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
         return left;
+    }
+    private static boolean isBadVersion(int num) {
+        return num == 4;
     }
 
 
@@ -41,10 +47,4 @@ public class FirstBadVersion {
         }
         return n;
     }
-
-    static boolean isBadVersion(int i) {
-        //Fake API
-        return false;
-    }
-
 }
