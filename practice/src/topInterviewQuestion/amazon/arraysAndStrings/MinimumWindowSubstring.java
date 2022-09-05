@@ -14,11 +14,52 @@ public class MinimumWindowSubstring {
         //Output: BANC
         //Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
         System.out.println(minWindow(s1, t));
+        System.out.println(minWindowGrokkingCodingInterview(s1, t));
+    }
+
+
+    //Same as Approach 1 but using grokking coding interview pattern
+    //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628541068682_8Unit
+    public static String minWindowGrokkingCodingInterview(String s, String t) {
+        int windowStart = 0;
+        int minLengthRequired = s.length() + 1;
+        int minLength = Integer.MAX_VALUE;
+        int matched = 0;
+        int subStrStart = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for(char chr : t.toCharArray()) {
+            map.put(chr, map.getOrDefault(chr, 0) + 1);
+        }
+        for(int windowEnd = 0; windowEnd < s.length(); windowEnd++) {
+            char chr = s.charAt(windowEnd);
+            if(map.containsKey(chr)) {
+                map.put(chr, map.get(chr) - 1);
+                if(map.get(chr) >= 0) { //Count every matched
+                    matched++;
+                }
+            }
+            //Shrink window
+            while(matched == t.length()) {
+                //Get the minimum actual length
+                if(minLength > windowEnd - windowStart + 1) {
+                    minLength = windowEnd - windowStart + 1;
+                    subStrStart = windowStart;
+                }
+                char chrLeft = s.charAt(windowStart++);
+                if(map.containsKey(chrLeft)) {
+                    if(map.get(chrLeft) == 0) {
+                        matched--;
+                    }
+                    map.put(chrLeft, map.get(chrLeft) + 1);
+                }
+            }
+        }
+        return minLength > s.length() ? "" : s.substring(subStrStart, subStrStart + minLength);
     }
 
 
 
-    //Approach 1: Sliding Window
+    //Approach 1: Sliding Window (same logic as above)
     /*
     Time: O(S + T) where S and T represent the lengths of Strings S and T
     Space: O(S + T)
@@ -30,8 +71,8 @@ public class MinimumWindowSubstring {
         // Dictionary which keeps a count of all the unique characters in t.
         Map<Character, Integer> dictT = new HashMap<Character, Integer>();
         for (int i = 0; i < t.length(); i++) {
-            int count = dictT.getOrDefault(t.charAt(i), 0);
-            dictT.put(t.charAt(i), count + 1);
+            char chr = t.charAt(i);
+            dictT.put(chr, dictT.getOrDefault(chr, 0) + 1);
         }
         // Number of unique characters in t, which need to be present in the desired window.
         int required = dictT.size();

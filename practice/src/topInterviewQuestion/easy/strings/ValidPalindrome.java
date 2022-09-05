@@ -16,15 +16,15 @@ public class ValidPalindrome {
     Space complexity: 0(1)
      */
     static boolean isPalindrome(String s) {
-        for(int i = 0, j = s.length() - 1; i < j; i++, j--) {
-            while(i < j && !Character.isLetterOrDigit(s.charAt(i))){
-                i++;
+        for(int left = 0, right = s.length() - 1; left < right; left++, right--) {
+            while(left < right && !Character.isLetterOrDigit(s.charAt(left))){
+                left++;
             }
-            while(i < j && !Character.isLetterOrDigit(s.charAt(j))) {
-                j--;
+            while(left < right && !Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
             }
-            if(Character.toLowerCase(s.charAt(i))
-                    != Character.toLowerCase(s.charAt(j)))
+            if(Character.toLowerCase(s.charAt(left))
+                    != Character.toLowerCase(s.charAt(right)))
                 return false;
         }
         return true;
