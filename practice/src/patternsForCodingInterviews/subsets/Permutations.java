@@ -1,16 +1,38 @@
 package patternsForCodingInterviews.subsets;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628744061506_69Unit
 public class Permutations {
 
     public static void main(String[] args) {
-        List<List<Integer>> result = Permutations.findPermutations(new int[] { 1, 3, 5 });
+        List<List<Integer>> result = findPermutations(new int[] { 1, 3, 5 });
         System.out.print("Here are all the permutations: " + result);
+
+        List<List<Integer>> resultBacktracking  = subsetsWithDup(new int[]{1, 2, 3});
+        for(List<Integer> l : resultBacktracking) {
+            System.out.println(l);
+        }
+    }
+
+    //https://leetcode.com/problems/permutations/discuss/18239/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partioning)
+    //Approach 1: BackTracking Recursive (Subsets 2 containing duplicates)
+    public static List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> output = new ArrayList<>();
+        Arrays.sort(nums);
+        backtrack(output, new ArrayList<>(), nums, 0);
+        return output;
+    }
+
+    private static void backtrack(List<List<Integer>> output,
+                                  List<Integer> tempList, int [] nums, int start) {
+        output.add(new ArrayList<>(tempList));
+        for (int i = start; i < nums.length; i++) {
+            if (i > start && nums[i] == nums[i - 1]) continue; // skip duplicates
+            tempList.add(nums[i]);
+            backtrack(output, tempList, nums, i + 1);
+            tempList.remove(tempList.size() - 1);
+        }
     }
 
     /*

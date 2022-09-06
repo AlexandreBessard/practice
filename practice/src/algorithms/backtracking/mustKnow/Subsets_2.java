@@ -1,4 +1,4 @@
-package algorithms.backtracking;
+package algorithms.backtracking.mustKnow;
 
 import java.util.ArrayList;
 import java.util.Arrays;
