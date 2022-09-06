@@ -1,4 +1,4 @@
-package topInterviewQuestion.facebook.arraysAndStrings;
+package topInterviewQuestion.facebook.recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
