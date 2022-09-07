@@ -1,4 +1,7 @@
 package topInterviewQuestion.easy.array;
+
+import java.util.Arrays;
+
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/567/
 //Solution: https://leetcode.com/problems/move-zeroes/discuss/172432/THE-EASIEST-but-UNUSUAL-snowball-JAVA-solution-BEATS-100-(O(n))-%2B-clear-explanation
 public class MoveZeroes {
@@ -6,6 +9,7 @@ public class MoveZeroes {
     public static void main(String[] args) {
         int[] nums = {0,1,0,3,12};
         moveZeroes(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
     /*
