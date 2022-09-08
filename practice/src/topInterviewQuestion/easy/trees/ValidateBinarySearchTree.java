@@ -12,7 +12,7 @@ public class ValidateBinarySearchTree {
         two.left = new TreeNode(1);
         two.right = new TreeNode(3);
         System.out.println(isValidBSTIterativeInorderTraversal(two));
-
+        System.out.println(isValidBSTRecursiveInorderTraversal(two));
     }
 
     //Approach 4: Iterative Inorder Traversal
