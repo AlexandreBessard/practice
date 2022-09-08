@@ -17,6 +17,10 @@ public class NumberOfIslands {
     Time complexity: O(M x N) M: rows and N: cols
     Space complexity: O(M x N) caused by recursion.
      */
+    /**
+    See other solution to avoid override the array :
+     * {@link patternsForCodingInterviews.islandsMatrixTraversal._2NumberOfDistinctIslands}
+     */
     static int numIslandsDFS(char[][] grid) {
         if(grid == null || grid[0].length == 0)
             return 0;

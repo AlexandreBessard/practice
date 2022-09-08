@@ -52,10 +52,10 @@ public class _2NumberOfDistinctIslands {
 
     private static void traverseIslandDFS(int[][] matrix, boolean[][] visited, int x, int y,
                                           StringBuilder islandTraversal, String direction) {
-        if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) {
+        if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) { //check boundaries
             return;
         }
-        if (matrix[x][y] == 0 || visited[x][y]) {
+        if (matrix[x][y] == 0 || visited[x][y]) { //Continue to move forward if true
             return;
         }
         visited[x][y] = true;
@@ -66,7 +66,6 @@ public class _2NumberOfDistinctIslands {
         traverseIslandDFS(matrix, visited, x, y + 1, islandTraversal, "R"); // right
         traverseIslandDFS(matrix, visited, x, y - 1, islandTraversal, "L"); // left
         islandTraversal.append("B"); // back
-
     }
 
 }
