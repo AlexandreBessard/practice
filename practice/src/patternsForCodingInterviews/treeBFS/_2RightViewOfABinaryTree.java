@@ -36,7 +36,7 @@ public class _2RightViewOfABinaryTree {
             int levelSize = queue.size();
             for(int i = 0; i < levelSize; i++) {
                 TreeNode currentNode = queue.poll();
-                //If this is the last level, add it to the result
+                //If this is the last node from that level, add it to the result
                 if(i == levelSize - 1){
                     result.add(currentNode);
                 }
