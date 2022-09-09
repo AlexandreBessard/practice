@@ -27,7 +27,7 @@ public class ShortestDistanceFromAllBuildings {
         System.out.println(obj.shortestDistanceEmptyLand(grid));
     }
 
-    //TODO: need to do the approach 3
+    //TODO: need to do the approach 3 (Optimized approach)
 
     //Approach 2: BFS from Houses to Empty Land
     /*
