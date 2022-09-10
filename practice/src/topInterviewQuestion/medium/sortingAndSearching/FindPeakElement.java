@@ -5,9 +5,14 @@ public class FindPeakElement {
     public static void main(String[] args) {
         //1,2,3,1
         //Output 2: Return index
-        System.out.println(findPeakElementRecursiveBinarySearchTree(new int[]{1, 2, 3, 1}));
+        System.out.println(findPeakElementIterativeBinarySearchTree(new int[]{1, 2, 3, 1}));
     }
 
+    /**
+     * This template is used to search for an element which requires accessing the current Index and its immediate
+     * right's neighbor
+     * {@link algorithms.binarySearch.templates.Template2}
+     */
     //Approach 3: Iterative Binary Search
     /*
     Time complexity: O(log²(n))
