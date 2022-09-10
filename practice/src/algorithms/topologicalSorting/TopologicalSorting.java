@@ -33,12 +33,12 @@ static class Graph {
     private int V;
 
     // Adjacency List as ArrayList of ArrayList's
-    private ArrayList<ArrayList<Integer>> adj;
+    private List<List<Integer>> adj;
 
     // Constructor
     Graph(int v) {
         V = v;
-        adj = new ArrayList<ArrayList<Integer>>(v);
+        adj = new ArrayList<>(v);
         for (int i = 0; i < v; ++i)
             adj.add(new ArrayList<Integer>());
     }
