@@ -1,6 +1,13 @@
+Facebook Questions:
+Arrays And Strings  -> DONE 07/09
+Recursion -> DONE 06/09
+LinkedList -> DONE 07/09
+Trees and Graphs -> DONE 09/09
+Sorting and Searching -> DONE 10/09
+
 Amazon Questions:
 Dynamic Programming ->
-Design ->
+Design -> in progress
 --------------------------------------------
 Reviewed Amazon questions:
 Arrays ->
@@ -11,9 +18,11 @@ Array (easy) -> DONE 14/Aout
 String (easy) -> DONE 15/04
 LinkedList (easy) -> DONE 24/08
 Desing (easy) -> DONE 01/09
+Sorting and Searching (easy) -> DONE 05/09
 
 ---------------------------------------------------
 Reviewed Object-Oriented Design (Cracking the coding interview)
+
 Parking_Lot -> 03/09 DONE
 
 --------------------------------------
@@ -24,7 +33,7 @@ QuickSelect -> 01/09 DONE
 Depth First Search -> 03/09 DONE
 Breadth First Search -> 24/08 DONE
 Two Pointers -> 25/08 DONE
-Sliding Window -> DONE 22/08
+Sliding Window -> DONE 04/09
 Merge Intervals -> 01/09 DONE
 Fast and Slow pointers -> DONE 20/08
 Two Heaps -> DONE 21/08
@@ -40,8 +49,8 @@ Miscellaneous -> 31/08 DONE
 Topological Sort -> DONE 22/08
 Backtracking -> 24/08
 Union Find -> 31/08
+Monotonic Stack -> 05/09
 
-Monotonic Stack
 Memoization
 Segment Tree
 
