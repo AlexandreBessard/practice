@@ -5,6 +5,7 @@ public class SearchInRotatedSortedArray {
     public static void main(String[] args) {
         int[] nums = {4,5,6,7,0,1,2};
         int target = 0;
+        System.out.println(search(nums, 5));
     }
 
     /*
@@ -23,6 +24,7 @@ public class SearchInRotatedSortedArray {
             //If the target is located in the non-rotated subarray
             else if (nums[mid] >= nums[start])
             {
+                //If the target is between the range
                 if (target >= nums[start] && target < nums[mid])
                     end = mid - 1;
                 else
@@ -30,7 +32,7 @@ public class SearchInRotatedSortedArray {
             }
             else
             {
-                //If the target is located in the non-rotated subarray, go right
+                //If the target is located in the non-rotated subarray, go to the right
                 if (target <= nums[end] && target > nums[mid])
                     start = mid + 1;
                 else
