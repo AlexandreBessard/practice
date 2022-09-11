@@ -26,10 +26,10 @@ Explanation: After calling your read method, buf
 should contain "abcdABCD1234". We read a total of 12 characters from the file, so return 12.
      */
     public static void main(String[] args) {
-        String file = "abcde";
-        int n = 5;
+        //String file = "abc";
+        int n = 6;
         var obj = new ReadNCharactersGivenRead4();
-        System.out.println(obj.read(file.toCharArray(), n));
+        System.out.println(obj.read(new char[n], n));
     }
 
     public int read(char[] buf, int n) {
@@ -38,6 +38,7 @@ should contain "abcdABCD1234". We read a total of 12 characters from the file, s
         while (total < n) {
             /*Read and store characters in Temp. Count will store total chars read from Read4*/
             int count = read4(temp);
+            System.out.println(count);
             /*Even if we read 4 chars from Read4,
             we don't want to exceed N and only want to read chars till N.*/
             count = Math.min(count, n - total);
@@ -60,7 +61,18 @@ class Reader4 {
     Returns:    int
     buf4[] is a destination, not a source. The results from read4 will be copied to buf4[].
      */
+    String file = "abccde";
+    int idx = 0;
     int read4(char[] buf4) {
-        return buf4.length;
+        int total = idx + 4;
+        int idxBuf = 0;
+        while(idx < total) {
+            if(idx >= file.length()) {
+                return 0;
+            }
+            buf4[idxBuf++] = file.charAt(idx);
+            idx++;
+        }
+        return idx;
     }
 }
