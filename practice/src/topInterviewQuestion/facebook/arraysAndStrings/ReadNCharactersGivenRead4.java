@@ -45,7 +45,6 @@ should contain "abcdABCD1234". We read a total of 12 characters from the file, s
         System.out.println(obj.read(res, 4));
         System.out.println(Arrays.toString(res));
     }
-
     public int read(char[] buf, int n) {
         this.n = n;
         char[] temp = new char[4];  //Store our read chars from Read4
