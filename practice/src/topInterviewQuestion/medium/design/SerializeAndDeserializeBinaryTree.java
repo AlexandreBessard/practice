@@ -2,7 +2,6 @@ package topInterviewQuestion.medium.design;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/112/design/812/
@@ -16,8 +15,10 @@ public class SerializeAndDeserializeBinaryTree {
         one.right.right = new TreeNode(5);
         var obj = new Codec();
         String res = obj.serialize(one);
-        TreeNode res2 = obj.deserialize(res);
+        System.out.println("res serialize in String format : \n" + res);
+        TreeNode res2 = obj.deserializeDFS(res);
         String res3 = obj.serializeBFS(one);
+        System.out.println("res3 serialize in String format using BFS : \n" + res3);
         TreeNode res4 = obj.deserializeBFS(res3);
     }
 
@@ -28,7 +29,9 @@ public class SerializeAndDeserializeBinaryTree {
     static class Codec {
 
         /*
-        BFS
+        Breadth First Search (BFS)
+        We scan through the tree level by level, following the order of height, from top to bottom.
+        The nodes on higher level would be visited before the ones with lower levels.
          */
         public String serializeBFS(TreeNode root) {
             if(root == null)
@@ -96,7 +99,7 @@ public class SerializeAndDeserializeBinaryTree {
         DFS
          */
         //DECODE
-        public TreeNode deserialize(String data) {
+        public TreeNode deserializeDFS(String data) {
             String[] data_array = data.split(",");
             LinkedList<String> data_list = new LinkedList<>(Arrays.asList(data_array));
             return rdeserialize(data_list);
