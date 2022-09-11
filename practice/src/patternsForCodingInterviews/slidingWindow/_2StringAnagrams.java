@@ -11,6 +11,7 @@ public class _2StringAnagrams {
     public static void main(String[] args) {
         System.out.println(findStringAnagrams("ppqp", "pq"));
         System.out.println(findStringAnagrams("abbcabc", "abc"));
+        System.out.println(findStringAnagrams("abab", "ab"));
     }
 
     public static List<Integer> findStringAnagrams(String str, String pattern) {
@@ -35,7 +36,8 @@ public class _2StringAnagrams {
             }
             if(windowEnd >= pattern.length() - 1) { //Shrink the window
                 //Decide what to do with the element after we shrank the window
-                char leftChar = str.charAt(windowStart++);
+                char leftChar = str.charAt(windowStart);
+                windowStart++; //Increment windows start to shrink the window
                 if(charFrequencyMap.containsKey(leftChar)) {
                     if(charFrequencyMap.get(leftChar) == 0) {
                         matched--; // before putting the character back, decrement the matched count
