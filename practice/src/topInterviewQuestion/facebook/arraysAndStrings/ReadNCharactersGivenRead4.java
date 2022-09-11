@@ -38,7 +38,6 @@ should contain "abcdABCD1234". We read a total of 12 characters from the file, s
         while (total < n) {
             /*Read and store characters in Temp. Count will store total chars read from Read4*/
             int count = read4(temp);
-            System.out.println(count);
             /*Even if we read 4 chars from Read4,
             we don't want to exceed N and only want to read chars till N.*/
             count = Math.min(count, n - total);
@@ -68,11 +67,11 @@ class Reader4 {
         int idxBuf = 0;
         while(idx < total) {
             if(idx >= file.length()) {
-                return 0;
+                return idxBuf;
             }
             buf4[idxBuf++] = file.charAt(idx);
             idx++;
         }
-        return idx;
+        return idxBuf;
     }
 }
