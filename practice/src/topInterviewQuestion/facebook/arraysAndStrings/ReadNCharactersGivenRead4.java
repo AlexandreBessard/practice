@@ -1,5 +1,7 @@
 package topInterviewQuestion.facebook.arraysAndStrings;
 
+import java.util.Arrays;
+
 //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/268/
 public class ReadNCharactersGivenRead4 extends Reader4 {
 
@@ -27,12 +29,25 @@ should contain "abcdABCD1234". We read a total of 12 characters from the file, s
      */
     public static void main(String[] args) {
         //String file = "abc";
-        int n = 6;
+        int n = 2;
+        String file = "abcde";
         var obj = new ReadNCharactersGivenRead4();
-        System.out.println(obj.read(new char[n], n));
+
+        char[] res = new char[4];
+        System.out.println(obj.read(res, 1));
+        System.out.println(Arrays.toString(res));
+
+        res = new char[4];
+        System.out.println(obj.read(res, 1));
+        System.out.println(Arrays.toString(res));
+
+        res = new char[4];
+        System.out.println(obj.read(res, 4));
+        System.out.println(Arrays.toString(res));
     }
 
     public int read(char[] buf, int n) {
+        this.n = n;
         char[] temp = new char[4];  //Store our read chars from Read4
         int total = 0;
         while (total < n) {
@@ -60,12 +75,13 @@ class Reader4 {
     Returns:    int
     buf4[] is a destination, not a source. The results from read4 will be copied to buf4[].
      */
-    String file = "abccde";
+    String file = "abcde";
     int idx = 0;
+    int n;
     int read4(char[] buf4) {
         int total = idx + 4;
         int idxBuf = 0;
-        while(idx < total) {
+        while(idx < total && idxBuf < n) {
             if(idx >= file.length()) {
                 return idxBuf;
             }
