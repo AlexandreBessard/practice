@@ -1,7 +1,5 @@
 package topInterviewQuestion.facebook.arraysAndStrings;
 
-import static topInterviewQuestion.facebook.arraysAndStrings.ReadNCharactersGivenRead4_2_CallMultipleTimes.Reader4_2.read4;
-
 //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/269/
 public class ReadNCharactersGivenRead4_2_CallMultipleTimes extends Reader4_2 {
 
