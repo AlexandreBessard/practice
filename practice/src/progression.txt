@@ -4,6 +4,9 @@ Recursion -> DONE 06/09
 LinkedList -> DONE 07/09
 Trees and Graphs -> DONE 09/09
 Sorting and Searching -> DONE 10/09
+Design -> 10/09 DONE
+Others -> DONE 11/09
+Dynamic Programming -> LongestPalindromicSubstring DONE 12/09
 
 Amazon Questions:
 Dynamic Programming ->
