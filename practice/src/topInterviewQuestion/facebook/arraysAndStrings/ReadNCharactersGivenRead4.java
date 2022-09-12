@@ -84,8 +84,7 @@ class Reader4 {
             if(idx >= file.length()) {
                 return idxBuf;
             }
-            buf4[idxBuf++] = file.charAt(idx);
-            idx++;
+            buf4[idxBuf++] = file.charAt(idx++);
         }
         return idxBuf;
     }

@@ -5,8 +5,13 @@ public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
         String s = "babad";
-        System.out.println(longestPalindrome(s));
+        String s1 = "cbbd";
+        System.out.println(longestPalindrome(s1));
     }
+
+    //https://www.interviewbit.com/blog/longest-common-substring/
+    //Approach 2: Dynamic programming
+
 
 
     //Approach 1: Brut force

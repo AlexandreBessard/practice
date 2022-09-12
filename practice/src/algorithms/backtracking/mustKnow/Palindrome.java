@@ -39,12 +39,16 @@ Output: [["a","a","b"],["aa","b"]]
                            String s,
                            int start) {
         if (start == s.length()) {
+            //Find a solution
             output.add(new ArrayList<>(currList));
         } else {
+            //Try with these candidates
             for (int i = start; i < s.length(); i++) {
                 if (isPalindrome(s, start, i)) {
                     currList.add(s.substring(start, i + 1));
+                    //Next candidate
                     backtrack(output, currList, s, i + 1);
+                    //Backtrack
                     currList.remove(currList.size() - 1);
                 }
             }
