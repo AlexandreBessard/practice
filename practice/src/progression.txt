@@ -41,7 +41,7 @@ Merge Intervals -> 01/09 DONE
 Fast and Slow pointers -> DONE 20/08
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 22/08
-Modified Binary Search Tree -> 24/08 DONE
+Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed
 Subsets -> 25/08 DONE
 Matrix Traversal -> 28/08 DONE
 K way merge -> 29/08 DONE
@@ -70,7 +70,7 @@ Data structures you should know: Arrays, Stacks, Queues, Linked lists, Trees, Gr
 Algorithms you should know: Breadth First Search, Depth First Search, Binary Search, Quicksort, Mergesort, Dynamic programming, Divide and Conquer
 
 Depth First Search (250)
-Breadth First Search(198)
+Breadth First Search(198) -> DONE 12/09
 Binary Search (186)
 Two Pointers (147)
 Sliding Window (72)
