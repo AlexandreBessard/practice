@@ -17,11 +17,18 @@ public class MonotonicStack {
                 add(1);
             }
         };
+        System.out.println(arr);
         int[] res = monotonicStack(arr);
         System.out.println(Arrays.toString(res));
     }
 
+    //Order of List<Integer> arr -> 2, 3, 1, 4, 1
     //Initialize monotonic Stack
+    /*
+    Monotonic stack is a stack that from top to bottom, elements are monotonically increasing.
+    From right to left, we can check whether the top of the stack is bigger than the one in array.
+    If it is not bigger than the one in array, it cannot be the solution, since the one in array is farther than it
+     */
     public static int[] monotonicStack(List<Integer> arr) {
         //initalize a monotonic stack
         Stack<Integer> s = new Stack<>();
