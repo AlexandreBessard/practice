@@ -7,9 +7,9 @@ public class UniquePaths {
 
     public static void main(String[] args) {
         int m = 3, n = 7;
-        System.out.println(uniquePaths(m, n));
+        //System.out.println(uniquePaths(m, n));
         System.out.println(uniquePathsDynamicProgramming(m, n));
-        System.out.println(uniquePathsDynamicProgrammingOptimized(m, n));
+        //System.out.println(uniquePathsDynamicProgrammingOptimized(m, n));
     }
 
     //Approach 3: Optimized Space complexity: need to keep the col above only.
@@ -38,7 +38,9 @@ public class UniquePaths {
         }
         for(int row = 1; row < m; row++) {
             for(int col = 1; col < n; col++) {
-                d[row][col] = d[row - 1][col] + d[row][col - 1];
+                d[row][col] =
+                        d[row - 1][col] // Path from above
+                        + d[row][col - 1]; // Path from the right
             }
         }
         return d[m - 1][n - 1];

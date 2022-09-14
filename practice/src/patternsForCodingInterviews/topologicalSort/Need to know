@@ -1,0 +1,7 @@
+A topological ordering is possible only when the graph has no directed cycles, i.e. if the graph is a Directed Acyclic Graph (DAG).
+ If the graph has a cycle, some vertices will have cyclic dependencies which makes it impossible to find a linear ordering among vertices.
+Steps to implement the algorithm:
+a: Initialization.
+b: Build the graph
+c: Find all sources
+d: Sort

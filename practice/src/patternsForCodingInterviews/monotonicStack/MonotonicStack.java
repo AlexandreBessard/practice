@@ -31,7 +31,7 @@ public class MonotonicStack {
      */
     public static int[] monotonicStack(List<Integer> arr) {
         //initalize a monotonic stack
-        Stack<Integer> s = new Stack<>();
+        Stack<Integer> s = new Stack<>(); //Stack is monotonically increasing
         int[] ans = new int[arr.size()];
         //traverse from upperbound tp lowerbound
         for (int i = arr.size() - 1; i >= 0; i--) {
