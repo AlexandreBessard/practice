@@ -24,7 +24,8 @@ public class RomanToInteger {
  */
         var obj = new RomanToInteger();
         //MCMXXV
-        System.out.println(obj.romanToInt("MCMXXV"));
+        //System.out.println(obj.romanToInt("MCMXXV"));
+        System.out.println(obj.romanToInt("MCMXCIV"));
     }
 
     static Map<Character, Integer> map = new HashMap<>() {
@@ -44,9 +45,9 @@ public class RomanToInteger {
     Time complexity: O(1)
     Space complexity: 0(1)
      */
-    int romanToInt(String s) { //"MCMXXV"
+    int romanToInt(String s) { //"MCMXCIV"
         int number = 0;
-        if(s.length() < 2)
+        if(s.length() < 2) //If we only have 1 Roman number
             return map.get(s.charAt(0));
         for(int i = 0; i < s.length(); i++) {
             if(i < s.length() - 1 && map.get(s.charAt(i + 1)) > map.get(s.charAt(i)))
