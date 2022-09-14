@@ -38,7 +38,7 @@ Breadth First Search -> 24/08 DONE
 Two Pointers -> 13/09 DONE
 Sliding Window -> DONE 04/09
 Merge Intervals -> 01/09 DONE
-Fast and Slow pointers -> DONE 20/08
+Fast and Slow pointers -> DONE 14/09
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 22/08
 Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed
