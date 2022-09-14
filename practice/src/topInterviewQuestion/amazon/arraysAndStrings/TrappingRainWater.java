@@ -3,8 +3,12 @@ package topInterviewQuestion.amazon.arraysAndStrings;
 public class TrappingRainWater {
 
     public static void main(String[] args) {
+        /*
         int[] height = {0,1,0,2,1,0,1,3,2,1,2,1};
         System.out.println(trap(height));
+         */
+        int[] heights1 = {2,1,0,1,3,2,1,2};
+        System.out.println(trap(heights1));
     }
 
     //Correction: https://leetcode.com/problems/trapping-rain-water/discuss/153992/Java-O(n)-time-and-O(1)-space-(with-explanations).
@@ -29,7 +33,7 @@ public class TrappingRainWater {
                 // If the current elevation is greater than the previous maximum, water cannot occupy that point at all.
                 // However, we do know that everything from maxLeft to the current index, has been optimally filled, as we've
                 // been adding water to the brim of the last maxLeft.
-                if (height[left] >= maxLeft) {
+                if (height[left] >= maxLeft) { //If true, set the new height for the left side
                     // So, we say we've found a new maximum, and look to see how much water we can fill from this point on.
                     maxLeft = height[left];
                     // If we've yet to find a maximum, we know that we can fill the current point with water up to the previous
@@ -45,7 +49,7 @@ public class TrappingRainWater {
             } else {
                 // Similarly to above, we see that we've found a height greater than the max, and cannot fill it whatsoever, but
                 // everything before is optimally filled
-                if (height[right] >= maxRight) {
+                if (height[right] >= maxRight) { // if true, set the new height for the right side
                     // We can say we've found a new maximum and move on.
                     maxRight = height[right];
                     // If we haven't found a greater elevation, we can fill the current elevation with maxRight - height[right]
