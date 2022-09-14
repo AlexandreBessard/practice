@@ -35,7 +35,7 @@ Divide And Conquer -> 24/08 (QuickSort & MergeSort)
 QuickSelect -> 01/09 DONE
 Depth First Search -> 03/09 DONE
 Breadth First Search -> 24/08 DONE
-Two Pointers -> 25/08 DONE
+Two Pointers -> 13/09 DONE
 Sliding Window -> DONE 04/09
 Merge Intervals -> 01/09 DONE
 Fast and Slow pointers -> DONE 20/08
@@ -69,10 +69,10 @@ Data structures you should know: Arrays, Stacks, Queues, Linked lists, Trees, Gr
 
 Algorithms you should know: Breadth First Search, Depth First Search, Binary Search, Quicksort, Mergesort, Dynamic programming, Divide and Conquer
 
-Depth First Search (250)
+Depth First Search (250) -> DONE 13/09
 Breadth First Search(198) -> DONE 12/09
-Binary Search (186)
-Two Pointers (147)
+Binary Search (186) -> DONE 12/09
+Two Pointers (147) -> DONE 13/09
 Sliding Window (72)
 Monotonic Stack (44)
 Union Find (63)

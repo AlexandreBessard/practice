@@ -26,8 +26,10 @@ public class SubarraysWithProductLessThanATarget {
                 product /= arr[left++];
             }
 
+            //LinkedList<Integer> tempList = new LinkedList<>();
             List<Integer> tempList = new LinkedList<>();
             for (int i = right; i >= left; i--) {
+                //tempList.addFirst(nums[i])
                 tempList.add(0, arr[i]);
                 result.add(new ArrayList<>(tempList));
             }
