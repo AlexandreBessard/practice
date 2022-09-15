@@ -23,6 +23,7 @@ public class CloneGraph {
         Node res = obj.cloneGraphDFS(one);
     }
 
+    //Undirected graph -> edges that do not have a direction.
     /*
      The key for the hash map would be the node of the original graph and corresponding
      value would be the corresponding cloned node of the cloned graph.
