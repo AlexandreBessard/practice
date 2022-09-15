@@ -15,7 +15,7 @@ public class _3Sum {
 
         int[] nums2 = {-4, -1, -1, 0, 1, 2};
         List<List<Integer>> result = threeSumNoSort(nums);
-        List<List<Integer>> result1 = threeSum(nums3);
+        //List<List<Integer>> result1 = threeSum(nums3);
 
         for(List<Integer> l1 : result) {
             System.out.println();
@@ -35,7 +35,7 @@ public class _3Sum {
         Set<Integer> dups = new HashSet<>();
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (dups.add(nums[i])) { //If existing element, return false
+            if (dups.add(nums[i])) { //If existing element, we continue to the next element by incrementing 'i'
                 for (int j = i + 1; j < nums.length; j++) {
                     int complement = -nums[i] - nums[j]; //Complement - 1 + 0 == 1 to have 0
                     if (seen.containsKey(complement) && seen.get(complement) == i) {
