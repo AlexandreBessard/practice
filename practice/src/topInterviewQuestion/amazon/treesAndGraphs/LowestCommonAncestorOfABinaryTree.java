@@ -1,5 +1,7 @@
 package topInterviewQuestion.amazon.treesAndGraphs;
 
+import java.util.*;
+
 //https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2984/
 public class LowestCommonAncestorOfABinaryTree {
 
@@ -17,7 +19,8 @@ public class LowestCommonAncestorOfABinaryTree {
         three.right.right = new TreeNode(8);
 
         var obj = new LowestCommonAncestorOfABinaryTree();
-        TreeNode res = obj.lowestCommonAncestor(three, five, four);
+        //TreeNode res = obj.lowestCommonAncestor(three, five, four);
+        TreeNode res = obj.lowestCommonAncestorIterativeApproach(three, five, four);
         System.out.println(res.val);
     }
 
@@ -42,4 +45,44 @@ public class LowestCommonAncestorOfABinaryTree {
             return root; //Both sides are not null so return this node
 
     }
+
+    //Approach 2: Iterative using parent pointers
+    /*
+    Time: O(N)
+    Space: O(N)
+     */
+    public TreeNode lowestCommonAncestorIterativeApproach(TreeNode root, TreeNode p, TreeNode q) {
+        // Stack for tree traversal
+        Stack<TreeNode> stack = new Stack<>();
+        // HashMap for parent pointers
+        Map<TreeNode, TreeNode> parent = new HashMap<>();
+        parent.put(root, null);
+        stack.push(root);
+        // Iterate until we find both the nodes p and q
+        while (!parent.containsKey(p) || !parent.containsKey(q)) {
+            TreeNode node = stack.pop();
+            // While traversing the tree, keep saving the parent pointers.
+            if (node.left != null) {
+                parent.put(node.left, node);
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                parent.put(node.right, node);
+                stack.push(node.right);
+            }
+        }
+        // Ancestors set() for node p.
+        Set<TreeNode> ancestors = new HashSet<>();
+        while (p != null) {
+            ancestors.add(p);
+            p = parent.get(p);
+        }
+        // The first ancestor of q which appears in
+        // p's ancestor set() is their lowest common ancestor.
+        while (!ancestors.contains(q)) {
+            q = parent.get(q);
+        }
+        return q;
+    }
+
 }
