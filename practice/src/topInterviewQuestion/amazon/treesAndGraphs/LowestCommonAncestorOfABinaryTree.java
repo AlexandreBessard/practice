@@ -28,17 +28,18 @@ public class LowestCommonAncestorOfABinaryTree {
     Time: O(N)
     Space: O(N)
      */
+    //Post Order -> left, right node
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if( root == p || root == q || root == null)
+        if (root == p || root == q || root == null)
             return root;
-        TreeNode left = lowestCommonAncestor( root.left,  p,  q);
-        TreeNode right = lowestCommonAncestor( root.right,  p,  q);
-        if(left == null)
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if (left == null) //If left side is null, return right
             return right;
-        else if (right == null)
+        else if (right == null) //If right side is null return left side
             return left;
         else
-            return root;
+            return root; //Both sides are not null so return this node
 
     }
 }
