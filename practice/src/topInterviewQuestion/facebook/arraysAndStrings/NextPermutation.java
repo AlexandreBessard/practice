@@ -12,8 +12,8 @@ public class NextPermutation {
         int[] nums4 = {1, 5, 8, 4, 7, 6, 5, 3, 1};
         nextPermutation(nums4);
         int[] nums5 = {0, 1, 2, 5, 3, 3, 0};
-        int[] failCase = {5, 4, 3, 2};
-        System.out.println(Arrays.toString(nextPermutationOtherApproach(failCase)));
+        //int[] failCase = {5, 4, 3, 2};
+        System.out.println(Arrays.toString(nextPermutationOtherApproach(nums5)));
         //Output: 1, 3, 2
         //System.out.println(Arrays.toString(nums4));
     }
