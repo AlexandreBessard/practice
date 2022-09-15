@@ -1,7 +1,5 @@
 package topInterviewQuestion.amazon.treesAndGraphs;
 
-import java.util.*;
-
 //https://leetcode.com/explore/interview/card/amazon/78/trees-and-graphs/2984/
 public class LowestCommonAncestorOfABinaryTree {
 
