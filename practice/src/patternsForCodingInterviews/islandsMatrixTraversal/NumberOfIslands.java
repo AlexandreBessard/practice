@@ -56,7 +56,7 @@ public class NumberOfIslands {
             int row = neighbors.peek()[0];
             int col = neighbors.peek()[1];
             neighbors.remove();
-            if (isValidCell(matrix, row, col))  //This condition is correct
+            if (isValidCell(matrix, row, col))  //If condition is true, not valid
                 continue; // continue, if it is not a valid cell
             if (matrix[row][col] == 0 || visited[row][col])
                 continue; // continue if the cell is water or visited
