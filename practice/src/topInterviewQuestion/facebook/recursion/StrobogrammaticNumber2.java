@@ -1,24 +1,27 @@
 package topInterviewQuestion.facebook.recursion;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 //https://leetcode.com/explore/interview/card/facebook/53/recursion-3/3029/
 public class StrobogrammaticNumber2 {
 
     public static void main(String[] args) {
         var obj = new StrobogrammaticNumber2();
-        List<String> res = obj.findStrobogrammatic(4);
+        List<String> res = obj.findStrobogrammatic(3);
         System.out.println(res);
     }
 
-    public char[][] reversiblePairs = {
+    public static char[][] reversiblePairs = {
             {'0', '0'},
             {'1', '1'},
             {'6', '9'},
             {'8', '8'},
             {'9', '6'}
     };
+    //Recursive
     public List<String> findStrobogrammatic(int n) {
         return generateStroboNumbers(n, n);
     }
@@ -43,5 +46,38 @@ public class StrobogrammaticNumber2 {
             }
         }
         return currStroboNums;
+    }
+
+    //Approach 2: Iterative
+    public List<String> findStrobogrammaticIterative(int n) {
+        Queue<String> q = new LinkedList<>();
+        int currStringLength;
+        // When n is even, it means when decreasing by 2 we will go till 0.
+        if(n % 2 == 0) {
+            // We will start with 0-digit strobogrammatic numbers.
+            currStringLength = 0;
+            q.add("");
+        } else {
+            currStringLength = 1;
+            q.add("0");
+            q.add("1");
+            q.add("8");
+        }
+        while(currStringLength < n) {
+            currStringLength += 2;
+            for(int i = 0; i < q.size(); i++) {
+                String number = q.poll();
+                for(char[] pair : reversiblePairs) {
+                    if(currStringLength != n || pair[0] != '0') {
+                        q.add(pair[0] + number + pair[1]);
+                    }
+                }
+            }
+        }
+        List<String> stroboNums = new ArrayList<>(q.size());
+        while (!q.isEmpty()) {
+            stroboNums.add(q.poll());
+        }
+        return stroboNums;
     }
 }
