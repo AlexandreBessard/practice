@@ -67,9 +67,12 @@ public class StrobogrammaticNumber2 {
             currStringLength += 2;
             for(int i = 0; i < q.size(); i++) {
                 String number = q.poll();
+                StringBuilder strBuilder;
                 for(char[] pair : reversiblePairs) {
                     if(currStringLength != n || pair[0] != '0') {
-                        q.add(pair[0] + number + pair[1]);
+                        strBuilder = new StringBuilder();
+                        strBuilder.append(pair[0]).append(number).append(pair[1]);
+                        q.add(strBuilder.toString());
                     }
                 }
             }
