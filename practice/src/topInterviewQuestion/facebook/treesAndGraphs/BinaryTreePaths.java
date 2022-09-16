@@ -71,13 +71,16 @@ public class BinaryTreePaths {
             if(node.left == null && node.right == null) { //leaf node. we add path to the the result.
                 paths.add(path);
             }
+            StringBuilder stringBuilder;
             if(node.left != null) {
                 node_stack.add(node.left);
-                path_stack.add(path + RIGHT_ARROW +node.left.val);
+                stringBuilder = new StringBuilder(path);
+                path_stack.add(stringBuilder.append(RIGHT_ARROW).append(node.left.val).toString());
             }
             if(node.right != null) {
                 node_stack.add(node.right);
-                path_stack.add(path + RIGHT_ARROW + node.right.val);
+                stringBuilder = new StringBuilder(path);
+                path_stack.add(stringBuilder.append(RIGHT_ARROW).append(node.right.val).toString());
             }
         }
         return paths;

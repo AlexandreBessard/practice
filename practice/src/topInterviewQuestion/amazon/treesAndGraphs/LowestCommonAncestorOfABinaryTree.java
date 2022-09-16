@@ -59,7 +59,9 @@ public class LowestCommonAncestorOfABinaryTree {
         parent.put(root, null);
         stack.push(root);
         // Iterate until we find both the nodes p and q
-        while (!parent.containsKey(p) || !parent.containsKey(q)) {
+        while (!parent.containsKey(p) || !parent.containsKey(q)) { // (false || true) --> true
+            System.out.println(!parent.containsKey(p) + " || " + !parent.containsKey(q));
+            System.out.println("result -> " + (!parent.containsKey(p) || !parent.containsKey(q)));
             TreeNode node = stack.pop();
             // While traversing the tree, keep saving the parent pointers.
             if (node.left != null) {
@@ -71,6 +73,7 @@ public class LowestCommonAncestorOfABinaryTree {
                 stack.push(node.right);
             }
         }
+        System.out.println("final result ->  " + (!parent.containsKey(p) || !parent.containsKey(q)));
         // Ancestors set() for node p.
         Set<TreeNode> ancestors = new HashSet<>();
         while (p != null) {
