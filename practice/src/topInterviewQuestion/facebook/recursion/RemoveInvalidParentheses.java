@@ -6,12 +6,13 @@ import java.util.*;
 public class RemoveInvalidParentheses {
 
     public static void main(String[] args) {
+        String failCase = ")())()";
         String s1 = "()())()";
         String s2 = "(a)())()";
         var obj = new RemoveInvalidParentheses();
         List<String> res;
         //res = obj.removeInvalidParentheses(s1);
-        res = obj.removeInvalidParenthesesBFS(s1);
+        res = obj.removeInvalidParenthesesBFS(failCase);
         System.out.println(res);
         //res = obj.removeInvalidParentheses(s2);
         //System.out.println(res);
@@ -54,8 +55,9 @@ public class RemoveInvalidParentheses {
                 if (s.charAt(i) != '(' && s.charAt(i) != ')') //In case of a letter for example
                     continue;
                 //Skip one paren by one paren from left to right
-                String t = s.substring(0, i) + s.substring(i + 1);
-                System.out.println("t  : " + t);
+                var strBuilder = new StringBuilder(s.substring(0, i));
+                strBuilder.append(s.substring(i + 1));
+                final String t = strBuilder.toString();
                 if (!visited.contains(t)) {
                     // for each state, if it's not visited, add it to the queue
                     queue.add(t);

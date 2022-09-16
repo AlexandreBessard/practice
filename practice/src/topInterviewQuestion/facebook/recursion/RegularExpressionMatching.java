@@ -7,13 +7,59 @@ public class RegularExpressionMatching {
         String s1 = "ab";
         String p1 = ".*"; //Zero or more characters
         var obj = new RegularExpressionMatching();
-        System.out.println(obj.isMatch(s1, p1));
+        System.out.println(isMathTopDown(s, p1));
+        //System.out.println(obj.isMatch(s1, p1));
         //False
         //System.out.println(obj.isMatch(s, p));
         //True
         //System.out.println(obj.isMatch(s, "a*"));
     }
 
+    //Approach 1: Recursive
+    public static boolean isMatchRecursive(String text, String pattern) {
+        if (pattern.isEmpty()) return text.isEmpty();
+        boolean first_match = (!text.isEmpty() &&
+                (pattern.charAt(0) == text.charAt(0) || pattern.charAt(0) == '.'));
+
+        if (pattern.length() >= 2 && pattern.charAt(1) == '*'){
+            return (isMatchRecursive(text, pattern.substring(2)) ||
+                    (first_match && isMatchRecursive(text.substring(1), pattern)));
+        } else {
+            return first_match && isMatchRecursive(text.substring(1), pattern.substring(1));
+        }
+    }
+    //Approach 2: Top-Down
+    enum Result {TRUE, FALSE}
+    static Result[][] memo;
+    public static boolean isMathTopDown(String text, String pattern) {
+        memo = new Result[text.length() + 1][pattern.length() + 1];
+        return dp(0, 0, text, pattern);
+    }
+    private static boolean dp(int i, int j, String text, String pattern) {
+        if(memo[i][j] != null)
+            return memo[i][j] == Result.TRUE;
+        boolean ans;
+        if(j == pattern.length()) {
+            ans = (i == text.length());
+        } else {
+            //Check if ith and jth letters from text and pattern respectively are matching
+            boolean firstMath = (i < text.length()
+                    && (pattern.charAt(j) == text.charAt(i) || pattern.charAt(j) == '.'));
+            //If next jth letter from pattern is '*'
+            if(j + 1  < pattern.length() && pattern.charAt(j + 1) == '*') {
+                ans = ((dp(i, j + 2, text, pattern)) || firstMath && dp(i + 1, j, text, pattern));
+            } else {
+                ans = firstMath && dp(i + 1, j + 1, text, pattern);
+            }
+        }
+        memo[i][j] = ans ? Result.TRUE : Result.FALSE;
+        return ans;
+    }
+
+    /*
+    Time: O(m*n)
+    Space: O(m*n)
+     */
     public boolean isMatch(String s, String p) {
         // corner case
         if(s == null || p == null)

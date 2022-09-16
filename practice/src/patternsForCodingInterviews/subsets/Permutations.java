@@ -66,6 +66,8 @@ public class Permutations {
 
     /*
     Recursive
+    Time: O(N∗N!)
+    Space: O(N∗N!)
      */
     public static List<List<Integer>> generatePermutationsRecursive(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
