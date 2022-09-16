@@ -1,8 +1,8 @@
-Facebook Questions:
-Arrays And Strings  -> DONE 07/09
+Facebook Questions Reviewed:
+Arrays And Strings  -> Next Permutation included DONE -> 14/09
 Recursion -> DONE 06/09
 LinkedList -> DONE 07/09
-Trees and Graphs -> DONE 09/09
+Trees and Graphs -> Binary Tree Paths included DONE -> 15/09
 Sorting and Searching -> DONE 10/09
 Design -> 10/09 DONE
 Others -> DONE 11/09
@@ -49,7 +49,7 @@ Cyclic sort -> 27/08 DONE
 In Place reversal of LinkedList -> 30/08 DONE
 MultiThreaded -> DONE 30/08
 Miscellaneous -> 31/08 DONE
-Topological Sort -> DONE 22/08
+Topological Sort -> DONE 13/09
 Backtracking -> 24/08
 Union Find -> 31/08
 Monotonic Stack -> 05/09
@@ -77,5 +77,5 @@ Sliding Window (72)
 Monotonic Stack (44)
 Union Find (63)
 Memoization (32)
-Topological Sort (28)
+Topological Sort (28) -> 13/09
 Segment Tree (27)
