@@ -60,14 +60,17 @@ public class BalancedParentheses {
             if(ps.openCount == num && ps.closeCount == num) {
                 result.add(ps.str.toString());
             } else {
-                StringBuilder strBuiler;
+                StringBuilder strBuilder;
+                ParenthesesString parenthesesString;
                 if(ps.openCount < num) { // if we can add an open parentheses, add it
-                    strBuiler = new StringBuilder(ps.str).append("(");
-                    queue.add(new ParenthesesString(strBuiler, ps.openCount + 1, ps.closeCount));
+                    strBuilder = new StringBuilder(ps.str).append("(");
+                    parenthesesString = new ParenthesesString(strBuilder, ps.openCount + 1, ps.closeCount);
+                    queue.add(parenthesesString);
                 }
                 if (ps.openCount > ps.closeCount) { // if we can add a close parentheses, add it
-                    strBuiler = new StringBuilder(ps.str).append(")");
-                    queue.add(new ParenthesesString(strBuiler, ps.openCount, ps.closeCount + 1));
+                    strBuilder = new StringBuilder(ps.str).append(")");
+                    parenthesesString = new ParenthesesString(strBuilder, ps.openCount, ps.closeCount + 1);
+                    queue.add(parenthesesString);
                 }
             }
         }
