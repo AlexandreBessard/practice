@@ -10,9 +10,11 @@ public class StringPermutationsByChangingCase {
         List<String> result =
                 findLetterCaseStringPermutations("ad52");
         System.out.println(" String permutations are: " + result);
-
+/*
         result = findLetterCaseStringPermutations("ab7c");
         System.out.println(" String permutations are: " + result);
+
+ */
     }
 
     /*

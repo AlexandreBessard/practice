@@ -53,18 +53,21 @@ public class BalancedParentheses {
     public static List<String> generateValidParentheses(int num) {
         List<String> result = new ArrayList<>();
         Queue<ParenthesesString> queue = new LinkedList<>();
-        queue.add(new ParenthesesString("", 0, 0));
+        queue.add(new ParenthesesString(new StringBuilder(), 0, 0));
         while( ! queue.isEmpty()) {
             ParenthesesString ps = queue.poll();
             // if we've reached the maximum number of open and close parentheses, add to result
             if(ps.openCount == num && ps.closeCount == num) {
-                result.add(ps.str);
+                result.add(ps.str.toString());
             } else {
+                StringBuilder strBuiler;
                 if(ps.openCount < num) { // if we can add an open parentheses, add it
-                    queue.add(new ParenthesesString(ps.str+"(", ps.openCount + 1, ps.closeCount));
+                    strBuiler = new StringBuilder(ps.str).append("(");
+                    queue.add(new ParenthesesString(strBuiler, ps.openCount + 1, ps.closeCount));
                 }
                 if (ps.openCount > ps.closeCount) { // if we can add a close parentheses, add it
-                    queue.add(new ParenthesesString(ps.str + ")", ps.openCount, ps.closeCount + 1));
+                    strBuiler = new StringBuilder(ps.str).append(")");
+                    queue.add(new ParenthesesString(strBuiler, ps.openCount, ps.closeCount + 1));
                 }
             }
         }
@@ -72,10 +75,10 @@ public class BalancedParentheses {
     }
 
     static class ParenthesesString {
-        String str;
+        StringBuilder str;
         int openCount; //Open parentheses count
         int closeCount; //Close parentheses count
-        ParenthesesString(String s, int openCount, int closeCount) {
+        ParenthesesString(StringBuilder s, int openCount, int closeCount) {
             this.str = s;
             this.openCount = openCount;
             this.closeCount = closeCount;
