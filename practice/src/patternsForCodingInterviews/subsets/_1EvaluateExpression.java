@@ -31,7 +31,7 @@ public class _1EvaluateExpression {
         if (map.containsKey(input)) {
             return map.get(input);
         }
-        List<Integer> result = new ArrayList<>();
+         List<Integer> result = new ArrayList<>();
         //base case: if the input string is a number, parse and add it to the output.
         if (!input.contains("+") && !input.contains("-") && !input.contains("*")) {
             result.add(Integer.parseInt(input));

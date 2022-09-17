@@ -8,6 +8,7 @@ public class _2SearchInRotatedArray {
         System.out.println(search(
                 new int[]{4, 5, 7, 9, 10, -1, 2}, 10));
         System.out.println(searchDuplicate(new int[]{3, 7, 3, 3, 3}, 7));
+        System.out.println("-> " + search(new int[]{2, 1, 0, 4, 5, 6, 7}, 0));
 
     }
 
@@ -62,7 +63,7 @@ public class _2SearchInRotatedArray {
             if (arr[mid] == key)
                 return mid;
             if (arr[start] <= arr[mid]) { // left side is sorted in ascending order
-                if (key >= arr[start] && key < arr[mid]) {
+                if (key >= arr[start] && key < arr[mid]) { //Between that ascending order range
                     end = mid - 1;
                 } else {
                     start = mid + 1;

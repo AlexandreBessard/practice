@@ -9,11 +9,14 @@ import java.util.Queue;
 public class UniqueGeneralizedAbbreviations {
 
     public static void main(String[] args) {
-        List<String> result = generateGeneralizedAbbreviation("BAT");
+        List<String> result = generateGeneralizedAbbreviationRecursive("BAT");
         System.out.println("Generalized abbreviation are: " + result);
 
+        /*
         result = generateGeneralizedAbbreviation("code");
         System.out.println("Generalized abbreviation are: " + result);
+
+         */
     }
 
     /*
@@ -59,8 +62,9 @@ public class UniqueGeneralizedAbbreviations {
             AbbreviatedWord abWord = queue.poll();
             //Abbrevate
             if (abWord.start == wordLen) { //Abbreviate the current character
-                if (abWord.count != 0)
+                if (abWord.count != 0) {
                     abWord.str.append(abWord.count);
+                }
                 result.add(abWord.str.toString());
             } else {
                 //Skip
