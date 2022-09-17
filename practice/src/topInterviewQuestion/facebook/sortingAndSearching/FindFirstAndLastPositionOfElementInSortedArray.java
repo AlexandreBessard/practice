@@ -47,7 +47,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         int end = nums.length - 1;
         while(start <= end){
             int mid = (start + end) / 2;
-            if(nums[mid] >= target){
+            if(nums[mid] >= target){ //Difference with findLast
                 end = mid - 1; //Difference with findLast
             }else{
                 start = mid + 1; //Difference with findLast
