@@ -1,6 +1,6 @@
 Facebook Questions Reviewed:
 Arrays And Strings  -> Next Permutation included DONE -> 14/09
-Recursion -> DONE 06/09
+Recursion -> DONE -> 16/09
 LinkedList -> DONE 07/09
 Trees and Graphs -> Binary Tree Paths included DONE -> 15/09
 Sorting and Searching -> DONE 10/09
@@ -42,7 +42,7 @@ Fast and Slow pointers -> DONE 14/09
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 22/08
 Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed
-Subsets -> 25/08 DONE
+Subsets -> 16/09 DONE
 Matrix Traversal -> 28/08 DONE
 K way merge -> 29/08 DONE
 Cyclic sort -> 27/08 DONE
