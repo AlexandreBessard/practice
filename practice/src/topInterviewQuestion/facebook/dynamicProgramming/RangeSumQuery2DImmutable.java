@@ -21,6 +21,7 @@ public class RangeSumQuery2DImmutable {
 }
 
 //Expected answer because it is asked to solve it O(1) time complexity for the method ONLY
+//Help to understand the concept: https://computersciencesource.wordpress.com/2010/09/03/computer-vision-the-integral-image/
 class NumMatrixCachingSmarter {
     //Space: O(mn)
     private int[][] dp;
