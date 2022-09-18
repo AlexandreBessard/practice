@@ -7,10 +7,11 @@ public class KClosestNumbers {
 
 
     public static void main(String[] args) {
+        //Kth closest number to X
         List<Integer> result =
                 findClosestElements(new int[]{5, 6, 7, 8, 9}, 3, 7);
         System.out.println("'K' closest numbers to 'X' are: " + result);
-
+        System.out.println(findClosestElementsTwoPointers(new int[]{5, 6, 7, 8, 9}, 3, 7));
         result = findClosestElements(new int[]{2, 4, 5, 6, 9}, 3, 6);
         System.out.println("'K' closest numbers to 'X' are: " + result);
 
@@ -62,9 +63,9 @@ public class KClosestNumbers {
                     result.add(0, arr[leftPointer--]); // append in the beginning
                 else
                     result.add(arr[rightPointer++]); // append at the end
-            } else if (leftPointer >= 0) {
+            } else if (leftPointer >= 0) { //Case if right pointer can not go forward
                 result.add(0, arr[leftPointer--]);
-            } else if (rightPointer < arr.length) {
+            } else if (rightPointer < arr.length) { //Case if left pointer can not go backward
                 result.add(arr[rightPointer++]);
             }
         }
