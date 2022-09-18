@@ -75,12 +75,14 @@ is number of linear scan you did.
     /*
     Time complexity: O(max(N, M))
      */
-    static int[] intersectSort(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
+    static int[] intersectSort(int[] nums1, int[] nums2) throws InterruptedException {
         int n = nums1.length, m = nums2.length;
+        Thread t1 = new Thread(() -> Arrays.sort(nums1));
+        Thread t2 = new Thread(() -> Arrays.sort(nums2));
+        t1.start(); t2.start();
         int i = 0, j = 0;
         List<Integer> list = new ArrayList<>();
+        t1.join(); t1.join();
         while (i < n && j < m) {
             if (nums1[i] == nums2[j]) {
                 list.add(nums1[i]);

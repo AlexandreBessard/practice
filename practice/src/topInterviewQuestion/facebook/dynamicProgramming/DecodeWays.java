@@ -19,7 +19,7 @@ public class DecodeWays {
         String s = "12";
         String s1 = "226";
         System.out.println(numDecoding(s));
-        System.out.println(numDecodingBottomUp("27"));
+        System.out.println(numDecodingBottomUp(s1));
     }
 
     //Bottom Up approach

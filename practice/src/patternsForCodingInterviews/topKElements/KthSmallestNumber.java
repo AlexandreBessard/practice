@@ -21,6 +21,10 @@ public class KthSmallestNumber {
         System.out.println("Kth smallest number is: " + result);
     }
 
+    /*
+    Time: O(N * logK)
+    Space: O(k) to store 'K' smallest numbers in the heap.
+     */
     public static int findKthSmallestNumber(int[] nums, int k) {
         /*
         As we know, the root is the biggest element in the max heap.
