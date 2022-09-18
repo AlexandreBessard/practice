@@ -1,8 +1,6 @@
 package algorithms.dynamicProgramming.commonPatternsInDP;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 //https://leetcode.com/explore/learn/card/dynamic-programming/632/common-patterns-in-dp-problems/4112/
 public class WordBreak {
@@ -16,11 +14,43 @@ public class WordBreak {
         Note that you are allowed to reuse a dictionary word.
          */
         String s = "applepenapple";
-        List<String> wordDict = new ArrayList<>(Arrays.asList("apple","pen"));
+        String s1 = "leetcode";
+        String s2 = "catsandog";
+        List<String> wordDict2 = new ArrayList<>(List.of("cats", "dog", "and"));
+        List<String> wordDict1 = new ArrayList<>(List.of("leet", "code"));
+        List<String> wordDict = new ArrayList<>(Arrays.asList("apple", "pen"));
         var obj = new WordBreak();
         //System.out.println(obj.wordBreakBottomUp(s, wordDict));
         System.out.println(obj.wordBreakTopDown(s, wordDict));
+        System.out.println("BFS -> \n" + wordBreakBFS(s2, wordDict2));
+    }
 
+    //Approach 3: Using BFS
+    /*
+    Time: O(n3)
+    Space: O(n) -> Queue of at most n size is needed
+     */
+    public static boolean wordBreakBFS(String s, List<String> wordDict) {
+        Set<String> wordDictSet = new HashSet<>(wordDict);
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] visited = new boolean[s.length()];
+        queue.add(0);
+        while (!queue.isEmpty()) {
+            int start = queue.remove();
+            if (visited[start]) {
+                continue;
+            }
+            for (int end = start + 1; end <= s.length(); end++) {
+                if (wordDictSet.contains(s.substring(start, end))) {
+                    queue.add(end);
+                    if (end == s.length()) {
+                        return true;
+                    }
+                }
+            }
+            visited[start] = true;
+        }
+        return false;
     }
 
     private String s;
@@ -31,7 +61,7 @@ public class WordBreak {
         if (i < 0)
             return true;
         if (memo[i] == -1) {
-            for (String word: wordDict) {
+            for (String word : wordDict) {
                 if (i >= word.length() - 1 && dp(i - word.length())) {
                     if (s.substring(i - word.length() + 1, i + 1).equals(word)) {
                         memo[i] = 1;
@@ -70,7 +100,6 @@ public class WordBreak {
         }
         return dp[s.length() - 1];
     }
-
 
 
 }
