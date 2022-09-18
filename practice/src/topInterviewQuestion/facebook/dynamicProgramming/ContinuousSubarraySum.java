@@ -15,6 +15,10 @@ public class ContinuousSubarraySum {
     }
 
     //HashMap approach
+    /*
+    Time: O(nums.length) -> O(n)
+    Space: O(mint{nums.length, k})
+     */
     static boolean checkSubarraySum(int[] nums, int k) {
         // initialize the hash map with index 0 for sum 0
         Map<Integer, Integer> hashMap = new HashMap<>(Map.of(0, 0));
@@ -30,6 +34,4 @@ public class ContinuousSubarraySum {
         }
         return false;
     }
-
-
 }
