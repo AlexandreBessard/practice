@@ -4,7 +4,7 @@ public class FibonacciNumber {
 
     public static void main(String[] args) {
         System.out.println(fibTopDown(4));
-        System.out.println(fibBottomUp(4));
+        System.out.println(fibBottomUp(25));
     }
 
     //Correction:
