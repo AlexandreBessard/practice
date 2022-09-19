@@ -11,6 +11,5 @@ https://leetcode.com/problems/random-pick-with-weight/
 7) Lowest Common Ancestor of A Binary Tree ||| -> DONE
 8) Simplify Path -> MUST BE DONE
 https://leetcode.com/problems/simplify-path/
-9) Basic Calculator ||  -> MUST BE DONE
-https://leetcode.com/problems/basic-calculator-ii/
+9) Basic Calculator ||  -> DONE
 10) Nested List Weight Sum -> DONE
