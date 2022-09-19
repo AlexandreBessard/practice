@@ -54,7 +54,7 @@ should contain "abcdABCD1234". We read a total of 12 characters from the file, s
             int count = read4(temp);
             /*Even if we read 4 chars from Read4,
             we don't want to exceed N and only want to read chars till N.*/
-            count = Math.min(count, n - total);
+            count = Math.min(count, n - total); //Takes the max (4) with count
             //Transfer all the characters read from Read4 to our buffer
             for (int i = 0; i < count; i++) {
                 buf[total] = temp[i];

@@ -36,7 +36,7 @@ public class ReadNCharactersGivenRead4_2_CallMultipleTimes extends Reader4_2 {
             // if we already used all characters from bufCache, we need to read new characters by calling read4()
             // and then fill the bufCache
             else {
-                bufCount = read4(bufCache); //Read a new character
+                bufCount = read4(bufCache); //Read a new character -> Initial "abcde" ->First call [a, b, c, d] (4) second [e, b, c, d] (1)-> done
                 bufPtr = 0;
                 // if no more characters we can read, we should break the entire loop and return 0
                 if (bufCount == 0) { //No more character left

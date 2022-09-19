@@ -15,7 +15,7 @@ public class OneEditDistance {
         String t = "otc";
         var obj = new OneEditDistance();
         //Output true
-        System.out.println(obj.isOneEditDistance(s, t));
+        System.out.println(obj.isOneEditDistance("ab", "acb"));
     }
 
     //Time: O(N)
@@ -25,10 +25,10 @@ public class OneEditDistance {
         int nt = t.length();
         //Ensure that s is shorter than t
         if (ns > nt) {
-            return isOneEditDistance(t, s);
+            return isOneEditDistance(t, s); //t is always larger string
         }
         //The string are NOT one edit away if the length diff is more than 1
-        if (nt - ns > 1) {
+        if (nt - ns > 1) { //Check the difference by the length of both strings.
             return false;
         }
         for (int i = 0; i < ns; i++) {
@@ -41,6 +41,7 @@ public class OneEditDistance {
                     return s.substring(i + 1).equals(t.substring(i + 1));
                 } else { //If strings have different lengths
                     //Space:  O(N)
+                    //t is always the largest string
                     return s.substring(i).equals(t.substring(i + 1));
                 }
             }
