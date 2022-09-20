@@ -97,7 +97,7 @@ public class BinaryTreeVerticalOrderTraversal {
         return output;
     }
 
-    static class Pair<T, U> {
+    static class Pair {
         public static <T, U> Map.Entry<T, U> of(T first, U second) {
             return new AbstractMap.SimpleEntry<>(first, second);
         }

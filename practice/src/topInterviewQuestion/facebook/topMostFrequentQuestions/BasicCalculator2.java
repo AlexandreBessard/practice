@@ -1,4 +1,4 @@
-package topInterviewQuestion.facebook.top10MostFrequentQuestions;
+package topInterviewQuestion.facebook.topMostFrequentQuestions;
 
 import java.util.Stack;
 

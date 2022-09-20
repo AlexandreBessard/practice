@@ -1,4 +1,4 @@
-package topInterviewQuestion.facebook.top10MostFrequentQuestions;
+package topInterviewQuestion.facebook.topMostFrequentQuestions;
 
 //https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
 public class MinimumRemoveToMakeValidParentheses {
