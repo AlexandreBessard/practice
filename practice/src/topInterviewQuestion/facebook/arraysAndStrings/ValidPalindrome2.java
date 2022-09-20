@@ -10,7 +10,7 @@ public class ValidPalindrome2 {
         String s2 = "abbbbbbbbbbc";
         var obj = new ValidPalindrome2();
         //Output true
-        System.out.println(obj.validPalindrome(s2));
+        System.out.println(obj.validPalindrome(s1));
     }
 
     //Approach 1: Two pointers

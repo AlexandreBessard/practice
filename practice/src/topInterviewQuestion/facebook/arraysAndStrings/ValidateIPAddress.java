@@ -35,7 +35,7 @@ public class ValidateIPAddress {
             }
             // 2. only hexdigits are allowed: 0-9, a-f, A-F
             for (char ch : x.toCharArray()) {
-                if (hexdigits.indexOf(ch) == -1) {
+                if (hexdigits.indexOf(ch) == -1) { //If character does not occur return -1 else return index of the first occurrence.
                     return NEITHER;
                 }
             }
@@ -45,7 +45,7 @@ public class ValidateIPAddress {
 
     private String validateIPV4(String IP) {
         //String[] nums = IP.split("\\.", -1);
-        String[] nums = IP.split("\\.");
+        String[] nums = IP.split("\\."); //split at each '.'
         for (String x : nums) {
             // Validate integer in range (0, 255):
             if (x.length() == 0 || x.length() > 3)

@@ -25,7 +25,7 @@ public class SubarraySumEqualsK {
         int count = 0;
         int sum = 0;
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1);
+        map.put(0, 1); //Value represent the count (result) and the key is (sum - k)
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
             if (map.containsKey(sum - k)) {
