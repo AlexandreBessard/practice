@@ -25,13 +25,13 @@ public class KClosestPointsToTheOrigin {
         PriorityQueue<Point> maxHeap = new PriorityQueue<>((p1, p2) -> p2.distFromOrigin() - p1.distFromOrigin());
         // put first 'k' points in the max heap
         for(int i = 0; i < k; i++) {
-            maxHeap.add(points[i]);
+            maxHeap.add(points[i]); //Only k points in the heap.
         }
         // go through the remaining points of the input array, if a point is closer to the
         // origin than the top point of the max-heap, remove the top point from heap and add
         // the point from the input array
         for(int i = k; i < points.length; i++) {
-            if(points[i].distFromOrigin() < maxHeap.peek().distFromOrigin()) {
+            if(points[i].distFromOrigin() < maxHeap.peek().distFromOrigin()) { //True is closer to the origin
                 maxHeap.poll();
                 maxHeap.add(points[i]);
             }
