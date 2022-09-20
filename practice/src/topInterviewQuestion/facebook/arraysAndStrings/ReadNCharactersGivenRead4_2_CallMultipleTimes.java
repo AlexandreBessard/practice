@@ -3,7 +3,6 @@ package topInterviewQuestion.facebook.arraysAndStrings;
 //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/269/
 public class ReadNCharactersGivenRead4_2_CallMultipleTimes extends Reader4_2 {
 
-    //TODO: need to be reviewed
     public static void main(String[] args) {
         //char[] buf = {'a', 'b', 'c'};
         var obj = new ReadNCharactersGivenRead4_2_CallMultipleTimes();

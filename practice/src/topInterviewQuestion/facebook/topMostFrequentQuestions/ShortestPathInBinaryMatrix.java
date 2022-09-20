@@ -17,6 +17,8 @@ public class ShortestPathInBinaryMatrix {
         System.out.println(shortestPathBinaryMatrix(grid));
     }
 
+    //TODO: Check the Approach 3 -> A* (Advanced)
+
     /*
     For find the shortest path in the problem, use BFS
      */

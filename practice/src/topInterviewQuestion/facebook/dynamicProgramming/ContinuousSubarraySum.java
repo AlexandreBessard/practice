@@ -9,9 +9,11 @@ public class ContinuousSubarraySum {
     public static void main(String[] args) {
         int[] nums1 = {23, 2, 4, 6, 7};
         int[] nums2 = {23, 2, 6, 4, 7};
+        int[] nums3 = {5, 0, 0, 0};
+        int k3 = 3;
         int k2 = 13;
         int k = 6;
-        System.out.println(checkSubarraySum(nums2, 6));
+        System.out.println(checkSubarraySum(nums3, k3));
     }
 
     //HashMap approach
@@ -29,7 +31,9 @@ public class ContinuousSubarraySum {
             if (!hashMap.containsKey(sum % k))
                 hashMap.put(sum % k, i + 1);
                 // if the subarray size is at least two
-            else if (hashMap.get(sum % k) < i)
+            //If same keyValue (sum%k) is repeating then there are some values such that their sum is divisible by k
+            //If map already contains that value, check if (currIndex - map.get(sum) > 1 because of size constraint
+            else if (hashMap.get(sum % k) < i) //Use [5, 0, 0] for better understanding
                 return true;
         }
         return false;
