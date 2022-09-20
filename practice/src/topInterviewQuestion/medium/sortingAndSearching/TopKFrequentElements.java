@@ -18,6 +18,11 @@ public class TopKFrequentElements {
          */
     }
 
+    //Other approach:
+    /**
+     * {@link patternsForCodingInterviews.topKElements.TopKFrequentNumbers}
+     */
+
     //https://leetcode.com/problems/top-k-frequent-elements/discuss/81602/Java-O(n)-Solution-Bucket-Sort
     //Approach 3: Bucket Sort
     public static List<Integer> topKFrequentBucketSorted(int[] nums, int k) {
@@ -49,6 +54,10 @@ public class TopKFrequentElements {
 
 
     //Approach 2: Quickselect
+    /*
+    Quickselect is a selection algorithm to find the k-th smallest
+    element in an unordered list. It is related to the quick sort sorting algorithm.
+     */
     static int[] unique;
     static Map<Integer, Integer> count;
     private static void swap(int a, int b) {

@@ -55,7 +55,7 @@ public class LowestCommonAncestorOfABinaryTree {
         // Stack for tree traversal
         Stack<TreeNode> stack = new Stack<>();
         // HashMap for parent pointers
-        Map<TreeNode, TreeNode> parent = new HashMap<>();
+        Map<TreeNode, TreeNode> parent = new HashMap<>(); //Key: actual node, value: his root node
         parent.put(root, null);
         stack.push(root);
         // Iterate until we find both the nodes p and q
@@ -75,7 +75,7 @@ public class LowestCommonAncestorOfABinaryTree {
         }
         System.out.println("final result ->  " + (!parent.containsKey(p) || !parent.containsKey(q)));
         // Ancestors set() for node p.
-        Set<TreeNode> ancestors = new HashSet<>();
+        Set<TreeNode> ancestors = new HashSet<>(); //Contains all parent of that node
         while (p != null) {
             ancestors.add(p);
             p = parent.get(p);

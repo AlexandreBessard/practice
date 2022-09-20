@@ -6,6 +6,10 @@ import java.util.*;
 public class TopKFrequentNumbers {
 
     public static void main(String[] args) {
+
+        int[] nums3 = {1, 1, 1, 2, 2, 3};
+        System.out.println(findTopKFrequentNumbers(nums3, 2));
+
         List<Integer> result = TopKFrequentNumbers.findTopKFrequentNumbers(
                 new int[] { 1, 3, 5, 12, 11, 12, 11 }, 2);
         System.out.println("Here are the K frequent numbers: " + result);
