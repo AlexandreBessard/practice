@@ -1,9 +1,9 @@
 package patternsForCodingInterviews.treeBFS;
 
 public class TreeNode {
-    int val;
-    TreeNode left, right;
-    TreeNode(int x) {
+    public int val;
+    public TreeNode left, right;
+    public TreeNode(int x) {
         val = x;
     }
 }
