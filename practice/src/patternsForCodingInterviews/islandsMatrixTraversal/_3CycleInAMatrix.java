@@ -4,6 +4,7 @@ package patternsForCodingInterviews.islandsMatrixTraversal;
 public class _3CycleInAMatrix {
 
     public static void main(String[] args) {
+        /*
         System.out.println(hasCycle(
                 new char[][]{
                         {'a', 'a', 'a', 'a'},
@@ -11,7 +12,8 @@ public class _3CycleInAMatrix {
                         {'b', 'a', 'c', 'a'},
                         {'b', 'a', 'a', 'a'}
                 }));
-
+         */
+        /*
         System.out.println(hasCycle(
                 new char[][]{
                         {'a', 'a', 'a', 'a'},
@@ -20,12 +22,21 @@ public class _3CycleInAMatrix {
                         {'a', 'a', 'a', 'c'}
                 }));
 
+        /*
         System.out.println(hasCycle(
                 new char[][]{
                         {'a', 'b', 'e', 'b'},
                         {'b', 'b', 'b', 'b'},
                         {'b', 'c', 'c', 'd'},
                         {'c', 'c', 'd', 'd'}
+                }));
+
+         */
+        System.out.println(hasCycle(
+                new char[][]{
+                        {'a', 'a', 'a'},
+                        {'a', 'b', 'a'},
+                        {'a', 'a', 'a'}
                 }));
 
     }
@@ -41,6 +52,8 @@ public class _3CycleInAMatrix {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (!visited[i][j]) {
+                    //-1 and -1 for prevX and prevX are simply used to initialize a value which is not contained in the 2D array
+                    //Avoid infinite loop
                     if (containsCycleDFS(matrix, visited, matrix[i][j], i, j, -1, -1)) {
                         return true;
                     }
@@ -51,25 +64,29 @@ public class _3CycleInAMatrix {
     }
 
     private static boolean containsCycleDFS(char[][] matrix, boolean[][] visited, char startChar,
-                                            int x, int y, int prevX, int prevY) {
-        if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) {
+                                            int row, int col, int prevX, int prevY) {
+        if (row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length) { //Check boundaries
             return false;
         }
-        if (matrix[x][y] != startChar) {
+        if (matrix[row][col] != startChar) {
             return false;
         }
-        if (visited[x][y]) {
+        if (visited[row][col]) {
             return true; // Found a cycle, we are visiting an already visited valid cell
         }
-        visited[x][y] = true; // mark the cell visited
+        visited[row][col] = true; // mark the cell visited
         // recursively visit all neighboring cells (horizontally & vertically)
-        if (x + 1 != prevX && containsCycleDFS(matrix, visited, startChar, x + 1, y, x, y)) // down
+        if (row + 1 != prevX //This condition avoid to go backward (avoid infinite loop)
+                && containsCycleDFS(matrix, visited, startChar, row + 1, col, row, col)) // down
             return true;
-        if (x - 1 != prevX && containsCycleDFS(matrix, visited, startChar, x - 1, y, x, y)) // up
+        if (row - 1 != prevX //Once we reached top down we look to go up now but it has already been visited with prevX (row) and prevY (col)
+                && containsCycleDFS(matrix, visited, startChar, row - 1, col, row, col)) // up
             return true;
-        if (y + 1 != prevY && containsCycleDFS(matrix, visited, startChar, x, y + 1, x, y)) // right
+        if (col + 1 != prevY
+                && containsCycleDFS(matrix, visited, startChar, row, col + 1, row, col)) // right
             return true;
-        if (y - 1 != prevY && containsCycleDFS(matrix, visited, startChar, x, y - 1, x, y)) // left
+        if (col - 1 != prevY
+                && containsCycleDFS(matrix, visited, startChar, row, col - 1, row, col)) // left
             return true;
 
         return false;

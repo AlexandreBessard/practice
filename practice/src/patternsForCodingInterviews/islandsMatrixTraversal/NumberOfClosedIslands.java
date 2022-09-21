@@ -3,7 +3,7 @@ package patternsForCodingInterviews.islandsMatrixTraversal;
 public class NumberOfClosedIslands {
 
     public static void main(String[] args) {
-
+        //Closed island  -> means surrounded by the water
         System.out.println(countClosedIslands(
                 new int[][] {
                         { 1, 1, 0, 0, 0 },
@@ -48,7 +48,7 @@ public class NumberOfClosedIslands {
         return countClosedIslands;
     }
     private static boolean isClosedIslandDFS(int[][] matrix, boolean[][] visited, int x, int y) {
-        if(x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length)
+        if(x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) //Boundaries
             return false; // returning false since the island is touching an edge
         if(matrix[x][y] == 0 || visited[x][y])
             return true; // returning true as the island is surrounded by water
@@ -57,6 +57,7 @@ public class NumberOfClosedIslands {
         // recursively visit all neighboring cells (horizontally & vertically)
         // a &= b; is equivalent to a = a & b;.
         isClosed = isClosedIslandDFS(matrix, visited, x + 1, y); // lower cell
+        // =& if true all condition are true
         isClosed &= isClosedIslandDFS(matrix, visited, x - 1, y); // upper cell
         isClosed &= isClosedIslandDFS(matrix, visited, x, y + 1); // right cell
         isClosed &= isClosedIslandDFS(matrix, visited, x, y - 1); // left cell

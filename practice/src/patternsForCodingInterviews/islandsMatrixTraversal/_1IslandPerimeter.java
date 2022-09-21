@@ -3,6 +3,7 @@ package patternsForCodingInterviews.islandsMatrixTraversal;
 public class _1IslandPerimeter {
 
     public static void main(String[] args) {
+        /*
         System.out.println(findIslandPerimeter(
                 new int[][] {
                         { 1, 1, 0, 0, 0 },
@@ -11,7 +12,7 @@ public class _1IslandPerimeter {
                         { 0, 1, 1, 0, 0 },
                         { 0, 0, 0, 0, 0 }
                 }));
-
+        */
         System.out.println(findIslandPerimeter(
                 new int[][] {
                         { 0, 0, 0, 0 },

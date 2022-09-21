@@ -35,19 +35,19 @@ public class BiggestIsland {
         return biggestIslandArea;
     }
 
-    private static int visitIslandDFS(int[][] matrix, int x, int y) {
-        if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) {
+    private static int visitIslandDFS(int[][] matrix, int row, int col) {
+        if (row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length) {
             return 0; // no valid cell
         }
-        if (matrix[x][y] == 0) {
+        if (matrix[row][col] == 0) {
             return 0; // is a water cell
         }
-        matrix[x][y] = 0; // mark the cell
+        matrix[row][col] = 0; // mark the cell
         int area = 1; //Counting current cell
-        area += visitIslandDFS(matrix, x + 1, y); // lower cell
-        area += visitIslandDFS(matrix, x - 1, y); // upper cell
-        area += visitIslandDFS(matrix, x, y + 1); // right cell
-        area += visitIslandDFS(matrix, x, y - 1); // left cell
+        area += visitIslandDFS(matrix, row + 1, col); // lower cell
+        area += visitIslandDFS(matrix, row - 1, col); // upper cell
+        area += visitIslandDFS(matrix, row, col + 1); // right cell
+        area += visitIslandDFS(matrix, row, col - 1); // left cell
         return area;
     }
 

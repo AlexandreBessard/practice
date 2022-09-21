@@ -55,8 +55,8 @@ public class NumberOfIslands {
         while (!neighbors.isEmpty()) {
             int row = neighbors.peek()[0];
             int col = neighbors.peek()[1];
-            neighbors.remove();
-            if (isValidCell(matrix, row, col))  //If condition is true, not valid
+            neighbors.poll();
+            if (isNotAValidCell(matrix, row, col))  //If condition is true, not valid
                 continue; // continue, if it is not a valid cell
             if (matrix[row][col] == 0 || visited[row][col])
                 continue; // continue if the cell is water or visited
@@ -99,9 +99,9 @@ public class NumberOfIslands {
         while (!neighbors.isEmpty()) {
             int row = neighbors.peek()[0];
             int col = neighbors.peek()[1];
-            neighbors.remove();
+            neighbors.poll();
 
-            if (row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length)
+            if (isNotAValidCell(matrix, row, col))
                 continue; // continue, if it is not a valid cell
             if (matrix[row][col] == 0)
                 continue; // continue if it is a water cell
@@ -136,7 +136,7 @@ public class NumberOfIslands {
     }
 
     private static void visitIslandsDFS(int[][] matrix, int x, int y) {
-        if(isValidCell(matrix, x, y)) { //No valid cell
+        if(isNotAValidCell(matrix, x, y)) { //No valid cell
             return;
         }
         if(matrix[x][y] == 0) { //If water cell
@@ -150,7 +150,7 @@ public class NumberOfIslands {
         visitIslandsDFS(matrix, x, y - 1); // left cell
     }
 
-    private static boolean isValidCell(int[][] matrix, int row, int col) {
+    private static boolean isNotAValidCell(int[][] matrix, int row, int col) {
         return row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length;
     }
 

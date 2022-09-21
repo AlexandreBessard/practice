@@ -40,10 +40,10 @@ public class FloodFill {
         if(x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) {
             return;
         }
-        if(matrix[x][y] != oldColor) {
+        if(matrix[x][y] != oldColor) { //Base case, if we have a different color with the old one it is our boundary
             return; //It is not the required color
         }
-        matrix[x][y] = newColor;
+        matrix[x][y] = newColor; //set with the new color
         // recursively visit all neighboring cells (horizontally & vertically)
         fillDFS(matrix, x + 1, y, oldColor, newColor); // lower cell
         fillDFS(matrix, x - 1, y, oldColor, newColor); // upper cell
