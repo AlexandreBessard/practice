@@ -7,7 +7,7 @@ public class KthSmallestNumberInASortedMatrix {
 
     public static void main(String[] args) {
         int result = Integer.MIN_VALUE;
-        int matrix[][] = {
+        int[][] matrix = {
                 {2, 6, 8},
                 {3, 7, 10},
                 {5, 8, 11}
@@ -105,8 +105,9 @@ public class KthSmallestNumberInASortedMatrix {
     }
     private static int countLessEqual(int[][] matrix, int mid, int[] smallLargePair) {
         int count = 0;
-        int n = matrix.length, row = n - 1, col = 0;
-        while (row >= 0 && col < n) {
+        int row = matrix.length - 1;
+        int col = 0;
+        while (row >= 0 && col < matrix.length) {
             if (matrix[row][col] > mid) {
                 // as matrix[row][col] is bigger than the mid, let's keep track of the
                 // smallest number greater than the mid

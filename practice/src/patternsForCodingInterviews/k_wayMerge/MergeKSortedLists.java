@@ -47,12 +47,12 @@ public class MergeKSortedLists {
         while (!minheap.isEmpty()) {
             ListeNode node = minheap.poll();
             if (resultHead == null) {
-                resultHead = resultTail = node;
+                resultHead = resultTail = node; //Initialize head and tail with the same node
             } else {
                 resultTail.next = node;
-                resultTail = resultTail.next;
+                resultTail = resultTail.next; //Tail move forward
             }
-            if (node.next != null) {
+            if (node.next != null) { //true if we have remaining elements
                 minheap.add(node.next);
             }
         }

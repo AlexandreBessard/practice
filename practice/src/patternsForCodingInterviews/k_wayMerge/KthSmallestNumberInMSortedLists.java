@@ -25,6 +25,8 @@ public class KthSmallestNumberInMSortedLists {
     Space: O(M) because at any time, our min-heap will be storing one number from all M input arrays.
      */
     public static int findKthSmallest(LinkedList<Integer[]> lists, int k) {
+        //Priority use Node object to get our smaller element based on the 'lists'
+        //Because it is the smaller element, return that Node
         PriorityQueue<Node> minHeap = new PriorityQueue<>(
                 (n1, n2) -> lists.get(n1.arrayIndex)[n1.elementIndex] -
                         lists.get(n2.arrayIndex)[n2.elementIndex]
@@ -32,7 +34,8 @@ public class KthSmallestNumberInMSortedLists {
         // put the 1st element of each array in the min heap
         for (int i = 0; i < lists.size(); i++) {
             if (lists.get(i) != null) {
-                minHeap.add(new Node(0, i));
+                //i represents the corresponding array and 0 is the first index of that array
+                minHeap.add(new Node(0, i)); //Same Node object as the size of that list
             }
         }
         // take the smallest (top) element form the min heap, if the running count is equal
@@ -47,14 +50,14 @@ public class KthSmallestNumberInMSortedLists {
                 break;
             }
             node.elementIndex++;
-            if (lists.get(node.arrayIndex).length > node.elementIndex) {
+            if (lists.get(node.arrayIndex).length > node.elementIndex) { //False if we are Out-ofBound of the array
                 minHeap.add(node);
             }
         }
         return result;
     }
 
-    static class Node {
+    static class Node { //This class is just used to access our elements from a 'lists of arrays'
         int elementIndex;
         int arrayIndex;
 
