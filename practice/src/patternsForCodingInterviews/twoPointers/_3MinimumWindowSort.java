@@ -3,10 +3,14 @@ package patternsForCodingInterviews.twoPointers;
 public class _3MinimumWindowSort {
 
     public static void main(String[] args) {
-        System.out.println(sort(new int[] { 1, 2, 5, 3, 7, 10, 9, 12 }));
+        //System.out.println(sort(new int[] { 1, 2, 5, 3, 7, 10, 9, 12 }));
+        System.out.println(sort(new int[]{1, -1, 0, 2, 3, 7, 10}));
+        /*
         System.out.println(sort(new int[] { 1, 3, 2, 0, -1, 7, 10 }));
         System.out.println(sort(new int[] { 1, 2, 3 }));
         System.out.println(sort(new int[] { 3, 2, 1 }));
+
+         */
     }
 
     /*
@@ -30,14 +34,15 @@ public class _3MinimumWindowSort {
         int subarrayMax = Integer.MIN_VALUE;
         int subarrayMin = Integer.MAX_VALUE;
         for(int k = low; k <= high; k++) {
-            subarrayMax = Math.max(subarrayMax, arr[k]);
-            subarrayMin = Math.min(subarrayMin, arr[k]);
+            subarrayMax = Math.max(subarrayMax, arr[k]); //max value of that subarray
+            subarrayMin = Math.min(subarrayMin, arr[k]); //min value of that subarray
         }
         //Extend the subarray to include any number which is bigger than the minimum of the subarray
-        while(low > 0 && arr[low - 1] > subarrayMin) {
+        //these conditions for this edge case for example: [ 1, -1, 0, 2, 3, 7, 10 ]
+        while(low > 0 && arr[low - 1] > subarrayMin) { //Expand to the left
             low--;
         }
-        while(high < arr.length - 1 && arr[high + 1] < subarrayMax) {
+        while(high < arr.length - 1 && arr[high + 1] < subarrayMax) { //Expand to the right
             high++;
         }
 

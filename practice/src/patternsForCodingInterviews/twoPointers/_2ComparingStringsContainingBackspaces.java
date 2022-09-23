@@ -25,7 +25,7 @@ public class _2ComparingStringsContainingBackspaces {
             if(str1.charAt(i1) != str1.charAt(i2)) {
                 return false;
             }
-            index1 = i1 - 1;
+            index1 = i1 - 1; //Go to the next index (previous because we have started from the end)
             index2 = i2 - 1;
         }
         return true;
@@ -34,13 +34,13 @@ public class _2ComparingStringsContainingBackspaces {
         int backspaceCount = 0;
         while(index >= 0) {
             if(str.charAt(index) == '#') { //Found backspace character
-                backspaceCount++;
+                backspaceCount++; //we aggregated all hashtag.
             }
-            else if(backspaceCount > 0) { //A non-backspace character
+            else if(backspaceCount > 0) { //A non-backspace character remaining, remove hashtag
                 backspaceCount--;
             }
             else {
-                break;
+                break; //return that index
             }
             index--;
         }

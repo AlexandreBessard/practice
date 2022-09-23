@@ -18,15 +18,15 @@ public class DutchNationalFlagProblem {
         int low = 0;
         int high = arr.length - 1;
         for(int i = 0; i <= high;) {
-            if(arr[i] == 0) {
+            if(arr[i] == 0) { //Swap with the low, put 0 the left side
                 swap(arr, i, low);
                 i++;
                 low++;
             }
-            else if (arr[i] == 1) {
+            else if (arr[i] == 1) { //if "1" -> increment i by one -> put 1 in the middle side
                 i++;
             }
-            else { //The case for arr[i] == 2
+            else { //The case for arr[i] == 2 Swap with the high -> put 2 to the right side
                 swap(arr, i, high);
                 high--;
             }
