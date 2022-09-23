@@ -20,14 +20,18 @@ public class Main {
     At each step, the input of size N is broken into two parts say J and N-J.
     Space complexity: O(1)
      */
+    //Divid and conquer group of algorithm and it is an in-place
+    /*
+     non-stable (doesn't guarantee relative order of same-value elements after sorting) sorting algorithm
+     */
     public static void quickSort(int[] input, int start, int end) {
         if (end - start < 2) { //If it remains 2 elements to sort, stop here
             return;
         }
         int pivotIndex = partition(input, start, end);
-        quickSort(input, start, pivotIndex);
+        quickSort(input, start, pivotIndex); //one sub list with element less than pivot
         for (int i = 0; i < input.length; i++) {
-            System.out.println(input[i]);
+            System.out.println(input[i]); //one sublist with element greater than pivot
         }
         quickSort(input, pivotIndex + 1, end);
     }
@@ -40,7 +44,7 @@ public class Main {
 
         while (i < j) {
             // NOTE: empty loop body
-            while (i < j && input[--j] >= pivot){
+            while (i < j && input[--j] >= pivot){ //if element of right is equal or bigger than pivot, this element stay on the right side
                 //Body is empty
             }
             if (i < j) {

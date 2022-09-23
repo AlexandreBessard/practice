@@ -20,6 +20,7 @@ public class MergeSort {
     static int[] merge_sort(int[] input) {
         if(input.length <= 1)
             return input;
+        //Calculate the middle index for the subarray into two halves
         int pivot = input.length / 2; //Divide
         //we recursively sort the sublists in the previous step (Conquer)
         int[] left_list = merge_sort(Arrays.copyOfRange(input, 0, pivot));

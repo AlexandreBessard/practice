@@ -14,6 +14,9 @@ public class Main {
 
     // { 20, 35, -15, 7, 55, 1, -22 }
     //Call recursively
+    /*
+    Merge Sort is a stable sort which means that the same element in an array maintain their original positions with respect to each other
+     */
     public static void mergeSort(int[] input, int start, int end) {
         //One element array
         if (end - start < 2) {
