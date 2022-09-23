@@ -18,14 +18,10 @@ public class LongestSubstringWithSameLettersAfterReplacement {
         // try to extend the range [windowStart, windowEnd]
         for (int windowEnd = 0; windowEnd < str.length(); windowEnd++) {
             char rightChar = str.charAt(windowEnd);
-            letterFrequencyMap.put(rightChar,
-                    letterFrequencyMap.getOrDefault(rightChar, 0) + 1);
+            letterFrequencyMap.put(rightChar, letterFrequencyMap.getOrDefault(rightChar, 0) + 1);
             // we don't need to place the maxRepeatLetterCount under the below 'if', see the
             // explanation in the 'Solution' section above.
-            maxRepeatLetterCount =
-                    Math.max(maxRepeatLetterCount,
-                            letterFrequencyMap.get(rightChar)
-                    );
+            maxRepeatLetterCount = Math.max(maxRepeatLetterCount, letterFrequencyMap.get(rightChar));
             // current window size is from windowStart to windowEnd, overall we have a letter
             // which is repeating 'maxRepeatLetterCount' times, this means we can have a window
             // which has one letter repeating 'maxRepeatLetterCount' times and the remaining
@@ -33,9 +29,7 @@ public class LongestSubstringWithSameLettersAfterReplacement {
             // time to shrink the window as we are not allowed to replace more than 'k' letters
             if (windowEnd - windowStart + 1 - maxRepeatLetterCount > k) {
                 char leftChar = str.charAt(windowStart);
-                letterFrequencyMap.put(leftChar,
-                        letterFrequencyMap.get(leftChar) - 1
-                );
+                letterFrequencyMap.put(leftChar, letterFrequencyMap.get(leftChar) - 1);
                 windowStart++;
             }
             maxLength = Math.max(maxLength, windowEnd - windowStart + 1);
