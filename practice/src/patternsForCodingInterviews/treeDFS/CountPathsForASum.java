@@ -33,11 +33,11 @@ public class CountPathsForASum {
             return 0;
         //add node to the path
         currentPath.add(currentNode.val);
-        int pathCount = 0, pathSum = 0;
+        int pathCount = 0, pathSum = 0;  //Reset
         //Find the sums of all sub-paths in the current path list
         ListIterator<Integer> pathIterator = currentPath.listIterator(currentPath.size());
         while (pathIterator.hasPrevious()) {
-            pathSum += pathIterator.previous();
+            pathSum += pathIterator.previous(); //Get value from the 'end'
             //If the sum of any sub-path is equal to 'S' we increment our path count
             if (pathSum == S) {
                 pathCount++;

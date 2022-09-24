@@ -28,6 +28,7 @@ public class PathWithGivenSequence {
     private static boolean findPathRecursive(TreeNode currentNode, int[] sequence, int sequenceIndex) {
         if(currentNode == null)
             return false;
+        //Check if index is out of bound OR does not have the same value as the sequence
         if(sequenceIndex >= sequence.length || currentNode.val != sequence[sequenceIndex])
         {
             return false;
