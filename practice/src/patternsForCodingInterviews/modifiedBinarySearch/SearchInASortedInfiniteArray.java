@@ -52,10 +52,10 @@ public class SearchInASortedInfiniteArray {
         }
 
         public int get(int index) {
-            if (index >= arr.length) {
+            if (index >= arr.length) { //True if Out of bound
                 return Integer.MAX_VALUE;
             } else {
-                return arr[index];
+                return arr[index]; //Return element from this index
             }
         }
     }

@@ -3,8 +3,11 @@ package patternsForCodingInterviews.modifiedBinarySearch;
 public class NextLetter {
 
     public static void main(String[] args) {
+        /*
         System.out.println(NextLetter.searchNextLetter(
                 new char[] { 'a', 'c', 'f', 'h' }, 'f'));
+
+         */
         System.out.println(NextLetter.searchNextLetter(
                 new char[] { 'a', 'c', 'f', 'h' }, 'b'));
         System.out.println(NextLetter.searchNextLetter(

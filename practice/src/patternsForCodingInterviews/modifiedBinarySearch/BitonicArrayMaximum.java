@@ -9,6 +9,10 @@ public class BitonicArrayMaximum {
         System.out.println(findMax(new int[] { 10, 9, 8 }));
     }
 
+    /**
+     * We want to compare with the right next element
+     * {@link algorithms.binarySearch.templates.Template2}
+     */
     /*
     Template #2 src/algorithms/binarySearch/templates/Template2.java
     Time: O(logN)

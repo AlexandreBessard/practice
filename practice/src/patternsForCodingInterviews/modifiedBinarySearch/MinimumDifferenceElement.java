@@ -19,9 +19,9 @@ public class MinimumDifferenceElement {
     Space: O(1)
      */
     public static int searchMinDiffElement(int[] arr, int key) {
-        if (key < arr[0])
+        if (key < arr[0]) //Because sorted array, if true, the first will have the minimum difference
             return arr[0];
-        if (key > arr[arr.length - 1])
+        if (key > arr[arr.length - 1]) //Same logic as the condition above
             return arr[arr.length - 1];
         int start = 0;
         int end = arr.length - 1;
@@ -35,6 +35,9 @@ public class MinimumDifferenceElement {
                 return arr[mid];
             }
         }
+        /*
+        Post-processing
+         */
         // at the end of the while loop, 'start == end+1'
         // we are not able to find the element in the given array
         // return the element which is closest to the 'key'

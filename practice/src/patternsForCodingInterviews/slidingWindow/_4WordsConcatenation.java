@@ -37,10 +37,11 @@ public class _4WordsConcatenation {
             //Look further in the string based on words we have
             for(int j = 0; j < wordCounts; j++) {
                 //get first index of the current string we looked for
-                int nextWordIndex = i + j * wordLength;
+                //Must be subsequent, (next to each other)
+                int nextWordIndex = i + (j * wordLength); //Count 3 * 3
                 //get the next word from the string
                 //Get the entire word we looked for
-                String word = str.substring(nextWordIndex, nextWordIndex + wordLength);
+                String word = str.substring(nextWordIndex, nextWordIndex + wordLength); //substring of 3
                 if( ! wordFrequency.containsKey(word)) { //break if we do not need this word
                     break;
                 }
@@ -50,6 +51,7 @@ public class _4WordsConcatenation {
                 if(wordsSeen.get(word) > wordFrequency.getOrDefault(word, 0)) {
                     break;
                 }
+                //if j + 1 (start index 0) == wordCounts, we found all the words because of previous condition
                 if(j + 1 == wordCounts) { //Store index if we have found all the words
                     resultIndices.add(i);
                 }
