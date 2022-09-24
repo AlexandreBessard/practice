@@ -22,8 +22,8 @@ public class _1ConnectAllLevelOrderSiblings {
             return;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        TreeNode currentNode = null;
-        TreeNode previousNode = null;
+        TreeNode currentNode;
+        TreeNode previousNode = null; //Initialise once
         while( ! queue.isEmpty()) {
             currentNode = queue.poll();
             if(previousNode != null){

@@ -36,7 +36,7 @@ public class MinimumDepthOfABinaryTree {
                 TreeNode currentNode = queue.poll();
                 //Check if this is a leaf node
                 if(currentNode.left != null && currentNode.right != null)
-                    return minimumDepth;
+                    return minimumDepth; //Condition true, stop the program we have our minimum level
 
                 if(currentNode.left != null)
                     queue.add(currentNode.left);

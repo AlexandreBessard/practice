@@ -17,10 +17,10 @@ public class LevelOrderSuccessor {
         queue.offer(root);
         while( ! queue.isEmpty()) {
             TreeNode currentNode = queue.poll();
-            if(currentNode.left != null) {
+            if(currentNode.left != null) { //Add node on the left first, priority 1
                 queue.add(currentNode.left);
             }
-            if(currentNode.right != null) {
+            if(currentNode.right != null) { //Add node on the right first, priority 2
                 queue.add(currentNode.right);
             }
             if(currentNode.val == key) {

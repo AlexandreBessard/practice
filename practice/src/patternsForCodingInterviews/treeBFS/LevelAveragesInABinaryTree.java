@@ -27,22 +27,22 @@ public class LevelAveragesInABinaryTree {
      */
     public static List<Double> findLevelAverages(TreeNode root) {
         List<Double> result = new ArrayList<>();
-        if(root == null)
+        if (root == null)
             return result;
         //int maxValue = Integer.MIN_VALUE;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while( ! queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int levelSize = queue.size();
-            double levelSum = 0;
-            for(int i = 0; i < levelSize; i++) {
+            double levelSum = 0; //Reset before each level
+            for (int i = 0; i < levelSize; i++) {
                 TreeNode currentNode = queue.poll();
                 // maxValue = Math.max(maxValue, currentNode.val);
                 levelSum += currentNode.val;
-                if(currentNode.left != null) {
+                if (currentNode.left != null) {
                     queue.add(currentNode.left);
                 }
-                if(currentNode.right != null) {
+                if (currentNode.right != null) {
                     queue.add(currentNode.right);
                 }
             }

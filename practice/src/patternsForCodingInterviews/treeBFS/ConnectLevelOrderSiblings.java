@@ -19,24 +19,24 @@ public class ConnectLevelOrderSiblings {
     }
 
     public static void connect(TreeNode root) {
-        if(root == null)
+        if (root == null)
             return;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while( ! queue.isEmpty()) {
-            TreeNode previous = null;
+        while (!queue.isEmpty()) {
+            TreeNode previous = null; //Reset at the beginning of each level
             int levelSize = queue.size();
-            //connect all nodes for this level
-            for(int i = 0; i < levelSize; i++) {
+            //Connect all nodes for this level
+            for (int i = 0; i < levelSize; i++) { //Execute this level
                 TreeNode currentNode = queue.poll();
-                if(previous != null){
+                if (previous != null) { //Previous is null for the first element only (no previous)
                     previous.next = currentNode;
                 }
                 previous = currentNode;
-                if(currentNode.left != null) {
+                if (currentNode.left != null) {
                     queue.add(currentNode.left);
                 }
-                if(currentNode.right != null){
+                if (currentNode.right != null) {
                     queue.add(currentNode.right);
                 }
             }
@@ -48,6 +48,7 @@ public class ConnectLevelOrderSiblings {
         TreeNode left;
         TreeNode right;
         TreeNode next;
+
         TreeNode(int x) {
             val = x;
             left = right = next = null;
@@ -64,16 +65,16 @@ public class ConnectLevelOrderSiblings {
         //Level order traversal using 'next' pointer
         public void printLevelOrder() {
             TreeNode nextLevelRoot = this;
-            while(nextLevelRoot != null) {
+            while (nextLevelRoot != null) {
                 TreeNode current = nextLevelRoot;
                 nextLevelRoot = null;
-                while(current != null) {
+                while (current != null) { //Execute the current level
                     System.out.print(current.val + " ");
-                    if(nextLevelRoot == null) {
-                        if(current.left != null) {
-                            nextLevelRoot = current.left;
-                        } else if(current.right != null) {
-                            nextLevelRoot = current.right;
+                    if (nextLevelRoot == null) { //Get the next level
+                        if (current.left != null) {
+                            nextLevelRoot = current.left; //Start from the left
+                        } else if (current.right != null) {
+                            nextLevelRoot = current.right; //Start from the right
                         }
                     }
                     current = current.next;
