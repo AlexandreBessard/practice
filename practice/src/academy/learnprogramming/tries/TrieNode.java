@@ -19,6 +19,7 @@ class Main {
         Trie trie = new Trie();
         //trie.insert("Programming");
         trie.insert("is");
+        System.out.println(trie.find("is"));
         /*
         trie.insert("a");
         trie.insert("way");
@@ -56,7 +57,7 @@ class Trie {
         return delete(root, word, 0);
     }
     private boolean delete(TrieNode current, String word, int index) {
-        if (index == word.length()) {
+        if (index == word.length()) { //End of the word (Base case recursion)
             if (!current.isEndOfWord()) {
                 return false;
             }
@@ -70,7 +71,7 @@ class Trie {
         }
         boolean shouldDeleteCurrentNode =
                 delete(node, word, index + 1)
-                && !node.isEndOfWord();
+                && !node.isEndOfWord(); //Check if "current.setEndOfWord(false);" has been set
 
         if (shouldDeleteCurrentNode) {
             current.getChildren().remove(ch);
@@ -86,7 +87,8 @@ class Trie {
             System.out.println(current);
             current = current
                     .getChildren()
-                    .computeIfAbsent(l, c -> new TrieNode());
+                    //Compute and return this new value from that new key
+                    .computeIfAbsent(l, value -> new TrieNode());
         }
         current.setEndOfWord(true);
     }
