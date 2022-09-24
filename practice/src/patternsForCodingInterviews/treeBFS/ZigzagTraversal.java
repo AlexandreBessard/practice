@@ -27,35 +27,35 @@ public class ZigzagTraversal {
      */
     public static List<List<Integer>> traverse(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
-        if(root == null)
+        if (root == null)
             return result;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         boolean leftToRight = true;
-        while( ! queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int levelSize = queue.size();
-            List<Integer> currentLevel = new LinkedList<>();
+            LinkedList<Integer> currentLevel = new LinkedList<>();
             // LinkedList<Integer> currentLevel = new LinkedList<>();
-            for(int i = 0; i < levelSize; i++) {
+            for (int i = 0; i < levelSize; i++) { // Execution of this current level
                 TreeNode currentNode = queue.poll();
                 //Add the node to the current Level
-                if(leftToRight) {
-                    currentLevel.add(currentNode.val);
+                if (leftToRight) {
+                    currentLevel.addLast(currentNode.val);
                     // currentLevel.addLast(current.val);
                 } else {
-                    currentLevel.add(0, currentNode.val);
+                    currentLevel.addFirst(currentNode.val);
                     // currentLevel.addFirst(current.val);
                 }
                 //Insert children
-                if(currentNode.left != null) {
+                if (currentNode.left != null) {
                     queue.offer(currentNode.left);
                 }
-                if(currentNode.right != null) {
+                if (currentNode.right != null) {
                     queue.offer(currentNode.right);
                 }
             }
             result.add(currentLevel);
-            leftToRight =  ! leftToRight;
+            leftToRight = !leftToRight;
         }
         return result;
     }

@@ -16,7 +16,7 @@ public class ReverseLevelOrderTraversal {
         root.right.left = new TreeNode(10);
         root.right.right = new TreeNode(5);
         List<List<Integer>> result = traverse(root);
-        System.out.println("Reverse level order traversal: " + result);
+        System.out.println("Reverse level order traversal:\n " + result);
     }
 
     /*
@@ -24,7 +24,7 @@ public class ReverseLevelOrderTraversal {
     Space: O(N)
      */
     public static List<List<Integer>> traverse(TreeNode root) {
-        List<List<Integer>> result = new LinkedList<>();
+        LinkedList<List<Integer>> result = new LinkedList<>();
         if(root == null)
             return result;
         Queue<TreeNode> queue = new LinkedList<>();
@@ -44,7 +44,7 @@ public class ReverseLevelOrderTraversal {
                 }
             }
             //append the current level at the beginning
-            result.add(0, currentLevel);
+            result.addFirst(currentLevel);
         }
         return result;
     }
