@@ -12,17 +12,17 @@ public class Traversal {
         List<Integer> res = new ArrayList<>();
         PreOrder.preOrderTraversal(one, res);
         System.out.println("\n Post Order Traversal");
-        for(int i : res) {
+        for (int i : res) {
             System.out.print(i + ", ");
         }
         InOrder.inOrderTraversal(one, res = new ArrayList<>());
         System.out.println("\n In Order Traversal");
-        for(int i : res) {
+        for (int i : res) {
             System.out.print(i + ", ");
         }
         PostOrder.postOrderTraversal(one, res = new ArrayList<>());
         System.out.println("\n Post-Order Traversal");
-        for(int i : res) {
+        for (int i : res) {
             System.out.print(i + ", ");
         }
     }
@@ -34,9 +34,8 @@ public class Traversal {
         - Traverse right subtree
          */
         private static void preOrderTraversal(TreeNode root,
-                                              List<Integer> answer)
-        {
-            if(root == null)
+                                              List<Integer> answer) {
+            if (root == null)
                 return;
             answer.add(root.val);
             preOrderTraversal(root.left, answer);
@@ -50,11 +49,10 @@ public class Traversal {
     - Visit root
     - Traverse right subtree
      */
-    static class InOrder {
+    public static class InOrder {
         private static void inOrderTraversal(TreeNode root,
-                                             List<Integer> answer)
-        {
-            if(root == null)
+                                             List<Integer> answer) {
+            if (root == null)
                 return;
             inOrderTraversal(root.left, answer);
             answer.add(root.val);
@@ -62,16 +60,15 @@ public class Traversal {
         }
     }
 
-    static class PostOrder {
+    public static class PostOrder {
         /*
         - Traverse left subtree
         - Traverse right subtree
         - visit the node
          */
         private static void postOrderTraversal(TreeNode root,
-                                               List<Integer> answer)
-        {
-            if(root == null)
+                                               List<Integer> answer) {
+            if (root == null)
                 return;
             postOrderTraversal(root.left, answer);
             postOrderTraversal(root.right, answer);
@@ -80,8 +77,12 @@ public class Traversal {
     }
 
 }
+
 class TreeNode {
     int val;
     TreeNode left, right;
-    TreeNode(int val) {this.val = val;}
+
+    TreeNode(int val) {
+        this.val = val;
+    }
 }
