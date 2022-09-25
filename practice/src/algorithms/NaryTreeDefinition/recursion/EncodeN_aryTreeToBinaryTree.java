@@ -1,5 +1,6 @@
 package algorithms.NaryTreeDefinition.recursion;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -22,6 +23,10 @@ public class EncodeN_aryTreeToBinaryTree {
     static class Codec {
         //Encodes an n-ary tree to binary tree
         //BFS
+        /*
+        Time: O(N)
+        Space: O(N)
+         */
         public TreeNode encode(Node root) {
             if (root == null) {
                 return null;
@@ -56,8 +61,38 @@ public class EncodeN_aryTreeToBinaryTree {
         }
 
         //Decode binary tree to n-ary tree
+        //BFS
+        /*
+        Time: O(n)
+        Space: O(L) where L is the max number of nodes that reside at the same level.
+         */
         public Node decode(TreeNode root) {
-            return null;
+            if (root == null) {
+                return null;
+            }
+            Node newRoot = new Node(root.val, new ArrayList<Node>());
+            // adding the first element to kickoff the loop
+            Queue<Pair<Node, TreeNode>> queue = new LinkedList<>();
+            Pair<Node, TreeNode> head = new Pair<Node, TreeNode>(newRoot, root);
+            queue.add(head);
+            while (queue.size() > 0) {
+                Pair<Node, TreeNode> entry = queue.remove();
+                Node nNode = entry.key;
+                TreeNode bNode = entry.value;
+                // Decoding the children list
+                TreeNode firstChild = bNode.left;
+                TreeNode sibling = firstChild;
+                while (sibling != null) {
+                    Node nChild = new Node(sibling.val, new ArrayList<Node>());
+                    nNode.children.add(nChild);
+
+                    // prepare the decoding the children of the child, by standing in the queue.
+                    Pair<Node, TreeNode> nextEntry = new Pair<Node, TreeNode>(nChild, sibling);
+                    queue.add(nextEntry);
+                    sibling = sibling.right;
+                }
+            }
+            return newRoot;
         }
     }
 
