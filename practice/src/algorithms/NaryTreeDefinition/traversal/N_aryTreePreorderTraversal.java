@@ -21,6 +21,7 @@ public class N_aryTreePreorderTraversal {
         for (int el : preorderRecursive(one)) {
             System.out.print(el + ", ");
         }
+        System.out.println();
         for (int el : preorderIterative(one)) {
             System.out.print(el + ", ");
         }

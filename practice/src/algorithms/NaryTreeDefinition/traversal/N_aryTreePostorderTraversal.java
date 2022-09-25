@@ -34,15 +34,15 @@ public class N_aryTreePostorderTraversal {
      */
     static List<Integer> postorderIterative(Node root) {
         LinkedList<Integer> list = new LinkedList<>();
-        if(root == null)
+        if (root == null)
             return list;
         Stack<Node> stack = new Stack<>();
         stack.add(root);
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             Node node = stack.pop();
             list.addFirst(node.val);
-            for(Node item : node.children) {
-                if(item != null) {
+            for (Node item : node.children) {
+                if (item != null) {
                     stack.add(item);
                 }
             }
@@ -56,16 +56,16 @@ public class N_aryTreePostorderTraversal {
     Space: O(n)
      */
     static List<Integer> list = new ArrayList<>();
+
     static List<Integer> postorderRecursive(Node root) {
-        if(root == null)
+        if (root == null)
             return null;
-        for(Node node : root.children) {
+        for (Node node : root.children) {
             postorderRecursive(node);
         }
         list.add(root.val);
         return list;
     }
-
 
 
 }
