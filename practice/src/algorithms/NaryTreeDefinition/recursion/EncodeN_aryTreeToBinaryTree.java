@@ -23,7 +23,7 @@ public class EncodeN_aryTreeToBinaryTree {
     static class Codec {
         //Encodes an n-ary tree to binary tree
         //BFS
-        /*
+        /*<<
         Time: O(N)
         Space: O(N)
          */
