@@ -25,16 +25,17 @@ public class TopKNumbers {
      Space: O(K) we need to store K numbers in the heap
      */
     public static List<Integer> findKLargestNumbers(int[] nums, int k) {
+        //Smaller element are the priority to be removed from the heap
         PriorityQueue<Integer> minHeap  = new PriorityQueue<>((n1, n2) -> n1 - n2);
         //Put first 'K' numbers in the minHeap
-        for(int i = 0; i < k; i++) {
+        for(int i = 0; i < k; i++) { //Start from 0 to k
             minHeap.add(nums[i]);
         }
         // go through the remaining numbers of the array, if the number from the array is
         // bigger than the top (smallest) number of the min-heap, remove the top number from
         // heap and add the number from array
-        for(int i = k; i < nums.length; i++) {
-            if(nums[i] > minHeap.peek()) {
+        for(int i = k; i < nums.length; i++) { //Start from k to end
+            if(nums[i] > minHeap.peek()) { //True if we have found bigger number
                 minHeap.poll();
                 minHeap.add(nums[i]);
             }

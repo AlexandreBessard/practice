@@ -1,5 +1,7 @@
 Heap: is like a Binarytree
 
+Problem that asks to find the top/smaller/frequent 'k' elements use this pattern.
+
 MaxHeap: Every parent is greater than or equal to its children
 MinHeap: Every parent is less than or equal to its children
 
