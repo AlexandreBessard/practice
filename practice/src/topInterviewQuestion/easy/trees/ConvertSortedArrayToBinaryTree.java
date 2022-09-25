@@ -11,6 +11,27 @@ public class ConvertSortedArrayToBinaryTree {
         System.out.println(sortedArrayToBST(nums));
     }
 
+    //Approach 2: Preorder Traversal: Always Choose right Middle Node as a Root
+    //[-10, -3, 0, 5, 9]
+    //       - mid    -
+    static TreeNode sortedArrayToBSTRightMiddleNodeAsRoot(int[] nums) {
+        ConvertSortedArrayToBinaryTree.nums = nums;
+        return helperSortedArrayToBST(0, nums.length - 1);
+    }
+    private static TreeNode helperSortedArrayToBST(int left, int right) {
+        if(left > right)
+            return null;
+        //Choose middle node as root node
+        int mid = left + (right - left) / 2;
+        if((left + right) % 2 == 1)
+            mid++;
+        //Preorder Traversal
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = helperSortedArrayToBST(left, mid - 1);
+        root.right = helperSortedArrayToBST(mid + 1, right);
+        return root;
+    }
+
 
     //Approach 3: Preorder Traversal, Choose Random middle Node as a root
     static Random rand = new Random();
@@ -41,6 +62,8 @@ public class ConvertSortedArrayToBinaryTree {
 
     static int[] nums;
     //Approach 1: Preorder traversal recursive : always choose left middle as a root
+    //Choose lieft middle Node as Root
+    //Preorder -> Node, Left, Right
     /*
     Time complexity: O(N)
     Space complexity: O(log(N)) because the tree is height-balanced
@@ -53,10 +76,10 @@ public class ConvertSortedArrayToBinaryTree {
         if(left > right)
             return null;
         //Choose middle
-        int p = (right + left) / 2;
-        TreeNode root = new TreeNode(nums[p]);
-        root.left = helper(left, p - 1);
-        root.right = helper(p + 1, right);
+        int mid = left - (right + left) / 2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = helper(left, mid - 1);
+        root.right = helper(mid + 1, right);
         return root;
     }
 

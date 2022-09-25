@@ -1,10 +1,20 @@
 package topInterviewQuestion.medium.treesAndGraphs;
+
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/108/trees-and-graphs/791/
 public class InorderSuccessorInBST {
 
 
     public static void main(String[] args) {
-
+        TreeNode five = new TreeNode(5);
+        five.left = new TreeNode(3);
+        five.left.left = new TreeNode(2);
+        five.left.left.left = new TreeNode(1);
+        TreeNode four = new TreeNode(4);
+        five.left.right = four;
+        TreeNode six = new TreeNode(6);
+        five.right = six;
+        //p -> successor of node p is the node with the smallest key greater than p.val
+        TreeNode res = inorderSuccessorBST(five, four);
     }
 
 
@@ -16,10 +26,10 @@ public class InorderSuccessorInBST {
      */
     static TreeNode inorderSuccessorBST(TreeNode root, TreeNode p) {
         TreeNode successor = null;
-        while(root != null) {
-            if(p.val >= root.val) {
+        while (root != null) {
+            if (p.val >= root.val) { //If true we go to the right side
                 root = root.right;
-            } else {
+            } else { //Go to the left side
                 successor = root;
                 root = root.left;
             }
@@ -28,10 +38,9 @@ public class InorderSuccessorInBST {
     }
 
 
-
-
-        static TreeNode previous;
+    static TreeNode previous;
     static TreeNode inorderSuccessorNode;
+
     //Approach 1: Without using BST properties
     /*
     Time complexity: O(N)
@@ -39,25 +48,26 @@ public class InorderSuccessorInBST {
      */
     static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         //Need to find the leftmost node
-        if(p.right != null) {
-           TreeNode leftmost = p.right;
-           while(leftmost.left != null) {
-               leftmost = leftmost.left;
-           }
-           inorderSuccessorNode = leftmost;
+        if (p.right != null) {
+            TreeNode leftmost = p.right;
+            while (leftmost.left != null) {
+                leftmost = leftmost.left;
+            }
+            inorderSuccessorNode = leftmost;
         } else {
             // we need to perform the standard inorder traversal and keep track of the previous node
             inorderCase2(root, p);
         }
         return inorderSuccessorNode;
     }
+
     private static void inorderCase2(TreeNode node, TreeNode p) {
-        if(node == null)
+        if (node == null)
             return;
         //Recurse on the left side
         inorderCase2(node.left, p);
         //Check if previous inorder predecessor of node
-        if(previous == p && inorderSuccessorNode == null) {
+        if (previous == p && inorderSuccessorNode == null) {
             inorderSuccessorNode = node;
             return;
         }

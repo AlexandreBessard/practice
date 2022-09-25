@@ -1,0 +1,1 @@
+https://yunrui-li.medium.com/leetcode-greedy-algor-1c9fc0097689#:~:text=Greedy%20algorithm%20is%20a%20method,iteratively%20constructs%20the%20final%20solution.
