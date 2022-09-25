@@ -56,19 +56,19 @@ public class _1MinimumMeetingRooms {
     Space: O(N) used by sorting and heap
      */
     public static int findMinimumMeetingRooms(List<Meeting> meetings) {
-        if(meetings == null || meetings.size() == 0) {
+        if (meetings == null || meetings.size() == 0) {
             return 0;
         }
         //Sort the meeting by start time
-        meetings.sort((a, b) -> a.start - b.start); //Mergesort
+        meetings.sort((a, b) -> a.start - b.start); //Mergesort algo
         int minRooms = 0;
         //Priority to the smaller end time
         PriorityQueue<Meeting> minHeap = new PriorityQueue<>(
                 meetings.size(), (a, b) -> a.end - b.end
         );
-        for(Meeting meeting : meetings) {
+        for (Meeting meeting : meetings) {
             ///Remove all meetings that have ended
-            while( ! minHeap.isEmpty() && meeting.start >= minHeap.peek().end) {
+            while (!minHeap.isEmpty() && meeting.start >= minHeap.peek().end) {
                 minHeap.poll();
             }
             //add the current meeting into the minHeap
@@ -83,6 +83,7 @@ public class _1MinimumMeetingRooms {
     static class Meeting {
         int start;
         int end;
+
         Meeting(int start, int end) {
             this.start = start;
             this.end = end;

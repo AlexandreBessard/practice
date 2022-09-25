@@ -49,7 +49,7 @@ public class InsertInterval {
         //Skip (and add to output) all intervals that come before the
         // 'newInterval'
         while(i < intervals.size()
-                && intervals.get(i).end < newInterval.start)
+                && intervals.get(i).end < newInterval.start) //Skip this interval by adding to the result
         {
             mergedIntervals.add(intervals.get(i++));
         }

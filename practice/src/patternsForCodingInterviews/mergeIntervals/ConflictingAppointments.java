@@ -70,21 +70,26 @@ public class ConflictingAppointments {
         Interval longestAppointment = null;
         for (int i = 1; i < intervals.length; i++) {
             if (intervals[i].start < intervals[i - 1].end
-            || (longestAppointment != null && intervals[i].start < longestAppointment.end)) { //Conflict
+                    || (longestAppointment != null
+                    && intervals[i].start < longestAppointment.end))
+            { //Conflict
                 List<Interval> list = new ArrayList<>();
-                if (longestAppointment != null && intervals[i].start < longestAppointment.end)  {
+                if (longestAppointment != null && intervals[i].start < longestAppointment.end)
+                {//Case if we still have a conflict with an older appointment
                     list = new ArrayList<>();
                     list.add(longestAppointment);
+                    //One new interval
                     list.add(new Interval(intervals[i].start, intervals[i].end));
                     if (longestAppointment.end < intervals[i].end) {
                         longestAppointment = intervals[i];
                     }
                 }
                 else
-                {
+                { //Conflict with the previous appointment
                         list = new ArrayList<>();
                         Interval interval1 = new Interval(intervals[i].start, intervals[i].end);
                         Interval interval2 = new Interval(intervals[i - 1].start, intervals[i - 1].end);
+                        //Two new intervals
                         list.add(interval1);
                         list.add(interval2);
                         if (intervals[i].end >= intervals[i - 1].end) {

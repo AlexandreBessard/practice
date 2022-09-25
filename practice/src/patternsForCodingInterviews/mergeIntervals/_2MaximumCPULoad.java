@@ -34,13 +34,13 @@ public class _2MaximumCPULoad {
         PriorityQueue<Job> minHeap = new PriorityQueue<>(
                 jobs.size(), (a, b) -> a.end - b.end
         );
-        for(Job job : jobs) {
+        for (Job job : jobs) {
             //Remove all the job that have ended
-            while( ! minHeap.isEmpty() && job.start > minHeap.peek().end) {
-                currentCPULoad -= minHeap.poll().cpuLoad;
+            while (!minHeap.isEmpty() && job.start > minHeap.peek().end) {
+                currentCPULoad -= minHeap.poll().cpuLoad; //Remove cpu load
             }
             minHeap.add(job);
-            currentCPULoad += job.cpuLoad;
+            currentCPULoad += job.cpuLoad; //add cpu load
             maxCPULoad = Math.max(maxCPULoad, currentCPULoad);
         }
         return maxCPULoad;
@@ -50,6 +50,7 @@ public class _2MaximumCPULoad {
         int start;
         int end;
         int cpuLoad;
+
         public Job(int start, int end, int cpuLoad) {
             this.start = start;
             this.end = end;
