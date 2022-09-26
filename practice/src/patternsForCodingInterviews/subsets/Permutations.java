@@ -7,7 +7,9 @@ public class Permutations {
 
     public static void main(String[] args) {
         List<List<Integer>> result = findPermutations(new int[] { 1, 3, 5 });
-        System.out.print("Here are all the permutations: " + result);
+        List<List<Integer>> result2 = generatePermutationsRecursive(new int[]{1, 3, 5});
+        System.out.println("Here are all the permutations: Iterative " + result + "\n");
+        System.out.println("Here are all the permutations: Recursive " + result2);
 
         List<List<Integer>> resultBacktracking  = subsetsWithDup(new int[]{1, 2, 3});
         for(List<Integer> l : resultBacktracking) {

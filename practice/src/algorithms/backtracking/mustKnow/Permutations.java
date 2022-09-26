@@ -27,14 +27,14 @@ public class Permutations {
     }
 
     private void backtrack(List<List<Integer>> output, List<Integer> currList, int [] nums){
-        if(currList.size() == nums.length){
-            output.add(new ArrayList<>(currList));
+        if(currList.size() == nums.length){ //Base case
+            output.add(new ArrayList<>(currList)); //add to the result
         } else{
             for(int i = 0; i < nums.length; i++){
                 if(currList.contains(nums[i])) continue; // element already exists, skip
                 currList.add(nums[i]);
-                backtrack(output, currList, nums);
-                currList.remove(currList.size() - 1);
+                backtrack(output, currList, nums); //get the next element
+                currList.remove(currList.size() - 1); //Backtrack
             }
         }
     }
