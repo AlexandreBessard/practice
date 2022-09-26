@@ -34,6 +34,7 @@ public class ConnectRopes {
         int result = 0;
         int temp = 0;
         while(minHeap.size() > 1) {
+            //Take the 2 minimums rope from the heap
             temp = minHeap.poll() + minHeap.poll();
             result += temp;
             minHeap.add(temp);

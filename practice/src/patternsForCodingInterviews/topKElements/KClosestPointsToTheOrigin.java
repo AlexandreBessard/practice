@@ -22,6 +22,7 @@ public class KClosestPointsToTheOrigin {
     Space: O(K), we need to store 'K' points in the heap
      */
     public static List<Point> findClosestPoints(Point[] points, int k) {
+        //With the higher distance from origin will be our priority
         PriorityQueue<Point> maxHeap = new PriorityQueue<>((p1, p2) -> p2.distFromOrigin() - p1.distFromOrigin());
         // put first 'k' points in the max heap
         for(int i = 0; i < k; i++) {
