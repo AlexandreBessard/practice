@@ -17,7 +17,7 @@ public class Template {
             place(next_candidate)
             # given the candidate, explore further.
             backtrack(next_candidate)
-            # backtrack
+            # backtrack                  //backtracking should happen at the level of the iteration within the recursion
             remove(next_candidate)
 
 

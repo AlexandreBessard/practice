@@ -24,12 +24,12 @@ public class RobotRoomCleaner {
 
     // going clockwise : 0: 'up', 1: 'right', 2: 'down', 3: 'left'
     int[][] directions = {
-            {-1, 0},
-            {0, 1},
-            {1, 0},
-            {0, -1}
+            {-1, 0}, //up
+            {0, 1}, // right
+            {1, 0}, //down
+            {0, -1} // left
     };
-    Set<Map.Entry<Integer, Integer>> visited = new HashSet<>();
+    Set<Pair<Integer, Integer>> visited = new HashSet<>();
     Robot robot;
 
     public void goBack() {
@@ -53,17 +53,17 @@ public class RobotRoomCleaner {
         backTrack(0, 0, 0);
     }
 
-    private void backTrack(int row, int col, int d) {
-        visited.add(Pair.of(row, col));
+    private void backTrack(int row, int col, int directions) {
+        visited.add(new Pair<>(row, col));
         robot.clean();
         //Explore 4 directions : up, right, down, and left
         // (the order is important since the idea is always to turn right) :
         for (int i = 0; i < 4; i++) {
-            int newD = (d + i) % 4;
-            int newRow = row + directions[newD][0];
-            int newCol = col + directions[newD][1];
-            if (!visited.contains(Pair.of(newRow, newCol)) && robot.move()) {
-                backTrack(newRow, newCol, newD);
+            int newD = (directions + i) % 4;
+            int newRow = row + this.directions[newD][0];
+            int newCol = col + this.directions[newD][1];
+            if (!visited.contains(new Pair<>(newRow, newCol)) && robot.move()) { //move() -> true if robot can go
+                backTrack(newRow, newCol, newD); //given the candidate, explore further
                 goBack();
             }
             //Turn the robot following chosen direction : clockwise
@@ -71,11 +71,23 @@ public class RobotRoomCleaner {
         }
     }
 
+    static class Pair<K, V> {
+        K first;
+        V second;
+        Pair(K first, V second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
+
+    /*
     static class Pair {
         public static <T, U> Map.Entry<T, U> of(T first, U second) {
             return new AbstractMap.SimpleEntry<>(first, second);
         }
     }
+
+     */
 
     interface Robot {
         //return tru  if the cell in front  is open and robot moves

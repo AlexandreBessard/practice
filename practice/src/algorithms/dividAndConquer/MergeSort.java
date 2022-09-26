@@ -14,6 +14,7 @@ public class MergeSort {
     }
 
     /*
+    Divide and Conquer technique
     Time: O(n log n)
     Space: O(N)
      */
