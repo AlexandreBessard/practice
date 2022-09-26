@@ -17,6 +17,7 @@ public class ConvertBinarySearchTreeToSortedDoublyLinkedList {
     }
 
     //Approach 2 : Iterative
+    //Inorder Traversal approach -> Left, Node, Right
     /*
     Time: O(N)
     Space: O(N)
@@ -31,13 +32,13 @@ public class ConvertBinarySearchTreeToSortedDoublyLinkedList {
         while(!stack.isEmpty() || curr != null) {
             while(curr != null) {
                 stack.push(curr);
-                curr = curr.left;
+                curr = curr.left; //Put of the left node to the stack from top to bottom
             }
             curr = stack.pop();
             prev.right = curr;
             curr.left = prev;
             prev = curr;
-            curr = curr.right;
+            curr = curr.right; //If right side is null, we are going to get the next node above (stored in stack)
         }
         dummy.right.left = prev;
         prev.right = dummy.right;
