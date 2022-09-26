@@ -1,14 +1,22 @@
 package algorithms.greedy;
 
-public class Example {
+public class GreedyTemplate {
 
     //https://www.baeldung.com/java-greedy-algorithms
 
     /*
     Remember: Here is where we perform a greedy choice. As such, every time we call this method,
     we'll choose one and only one element from the list and move on: We won't ever go back on our decisions!
+
+    The essence of greedy algorithm is to find the best solution for the current iteration in order to reach the goal.
+    It never takes back its choices but iteratively constructs the final solution.
+    -------------------------------------------------------------------------------------
      */
     /*
+--------------------------------------------------------------------------------------
+
+    int currentLevel = 0;
+    final int maxLevel = 3;
 
     public long findMostFollowersPath(String account) {
     long max = 0;
@@ -28,7 +36,7 @@ public class Example {
     }
     return max;
 }
-
+-----------------------------------------------------------------------------------------
 
      */
 
