@@ -19,27 +19,38 @@ public class HouseRobber {
         HouseRobber.nums = nums;
         return dp(nums.length - 1);
     }
-    private static int dp(int i) {
+
+    private static int dp(int i) {  //i is our state
         //Base cases
-        if(i == 0)
+        if (i == 0) {
             return nums[i];
-        if(i == 1)
+        }
+        if (i == 1) {
             return Math.max(nums[0], nums[1]);
+        }
+        //Get from the cache
+        if (memo.containsKey(i)) {
+            return memo.get(i);
+        }
         //Recurrence
-        memo.put(i, Math.max(dp(i - 1), dp(i - 2) + nums[i]));
+        memo.put(i, Math.max(
+                dp(i - 1),
+                dp(i - 2) + nums[i]));
+        //Return from the cache
         return memo.get(i);
     }
 
 
     //------------- BOTTOM UP
     public static int robBottomUp(int[] nums) {
-        if(nums.length == 1)
+        if (nums.length == 1) {
             return nums[0];
+        }
         int[] dp = new int[nums.length];
         //Base cases
         dp[0] = nums[0]; //Rob the first house
         dp[1] = Math.max(nums[0], nums[1]); //Rob the first or second house
-        for(int i = 2; i < nums.length; i++) {
+        for (int i = 2; i < nums.length; i++) {
             //Recurrence relation
             dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
         }
