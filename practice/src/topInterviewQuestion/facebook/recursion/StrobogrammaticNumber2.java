@@ -12,6 +12,8 @@ public class StrobogrammaticNumber2 {
         var obj = new StrobogrammaticNumber2();
         List<String> res = obj.findStrobogrammatic(3);
         System.out.println(res);
+        List<String> res1 = obj.findStrobogrammaticIterative(3);
+        System.out.println(res1);
     }
 
     public static char[][] reversiblePairs = {
@@ -49,6 +51,9 @@ public class StrobogrammaticNumber2 {
     }
 
     //Approach 2: Iterative
+    /*
+
+     */
     public List<String> findStrobogrammaticIterative(int n) {
         Queue<String> q = new LinkedList<>();
         int currStringLength;
@@ -57,7 +62,7 @@ public class StrobogrammaticNumber2 {
             // We will start with 0-digit strobogrammatic numbers.
             currStringLength = 0;
             q.add("");
-        } else {
+        } else { // it is not an even number
             currStringLength = 1;
             q.add("0");
             q.add("1");
@@ -65,7 +70,8 @@ public class StrobogrammaticNumber2 {
         }
         while(currStringLength < n) {
             currStringLength += 2;
-            for(int i = 0; i < q.size(); i++) {
+            int size = q.size();
+            for(int i = 0; i < size; i++) {
                 String number = q.poll();
                 StringBuilder strBuilder;
                 for(char[] pair : reversiblePairs) {
@@ -78,7 +84,7 @@ public class StrobogrammaticNumber2 {
             }
         }
         List<String> stroboNums = new ArrayList<>(q.size());
-        while (!q.isEmpty()) {
+        while (!q.isEmpty()) {        //Equivalent to : stroboNums.addAll(q);
             stroboNums.add(q.poll());
         }
         return stroboNums;
