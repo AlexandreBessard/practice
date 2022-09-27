@@ -7,9 +7,9 @@ public class Permutations {
 
     public static void main(String[] args) {
         List<List<Integer>> result = findPermutations(new int[] { 1, 3, 5 });
-        List<List<Integer>> result2 = generatePermutationsRecursive(new int[]{1, 3, 5});
+        //List<List<Integer>> result2 = generatePermutationsRecursive(new int[]{1, 3, 5});
         System.out.println("Here are all the permutations: Iterative " + result + "\n");
-        System.out.println("Here are all the permutations: Recursive " + result2);
+        //System.out.println("Here are all the permutations: Recursive " + result2);
 
         List<List<Integer>> resultBacktracking  = subsetsWithDup(new int[]{1, 2, 3});
         for(List<Integer> l : resultBacktracking) {
@@ -46,16 +46,16 @@ public class Permutations {
         List<List<Integer>> result = new ArrayList<>();
         Queue<List<Integer>> permutationsQueue = new LinkedList<>();
         permutationsQueue.add(new ArrayList<>());
-        for (int currentNumber : nums) {
+        for (int currentNumber : nums) { // Loop through each number
             // we will take all existing permutations and add the current number to create
             // new permutations
             int n = permutationsQueue.size();
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++) { //Loop through each permutation from the queue
                 List<Integer> oldPermutation = permutationsQueue.poll();
                 // create a new permutation by adding the current number at every position
                 for (int j = 0; j <= oldPermutation.size(); j++) {
                     List<Integer> newPermutation = new ArrayList<Integer>(oldPermutation);
-                    newPermutation.add(j, currentNumber);
+                    newPermutation.add(j, currentNumber); //Add element in each index
                     if (newPermutation.size() == nums.length)
                         result.add(newPermutation);
                     else

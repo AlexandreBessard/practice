@@ -25,9 +25,9 @@ public class BalancedParentheses {
         generateValidParenthesesRecursive(num, 0, 0, parenthesesString, 0, result);
         return result;
     }
+
     private static void generateValidParenthesesRecursive(int num, int openCount,
-                                                          int closeCount, char[] parenthesesString, int index, List<String> result)
-    {
+                                                          int closeCount, char[] parenthesesString, int index, List<String> result) {
         // if we've reached the maximum number of open and close parentheses, add to result
         if (openCount == num && closeCount == num) {
             result.add(new String(parenthesesString));
@@ -54,15 +54,15 @@ public class BalancedParentheses {
         List<String> result = new ArrayList<>();
         Queue<ParenthesesString> queue = new LinkedList<>();
         queue.add(new ParenthesesString(new StringBuilder(), 0, 0));
-        while( ! queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             ParenthesesString ps = queue.poll();
             // if we've reached the maximum number of open and close parentheses, add to result
-            if(ps.openCount == num && ps.closeCount == num) {
+            if (ps.openCount == num && ps.closeCount == num) {
                 result.add(ps.str.toString());
             } else {
                 StringBuilder strBuilder;
                 ParenthesesString parenthesesString;
-                if(ps.openCount < num) { // if we can add an open parentheses, add it
+                if (ps.openCount < num) { // if we can add an open parentheses, add it
                     strBuilder = new StringBuilder(ps.str).append("(");
                     parenthesesString = new ParenthesesString(strBuilder, ps.openCount + 1, ps.closeCount);
                     queue.add(parenthesesString);
@@ -81,6 +81,7 @@ public class BalancedParentheses {
         StringBuilder str;
         int openCount; //Open parentheses count
         int closeCount; //Close parentheses count
+
         ParenthesesString(StringBuilder s, int openCount, int closeCount) {
             this.str = s;
             this.openCount = openCount;

@@ -33,9 +33,9 @@ public class StringPermutationsByChangingCase {
                 //we will take all existing permutations and change the letter case appropriately
                 int n = permutations.size();
                 for(int j = 0; j < n; j++) {
-                    char[] chs = permutations.get(j).toCharArray();
+                    char[] chs = permutations.get(j).toCharArray(); //new instance for chs
                     //If the current char is in upper case, change it to lower case and vice versa
-                    if(Character.isUpperCase(chs[i])) {
+                    if(Character.isUpperCase(chs[i])) { //Be careful, we work on index 'i'
                         chs[i] = Character.toLowerCase(chs[i]);
                     } else {
                         chs[i] = Character.toUpperCase(chs[i]);

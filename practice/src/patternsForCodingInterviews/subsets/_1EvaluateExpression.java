@@ -31,7 +31,7 @@ public class _1EvaluateExpression {
         if (map.containsKey(input)) {
             return map.get(input);
         }
-         List<Integer> result = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         //base case: if the input string is a number, parse and add it to the output.
         if (!input.contains("+") && !input.contains("-") && !input.contains("*")) {
             result.add(Integer.parseInt(input));
@@ -39,14 +39,14 @@ public class _1EvaluateExpression {
         } else {
             for (int i = 0; i < input.length(); i++) {
                 char chr = input.charAt(i);
-                if (!Character.isDigit(chr)) {
+                if (!Character.isDigit(chr)) { //True if it is NOT a digit like '+', '-' and so on
                     //Break  the equation here into two parts and make recursively calls
                     List<Integer> leftParts =
-                            diffWaysToEvaluateExpression(input.substring(0, i));
+                            diffWaysToEvaluateExpression(input.substring(0, i)); //Get expression from the left side
                     List<Integer> rightParts =
-                            diffWaysToEvaluateExpression(input.substring(i + 1));
-                    for (int part1 : leftParts) {
-                        for (int part2 : rightParts) {
+                            diffWaysToEvaluateExpression(input.substring(i + 1)); //Get expression from the right side
+                    for (int part1 : leftParts) { //Left side loop
+                        for (int part2 : rightParts) { //Right side loop
                             if (chr == '+') {
                                 result.add(part1 + part2);
                             } else if (chr == '-') {
