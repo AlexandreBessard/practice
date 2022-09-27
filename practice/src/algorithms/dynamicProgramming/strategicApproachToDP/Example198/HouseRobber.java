@@ -1,4 +1,4 @@
-package algorithms.dynamicProgramming.strategicApproachToDP;
+package algorithms.dynamicProgramming.strategicApproachToDP.Example198;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,14 +40,12 @@ public class HouseRobber {
         return memo.get(i);
     }
 
-
     //------------- BOTTOM UP
     public static int robBottomUp(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
         }
         int[] dp = new int[nums.length];
-        //Base cases
         dp[0] = nums[0]; //Rob the first house
         dp[1] = Math.max(nums[0], nums[1]); //Rob the first or second house
         for (int i = 2; i < nums.length; i++) {

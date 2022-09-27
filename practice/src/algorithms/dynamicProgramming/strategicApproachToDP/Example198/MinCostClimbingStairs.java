@@ -1,4 +1,4 @@
-package algorithms.dynamicProgramming.strategicApproachToDP;
+package algorithms.dynamicProgramming.strategicApproachToDP.Example198;
 
 import java.util.HashMap;
 import java.util.Map;
