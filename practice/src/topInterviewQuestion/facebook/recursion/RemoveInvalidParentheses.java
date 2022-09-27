@@ -18,13 +18,20 @@ public class RemoveInvalidParentheses {
         //System.out.println(res);
     }
 
-    //BFS
+    //BFS -> can guarantee the number of parentheses that need to be removed is minimal,we have no recursion
     //https://leetcode.com/explore/interview/card/facebook/53/recursion-3/324/discuss/75032/Share-my-Java-BFS-solution
     /*
     The idea is straightforward, with the input string s, we generate all possible states by removing one
     ( or ), check if they are valid, if found valid ones on the current level,
      put them to the final result list and we are done, otherwise, add them to a queue and carry on to the next level.
-     */
+
+    Check if String is valid -> O(n)
+    Remove ( or ) from the first level so there are C(n, n - 1)
+    Each new  string -> check if valid (n-1)  -> total (n-1) * C(n, n - 1)
+    Third level -> (n-2) x C(n, n-2) so on and so forth...
+    We have this formula
+    T(n) = n x C(n, n) + (n-1) x C(n, n-1) + ... + 1 x C(n, 1) = n x 2^(n-1).
+    */
     public List<String> removeInvalidParenthesesBFS(String s) {
         List<String> res = new ArrayList<>();
         // sanity check
