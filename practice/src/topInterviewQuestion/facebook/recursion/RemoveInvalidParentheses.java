@@ -36,7 +36,7 @@ public class RemoveInvalidParentheses {
         visited.add(s);
         boolean found = false;
         while (!queue.isEmpty()) {
-            s = queue.poll();
+            s = queue.poll(); //each level from the queue, the input is smaller and smaller (remove 1 character when we loop)
             if (isValid(s)) {
                 // found an answer, add to the result
                 res.add(s);
@@ -47,17 +47,18 @@ public class RemoveInvalidParentheses {
             // further bfs would only yield strings of smaller length.
             //However the items already in queue need to be processed
             // since there could be other solutions of the same length.
-            if (found)
+            if (found) //We can have other valid results from the queue
                 continue;
+            StringBuilder stringBuilder;
             // generate all possible states
             for (int i = 0; i < s.length(); i++) {
                 // we only try to remove left or right paren
                 if (s.charAt(i) != '(' && s.charAt(i) != ')') //In case of a letter for example
                     continue;
-                //Skip one paren by one paren from left to right
-                var strBuilder = new StringBuilder(s.substring(0, i));
-                strBuilder.append(s.substring(i + 1));
-                final String t = strBuilder.toString();
+                //Skip one parenthese (the middle) between left -> i and i + 1 -> right
+                stringBuilder = new StringBuilder(s.substring(0, i)); //Get the left side of the input string
+                stringBuilder.append(s.substring(i + 1)); //Get the right side of the input string
+                final String t = stringBuilder.toString();
                 if (!visited.contains(t)) {
                     // for each state, if it's not visited, add it to the queue
                     queue.add(t);
