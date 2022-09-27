@@ -1,4 +1,4 @@
-package algorithms.dynamicProgramming.strategicApproachToDP;
+package algorithms.dynamicProgramming.strategicApproachToDP.Example1770;
 //https://leetcode.com/explore/learn/card/dynamic-programming/631/strategy-for-solving-dp-problems/4100/
 public class MaximumScoreFromPerformingMultiplicationOperations {
     /*
