@@ -14,6 +14,9 @@ public class MergeSort {
     }
 
     /*
+    Merge Sort is stable as two elements with equal value appear in the same order.
+    MergeSort is preferred for linkedList.
+    Better than quicksort if larger array
     Divide and Conquer technique
     Time: O(n log n)
     Space: O(N)

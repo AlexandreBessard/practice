@@ -12,7 +12,11 @@ public class QuickSort {
 
     /* Sorts an array in the ascending order in O(n log n) time */
     /*
+    Based on Divide and Conquer strategy
+    Unstable.
+    Quicksort is preferred for arrays and works better for small array.
     Time: O(NlogN)
+    Space(O(1)
      */
     public static void quickSort(int[] lst) {
         int n = lst.length;
@@ -30,7 +34,7 @@ public class QuickSort {
         int pivot = lst[hi];
         int i = lo;
         for(int j = lo; j < hi; j++) {
-            if(lst[j] < pivot) {
+            if(lst[j] < pivot) { //True -> Swap element smaller than the pivot on the left
                 //swap
                 int tmp = lst[i];
                 lst[i] = lst[j];
