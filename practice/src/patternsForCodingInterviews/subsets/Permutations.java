@@ -11,7 +11,7 @@ public class Permutations {
         System.out.println("Here are all the permutations: Iterative " + result + "\n");
         //System.out.println("Here are all the permutations: Recursive " + result2);
 
-        List<List<Integer>> resultBacktracking  = subsetsWithDup(new int[]{1, 2, 3});
+        List<List<Integer>> resultBacktracking  = subsetsWithDup(new int[]{1, 1, 3});
         for(List<Integer> l : resultBacktracking) {
             System.out.println(l);
         }
