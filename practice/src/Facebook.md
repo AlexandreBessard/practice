@@ -11,7 +11,7 @@ Top recent FB tagged Coding Questions on LeetCode
 9. Partition Equal Subset Sum (medium)
 10. Alien Dictionary (hard)
 
-11. Top FB System Design Questions
+Top FB System Design Questions
 ----
 1. Design Facebook Newsfeed
 2. Design Facebook Messenger

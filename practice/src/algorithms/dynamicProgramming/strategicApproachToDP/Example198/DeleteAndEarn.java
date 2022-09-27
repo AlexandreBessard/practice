@@ -51,6 +51,10 @@ public class DeleteAndEarn {
     }
 
     //Bottom Up
+    /*
+    Time: O(N + k)
+    Space: O(N + k)
+     */
     static int deleteAndEarnBottomUp(int[] nums) {
         HashMap<Integer, Integer> points = new HashMap<>();
         int maxNumber = 0;
