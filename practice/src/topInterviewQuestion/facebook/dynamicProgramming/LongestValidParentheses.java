@@ -11,6 +11,31 @@ public class LongestValidParentheses {
         var obj = new LongestValidParentheses();
         System.out.println(obj.longestValidParentheses(s1));
         System.out.println(obj.longestValidParenthesesWithoutExtraSpace(s1));
+        System.out.println(longestValidParenthesesUsingStack(s1));
+    }
+
+    //Approach 3: Using stack
+    /*
+    Time: O(n)
+    Space: O(n)
+     */
+    static int longestValidParenthesesUsingStack(String s) {
+        int max = 0;
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '(') {
+                stack.push(i);
+            } else {
+                stack.pop();
+                if(stack.isEmpty()) {
+                    stack.push(i);
+                } else {
+                    max = Math.max(max, i - stack.peek());
+                }
+            }
+        }
+        return max;
     }
 
     //Approach 4: Without extra space

@@ -18,7 +18,7 @@ public class DecodeWays {
     public static void main(String[] args) {
         String s = "12";
         String s1 = "226";
-        System.out.println(numDecoding(s));
+        System.out.println(numDecoding(s1));
         System.out.println(numDecodingBottomUp(s1));
     }
 
@@ -30,7 +30,7 @@ public class DecodeWays {
     public static int numDecodingBottomUp(String s) {
         // DP array to store the subproblem results
         int[] dp = new int[s.length() + 1];
-        dp[0] = 1;
+        dp[0] = 1; //0 represent the possible way to decode an empty String which is only 1 possible way
         // Ways to decode a string of size 1 is 1. Unless the string is '0'.
         // '0' doesn't have a single digit decode.
         dp[1] = s.charAt(0) == '0' ? 0 : 1;
