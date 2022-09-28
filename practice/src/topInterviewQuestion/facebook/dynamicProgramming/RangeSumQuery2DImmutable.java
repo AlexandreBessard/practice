@@ -10,12 +10,19 @@ public class RangeSumQuery2DImmutable {
                 {4, 1, 0, 1, 7},
                 {1, 0, 3, 0, 5},
         };
+        int[][] smallMatrix = {
+                {3, 0, 1},
+                {5, 6, 3},
+                {1, 2, 0}
+        };
         var obj = new NumMatrixBrutForce(matrix);
         int param_1 = obj.sumRegionBrutForce(1, 1, 2, 2);
         var obj1 = new NumMatrixCachingRows(matrix);
         System.out.println(obj1.sumRegionCachingRows(1, 1, 2, 2));
-        var obj2 = new NumMatrixCachingSmarter(matrix);
-        System.out.println(obj2.sumRegionCachingSmarter(1, 1, 2, 2));
+        var obj2 = new NumMatrixCachingSmarter(smallMatrix);
+        System.out.println(obj2.sumRegionCachingSmarter(
+                1, 1, //upper left corner
+                2, 2)); // lower right corner
         System.out.println(param_1);
     }
 }
@@ -32,10 +39,10 @@ class NumMatrixCachingSmarter {
         dp = new int[matrix.length + 1][matrix[0].length + 1];
         for (int r = 0; r < matrix.length; r++) {
             for (int c = 0; c < matrix[0].length; c++) {
-                dp[r + 1][c + 1] = dp[r + 1][c]  //Down
-                        + dp[r][c + 1]  //Right
-                        + matrix[r][c] //Current
-                        - dp[r][c];
+                dp[r + 1][c + 1] = dp[r + 1][c]  //add value from the left side
+                        + dp[r][c + 1]  //Add value from above
+                        + matrix[r][c] //Add current value from the matrix
+                        - dp[r][c]; //Subtract upper left corner from dp
             }
         }
         System.out.println("Done");
@@ -48,10 +55,10 @@ class NumMatrixCachingSmarter {
         System.out.println("dp[row1][col2 + 1] : " + dp[row1][col2 + 1]);
         System.out.println("dp[row2 + 1][col1] : " + dp[row2 + 1][col1]);
         System.out.println("dp[row1][col1] : " + dp[row1][col1]);
-        return dp[row2 + 1][col2 + 1] // right down corner
-                - dp[row1][col2 + 1] // up right corner
-                - dp[row2 + 1][col1] // down left corner
-                + dp[row1][col1]; // up left corner
+        return dp[row2 + 1][col2 + 1] // Lower right corner (highest value)
+                - dp[row1][col2 + 1] // Subtract -> Upper right corner
+                - dp[row2 + 1][col1] // Subtract -> Lower left corner
+                + dp[row1][col1]; // Add -> upper left  left corner
     }
 }
 

@@ -97,7 +97,7 @@ public class LongestValidParentheses {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {
                 stack.push('(');
-            } else if (!stack.isEmpty() && stack.peek() == '(') {
+            } else if (!stack.isEmpty() && stack.peek() == '(') { //Close parenthese
                 stack.pop();
             } else {
                 return false;

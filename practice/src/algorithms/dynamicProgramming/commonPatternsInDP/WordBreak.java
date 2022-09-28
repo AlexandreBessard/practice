@@ -27,6 +27,7 @@ public class WordBreak {
 
     //Approach 3: Using BFS
     /*
+    BFS because we can visualize the string as a tree where each node represents the prefix upto to index end
     Time: O(n3)
     Space: O(n) -> Queue of at most n size is needed
      */
@@ -36,7 +37,7 @@ public class WordBreak {
         boolean[] visited = new boolean[s.length()];
         queue.add(0);
         while (!queue.isEmpty()) {
-            int start = queue.remove();
+            int start = queue.poll();
             if (visited[start]) {
                 continue;
             }
