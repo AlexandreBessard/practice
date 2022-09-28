@@ -28,7 +28,7 @@ public class ContinuousSubarraySum {
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
             // if the remainder sum % k occurs for the first time
-            if (!hashMap.containsKey(sum % k))
+            if (!hashMap.containsKey(sum % k)) //same key means there are some values such that their sum is divisible by k.
                 hashMap.put(sum % k, i + 1);
                 // if the subarray size is at least two
             //If same keyValue (sum%k) is repeating then there are some values such that their sum is divisible by k

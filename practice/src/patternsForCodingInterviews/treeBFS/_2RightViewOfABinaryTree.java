@@ -28,22 +28,22 @@ public class _2RightViewOfABinaryTree {
      */
     public static List<TreeNode> traverse(TreeNode root) {
         List<TreeNode> result = new ArrayList<>();
-        if(root == null)
+        if (root == null)
             return result;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while( ! queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int levelSize = queue.size();
-            for(int i = 0; i < levelSize; i++) {
+            for (int i = 0; i < levelSize; i++) {
                 TreeNode currentNode = queue.poll();
                 //If this is the last node from that level, add it to the result
-                if(i == levelSize - 1){
+                if (i == levelSize - 1) {
                     result.add(currentNode);
                 }
-                if(currentNode.left != null) {
+                if (currentNode.left != null) {
                     queue.add(currentNode.left);
                 }
-                if(currentNode.right != null) {
+                if (currentNode.right != null) {
                     queue.add(currentNode.right);
                 }
             }

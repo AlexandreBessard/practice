@@ -78,7 +78,9 @@ public class BinarySearchTreeIterator {
 
 
     static class BSTIterator {
-
+        //We can not stop recursion in the middle to return the required element.
+        //To transform a recursive solution to make it iterative, we use a STACK.
+        //We can save the state of the in-order traversal of the BST in the stack.
         Stack<TreeNode> stack = new Stack<>();
 
         public BSTIterator(TreeNode root) {
@@ -98,6 +100,7 @@ public class BinarySearchTreeIterator {
         }
 
         //traverse the left subtree to push all the node on the stack
+        //(Inorder traversal using stack)
         private void traverseleft(TreeNode node) {
             while (node != null) {
                 stack.push(node);

@@ -1,7 +1,7 @@
 package patternsForCodingInterviews.dynamicProgramming;
 
 //https://designgurus.org/path-player?courseid=grokking-dynamic-programming&unit=grokking-dynamic-programming_6126ffd8cc61fUnit
-public class EqualSubsetSumPartition {
+public class EqualSubsetSumPartition { //Partition Equal Subset Sum
 
     public static void main(String[] args) {
         EqualSubsetSumPartition ps = new EqualSubsetSumPartition();

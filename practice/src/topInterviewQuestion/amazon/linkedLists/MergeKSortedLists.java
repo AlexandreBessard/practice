@@ -51,7 +51,7 @@ public class MergeKSortedLists {
         }
         return lists[0];
     }
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) { //It is like a MergeSort
         ListNode h = new ListNode(0);
         ListNode ans = h;
         while(l1 != null && l2 != null) {

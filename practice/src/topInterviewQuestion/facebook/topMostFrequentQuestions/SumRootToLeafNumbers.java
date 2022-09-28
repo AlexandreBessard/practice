@@ -29,7 +29,7 @@ public class SumRootToLeafNumbers {
             root = p.key; //Can not caused a NullPointerException because everytime we add a new created Pair object.
             currentNumber = p.val;
             if (root != null) {
-                currentNumber = currentNumber * 10 + root.val;
+                currentNumber = currentNumber * 10 + root.val; //we do NOT add value to the current Number
                 // if it's a leaf, update root-to-leaf sum
                 if (root.left == null && root.right == null) {
                     rootToLeaf += currentNumber;
