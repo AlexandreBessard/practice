@@ -45,6 +45,7 @@ public class FlattenBinaryTreeToLinkedList {
         }
     }
 
+    //Recursion
     private TreeNode flattenTree(TreeNode node) {
         // Handle the null scenario
         if (node == null) {

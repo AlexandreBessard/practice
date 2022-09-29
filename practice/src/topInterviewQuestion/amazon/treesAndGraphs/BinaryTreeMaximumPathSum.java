@@ -3,7 +3,12 @@ package topInterviewQuestion.amazon.treesAndGraphs;
 public class BinaryTreeMaximumPathSum {
 
     public static void main(String[] args) {
-
+        TreeNode minusTen = new TreeNode(-10);
+        minusTen.left = new TreeNode(9);
+        minusTen.right = new TreeNode(20);
+        minusTen.right.left = new TreeNode(15);
+        minusTen.right.right = new TreeNode(7);
+        System.out.println(maxPathSum(minusTen));
     }
 
     //Approach 1: Recursion
@@ -12,18 +17,19 @@ public class BinaryTreeMaximumPathSum {
     Time complexity: O(N)
     Space complexity: O(N)
      */
-    int maxValue;
-    public int maxPathSum(TreeNode root) {
+    static int maxValue;
+    static int maxPathSum(TreeNode root) {
         maxValue = Integer.MIN_VALUE;
-        maxPathDown(root);
+        maxPathSumRecursive(root);
         return maxValue;
     }
-    private int maxPathDown(TreeNode node) {
+    //Preorder -> Left, Right, Node
+    private static int maxPathSumRecursive(TreeNode node) {
         if(node == null)
             return 0;
-        int left = Math.max(0, maxPathDown(node.left));
-        int right = Math.max(0, maxPathDown(node.right));
-        maxValue = Math.max(maxValue, left + right + node.val);
+        int left = Math.max(0, maxPathSumRecursive(node.left));
+        int right = Math.max(0, maxPathSumRecursive(node.right));
+        maxValue = Math.max(maxValue, left + right + node.val); //Get the max value from with left, right and Node combined
         //we cannot choose both left and right brunches, we select the largest one to prune the lower.
         return Math.max(left, right) + node.val;
     }
