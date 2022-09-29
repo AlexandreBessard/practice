@@ -3,6 +3,8 @@ package topInterviewQuestion.easy.trees;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Stack;
+
 //https://leetcode.com/problems/validate-binary-search-tree/solution/
 public class ValidateBinarySearchTree {
 
@@ -17,7 +19,7 @@ public class ValidateBinarySearchTree {
 
     //Approach 4: Iterative Inorder Traversal
     static boolean isValidBSTIterativeInorderTraversal(TreeNode root) {
-        Deque<TreeNode> stack = new ArrayDeque<>();
+        Stack<TreeNode> stack = new Stack<>();
         Integer prev = null;
         while(!stack.isEmpty() || root != null) {
             while(root != null) {
@@ -25,8 +27,9 @@ public class ValidateBinarySearchTree {
                 root = root.left;
             }
             root = stack.pop();
-            if(prev != null && root.val <= prev)
+            if(prev != null && root.val <= prev) {
                 return false;
+            }
             prev = root.val;
             root = root.right;
         }
@@ -45,12 +48,15 @@ public class ValidateBinarySearchTree {
         return inorder(root);
     }
     static boolean inorder(TreeNode root) {
-        if(root == null)
+        if(root == null) {
             return true;
-        if(!inorder(root.left))
+        }
+        if(!inorder(root.left)) {
             return false;
-        if(prev != null && root.val <= prev)
+        }
+        if(prev != null && root.val <= prev) {
             return false;
+        }
         prev = root.val;
         return inorder(root.right);
     }
