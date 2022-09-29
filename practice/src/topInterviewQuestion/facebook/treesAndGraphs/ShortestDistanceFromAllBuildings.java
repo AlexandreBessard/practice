@@ -25,9 +25,64 @@ public class ShortestDistanceFromAllBuildings {
         var obj = new ShortestDistanceFromAllBuildings();
         //Output 7: is minimal -> 3 + 3 + 1 = 7
         System.out.println(obj.shortestDistanceEmptyLand(grid));
+        System.out.println(obj.shortestDistanceEmptyLandSpaceOptimized(grid));
+
     }
 
-    //TODO: need to do the approach 3 (Optimized approach)
+    //Approach 3: BFS from Houses to Empty Land (Optimized)
+    /*
+    Time: O(N² * M²), each house, we traverse all reachable lands
+    Space: O(N * M)
+     */
+    public int shortestDistanceEmptyLandSpaceOptimized(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        //total matrix to store total distance sum for each empty cell
+        int[][] total = new int[rows][cols];
+        int emptyLandValue = 0;
+        int minDistance = Integer.MAX_VALUE;
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                //Start BFS from each house
+                if (grid[row][col] == 1) { //At the end, we will decrement emptyLandValue
+                    minDistance = Integer.MAX_VALUE; //Reinitialize this variable
+                    //Use Queue to perform a BFS
+                    Queue<int[]> q = new LinkedList<>();
+                    q.add(new int[]{row, col});
+                    int steps = 0;
+                    while (!q.isEmpty()) {
+                        steps++; //Each new level, increment by 1
+                        int size = q.size();
+                        for (int i = 0; i < size; i++) {
+                            int[] curr = q.poll();
+                            for (int[] dir : dirs) {
+                                int nextRow = curr[0] + dir[0];
+                                int nextCol = curr[1] + dir[1];
+                                //For each cell with the value equal to empty land, add distance and decrement
+                                //the cell value by 1
+                                if (!isOutOfBoundaries(grid, nextRow, nextCol)) { //Check the boundaries
+                                    if (grid[nextRow][nextCol] == emptyLandValue) {
+                                        grid[nextRow][nextCol]--; //First traversal, 0 becomes -1, -1 becomes -2 and so on...
+                                        total[nextRow][nextCol] += steps; //Increment at each step
+                                        q.add(new int[]{nextRow, nextCol});
+                                        //Because we Reinitialize minDistance each time see a house '1' we find the minDistance
+                                        minDistance = Math.min(minDistance, total[nextRow][nextCol]);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    emptyLandValue--;
+                }
+            }
+        }
+        return minDistance;
+    }
+
+    private boolean isOutOfBoundaries(int[][] grid, int row, int col) {
+        return row < 0 || col < 0 || row >= grid.length || col >= grid[0].length;
+    }
+
 
     //Approach 2: BFS from Houses to Empty Land
     /*
@@ -65,25 +120,27 @@ public class ShortestDistanceFromAllBuildings {
         return minDistance;
     }
 
+    final int dirs[][] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}; //directions : down, up, right, left
+
     private void bfs(int[][] grid, int[][][] distances, int row, int col) {
-        int dirs[][] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}; //directions
         int rows = grid.length;
         int cols = grid[0].length;
         // Use a queue to do a bfs, starting from each cell located at (row, col).
         Queue<int[]> q = new LinkedList<>();
-        q.offer(new int[]{ row, col });
+        q.offer(new int[]{row, col});
         // Keep track of visited cells.
-        boolean[][] vis = new boolean[rows][cols];
-        vis[row][col] = true;
+        boolean[][] visited = new boolean[rows][cols];
+        visited[row][col] = true;
         int steps = 0;
         while (!q.isEmpty()) {
-            for (int i = q.size(); i > 0; --i) {
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
                 int[] curr = q.poll();
                 row = curr[0];
                 col = curr[1];
                 // If we reached an empty cell, then add the distance
                 // and increment the count of houses reached at this cell.
-                if(grid[row][col] == 0) {
+                if (grid[row][col] == 0) {
                     //For each houses, we count the distances from this house until we reach a building '1'
                     distances[row][col][0] += steps; // total distance sum from all houses to this empty land
                     distances[row][col][1] += 1; // number of houses that can reach this empty land.
@@ -92,10 +149,10 @@ public class ShortestDistanceFromAllBuildings {
                 for (int[] dir : dirs) {
                     int nextRow = row + dir[0];
                     int nextCol = col + dir[1];
-                    if (nextRow >= 0 && nextCol >= 0 && nextRow < rows && nextCol < cols) {
-                        if (!vis[nextRow][nextCol] && grid[nextRow][nextCol] == 0) {
-                            vis[nextRow][nextCol] = true;
-                            q.offer(new int[]{ nextRow, nextCol });
+                    if (nextRow >= 0 && nextCol >= 0 && nextRow < rows && nextCol < cols) { //Check boundaries
+                        if (!visited[nextRow][nextCol] && grid[nextRow][nextCol] == 0) {
+                            visited[nextRow][nextCol] = true;
+                            q.offer(new int[]{nextRow, nextCol});
                         }
                     }
                 }
@@ -138,7 +195,7 @@ public class ShortestDistanceFromAllBuildings {
             }
         }
         // If it is impossible to reach all houses from any empty cell, then return -1.
-        if(minDistance == Integer.MAX_VALUE) {
+        if (minDistance == Integer.MAX_VALUE) {
             return -1;
         }
         return minDistance;
@@ -163,24 +220,24 @@ public class ShortestDistanceFromAllBuildings {
         boolean[][] vis = new boolean[rows][cols];
         vis[row][col] = true;
         int steps = 0;
-        while(!q.isEmpty() && housesReached != totalHouses) {
-            for(int i = q.size(); i > 0; i--) {
+        while (!q.isEmpty() && housesReached != totalHouses) {
+            for (int i = q.size(); i > 0; i--) {
                 int[] curr = q.poll();
                 row = curr[0];
                 col = curr[1];
                 // If this cell is a house, then add the distance from source to this cell
                 // and we go past from this cell.
-                if(grid[row][col] == 1) {
+                if (grid[row][col] == 1) {
                     distanceSum += steps;
                     housesReached++;
                     continue; //Continue by decrementing the i from the for loop
                 }
                 // This cell was empty cell, hence traverse the next cells which is not a blockage.
-                for(int[] dir : dirs) {
+                for (int[] dir : dirs) {
                     int nextRow = row + dir[0];
                     int nextCol = col + dir[1];
-                    if(nextRow >= 0 && nextCol >= 0 && nextRow < rows && nextCol < cols) {
-                        if(!vis[nextRow][nextCol] && grid[nextRow][nextCol] != 2) {
+                    if (nextRow >= 0 && nextCol >= 0 && nextRow < rows && nextCol < cols) {
+                        if (!vis[nextRow][nextCol] && grid[nextRow][nextCol] != 2) {
                             vis[nextRow][nextCol] = true;
                             q.add(new int[]{nextRow, nextCol});
                         }
@@ -192,10 +249,10 @@ public class ShortestDistanceFromAllBuildings {
         }
         // If we did not reach all houses, then any cell visited also cannot reach all houses.
         // Set all cells visted to 2 so we do not check them again and return MAX_VALUE.
-        if(housesReached != totalHouses) {
-            for(row = 0; row < rows; row++) {
-                for(col = 0; col < cols; col++) {
-                    if(grid[row][col] == 0 && vis[row][col]) {
+        if (housesReached != totalHouses) {
+            for (row = 0; row < rows; row++) {
+                for (col = 0; col < cols; col++) {
+                    if (grid[row][col] == 0 && vis[row][col]) {
                         grid[row][col] = 2; //Allow us to by pass the next iteration because we can not reach all houses. (Invalid)
                     }
                 }

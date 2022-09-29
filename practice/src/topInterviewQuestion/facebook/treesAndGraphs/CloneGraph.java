@@ -20,7 +20,7 @@ public class CloneGraph {
         four.neighbors = l4;
 
         var obj = new CloneGraph();
-        Node res = obj.cloneGraphDFS(one);
+        Node res = obj.cloneGraphBFS(one);
     }
 
     //Undirected graph -> edges that do not have a direction.
@@ -61,8 +61,8 @@ public class CloneGraph {
 
     //Approach 2: BFS
     /*
-    Time: O(N + M)
-    Space: O(N)
+    Time: O(N + M) where N is a number of nodes (vertices) and M is the number of edges.
+    Space: O(N)  occupied by the visited dictionary and the Queue. Overall the space is O(n)
      */
     public Node cloneGraphBFS(Node node) {
         if(node == null)
@@ -73,8 +73,8 @@ public class CloneGraph {
         //Put first node in the Q
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
-        //Clone the node and put it to the visited map
-        visited.put(node, new Node(node.val, new ArrayList<>()));
+        //Key for map is the original node and value is his copy
+        visited.put(node, new Node(node.val, new ArrayList<>())); //Prevent cycles
         //Start BFS traversal
         while(!queue.isEmpty()) {
             //Pop the node from the front of head of this queue
@@ -88,7 +88,9 @@ public class CloneGraph {
                     queue.add(neighbor);
                 }
                 // Add the clone of the neighbor to the neighbors of the clone node "n".
-                visited.get(n).neighbors.add(visited.get(neighbor));
+                visited.get(n) //Get the Node's clone
+                        .neighbors //Neighbors from that Node's clone
+                        .add(visited.get(neighbor));  //Add the clone from the original neighbor
             }
         }
         //Return the clone of the node from visited

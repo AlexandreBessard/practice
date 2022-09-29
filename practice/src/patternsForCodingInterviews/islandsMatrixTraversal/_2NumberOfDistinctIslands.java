@@ -7,18 +7,16 @@ import java.util.Set;
 public class _2NumberOfDistinctIslands {
 
     public static void main(String[] args) {
-        /*
         System.out.println(findDistinctIslandsDFS(
-                new int[][] {
-                        { 1, 1, 0, 1, 1 },
-                        { 1, 1, 0, 1, 1 },
-                        { 0, 0, 0, 0, 0 },
-                        { 0, 1, 1, 0, 1 },
-                        { 0, 1, 1, 0, 1 }
+                new int[][]{
+                        {1, 1, 0, 1, 1},
+                        {1, 1, 0, 1, 1},
+                        {0, 0, 0, 0, 0},
+                        {0, 1, 1, 0, 1},
+                        {0, 1, 1, 0, 1}
                 }));
 
-
-         */
+        /*
         System.out.println(findDistinctIslandsDFS(
                 new int[][]{
                         {1, 1, 0, 1},
@@ -27,9 +25,11 @@ public class _2NumberOfDistinctIslands {
                         {1, 1, 0, 0},
                         {0, 1, 1, 0}
                 }));
+
+         */
     }
 
-    /*
+    /* DFS
     Time: O(M * N)
     Space: O(M * N)
      */
@@ -41,8 +41,8 @@ public class _2NumberOfDistinctIslands {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (matrix[i][j] == 1 && !visited[i][j]) {
-                    StringBuilder islandTraversal = new StringBuilder();
-                    traverseIslandDFS(matrix, visited, i, j, islandTraversal, "0"); //origin
+                    var islandTraversal = new StringBuilder();
+                    traverseIslandDFS(matrix, visited, i, j, islandTraversal, Direction.ORIGIN); //origin
                     islandSet.add(islandTraversal.toString());
                 }
             }
@@ -51,7 +51,7 @@ public class _2NumberOfDistinctIslands {
     }
 
     private static void traverseIslandDFS(int[][] matrix, boolean[][] visited, int x, int y,
-                                          StringBuilder islandTraversal, String direction) {
+                                          StringBuilder islandTraversal, Direction direction) {
         if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) { //check boundaries
             return;
         }
@@ -61,11 +61,15 @@ public class _2NumberOfDistinctIslands {
         visited[x][y] = true;
         islandTraversal.append(direction);
         // recursively visit all neighboring cells (horizontally & vertically)
-        traverseIslandDFS(matrix, visited, x + 1, y, islandTraversal, "D"); // down
-        traverseIslandDFS(matrix, visited, x - 1, y, islandTraversal, "U"); // up
-        traverseIslandDFS(matrix, visited, x, y + 1, islandTraversal, "R"); // right
-        traverseIslandDFS(matrix, visited, x, y - 1, islandTraversal, "L"); // left
-        islandTraversal.append("B"); // back
+        traverseIslandDFS(matrix, visited, x + 1, y, islandTraversal, Direction.DOWN); // down
+        traverseIslandDFS(matrix, visited, x - 1, y, islandTraversal, Direction.UP); // up
+        traverseIslandDFS(matrix, visited, x, y + 1, islandTraversal, Direction.RIGHT); // right
+        traverseIslandDFS(matrix, visited, x, y - 1, islandTraversal, Direction.LEFT); // left
+        islandTraversal.append(Direction.BACK); // back
+    }
+
+    enum Direction {
+        ORIGIN, UP, DOWN, RIGHT, LEFT, BACK;
     }
 
 }

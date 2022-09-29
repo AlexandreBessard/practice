@@ -3,6 +3,7 @@ package topInterviewQuestion.facebook.treesAndGraphs;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 //https://leetcode.com/explore/interview/card/facebook/52/trees-and-graphs/280/
 public class BinaryTreePaths {
@@ -15,6 +16,8 @@ public class BinaryTreePaths {
 
         var obj = new BinaryTreePaths();
         System.out.println(obj.binaryTreePathsRecursive(one));
+        System.out.println("\n");
+        System.out.println(obj.binaryTreePaths(one));
     }
 
     //Approach 1: Recursive
@@ -59,15 +62,15 @@ public class BinaryTreePaths {
         List<String> paths = new LinkedList<>();
         if(root == null)
             return paths;
-        LinkedList<TreeNode> node_stack = new LinkedList<>();
-        LinkedList<String> path_stack = new LinkedList<>();
+        Stack<TreeNode> node_stack = new Stack<>();
+        Stack<String> path_stack = new Stack<>();
         node_stack.add(root);
         path_stack.add(Integer.toString(root.val));
         TreeNode node;
         String path;
         while(!node_stack.isEmpty()) {
-            node = node_stack.pollLast();
-            path = path_stack.pollLast();
+            node = node_stack.pop();
+            path = path_stack.pop();
             if(node.left == null && node.right == null) { //leaf node. we add path to the the result.
                 paths.add(path);
             }

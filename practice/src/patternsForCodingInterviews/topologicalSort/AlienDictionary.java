@@ -9,9 +9,11 @@ public class AlienDictionary {
     Video example:
     https://www.youtube.com/watch?v=L5n9AA7cHDY&ab_channel=codeTree
     until 3 min 03, easy to understand
+    -> Topological sorting for problems where you have some objects that are based on some rules.
      */
     public static void main(String[] args) {
         String result = AlienDictionary.findOrder(new String[]{"ba", "bc", "ac", "cab"});
+        // ba, bc -> a comes before c / bc, ac -> b comes before a / ac, cab -> a comes before c
         System.out.println("Character order: " + result);
 
         result = AlienDictionary.findOrder(new String[]{"cab", "aaa", "aab"});
@@ -30,16 +32,16 @@ public class AlienDictionary {
             return "";
         }
         //A. Initialize the graph
-        Map<Character, Integer> inDegreee = new HashMap<>();
+        Map<Character, Integer> inDegree = new HashMap<>();
         Map<Character, List<Character>> graph = new HashMap<>();
-        for (String word : words) {
-            for (char character : word.toCharArray()) {
-                inDegreee.put(character, 0);
+        for (String word : words) { //Loop through each words
+            for (char character : word.toCharArray()) { //Loop through each letters
+                inDegree.put(character, 0);
                 graph.put(character, new ArrayList<>());
             }
         }
         //B Build the graph
-        for (int i = 0; i < words.length - 1; i++) {
+        for (int i = 0; i < (words.length - 1); i++) {
             //Find ordering of characters from adjacent words
             String w1 = words[i];
             String w2 = words[i + 1];
@@ -48,7 +50,7 @@ public class AlienDictionary {
                 char child = w2.charAt(j);
                 if (parent != child) { //If the 2 characters are different
                     graph.get(parent).add(child);
-                    inDegreee.put(child, inDegreee.get(child) + 1);
+                    inDegree.put(child, inDegree.get(child) + 1);
                     //Only the first different character between the two words
                     //will help us find the order
                     break;
@@ -57,7 +59,7 @@ public class AlienDictionary {
         }
         //C Find all sources with O in-Degree
         Queue<Character> sources = new LinkedList<>();
-        for (Map.Entry<Character, Integer> entry : inDegreee.entrySet()) {
+        for (Map.Entry<Character, Integer> entry : inDegree.entrySet()) {
             if (entry.getValue() == 0) {
                 sources.add(entry.getKey());
             }
@@ -73,8 +75,8 @@ public class AlienDictionary {
             //get the node's children to decrement their in-degree
             List<Character> children = graph.get(vertex);
             for (Character child : children) {
-                inDegreee.put(child, inDegreee.get(child) - 1);
-                if (inDegreee.get(child) == 0) {
+                inDegree.put(child, inDegree.get(child) - 1);
+                if (inDegree.get(child) == 0) {
                     sources.add(child);
                 }
             }
@@ -82,7 +84,7 @@ public class AlienDictionary {
         // if sortedOrder doesn't contain all characters, there is a cyclic dependency
         // between characters, therefore, we  will not be able to find the correct ordering
         // of the characters
-        if (sortedOrder.length() != inDegreee.size()) {
+        if (sortedOrder.length() != inDegree.size()) {
             return "";
         }
         return sortedOrder.toString();
