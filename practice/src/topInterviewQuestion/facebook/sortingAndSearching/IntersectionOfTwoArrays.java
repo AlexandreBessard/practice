@@ -39,6 +39,7 @@ public class IntersectionOfTwoArrays {
     }
 
     //Approach 2: Built-in Set Intersection
+    //Hashing method
     /*
     Time: O(n + m)
      */
@@ -50,7 +51,7 @@ public class IntersectionOfTwoArrays {
         for (int n : nums2) {
             set2.add(n);
         }
-        //removes from this set (set1) all of its elements that are not contained in the specified collection.
+        //Retains only the elements in this set (set1) that are contained in the specified collection (set2) (optional operation)
         set1.retainAll(set2);
         int[] output = new int[set1.size()];
         int idx = 0;
