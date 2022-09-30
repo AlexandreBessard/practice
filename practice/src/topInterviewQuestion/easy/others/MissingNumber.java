@@ -23,7 +23,7 @@ public class MissingNumber {
             numSet.add(num);
         int expectedNumCount = nums.length + 1;
         for(int number = 0; number < expectedNumCount; number++) {
-            if(!numSet.contains(number)) {
+            if(!numSet.contains(number)) { //True if we miss that number
                 return number;
             }
         }
