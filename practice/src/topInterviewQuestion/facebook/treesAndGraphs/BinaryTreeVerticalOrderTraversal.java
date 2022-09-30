@@ -28,10 +28,11 @@ public class BinaryTreeVerticalOrderTraversal {
     Space: O(N)
      */
     public List<List<Integer>> verticalOrderWithoutSorting(TreeNode root) {
-        List<List<Integer>> output = new ArrayList();
+        List<List<Integer>> output = new ArrayList<>();
         if (root == null) {
             return output;
         }
+        //Key: number of column, Value: each node's value associated to this column
         Map<Integer, List<Integer>> columnTable = new HashMap<>();
         // Pair of node and its column offset
         Queue<Pair<TreeNode, Integer>> queue = new ArrayDeque<>();
