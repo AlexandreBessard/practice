@@ -30,7 +30,7 @@ public class AccountsMerge {
         accounts.add(mary1);
         accounts.add(john3);
         var obj = new AccountsMerge();
-        for (List<String> account : obj.accountsMergeDisjointSetUnion(accounts)) {
+        for (List<String> account : obj.accountsMergeDFS(accounts)) {
             System.out.println(account);
         }
     }
@@ -40,15 +40,17 @@ public class AccountsMerge {
     Time: L(NK log NK) -> N is the number of accounts and K is the maximum length of an account.
     Space: O(NK) -> build adjacency list take 0(NK)
      */
+    Map<String, List<String>> adjacent = new HashMap<>(); //Key is the first email
+    Set<String> visited = new HashSet<>();
     public List<List<String>> accountsMergeDFS(List<List<String>> accountList) {
         int accountListSize = accountList.size();
         for (List<String> account : accountList) {
             int accountSize = account.size();
             // Building adjacency list
             // Adding edge between first email to all other emails in the account
-            String accountFirstEmail = account.get(1);
-            for (int j = 2; j < accountSize; j++) {
-                String accountEmail = account.get(j);
+            String accountFirstEmail = account.get(1); //Get the First email
+            for (int j = 2; j < accountSize; j++) { //Loop from second email until the end
+                String accountEmail = account.get(j); //Get next email
 
                 if (!adjacent.containsKey(accountFirstEmail)) {
                     adjacent.put(accountFirstEmail, new ArrayList<String>());
@@ -63,9 +65,9 @@ public class AccountsMerge {
         }
         // Traverse over all th accounts to store components
         List<List<String>> mergedAccounts = new ArrayList<>();
-        for (List<String> account : accountList) {
-            String accountName = account.get(0);
-            String accountFirstEmail = account.get(1);
+        for (List<String> account : accountList) { //Loop through the input
+            String accountName = account.get(0); //Get name
+            String accountFirstEmail = account.get(1); //Get the first email
 
             // If email is visited, then it's a part of different component
             // Hence perform DFS only if email is not visited yet
@@ -82,10 +84,6 @@ public class AccountsMerge {
         return mergedAccounts;
     }
 
-    Map<String, List<String>> adjacent = new HashMap<>();
-    Set<String> visited = new HashSet<>();
-
-    //Approach 1: DFS
     private void DFS(List<String> mergedAccount, String email) {
         visited.add(email);
         // Add the email vector that contains the current component's emails

@@ -76,6 +76,10 @@ If it has been colored, check if the current color is the same as the color that
     /*
     Time: O(V + E)
     Space: O(V + E)
+
+    0: Haven't been colored yet.
+    1: Blue -> if it is part of the first set
+    -1: Red. -> if it is NOT part of the first set
      */
     public boolean isBipartiteBFS(int[][] graph) {
         int len = graph.length;
@@ -84,7 +88,7 @@ If it has been colored, check if the current color is the same as the color that
             if(colors[i] != 0)
                 continue;
             Queue<Integer> queue = new LinkedList<>();
-            queue.offer(i);
+            queue.add(i);
             colors[i] = 1; //Blue
             while(!queue.isEmpty()) {
                 int curr = queue.poll();
