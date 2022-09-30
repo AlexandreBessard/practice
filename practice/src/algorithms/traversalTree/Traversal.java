@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Traversal {
-
+    /*
+    Inoder: Left, Node, Right
+    PreOrder: Node, Left Right
+    PostOrder: Left, Right, Node
+     */
     public static void main(String[] args) {
         var one = new TreeNode(1);
         one.left = new TreeNode(2);

@@ -18,6 +18,7 @@ public class DiameterOfBinaryTree {
         longestPath(root);
         return diameter;
     }
+    //PostOrder -> Left, Right Node
     private int longestPath(TreeNode node) {
         if(node == null)
             return 0;
