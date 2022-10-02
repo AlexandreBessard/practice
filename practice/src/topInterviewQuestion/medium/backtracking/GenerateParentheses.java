@@ -17,7 +17,7 @@ public class GenerateParentheses {
          */
         List<String> res1 = obj.generateParenthesisBackTracking(3);
         System.out.println();
-        for(String r : res1) {
+        for (String r : res1) {
             System.out.print(r + ", ");
         }
     }
@@ -28,18 +28,17 @@ public class GenerateParentheses {
         backtrack(ans, new StringBuilder(), 0, 0, n);
         return ans;
     }
-    private void backtrack(List<String> ans,
-                           StringBuilder cur,
+
+    private void backtrack(List<String> ans, StringBuilder cur,
                            int open,
                            int close,
-                           int max)
-    {
+                           int max) {
         // # If the solution is found
-        if(cur.length() == max * 2) {
+        if (cur.length() == max * 2) {
             ans.add(cur.toString());
             return;
         }
-        if(open < max) {
+        if (open < max) {
             //# Try this partial candidate solution
             cur.append("(");
             //# Move on to the next candidate
@@ -47,7 +46,7 @@ public class GenerateParentheses {
             // Backtrack
             cur.deleteCharAt(cur.length() - 1);
         }
-        if(close < open) {
+        if (close < open) {
             // # Try this partial solution
             cur.append(")");
             //# Move on to the next candidate
@@ -68,24 +67,28 @@ public class GenerateParentheses {
         generateAll(new char[2 * n], 0, combinations);
         return combinations;
     }
+
     public void generateAll(char[] current, int pos, List<String> result) {
         if (pos == current.length) {
             if (valid(current))
                 result.add(new String(current));
         } else {
             current[pos] = '(';
-            generateAll(current, pos+1, result);
+            generateAll(current, pos + 1, result);
             current[pos] = ')';
-            generateAll(current, pos+1, result);
+            generateAll(current, pos + 1, result);
         }
     }
 
     public boolean valid(char[] current) {
         int balance = 0;
-        for (char c: current) {
-            if (c == '(') balance++;
-            else balance--;
-            if (balance < 0) return false;
+        for (char c : current) {
+            if (c == '(')
+                balance++;
+            else
+                balance--;
+            if (balance < 0)
+                return false;
         }
         return (balance == 0);
     }
