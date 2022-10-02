@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 //https://takeuforward.org/data-structure/prefix-sum-technique/
 public class PrefixSum {
-
     /*
      the prefix sum array is the array whose every element is the sum of all elements,
      of the original array, up to the current index.
