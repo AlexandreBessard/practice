@@ -1,47 +1,75 @@
 package topInterviewQuestion.easy.dynamicProgramming;
 
+import java.util.HashMap;
+import java.util.Map;
+
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/97/dynamic-programming/569/
 public class ClimbingStairs {
 
     public static void main(String[] args) {
         int n = 3;
-        System.out.println(climbStairsBottomUp(n));
+        //System.out.println(climbStairsBottomUp(n));
+        System.out.println(climbStairsRecursion(5));
+        System.out.println(climbStairsRecursionWithMemoization(3));
+        System.out.println(climbStairsBottomUp(3));
     }
 
-    //Approach 3 : Dynamic Programming
-    //Bottom-up
+    //When DP try to use Recursion -> then implement Memoization -> then Bottom Up -> then Bottom Up optimized
+
+    //Recursion: Top-Down approach
+    /*
+    Time: O(2^n)
+    Space: O(n)
+     */
+    static int climbStairsRecursion(int n) {
+        //Base case
+        if(n == 0) return 0;
+        if(n == 1) return 1; //At stair 1, we only 1 unique way to reach the index 0
+        if(n == 2) return 2; //At stair 2, we know that we have 2 ways to reaching index 0
+        //Recursion
+        return climbStairsRecursion(n - 1)
+                + climbStairsRecursion(n - 2);
+    }
+
+    /*
+    Recursion with memoization
+    Time: O(n)
+    Space: O(n)
+     */
+    static int climbStairsRecursionWithMemoization(int n) {
+        Map<Integer, Integer> memo = new HashMap<>();
+        memo.put(1, 1);
+        memo.put(2, 2);
+        return climbingStairsHelper(n, memo);
+    }
+    private static int climbingStairsHelper(int n, Map<Integer, Integer> memo) {
+        //Base case
+        if(n == 0) return 0;
+        //Get from cache
+        if(memo.containsKey(n)) {
+            return memo.get(n);
+        }
+        //Recursion
+        memo.put(n, climbingStairsHelper(n - 1, memo) + climbingStairsHelper(n - 2, memo));
+        //Return from cache
+        return memo.get(n);
+    }
+
+    //DP Bottom Up
     static int climbStairsBottomUp(int n) {
-        if (n == 1)
-            return 1;
+        if(n <= 1) return 1;
         int[] dp = new int[n + 1];
         dp[1] = 1;
         dp[2] = 2;
-        for (int i = 3; i <= n; i++) {
+        for(int i = 3; i < dp.length; i++) {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[n];
     }
 
-    //Approach 2: Recursion with Memoization
-    /*
-    Time complexity: O(n) Size of recursion.
-    Space complexity: O(n) depth of recursion.
-     */
-    static int climbStairsRecursion(int n) {
-        int[] memo = new int[n + 1];
-        return climb_stairs(0, n, memo);
-    }
 
-    private static int climb_stairs(int i, int n, int[] memo) {
-        if (i > n)
-            return 0;
-        if (i == 3)
-            return 1;
-        if (memo[i] > 0)
-            return memo[i];
-        memo[i] = climb_stairs(i + 1, n, memo) + climb_stairs(i + 2, n, memo);
-        return memo[i];
-    }
+
+
 
     //Approach 1: Brut force
     /*
