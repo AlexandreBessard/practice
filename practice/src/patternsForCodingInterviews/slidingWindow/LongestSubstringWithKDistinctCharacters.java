@@ -5,7 +5,10 @@ import java.util.Map;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628541009794_1Unit
 public class LongestSubstringWithKDistinctCharacters {
-
+/*
+Given a string, find the length of the longest substring in it with no more than K distinct characters.
+You can assume that K is less than or equal to the length of the given string.
+ */
     public static void main(String[] args) {
         System.out.println("Length of the longest substring: "
                 + findLength("araaci", 2));
@@ -29,8 +32,7 @@ public class LongestSubstringWithKDistinctCharacters {
         // [windowStart, windowEnd]
         for (int windowEnd = 0; windowEnd < str.length(); windowEnd++) {
             char rightChar = str.charAt(windowEnd);
-            charFrequencyMap.put(rightChar,
-                    charFrequencyMap.getOrDefault(rightChar, 0) + 1);
+            charFrequencyMap.put(rightChar, charFrequencyMap.getOrDefault(rightChar, 0) + 1);
             // shrink the sliding window, until we are left with 'k'
             // distinct characters in the frequency map
             while (charFrequencyMap.size() > k) {

@@ -1,7 +1,9 @@
 package patternsForCodingInterviews.slidingWindow;
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1627871358579_1Unit
 public class MaximumSumSubarrayOfSizeK {
-
+    /*
+    Given an array of positive numbers and a positive number ‘k,’ find the maximum sum of any contiguous subarray of size ‘k’.
+     */
     public static void main(String[] args) {
         int[] nums = {2, 1, 5, 1, 3, 2};
         int k = 3;
