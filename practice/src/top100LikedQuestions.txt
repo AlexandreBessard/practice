@@ -7,3 +7,9 @@ Search Insert Position : 03/10/2022
 Climbing Stairs : 03/10/2022
 Binary Tree Inorder Traversal : 03/10/2022
 Symmetric Tree : 03/10/2022
+
+Maximum Depth Of Binary Tree : 04/10/2022
+Best Time to Buy and Sell Stock : 04/10/2022
+Single Number : 04/10/2022
+Linked List Cycle: 04/10/2022
+Intersection Of Two LinkedLists : 04/10/2022
