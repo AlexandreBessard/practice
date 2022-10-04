@@ -2,7 +2,10 @@ package patternsForCodingInterviews.slidingWindow;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628541045705_5Unit
 public class LongestSubarrayWithOnesAfterReplacement {
-
+/*
+Given an array containing 0s and 1s, if you are allowed to replace no more than ‘k’ 0s with 1s,
+find the length of the longest contiguous subarray having all 1s.
+ */
     public static void main(String[] args) {
         System.out.println(
                 findLength(new int[]{0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1}, 2));

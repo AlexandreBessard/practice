@@ -5,7 +5,10 @@ import java.util.Map;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628541037657_4Unit
 public class LongestSubstringWithSameLettersAfterReplacement {
-
+/*
+Given a string with lowercase letters only, if you are allowed to replace no more than ‘k’ letters with any letter,
+find the length of the longest substring having the same letters after replacement.
+ */
     public static void main(String[] args) {
         System.out.println(findLength("aabccbb", 2));
         //System.out.println(findLength("abbcb", 1));
@@ -27,7 +30,8 @@ public class LongestSubstringWithSameLettersAfterReplacement {
             // which has one letter repeating 'maxRepeatLetterCount' times and the remaining
             // letters we should replace. If the remaining letters are more than 'k', it is the
             // time to shrink the window as we are not allowed to replace more than 'k' letters
-            if (windowEnd - windowStart + 1 - maxRepeatLetterCount > k) {
+            System.out.println(windowEnd - windowStart + 1 - maxRepeatLetterCount); //Example: aaaaabcaaaaa -> k = 1
+            if (windowEnd - windowStart + 1 - maxRepeatLetterCount > k) { //If more than 'k' remaining letters, should shrink, we cannot replace more than 'k' letters
                 char leftChar = str.charAt(windowStart);
                 letterFrequencyMap.put(leftChar, letterFrequencyMap.get(leftChar) - 1);
                 windowStart++;
