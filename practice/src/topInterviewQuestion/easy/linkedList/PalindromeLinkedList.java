@@ -20,7 +20,8 @@ public class PalindromeLinkedList {
 
     //Approach 3: Reverse Second Half In-place
     /*
-
+    Time: O(n)
+    Space: O(1)
      */
     static boolean isPalindromeReverseSecondHalf(ListNode head) {
         if(head == null)
@@ -38,7 +39,7 @@ public class PalindromeLinkedList {
             p1 = p1.next;
             p2 = p2.next;
         }
-        //Restore the list and return the result
+        //Restore the list and return the result, Keep in mind, firstHalfEnd is just one node in the middle of the linkedList
         firstHalfEnd = reverseList(secondHalfStart);
         return result;
     }
