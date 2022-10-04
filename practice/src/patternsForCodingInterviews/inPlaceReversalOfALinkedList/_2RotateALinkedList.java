@@ -13,7 +13,7 @@ public class _2RotateALinkedList {
         ListNode result = rotate(head, 3);
         System.out.print("Nodes of the reversed LinkedList are: ");
         while (result != null) {
-            System.out.print(result.value + " ");
+            System.out.print(result.val + " ");
             result = result.next;
         }
     }

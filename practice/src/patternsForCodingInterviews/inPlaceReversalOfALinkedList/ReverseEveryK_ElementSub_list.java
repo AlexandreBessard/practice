@@ -15,7 +15,7 @@ public class ReverseEveryK_ElementSub_list {
         ListNode result = reverse(head, 3);
         System.out.print("Nodes of the reversed LinkedList are: ");
         while (result != null) {
-            System.out.print(result.value + " ");
+            System.out.print(result.val + " ");
             result = result.next;
         }
     }

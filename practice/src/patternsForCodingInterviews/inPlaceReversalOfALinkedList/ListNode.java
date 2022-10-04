@@ -1,10 +1,10 @@
 package patternsForCodingInterviews.inPlaceReversalOfALinkedList;
 
 class ListNode {
-    int value;
+    int val;
     ListNode next;
-    ListNode(int value) {
-        this.value = value;
+    ListNode(int val) {
+        this.val = val;
     }
 
 }

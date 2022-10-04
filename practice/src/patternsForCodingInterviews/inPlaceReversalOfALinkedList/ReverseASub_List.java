@@ -12,7 +12,7 @@ public class ReverseASub_List {
         ListNode result = reverse(head, 2, 4);
         System.out.print("Nodes of the reversed LinkedList are: ");
         while (result != null) {
-            System.out.print(result.value + " ");
+            System.out.print(result.val + " ");
             result = result.next;
         }
     }
