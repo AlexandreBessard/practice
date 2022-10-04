@@ -38,15 +38,13 @@ public class IntersectionOfTwoLinkedLists {
     static ListNode getIntersectionNodeTwoPointers(ListNode headA, ListNode headB) {
         //boundary check
         if(headA == null || headB == null) return null;
-        ListNode a = headA;
-        ListNode b = headB;
-        //if a & b have different len, then we will stop the loop after second iteration
-        while( a != b){
-            //for the end of first iteration, we just reset the pointer to the head of another linkedlist
-            a = a == null? headB : a.next;
-            b = b == null? headA : b.next;
+        ListNode pA = headA;
+        ListNode pB = headB;
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
         }
-        return a;
+        return pA;
         // Note: In the case lists do not intersect, the pointers for A and B
         // will still line up in the 2nd iteration, just that here won't be
         // a common node down the list and both will reach their respective ends

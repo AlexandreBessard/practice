@@ -63,7 +63,7 @@ public class SingleNumber {
     static int singleNumber(int[] nums) {
         List<Integer> no_duplicate_list = new ArrayList<>();
         for (int i : nums) {
-            if (!no_duplicate_list.contains(i)) {
+            if (!no_duplicate_list.contains(i)) { //Use O(n) time to search for the element
                 no_duplicate_list.add(i);
             } else {
                 no_duplicate_list.remove(new Integer(i));
