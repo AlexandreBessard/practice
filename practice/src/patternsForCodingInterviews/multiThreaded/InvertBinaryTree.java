@@ -69,8 +69,8 @@ public class InvertBinaryTree {
         root.left = root.right;
         root.right = temp;
         //Invert left and right
-        invertTree(root.left);
-        invertTree(root.right);
+        invertTreeNonConcurrency(root.left);
+        invertTreeNonConcurrency(root.right);
         return root;
     }
 
