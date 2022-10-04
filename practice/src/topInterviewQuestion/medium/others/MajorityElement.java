@@ -8,13 +8,31 @@ import java.util.Map;
 public class MajorityElement {
 
     public static void main(String[] args) {
-        int[] nums = {2,2,1,1,1,2,2};
+        int[] nums = {2, 2, 1, 1, 1, 2, 2};
         System.out.println(majorityElementBrutForce(nums));
         System.out.println(majorityElementHashMap(nums));
         //System.out.println(majorityElementSorting(nums));
         System.out.println("Divide and Conquer :"
                 + majorityElementDivideAndConquer(nums));
+        System.out.println(majorityElementBoyerMoore(nums));
 
+    }
+
+    //Approach 6: Boyer-Moore Voting Algorithm
+    /*
+    Time: O(n) -> Linear time
+    Space: O(1)
+     */
+    static int majorityElementBoyerMoore(int[] nums) {
+        int count = 0;
+        Integer candidate = null;
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+            count += (num == candidate) ? 1 : -1;
+        }
+        return candidate != null ? candidate : -1;
     }
 
     //Approach 5: Divide and conquer
@@ -25,9 +43,10 @@ public class MajorityElement {
     static int majorityElementDivideAndConquer(int[] nums) {
         return majorityElementRec(nums, 0, nums.length - 1);
     }
-    private static int  majorityElementRec(int[] nums, int lo, int hi) {
+
+    private static int majorityElementRec(int[] nums, int lo, int hi) {
         //base case
-        if(lo == hi){
+        if (lo == hi) {
             return nums[lo];
         }
         //Recurse left and right halves of this slice
@@ -35,7 +54,7 @@ public class MajorityElement {
         int left = majorityElementRec(nums, lo, mid);
         int right = majorityElementRec(nums, mid + 1, hi);
         //If two halves agree on the majority element, return it
-        if(left == right) {
+        if (left == right) {
             return left;
         }
         //Otherwise count each element and return the winner
@@ -44,16 +63,16 @@ public class MajorityElement {
 
         return leftCount > rightCount ? left : right;
     }
+
     private static int countInRange(int[] nums, int num, int lo, int hi) {
         int count = 0;
-        for(int i = lo; i <= hi; i++) {
-            if(nums[i] == num){
+        for (int i = lo; i <= hi; i++) {
+            if (nums[i] == num) {
                 count++;
             }
         }
         return count;
     }
-
 
 
     //Approach 3: Sorting:
@@ -76,20 +95,21 @@ public class MajorityElement {
     Space complexity: O(n) caused by the hashMap
      */
     static int majorityElementHashMap(int[] nums) {
-        Map<Integer, Integer> counts = countNums(nums);
+        Map<Integer, Integer> counts = countNums(nums); //count each numbers
         Map.Entry<Integer, Integer> majorityEntry = null;
-        for(Map.Entry<Integer, Integer> entry : counts.entrySet()) {
-            if(majorityEntry == null
+        for (Map.Entry<Integer, Integer> entry : counts.entrySet()) {
+            if (majorityEntry == null
                     || entry.getValue() > majorityEntry.getValue()) {
                 majorityEntry = entry;
             }
         }
         return majorityEntry.getKey();
     }
+
     private static Map<Integer, Integer> countNums(int[] nums) {
         Map<Integer, Integer> counts = new HashMap<>();
-        for(int num: nums) {
-            if(!counts.containsKey(num)) {
+        for (int num : nums) {
+            if (!counts.containsKey(num)) {
                 counts.put(num, 1);
             } else {
                 counts.put(num, (counts.get(num) + 1));
@@ -106,14 +126,14 @@ public class MajorityElement {
      */
     static int majorityElementBrutForce(int[] nums) {
         int majorityCount = nums.length / 2;
-        for(int num: nums) {
+        for (int num : nums) {
             int count = 0;
-            for(int element : nums) {
-                if(element == num) {
+            for (int element : nums) {
+                if (element == num) {
                     count += 1;
                 }
             }
-            if(count > majorityCount) {
+            if (count > majorityCount) {
                 return num;
             }
         }
