@@ -1,41 +1,6 @@
-Facebook Questions Reviewed:
-Arrays And Strings  -> Valid Palindrome included DONE -> 14/09
-Recursion -> DONE -> 16/09
-LinkedList -> DONE 07/09
-Trees and Graphs -> Binary Tree Paths included DONE -> 15/09
-Sorting and Searching -> DONE 17/09
-Design -> 10/09 DONE
-Others -> DONE 11/09
-Dynamic Programming -> DONE 18/09
-
-Reviewed
-Top 10 freqently asked questions FACEBOOK: https://leetcode.com/problem-list/top-facebook-questions/?sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D
-->
-
-Amazon Questions:
-Dynamic Programming ->
-Design -> in progress
---------------------------------------------
-Reviewed Amazon questions:
-Arrays ->
---------------------------------------------------
-Reviewed Question easy:
-
-Array (easy) -> DONE 14/Aout
-String (easy) -> DONE 15/04
-LinkedList (easy) -> DONE 24/08
-Desing (easy) -> DONE 01/09
-Sorting and Searching (easy) -> DONE 05/09
-
----------------------------------------------------
-Reviewed Object-Oriented Design (Cracking the coding interview)
-
-Parking_Lot -> 03/09 DONE
-
---------------------------------------
 Reviewed Algorithms:
 
-Divide And Conquer -> 24/08 (QuickSort & MergeSort)
+Divide And Conquer -> 24/08 (QuickSort [23/08] & MergeSort)
 QuickSelect -> 01/09 DONE
 Depth First Search -> 03/09 DONE
 Breadth First Search -> 24/08 DONE
@@ -45,9 +10,9 @@ Merge Intervals -> 01/09 DONE
 Fast and Slow pointers -> DONE 14/09
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 17/09 -> Kth Largest Number in a Stream included DONE
-Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed
+Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed 
 Subsets -> 16/09 DONE
-Matrix Traversal -> 28/08 DONE
+Matrix Traversal -> 20/09 DONE
 K way merge -> 29/08 DONE
 Cyclic sort -> 27/08 DONE
 In Place reversal of LinkedList -> 30/08 DONE
@@ -57,15 +22,10 @@ Topological Sort -> DONE 13/09
 Backtracking -> 24/08
 Union Find -> 31/08
 Monotonic Stack -> 05/09
+N-ary Tree -> 24/09
 
-Memoization
-Segment Tree
-
-----------------------------------------------
-Design Pattern
-
-
-
+Memoization 
+Segment Tree 
 
 
 MUST KNOW:
@@ -83,3 +43,5 @@ Union Find (63)
 Memoization (32)
 Topological Sort (28) -> 13/09
 Segment Tree (27)
+
+
