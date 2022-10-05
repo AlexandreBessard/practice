@@ -29,13 +29,16 @@ public class _3Sum {
     /*
     Time complexity: O(n²) we have outer and inner loops
     Space complexity: O(n) for hashSet/hashMap
+
+    Use this approach 'No-Sort' if we have very large array with duplicates and a few matching triplets
      */
     static List<List<Integer>> threeSumNoSort(int[] nums) {
         Set<List<Integer>> res = new HashSet<>();
         Set<Integer> dups = new HashSet<>();
         Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (dups.add(nums[i])) { //If existing element, we continue to the next element by incrementing 'i'
+            //True if the set did not contain the element
+            if (dups.add(nums[i])) { //If existing element, we continue to the next element by incrementing 'i', avoid duplicates
                 for (int j = i + 1; j < nums.length; j++) {
                     int complement = -nums[i] - nums[j]; //Complement - 1 + 0 == 1 to have 0
                     if (seen.containsKey(complement) && seen.get(complement) == i) {
@@ -54,6 +57,8 @@ public class _3Sum {
     /*
     Time complexity: O(n²)
     Space complexity: O(n) for the hashSet
+
+    Approach 1 is easier to understand
      */
     static List<List<Integer>> threeSumHashSet(int[] nums) {
         Arrays.sort(nums);
@@ -90,7 +95,7 @@ public class _3Sum {
     the memory required for the output)
      */
     static List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
+        Arrays.sort(nums); // array sorted
         List<List<Integer>> res = new ArrayList<>();
         for(int i = 0; i < nums.length; i++) {
             if(i == 0 || nums[i - 1] != nums[i])
@@ -98,9 +103,7 @@ public class _3Sum {
         }
         return res;
     }
-    private static void twoSum2(int[] nums,
-                                int i,
-                                List<List<Integer>> res)
+    private static void twoSum2(int[] nums, int i, List<List<Integer>> res)
     {
         int lo = i + 1, hi = nums.length - 1;
         while(lo < hi) {
@@ -109,7 +112,7 @@ public class _3Sum {
                 lo++;
             } else if(sum > 0) {
                 hi--;
-            } else { //Avoid duplicate results ex: -1 -1 -1 -1, 2, 4 -> get (-1, -1  2) once
+            } else { //Avoid duplicate results ex: -1 -1 -1 -1, 2, 4 -> get (-1, -1  2) once because it is sorted
                 res.add(Arrays.asList(nums[i], nums[lo++], nums[hi++]));
                 while(lo < hi && nums[lo] == nums[lo - 1])
                     lo++;

@@ -4,10 +4,10 @@ package topInterviewQuestion.facebook.dynamicProgramming;
 public class LongestPalindromeSubstring {
 
     public static void main(String[] args) {
-        String s1 = "forgeeksskeegfor";
+        //String s1 = "forgeeksskeegfor";
         String s2 = "geekkeegfor";
         //Output : geeksskeeg
-        System.out.println(longestPalindrome(s1));
+        System.out.println(longestPalindrome(s2));
 
         System.out.println("\nTwo Pointers :");
         System.out.println(longestPalTwoPointers(s2));
@@ -29,6 +29,7 @@ public class LongestPalindromeSubstring {
                 right++;
             }
             int left = i - 1; //Left next element before ith element
+            // 'right < n' below avoid IndexOutOfBoundException produced by 'str.charAt(right)'
             while (left >= 0 && right < n && str.charAt(left) == str.charAt(right)) {
                 left--;
                 right++;
