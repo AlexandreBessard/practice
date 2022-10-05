@@ -1,4 +1,4 @@
-package patternsForCodingInterviews.islandsMatrixTraversal;
+package patternsForCodingInterviews.matrixTraversal;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_62d53be009288Unit
 public class BiggestIsland {

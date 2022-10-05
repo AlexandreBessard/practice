@@ -1,4 +1,4 @@
-package patternsForCodingInterviews.islandsMatrixTraversal;
+package patternsForCodingInterviews.matrixTraversal;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -19,7 +19,7 @@ public class NumberOfIslands {
      */
     /**
     See other solution to avoid override the array :
-     * {@link patternsForCodingInterviews.islandsMatrixTraversal._2NumberOfDistinctIslands}
+     * {@link patternsForCodingInterviews.matrixTraversal._2NumberOfDistinctIslands}
      */
     static int numIslandsDFS(char[][] grid) {
         if(grid == null || grid[0].length == 0)
