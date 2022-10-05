@@ -61,6 +61,14 @@ public class GenerateParentheses {
     /*
     Time complexity: O(22nn)
     Space complexity: O(22nn)
+
+    You can visualize the brut force as a binary tree ex:
+    n = 3
+        C
+       / \
+      c   ↄ
+     /\  /\
+    c  ↄ c ↄ
      */
     public List<String> generateParenthesis(int n) {
         List<String> combinations = new ArrayList();
@@ -73,9 +81,9 @@ public class GenerateParentheses {
             if (valid(current))
                 result.add(new String(current));
         } else {
-            current[pos] = '(';
+            current[pos] = '('; //See binary example above (left side)
             generateAll(current, pos + 1, result);
-            current[pos] = ')';
+            current[pos] = ')'; //Right side
             generateAll(current, pos + 1, result);
         }
     }
