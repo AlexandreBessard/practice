@@ -26,6 +26,9 @@ public class NumberOfClosedIslands {
          */
     }
 
+    //TODO: BFS approach
+    //return false if out of booundaries else if 0 or visited -> continue
+
     //Approach DFS
     /*
     Time: O(N)
