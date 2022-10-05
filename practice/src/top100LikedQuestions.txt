@@ -13,3 +13,8 @@ Best Time to Buy and Sell Stock : 04/10/2022
 Single Number : 04/10/2022
 Linked List Cycle: 04/10/2022
 Intersection Of Two LinkedLists : 04/10/2022
+Majority Element : 04/10/2022
+Reverse Linked List : 04/10/2022
+Invert Binary Tree : 04/10/2022
+Palindrome Linked List : 04/10/2022
+Move Zeroes : 04/10/2022
