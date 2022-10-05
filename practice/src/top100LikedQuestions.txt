@@ -27,3 +27,4 @@ Container With The Most Water : 05/10/2022
 3Sum : 05/10/2022
 Letter Combination Of A Phone Number : 05/10/2022
 RemoveNthNodeFromEndOfList : 05/10/2022
+Generate Parentheses : 05/10/2022

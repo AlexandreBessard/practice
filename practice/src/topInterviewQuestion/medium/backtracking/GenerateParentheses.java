@@ -77,8 +77,8 @@ public class GenerateParentheses {
     }
 
     public void generateAll(char[] current, int pos, List<String> result) {
-        if (pos == current.length) {
-            if (valid(current))
+        if (pos == current.length) { //Base case
+            if (valid(current)) //Add to the result if it is valid
                 result.add(new String(current));
         } else {
             current[pos] = '('; //See binary example above (left side)
