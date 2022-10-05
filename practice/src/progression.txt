@@ -12,7 +12,7 @@ Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 17/09 -> Kth Largest Number in a Stream included DONE
 Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed 
 Subsets -> 16/09 DONE
-Matrix Traversal -> 20/09 DONE
+Matrix Traversal -> 04/10 DONE
 K way merge -> 29/08 DONE
 Cyclic sort -> 27/08 DONE
 In Place reversal of LinkedList -> 30/08 DONE
