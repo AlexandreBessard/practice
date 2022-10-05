@@ -53,16 +53,16 @@ public class RemoveNthNodeFromEndOfList {
         ListNode first = dummy;
         ListNode second = dummy;
         //Advances first pointer, gap between first and second are n nodes apart
-        for(int i = 1; i <= n + 1; i++) {
+        for(int i = 0; i <= n; i++) { //We move first idx n times forward
             first = first.next;
         }
         //Move first to the end maintaining the gap
         while(first != null) {
-            first = first.next;
+            first = first.next; //Move both pointers forward until first is null
             second = second.next;
         }
-        second.next = second.next.next;
-        return dummy.next;
+        second.next = second.next.next; //second pointer point just before the node which must be deleted
+        return dummy.next; //Return the head (original node)
     }
 
 }
