@@ -1,9 +1,7 @@
 package algorithms.backtracking.combinations;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 //https://leetcode.com/problems/combination-sum-ii/
 public class CombinationsII {
@@ -16,27 +14,32 @@ public class CombinationsII {
         }
     }
 
+    /*
+    Time: O(2n) 2n because each number is either included or excluded in a combination
+    Space: O(N)
+     */
     static List<List<Integer>> combinationsSum2(int[] nums, int target) {
         Arrays.sort(nums); //Array must be sorted, else this algo does not work
         List<List<Integer>> res = new ArrayList<>();
         boolean[] used = new boolean[nums.length];
-        backtracking(0, nums, target, new LinkedList<>(), res, used);
+        backtracking(0, nums, target, new LinkedList<>(), res);
         return res;
     }
 
     private static void backtracking(int start, int[] nums, int target,
-                                     LinkedList<Integer> currList, List<List<Integer>> res, boolean[] used) {
+                                     LinkedList<Integer> currList, List<List<Integer>> res) {
         if (target == 0) {
             res.add(new ArrayList<>(currList));
+            return;
         } else if (target < 0) {
             return;
         } else {
             for (int i = start; i < nums.length; i++) {
-                if(i > start && nums[i] == nums[i - 1]) {
+                if (i > start && nums[i] == nums[i - 1]) { //skip dupliates
                     continue;
                 }
                 currList.add(nums[i]);
-                backtracking(start + 1, nums, (target - nums[i]), currList, res, used);
+                backtracking(i + 1, nums, (target - nums[i]), currList, res);
                 currList.removeLast();
             }
         }
