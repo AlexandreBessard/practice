@@ -1,16 +1,20 @@
-package algorithms.backtracking.mustKnow;
+package algorithms.backtracking.subsets;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 //https://leetcode.com/problems/subsets-ii/
 public class Subsets_2 {
-
+    /*
+    Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
+    The solution set must not contain duplicate subsets. Return the solution in any order.
+     */
     public static void main(String[] args) {
         var obj = new Subsets_2();
 
-        List<List<Integer>> resultBacktracking = obj.subsetsWithDup(new int[]{1, 2, 3});
+        List<List<Integer>> resultBacktracking = obj.subsetsWithDup(new int[]{1, 2, 2});
         for (List<Integer> l : resultBacktracking) {
             System.out.println(l);
         }
@@ -24,11 +28,11 @@ public class Subsets_2 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> output = new ArrayList<>();
         Arrays.sort(nums);
-        backtrack(output, new ArrayList<>(), nums, 0);
+        backtrack(output, new LinkedList<>(), nums, 0);
         return output;
     }
 
-    private void backtrack(List<List<Integer>> list, List<Integer> currList, int[] nums, int start) {
+    private void backtrack(List<List<Integer>> list, LinkedList<Integer> currList, int[] nums, int start) {
         list.add(new ArrayList<>(currList));
         //Iterate all possible candidate
         for (int i = start; i < nums.length; i++) {
@@ -38,7 +42,7 @@ public class Subsets_2 {
             //Move on to the next elements
             backtrack(list, currList, nums, i + 1);
             //backtrack removing the number before moving onto the next
-            currList.remove(currList.size() - 1);
+            currList.removeLast();
         }
 
     }

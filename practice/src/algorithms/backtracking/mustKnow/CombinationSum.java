@@ -2,6 +2,7 @@ package algorithms.backtracking.mustKnow;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 //https://leetcode.com/problems/combination-sum/ (can reuse same element)
@@ -26,35 +27,40 @@ Output: [[2,2,2,2],[2,3,3],[3,5]]
         int target1 = 7;
         int[] candidates2 = {2, 3, 5};
         int target2 = 8;
+        int[] candidates3 = {3, 4, 5};
+        int target3 = 9;
         List<List<Integer>> res;
-        res = obj.combinationSum(candidates1, target1);
+        res = obj.combinationSum(candidates3, target3);
         for (List<Integer> l : res) {
             System.out.println(l);
         }
+        /*
         res = obj.combinationSum2(candidates2, target1);
         System.out.println("Without replicate: ");
         for (List<Integer> l : res) {
             System.out.println(l);
         }
+
+         */
     }
 
     public List<List<Integer>> combinationSum(int[] nums, int target) {
         List<List<Integer>> output = new ArrayList<>();
-        Arrays.sort(nums);
-        backtrack(output, new ArrayList<>(), nums, target, 0);
+        Arrays.sort(nums); //Array mus be sorted
+        backtrack(output, new LinkedList<>(), nums, target, 0);
         return output;
     }
 
     private void backtrack(List<List<Integer>> output,
-                           List<Integer> currList,
+                           LinkedList<Integer> currList,
                            int[] nums,
                            int remain,
                            int start) {
-        if (remain < 0)
-            return;
-        else if (remain == 0)
+        if (remain == 0) { //Base case 1
             output.add(new ArrayList<>(currList));
-        else {
+        } else if (remain < 0) { //Base case 2
+            return;
+        } else {
             //Iterate all possbile candidates
             for (int i = start; i < nums.length; i++) {
                 //Try this partial candidate solution
@@ -63,7 +69,7 @@ Output: [[2,2,2,2],[2,3,3],[3,5]]
                 backtrack(output,
                         currList, nums, remain - nums[i], i); // not i + 1 because we can reuse same elements
                 //Backtrack
-                currList.remove(currList.size() - 1);
+                currList.removeLast();
             }
         }
     }
@@ -76,22 +82,27 @@ Output: [[2,2,2,2],[2,3,3],[3,5]]
     public List<List<Integer>> combinationSum2(int[] nums, int target) {
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
-        backtrackSum2(list, new ArrayList<>(), nums, target, 0);
+        backtrackSum2(list, new LinkedList<>(), nums, target, 0);
         return list;
 
     }
 
-    private void backtrackSum2(List<List<Integer>> list, List<Integer> tempList,
-                               int [] nums, int remain, int start){
-        if(remain < 0) return;
-        else if(remain == 0) list.add(new ArrayList<>(tempList));
-        else{
-            for(int i = start; i < nums.length; i++){
-                if(i > start && nums[i] == nums[i-1])
+    private void backtrackSum2(List<List<Integer>> output, LinkedList<Integer> currList,
+                               int[] nums, int remain, int start) {
+        if (remain == 0) { //Base case 1
+            output.add(new ArrayList<>(currList));
+        } else if (remain < 0) { //Base case 2
+            return;
+        } else {
+            for (int i = start; i < nums.length; i++) {
+                if (i > start && nums[i] == nums[i - 1]) {
                     continue; // skip duplicates
-                tempList.add(nums[i]);
-                backtrackSum2(list, tempList, nums, remain - nums[i], i + 1);
-                tempList.remove(tempList.size() - 1);
+                }
+                currList.add(nums[i]);
+                //Move forward
+                backtrackSum2(output, currList, nums, remain - nums[i], i + 1);
+                //Backtrack
+                currList.removeLast();
             }
         }
     }
