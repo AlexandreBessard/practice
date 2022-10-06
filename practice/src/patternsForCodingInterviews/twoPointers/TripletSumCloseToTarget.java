@@ -5,7 +5,11 @@ import java.util.Map;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743457252_5Unit
 public class TripletSumCloseToTarget {
-
+    /*
+    Given an array of unsorted numbers and a target number, find a triplet in the array whose sum is as close to the
+    target number as possible, return the sum of the triplet. If there are more than one such triplet,
+    return the sum of the triplet with the smallest sum.
+     */
     public static void main(String[] args) {
         System.out.println(searchTriplet(new int[] { -2, 0, 1, 2 }, 2));
         System.out.println(searchTriplet(new int[] { -3, -1, 1, 2 }, 1));
@@ -46,6 +50,6 @@ public class TripletSumCloseToTarget {
                 }
             }
         }
-        return targetSum - smallestDifference;
+        return targetSum - smallestDifference; //smallestDiff -> sum of this triplet
     }
 }

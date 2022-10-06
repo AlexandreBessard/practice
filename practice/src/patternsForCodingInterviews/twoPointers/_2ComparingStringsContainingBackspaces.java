@@ -1,12 +1,18 @@
 package patternsForCodingInterviews.twoPointers;
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743506829_10Unit
 public class _2ComparingStringsContainingBackspaces {
-
+/*
+Given two strings containing backspaces (identified by the character ‘#’), check if the two strings are equal.
+ */
     public static void main(String[] args) {
+        /*
         System.out.println(compare("xy#z", "xzz#"));
         System.out.println(compare("xy#z", "xyz#"));
         System.out.println(compare("xp#", "xyz##"));
-        System.out.println(compare("xywrrmp", "xywrrmu#p"));
+
+         */
+        System.out.println(compare("x", "x#####"));
+        //System.out.println(compare("xywrrmp", "xywrrm#p"));
     }
 
     public static boolean compare(String str1, String str2) {
@@ -42,7 +48,7 @@ public class _2ComparingStringsContainingBackspaces {
             else {
                 break; //return that index
             }
-            index--;
+            index--; //Decrement index for each iteration
         }
         return index;
     }

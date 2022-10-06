@@ -4,13 +4,13 @@ Divide And Conquer -> 24/08 (QuickSort [23/08] & MergeSort)
 QuickSelect -> 01/09 DONE
 Depth First Search -> 03/09 DONE
 Breadth First Search -> 24/08 DONE
-Two Pointers -> 13/09 DONE
+Two Pointers -> 05/10 DONE
 Sliding Window -> DONE 03/10
 Merge Intervals -> 01/09 DONE
 Fast and Slow pointers -> DONE 14/09
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 17/09 -> Kth Largest Number in a Stream included DONE
-Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed 
+Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed
 Subsets -> 16/09 DONE
 Matrix Traversal -> 04/10 DONE
 K way merge -> 29/08 DONE

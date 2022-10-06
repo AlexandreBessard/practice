@@ -14,10 +14,9 @@ public class DutchNationalFlagProblem {
     Time: O(N)
     Space: O(1)
      */
-    public static void sort(int[] arr) {
-        int low = 0;
-        int high = arr.length - 1;
-        for(int i = 0; i <= high;) {
+    public static void sort(int[] arr) { //Input : 1, 0, 2, 1, 0
+        int low = 0, high = arr.length - 1; //Two pointers
+        for(int i = 0; i <= high;) { //Loop through each element; increment 'i' only if 0 or 1
             if(arr[i] == 0) { //Swap with the low, put 0 the left side
                 swap(arr, i, low);
                 i++;

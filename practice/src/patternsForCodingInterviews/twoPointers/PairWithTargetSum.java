@@ -6,7 +6,10 @@ import java.util.Map;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743417172_1Unit
 public class PairWithTargetSum {
-
+/*
+Given an array of sorted numbers and a target sum, find a pair in the array whose sum is equal to the given target.
+Write a function to return the indices of the two numbers (i.e. the pair) such that they add up to the given target.
+ */
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 6};
         int target = 6;

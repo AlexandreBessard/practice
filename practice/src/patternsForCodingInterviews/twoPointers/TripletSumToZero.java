@@ -21,7 +21,7 @@ public class TripletSumToZero {
     Space: O(N) caused by sorted array
      */
     public static List<List<Integer>> searchTriplets(int[] arr) {
-        Arrays.sort(arr);
+        Arrays.sort(arr); //Array must be sorted to apply this algorithm
         List<List<Integer>> triplets = new ArrayList<>();
         for(int i = 0; i < arr.length - 2; i++) {
             //Skip same element to avoid duplicate triplets

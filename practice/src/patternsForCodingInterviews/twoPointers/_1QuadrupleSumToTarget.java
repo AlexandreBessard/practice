@@ -6,9 +6,12 @@ import java.util.List;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743502365_9Unit
 public class _1QuadrupleSumToTarget {
-
+    /*
+    Given an array of unsorted numbers and a target number, find all unique quadruplets in it,
+    whose sum is equal to the target number.
+     */
     public static void main(String[] args) {
-        System.out.println(searchQuadruplets(new int[] { 4, 1, 2, -1, 1, -3 }, 1));
+        System.out.println(searchQuadruplets(new int[]{4, 1, 2, -1, 1, -3}, 1));
         //System.out.println(searchQuadruplets(new int[] { 2, 0, -1, 1, -2, 2 }, 2));
     }
 
@@ -19,13 +22,13 @@ public class _1QuadrupleSumToTarget {
     public static List<List<Integer>> searchQuadruplets(int[] arr, int target) {
         Arrays.sort(arr); //sorting the array will take O(N * logN)
         List<List<Integer>> quadruplets = new ArrayList<>();
-        for(int i = 0; i < arr.length - 3; i++) {
+        for (int i = 0; i < arr.length - 3; i++) {
             //Avoid duplicate quadruplets
-            if(i > 0 && arr[i - 1] == arr[i]) { //check if previous number is the same, avoid duplicate
+            if (i > 0 && arr[i - 1] == arr[i]) { //check if previous number is the same, avoid duplicate
                 continue;
             }
-            for(int j = i + 1; j < arr.length - 2; j++) {
-                if(j > i + 1 && arr[j] == arr[j - 1]) {
+            for (int j = i + 1; j < arr.length - 2; j++) {
+                if (j > i + 1 && arr[j] == arr[j - 1]) {
                     continue;
                 }
                 searchPairs(arr, target, i, j, quadruplets);
@@ -34,29 +37,29 @@ public class _1QuadrupleSumToTarget {
         }
         return quadruplets;
     }
+
     private static void searchPairs(int[] arr,
                                     int targetSum,
                                     int first,
                                     int second,
-                                    List<List<Integer>> quadruplets)
-    {
+                                    List<List<Integer>> quadruplets) {
         int left = second + 1;
         int right = arr.length - 1;
-        while(left < right) {
+        while (left < right) {
             int sum = arr[first] + arr[second] + arr[left] + arr[right];
-            if(targetSum == sum) {
+            if (targetSum == sum) { //We have our answer
                 quadruplets.add(Arrays.asList(arr[first], arr[second], arr[left], arr[right]));
                 left++;
                 right--;
-                while(left < right && arr[left] == arr[left - 1]){
+                while (left < right && arr[left] == arr[left - 1]) { //Avoid duplicates
                     left++;
                 }
-                while(left < right && arr[right] == arr[right + 1]){
+                while (left < right && arr[right] == arr[right + 1]) { //Avoid duplicates
                     right--;
                 }
-            } else if(sum < targetSum) {
+            } else if (sum < targetSum) { //True, we need a higher element from the left
                 left++;
-            } else {
+            } else { //Smaller element is required (sorted array)
                 right--;
             }
         }
