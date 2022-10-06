@@ -13,7 +13,7 @@ public class NextPermutation {
         nextPermutation(nums4);
         int[] nums5 = {0, 1, 2, 5, 3, 3, 0};
         //int[] failCase = {5, 4, 3, 2};
-        System.out.println(Arrays.toString(nextPermutationOtherApproach(nums5)));
+        System.out.println(Arrays.toString(nextPermutationOtherApproach(nums4)));
         //Output: 1, 3, 2
         //System.out.println(Arrays.toString(nums4));
     }
@@ -34,9 +34,11 @@ public class NextPermutation {
         /*2*/   int pivot = indexOfLastPeak(nums);
         // paritions nums into [prefix pivot suffix]
         if (pivot != -1) {
+            //Get first index from the end greater than nums[pivot]
             int nextPrefix = lastIndexOfGreater(nums, nums[pivot]); // in the worst case it's suffix[0]
             // next prefix must exist because pivot < suffix[0], otherwise pivot would be part of suffix
-            /*4*/       swap(nums, pivot, nextPrefix); // this minimizes the change in prefix
+            /*4*/
+            swap(nums, pivot, nextPrefix); // this minimizes the change in prefix
         }
         //5
         reverseSuffix(nums, pivot + 1); // reverses the whole list if there was no pivot
@@ -72,6 +74,7 @@ public class NextPermutation {
     }
 
     //Approach 2: Single pass approach
+    //Brut force
     /*
     Time: O(N)
     Space: O(1)
