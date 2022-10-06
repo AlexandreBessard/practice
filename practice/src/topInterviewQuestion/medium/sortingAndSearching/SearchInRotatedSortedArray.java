@@ -7,7 +7,7 @@ public class SearchInRotatedSortedArray {
         //int[] nums = {2, 5, 6, 7, 0, 1, 4};
         //Array rotated:
         int[] nums2 = {4,5,6,7,0,1,2};
-        System.out.println(search(nums2, 0));
+        System.out.println(searchOnePass(nums2, 0));
     }
 
 
@@ -16,7 +16,7 @@ public class SearchInRotatedSortedArray {
     Time complexity: O(log N)
     Space complexity: O(1)
      */
-    public int searchOnePass(int[] nums, int target) {
+    static int searchOnePass(int[] nums, int target) {
         int start = 0, end = nums.length - 1;
         while(start <= end)
         {
@@ -27,7 +27,7 @@ public class SearchInRotatedSortedArray {
             }
             else if (nums[mid] >= nums[start])
             {
-                if(target >= nums[start] && target < nums[mid])
+                if(target >= nums[start] && target < nums[mid]) //Check if the target can be found in that subarray
                 {
                     end = mid - 1;
                 }
