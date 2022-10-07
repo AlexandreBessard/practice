@@ -24,19 +24,19 @@ public class JumpGameII {
         q.add(0); //Represent the index 0
         visited[0] = true;
         int depth = 0;
-        while(!q.isEmpty()) {
+        while (!q.isEmpty()) {
             int size = q.size();
-            for(int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 int index = q.remove();
-                if(index == nums.length - 1) { //We reached the last index of the array
+                if (index == nums.length - 1) { //We reached the last index of the array
                     return depth;
                 }
-                for(int j = 1; j <= nums[index]; j++) { //Try each step from that element in index i
+                for (int j = 1; j <= nums[index]; j++) { //Try each step from that element in index i
                     int neighbor_idx = index + j;
-                    if(neighbor_idx > nums.length - 1) { //We are out of bound, do not go further and break this loop
+                    if (neighbor_idx > nums.length - 1) { //We are out of bound, do not go further and break this loop
                         break;
                     }
-                    if(visited[neighbor_idx]) { //Already visited, move forward
+                    if (visited[neighbor_idx]) { //Already visited, move forward
                         continue;
                     }
                     q.add(neighbor_idx);
@@ -62,12 +62,12 @@ public class JumpGameII {
         int jumps = 0, //count the number of jumps
                 curEnd = 0; // mark the end of the range that we can jump to
         int curFarthest = 0; // farthest place that we can reach
-        for(int i = 0; i < nums.length - 1; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
             // we continuously find the how far we can reach in the current jump
             curFarthest = Math.max(curFarthest, i + nums[i]); //end is 'i + nums[i]'. Determine which place will take us the farthest in the next jump
             // if we have come to the end of the current jump,
             // we need to make another jump
-            if(i == curEnd) {
+            if (i == curEnd) {
                 jumps++;
                 curEnd = curFarthest;
             }
