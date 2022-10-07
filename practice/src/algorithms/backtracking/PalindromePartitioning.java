@@ -30,14 +30,14 @@ public class PalindromePartitioning {
     }
 
     private static void backtracking(int start, List<List<String>> res, LinkedList<String> currList, String s) {
-        if (start == s.length()) {
+        if (start >= s.length()) {
             res.add(new ArrayList<>(currList));
             return;
         } else {
             for (int end = start; end < s.length(); end++) {
                 if (isPalindrome(s, start, end)) {
                     currList.add(s.substring(start, end + 1));
-                    backtracking(start + 1, res, currList, s);
+                    backtracking(end + 1, res, currList, s);
                     currList.removeLast();
                 }
             }
