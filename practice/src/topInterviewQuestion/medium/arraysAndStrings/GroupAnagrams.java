@@ -6,7 +6,7 @@ import java.util.*;
 public class GroupAnagrams {
 
     public static void main(String[] args) {
-        String[] strs = {"eat","tea","tan","ate","nat","bat"};
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
         //Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
         /*
         An Anagram is a word or phrase formed by rearranging the letters of a
@@ -18,20 +18,20 @@ public class GroupAnagrams {
 
     //Approach 3: No sorting using Hashmap
     /*
-    Time complexity: O(NM)
+    Time complexity: O(NK) -> where N is the length of strs and K is the max length of a string in strs
     Space complexity: O(N) -> cause by hashmap
      */
     static List<List<String>> groupAnagramsHashMap(String[] strs) {
-        if(strs == null || strs.length == 0)
+        if (strs == null || strs.length == 0)
             return new ArrayList<>();
         Map<String, List<String>> map = new HashMap<>();
-        for(String s : strs) {
+        for (String s : strs) {
             char[] ca = new char[26]; // new char[126] if we include all characters
-            for(char c : s.toCharArray()) {
-                ca[c  - 'a']++;
+            for (char c : s.toCharArray()) {
+                ca[c - 'a']++; //Count each letters
             }
             String keyStr = String.valueOf(ca);
-            if( ! map.containsKey(keyStr)) {
+            if (!map.containsKey(keyStr)) {
                 map.put(keyStr, new ArrayList<>());
             }
             map.get(keyStr).add(s);
@@ -45,21 +45,21 @@ public class GroupAnagrams {
     Space complexity: O(NK), Total info contained in ans (Map)
      */
     static List<List<String>> groupAnagramsByCount(String[] strs) {
-        if(strs.length == 0)
+        if (strs.length == 0)
             return new ArrayList<>();
         Map<String, List<String>> ans = new HashMap<>();
         int[] count = new int[26];
-        for(String s : strs) {
+        for (String s : strs) {
             Arrays.fill(count, 0);
-            for(char c : s.toCharArray()) {
+            for (char c : s.toCharArray()) {
                 count[c - 'a']++;
             }
             var sb = new StringBuilder();
-            for(int i = 0; i < 26; i++) {
+            for (int i = 0; i < 26; i++) {
                 sb.append('#').append(count[i]);
             }
             String key = sb.toString();
-            if(!ans.containsKey(key)) {
+            if (!ans.containsKey(key)) {
                 ans.put(key, new ArrayList<>());
             }
             ans.get(key).add(sb.toString());
@@ -75,14 +75,14 @@ public class GroupAnagrams {
     Space complexity: 0(NK) total info stored in ans (Map)
      */
     static List<List<String>> groupAnagrams(String[] strs) { //"eat","tea","tan","ate","nat","bat"
-        if(strs.length == 0)
+        if (strs.length == 0)
             return new ArrayList<>();
         Map<String, List<String>> ans = new HashMap<>();
-        for(String s : strs) {
-            char[] ca  = s.toCharArray();
+        for (String s : strs) {
+            char[] ca = s.toCharArray();
             Arrays.sort(ca);
             String key = String.valueOf(ca);
-            if(!ans.containsKey(key))
+            if (!ans.containsKey(key))
                 ans.put(key, new ArrayList());
             ans.get(key).add(Arrays.toString(ca));
         }
