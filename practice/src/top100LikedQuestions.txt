@@ -28,3 +28,25 @@ Container With The Most Water : 05/10/2022
 Letter Combination Of A Phone Number : 05/10/2022
 RemoveNthNodeFromEndOfList : 05/10/2022
 Generate Parentheses : 05/10/2022
+
+Next Permutation : 06/10/2022
+Search In Rotated Sorted Array : 06/10/2022
+Find First and Last Position of Element in Sorted Array : 06/10/2022
+backtracking : 06/10/2022
+Subsets
+Subsets II
+Permutations
+Permutations II
+Combinations
+Combination Sum II
+Combination Sum III
+Palindrome Partition
+
+JumpGameII : 07/10/2022
+Permutations : 07/10/2022
+Rotate Image: 07/10/2022 -> must be reviewed
+Group Anagrams : 07/10/2022
+Maximum Subarray : 07/10/2022
+Spiral Matrix : 07/10/2022
+
+
