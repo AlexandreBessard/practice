@@ -105,7 +105,7 @@ public class MinimumPathSum {
     Space: O(m + n) Recursion depth m + n
      */
     static int minPathSum(int[][] grid) {
-        return calculate(grid, 0, 0);
+        return calculate(grid, 0, 0); //Start from left top corner
     }
 
     private static int calculate(int[][] grid, int row, int col) {
