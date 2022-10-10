@@ -39,8 +39,8 @@ public class UniquePaths {
         for(int row = 1; row < m; row++) {
             for(int col = 1; col < n; col++) {
                 d[row][col] =
-                        d[row - 1][col] // Path from above
-                        + d[row][col - 1]; // Path from the right
+                        d[row - 1][col] // Path from above (means bottom)
+                        + d[row][col - 1]; // Path from the left (means right)
             }
         }
         return d[m - 1][n - 1];
