@@ -1,4 +1,5 @@
 package topInterviewQuestion.top100likedQuestions;
+
 //https://leetcode.com/problems/search-a-2d-matrix/
 public class SearchA2DMatrix {
 
@@ -18,20 +19,20 @@ public class SearchA2DMatrix {
      */
     static boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length;
-        if(m == 0) {
+        if (m == 0) {
             return false;
         }
         int n = matrix[0].length;
         //Binary search
         int left = 0, right = m * n - 1; //Can be represented as a 1D array
         int midIdx, midElement;
-        while(left <= right) {
+        while (left <= right) {
             midIdx = left + (right - left) / 2; //get the mid
             midElement = matrix[midIdx / n][midIdx % n];
-            if(target == midElement) {
+            if (target == midElement) {
                 return true;
             } else {
-                if(target < midElement) {
+                if (target < midElement) {
                     right = midIdx - 1;
                 } else {
                     left = midIdx + 1;
