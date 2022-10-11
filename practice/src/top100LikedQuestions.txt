@@ -49,4 +49,15 @@ Group Anagrams : 07/10/2022
 Maximum Subarray : 07/10/2022
 Spiral Matrix : 07/10/2022
 
+Jump Game: 10/10/2022
+Merge Intervals : 10/10/2022
+Unique Paths : 10/10/2022
+Minimum Path Sum : 10/10/2022
+Set Matrix to Zero : 10/10/2022
+Search A 2D Matrix : 10/10/2022
+Sort Colors : 10/10/2022
+Subsets : 10/10/2022
 
+Word Search : 11/10/2022
+Longest Common Subsequence : 11/10/2022
+Unique Binary Search Tree : 11/10/2022
