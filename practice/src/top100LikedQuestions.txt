@@ -62,5 +62,5 @@ Word Search : 11/10/2022
 Longest Common Subsequence : 11/10/2022 (should be reviewed)
 Unique Binary Search Tree : 11/10/2022 (should be reviewed)
 Construct Binary Tree From Preorder and Inorder Traversal : 11/10/2022 (should be reviewed)
-
+Flatten Binary Tree to Linked List : 11/10/2022 (should be reviewed)
 
