@@ -5,7 +5,7 @@ import java.util.Map;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628744103124_75Unit
 public class _3CountOfStructurallyUniqueBinarySearchTrees {
-
+    //Explanation: https://www.youtube.com/watch?v=Ox0TenN3Zpg
     public static void main(String[] args) {
         var ct = new _3CountOfStructurallyUniqueBinarySearchTrees();
         int count = ct.countTrees(3);

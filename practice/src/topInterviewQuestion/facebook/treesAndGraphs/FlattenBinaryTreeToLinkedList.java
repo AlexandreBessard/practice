@@ -28,7 +28,7 @@ public class FlattenBinaryTreeToLinkedList {
         TreeNode node = root;
         while(node != null) {
             //If node has a left child
-            if(node.left != null) {
+            if(node.left != null) { //if null, move to the next node
                 //Find the rightmost node
                 TreeNode rightmost = node.left;
                 while(rightmost.right != null) {
