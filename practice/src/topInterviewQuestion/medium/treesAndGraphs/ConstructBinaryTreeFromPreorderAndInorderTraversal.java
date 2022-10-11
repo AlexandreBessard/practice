@@ -12,17 +12,18 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
         buildTree(preorder, inorder);
     }
 
-    static int preorderIndex;
+    static int preorderIndex = 0;
     static Map<Integer, Integer> inorderIndexMap;
     //Approach 1: Recursion
+    //Explanation for better understanding : https://www.youtube.com/watch?v=ihj4IQGZ2zc
     /*
     Time complexity: O(n)
     Space complexity: O(n)
      */
     static TreeNode buildTree(int[] preorder, int[] inorder) {
-        int preorderIndex = 0;
-        inorderIndexMap = new HashMap<>();
+        inorderIndexMap = new HashMap<>(); //Create a HashMap
         for(int i = 0; i < inorder.length; i++) {
+            //Key: value, Value: indexw
             inorderIndexMap.put(inorder[i], i);
         }
         return arrayToTree(preorder, 0, preorder.length - 1);
@@ -38,12 +39,8 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
         TreeNode root = new TreeNode(rootValue);
         // build left and right subtree
         // excluding inorderIndexMap[rootValue] element because it's the root
-        root.left = arrayToTree(preorder,
-                left,
-                inorderIndexMap.get(rootValue) - 1);
-        root.right = arrayToTree(preorder,
-                inorderIndexMap.get(rootValue) + 1,
-                right);
+        root.left = arrayToTree(preorder, left, inorderIndexMap.get(rootValue) - 1); //Construct left subtree
+        root.right = arrayToTree(preorder, inorderIndexMap.get(rootValue) + 1, right); //Construct right subtree
         return root;
     }
 
