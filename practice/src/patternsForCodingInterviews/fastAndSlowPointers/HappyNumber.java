@@ -4,7 +4,7 @@ public class HappyNumber {
 
     public static void main(String[] args) {
         System.out.println(find(23));
-        System.out.println(find(12));
+        //System.out.println(find(12));
     }
 
     /*
@@ -23,7 +23,7 @@ public class HappyNumber {
     private static int findSquareSum(int num) {
         int sum = 0, digit;
         while(num > 0) {
-            digit = num % 10;
+            digit = num % 10; //Get the last digit ex: '23' get 3 and 2...
             sum += digit * digit;
             num /= 10;
         }

@@ -34,7 +34,7 @@ public class _3CycleInACircularArray {
         return false;
     }
     private static int findNextIndex(int[] arr, boolean isForward, int currentIndex) {
-        boolean direction = arr[currentIndex] >= 0;
+        boolean direction = arr[currentIndex] >= 0; //If 0 or sup, we move forward. The direction is '->' else negative the direction is '<-'
         if(isForward != direction) {
             return -1; //change in direction, return -1;
         }
@@ -43,7 +43,7 @@ public class _3CycleInACircularArray {
             nextIndex += arr.length; //Wrap around for negative numbers
         }
         //One element cycle, return -1
-        if(nextIndex == currentIndex) {
+        if(nextIndex == currentIndex) { //Means we have a cycle
             nextIndex = -1;
         }
         return nextIndex;

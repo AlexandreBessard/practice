@@ -7,7 +7,7 @@ Breadth First Search -> 24/08 DONE
 Two Pointers -> 05/10 DONE
 Sliding Window -> DONE 03/10
 Merge Intervals -> 01/09 DONE
-Fast and Slow pointers -> DONE 14/09
+Fast and Slow pointers -> DONE 10/10
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 17/09 -> Kth Largest Number in a Stream included DONE
 Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed

@@ -39,11 +39,11 @@ public class _2RearrangeALinkedList {
         while (headFirstHalf != null && headSecondHalf != null) {
             ListNode temp = headFirstHalf.next;
             headFirstHalf.next = headSecondHalf;
-            headFirstHalf = temp;
+            headFirstHalf = temp; //Set the new first head
 
             temp = headSecondHalf.next;
             headSecondHalf.next = headFirstHalf;
-            headSecondHalf = temp;
+            headSecondHalf = temp; //Set the new second head
         }
 
         // set the next of the last node to 'null'

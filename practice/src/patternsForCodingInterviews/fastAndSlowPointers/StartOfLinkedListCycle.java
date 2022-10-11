@@ -1,7 +1,9 @@
 package patternsForCodingInterviews.fastAndSlowPointers;
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743554403_14Unit
 public class StartOfLinkedListCycle {
-
+/*
+Given the head of a Singly LinkedList that contains a cycle, write a function to find the starting node of the cycle.
+ */
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
@@ -60,7 +62,7 @@ public class StartOfLinkedListCycle {
         }
         return pointer1;
     }
-
+    //Count the length's cycle
     private static int calculateCycleLength(ListNode slow) {
         ListNode current = slow;
         int cycleLength = 0;
