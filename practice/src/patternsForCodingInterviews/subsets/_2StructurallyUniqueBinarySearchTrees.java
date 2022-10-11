@@ -7,7 +7,7 @@ import java.util.List;
 public class _2StructurallyUniqueBinarySearchTrees {
 
     public static void main(String[] args) {
-        List<TreeNode> result = findUniqueTrees(2);
+        List<TreeNode> result = findUniqueTrees(3);
         System.out.print("Total trees: " + result.size());
     }
 
