@@ -39,6 +39,7 @@ public class ValidateBinarySearchTree {
 
     //Approach 3: Recursive Inorder Traversal
     /*
+    Inorder -> Left -> Node -> Right
     Time complexity: O(N)
     Space complexity: O(N)
      */
@@ -48,17 +49,17 @@ public class ValidateBinarySearchTree {
         return inorder(root);
     }
     static boolean inorder(TreeNode root) {
-        if(root == null) {
+        if(root == null) { //Base case
             return true;
         }
-        if(!inorder(root.left)) {
+        if(!inorder(root.left)) { //Left Node
             return false;
         }
-        if(prev != null && root.val <= prev) {
+        if(prev != null && root.val <= prev) { //Root Node
             return false;
         }
         prev = root.val;
-        return inorder(root.right);
+        return inorder(root.right); // Right Node
     }
 
     static Deque<TreeNode> stack = new LinkedList<>();
