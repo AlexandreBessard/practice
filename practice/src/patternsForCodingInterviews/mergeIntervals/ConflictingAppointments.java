@@ -6,7 +6,9 @@ import java.util.List;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743642980_24Unit
 public class ConflictingAppointments {
-
+/*
+Given an array of intervals representing ‘N’ appointments, find out if a person can attend all the appointments.
+ */
     public static void main(String[] args) {
         Interval[] intervals = {new Interval(1, 4), new Interval(2, 5),
                 new Interval(7, 9)};
@@ -52,7 +54,7 @@ public class ConflictingAppointments {
             // intervals having condition "intervals[i].start == intervals[i - 1].end" but
             // such intervals don't represent conflicting appointments as one starts right
             // after the other
-            if (intervals[i].start < intervals[i - 1].end) {
+            if (intervals[i].start < intervals[i - 1].end) { //If true means the previous appointment is not finished.
                 return false;
             }
         }
@@ -67,13 +69,12 @@ public class ConflictingAppointments {
             return res;
         }
         Arrays.sort(intervals, (a, b) -> a.start - b.start);
-        Interval longestAppointment = null;
+        Interval longestAppointment = null; //Keep in memory the longest appointment because it causes conflicts with other appointments (older appointements)
         for (int i = 1; i < intervals.length; i++) {
-            if (intervals[i].start < intervals[i - 1].end
-                    || (longestAppointment != null
-                    && intervals[i].start < longestAppointment.end))
-            { //Conflict
-                List<Interval> list = new ArrayList<>();
+            if (intervals[i].start < intervals[i - 1].end //True if previous appointment is not finished
+                    || (longestAppointment != null && intervals[i].start < longestAppointment.end))
+            { //Conflict bracket condition
+                List<Interval> list;
                 if (longestAppointment != null && intervals[i].start < longestAppointment.end)
                 {//Case if we still have a conflict with an older appointment
                     list = new ArrayList<>();
@@ -87,19 +88,19 @@ public class ConflictingAppointments {
                 else
                 { //Conflict with the previous appointment
                         list = new ArrayList<>();
-                        Interval interval1 = new Interval(intervals[i].start, intervals[i].end);
-                        Interval interval2 = new Interval(intervals[i - 1].start, intervals[i - 1].end);
+                        Interval currInterval = new Interval(intervals[i].start, intervals[i].end);
+                        Interval prevInterval = new Interval(intervals[i - 1].start, intervals[i - 1].end);
                         //Two new intervals
-                        list.add(interval1);
-                        list.add(interval2);
-                        if (intervals[i].end >= intervals[i - 1].end) {
+                        list.add(currInterval);
+                        list.add(prevInterval);
+                        if (intervals[i].end >= intervals[i - 1].end) { //Get the longest appointment
                             longestAppointment = intervals[i];
                         } else {
                             longestAppointment = intervals[i - 1];
                         }
                 }
                 res.add(list);
-            }
+            } //End of 'Conflict' bracket
         }
         return res;
     }

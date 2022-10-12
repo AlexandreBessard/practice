@@ -4,7 +4,9 @@ import java.util.*;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743622133_21Unit
 public class MergeIntervals {
-
+/*
+Given a list of intervals, merge all the overlapping intervals to produce a list that has only mutually exclusive intervals.
+ */
     public static void main(String[] args) {
         List<Interval> input = new ArrayList<Interval>();
         input.add(new Interval(1, 4));
@@ -48,8 +50,7 @@ public class MergeIntervals {
         }
         //Sort the intervals by start time
         //O(N * log N)
-        //Timsort algorithms O(N)
-        Collections.sort(intervals, (a, b) -> a.start - b.start);
+        intervals.sort((a, b) -> a.start - b.start); //This implementation is a stable, adaptive, iterative mergesort
         List<Interval> mergedIntervals = new LinkedList<>();
         Iterator<Interval> intervalItr = intervals.iterator();
         Interval interval = intervalItr.next();

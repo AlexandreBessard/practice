@@ -5,7 +5,9 @@ import java.util.List;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743634893_23Unit
 public class IntervalsIntersection {
-
+/*
+Given two lists of intervals, find the intersection of these two lists. Each list consists of disjoint intervals sorted on their start time.
+ */
     public static void main(String[] args) {
         Interval[] input1 = new Interval[] { new Interval(1, 3), new Interval(5, 6),
                 new Interval(7, 9) };
@@ -41,18 +43,18 @@ public class IntervalsIntersection {
                             && arr2[j].start <= arr1[i].end))
             {
                 //Store the intersection part
-                int start = Math.max(arr1[i].start, arr2[j].start);
-                int end = Math.min(arr1[i].end, arr2[j].end);
+                int start = Math.max(arr1[i].start, arr2[j].start); //Get the max value
+                int end = Math.min(arr1[i].end, arr2[j].end); //Get the min value
                 result.add(new Interval(start, end));
             }
             //Move next from the interval which is finishing first
             if(arr1[i].end < arr2[j].end) {
-                i++;
+                i++; //Pointer for array 1
             } else {
-                j++;
+                j++; //Pointer for array 2
             }
         }
-        return result.toArray(new Interval[result.size()]);
+        return result.toArray(new Interval[0]);
     }
 
 

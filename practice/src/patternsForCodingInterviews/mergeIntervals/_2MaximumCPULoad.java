@@ -4,7 +4,10 @@ import java.util.*;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743662085_26Unit
 public class _2MaximumCPULoad {
-
+/*
+We are given a list of Jobs. Each job has a Start time, an End time, and a CPU load when it is running.
+Our goal is to find the maximum CPU load at any time if all the jobs are running on the same machine.
+ */
     public static void main(String[] args) {
         List<Job> input = new ArrayList<Job>(Arrays.asList(new Job(1, 4, 3),
                 new Job(2, 5, 4), new Job(7, 9, 6)));

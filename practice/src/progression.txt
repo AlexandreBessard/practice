@@ -6,7 +6,7 @@ Depth First Search -> 03/09 DONE
 Breadth First Search -> 24/08 DONE
 Two Pointers -> 05/10 DONE
 Sliding Window -> DONE 03/10
-Merge Intervals -> 01/09 DONE
+Merge Intervals -> 11/10 DONE
 Fast and Slow pointers -> DONE 10/10
 Two Heaps -> DONE 21/08
 Top 'K' elements -> DONE 17/09 -> Kth Largest Number in a Stream included DONE

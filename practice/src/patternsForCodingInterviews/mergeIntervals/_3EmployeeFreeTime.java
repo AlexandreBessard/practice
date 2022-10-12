@@ -7,13 +7,22 @@ import java.util.PriorityQueue;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743666558_27Unit
 public class _3EmployeeFreeTime {
-
+    /*
+    For ‘K’ employees, we are given a list of intervals representing each employee’s working hours.
+    Our goal is to determine if there is a free interval which is common to all employees.
+    You can assume that each list of employee working hours is sorted on the start time.
+     */
     public static void main(String[] args) {
         List<List<Interval>> input = new ArrayList<>();
-        input.add(new ArrayList<Interval>(Arrays.asList(new Interval(1, 3),
+        input.add(new ArrayList<>(Arrays.asList(new Interval(1, 3),
                 new Interval(5, 6))));
-        input.add(new ArrayList<Interval>(Arrays.asList(new Interval(2, 3),
+        /*
+        input.add(new ArrayList<>(Arrays.asList(new Interval(2, 3),
                 new Interval(6, 8))));
+
+         */
+        input.add(new ArrayList<>(Arrays.asList(new Interval(2, 3),
+                new Interval(7, 8))));
         List<Interval> result = findEmployeeFreeTime(input);
         System.out.print("Free intervals: ");
         for (Interval interval : result)
@@ -44,7 +53,6 @@ public class _3EmployeeFreeTime {
  */
     }
 
-
     public static List<Interval> findEmployeeFreeTime(List<List<Interval>> schedule) {
         List<Interval> result = new ArrayList<>();
         // PriorityQueue to store one interval from each employee
@@ -54,20 +62,20 @@ public class _3EmployeeFreeTime {
         // insert the first interval of each employee to the queue
         for (int i = 0; i < schedule.size(); i++) {
             //Store in the minHeap the first interval for each employee
-            minHeap.offer(new EmployeeInterval(schedule.get(i).get(0), i, 0));
+            minHeap.add(new EmployeeInterval(schedule.get(i).get(0), i, 0));
         }
         Interval previousInterval = minHeap.peek().interval; //Initialise with the earlier interval
         while (!minHeap.isEmpty()) {
             EmployeeInterval queueTop = minHeap.poll();
             // if previousInterval is not overlapping with the next interval, insert a free
             // interval
-            if (previousInterval.end < queueTop.interval.start) {
+            if (previousInterval.end < queueTop.interval.start) { //True means free time
                 //Free interval (free time)
                 result.add(new Interval(previousInterval.end, queueTop.interval.start));
                 previousInterval = queueTop.interval;
             } else { // overlapping intervals, update the previousInterval if needed
-                if (previousInterval.end < queueTop.interval.end)
-                    previousInterval = queueTop.interval; //Initialise previousInterval
+                if (previousInterval.end < queueTop.interval.end) //If true, initialise with the new interval
+                    previousInterval = queueTop.interval; //Initialise next previousInterval (move forward)
             }
             // if there are more intervals available for the same employee, add their next
             // interval
@@ -85,6 +93,7 @@ public class _3EmployeeFreeTime {
     static class Interval {
         int start;
         int end;
+
         Interval(int start, int end) {
             this.start = start;
             this.end = end;
@@ -98,6 +107,7 @@ public class _3EmployeeFreeTime {
         int employeeIndex;
         // index of the interval in the employee list
         int intervalIndex;
+
         EmployeeInterval(Interval interval, int employeeIndex, int intervalIndex) {
             this.interval = interval;
             this.employeeIndex = employeeIndex;

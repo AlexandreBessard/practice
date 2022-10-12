@@ -7,7 +7,9 @@ import java.util.PriorityQueue;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743654901_25Unit
 public class _1MinimumMeetingRooms {
-
+/*
+Given a list of intervals representing the start and end time of ‘N’ meetings, find the minimum number of rooms required to hold all the meetings.
+ */
     public static void main(String[] args) {
         List<Meeting> input = new ArrayList<Meeting>() {
             {
@@ -60,7 +62,7 @@ public class _1MinimumMeetingRooms {
             return 0;
         }
         //Sort the meeting by start time
-        meetings.sort((a, b) -> a.start - b.start); //Mergesort algo
+        meetings.sort((a, b) -> a.start - b.start); //Mergesort algo -> time: O(n . log n) space: O(n)
         int minRooms = 0;
         //Priority to the smaller end time
         PriorityQueue<Meeting> minHeap = new PriorityQueue<>(
