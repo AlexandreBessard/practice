@@ -29,12 +29,14 @@ public class PalindromePartitioning {
         return res;
     }
 
+    //Sequence : ->        a, a, b, ab, aa, b, aab    [a, a, b]
     private static void backtracking(int start, List<List<String>> res, LinkedList<String> currList, String s) {
         if (start >= s.length()) {
             res.add(new ArrayList<>(currList));
             return;
         } else {
             for (int end = start; end < s.length(); end++) {
+                System.out.print(s.substring(start, end + 1) + ", ");
                 if (isPalindrome(s, start, end)) {
                     currList.add(s.substring(start, end + 1));
                     backtracking(end + 1, res, currList, s);
