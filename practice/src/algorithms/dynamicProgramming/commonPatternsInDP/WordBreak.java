@@ -22,7 +22,7 @@ public class WordBreak {
         var obj = new WordBreak();
         //System.out.println(obj.wordBreakBottomUp(s, wordDict));
         System.out.println(obj.wordBreakTopDown(s, wordDict));
-        System.out.println("BFS -> \n" + wordBreakBFS(s2, wordDict2));
+        System.out.println("BFS -> \n" + wordBreakBFS(s, wordDict));
     }
 
     //Approach 3: Using BFS

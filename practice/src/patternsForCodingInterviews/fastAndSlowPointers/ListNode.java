@@ -1,9 +1,9 @@
 package patternsForCodingInterviews.fastAndSlowPointers;
 
 public class ListNode {
-    int value = 0;
-    ListNode next;
-    ListNode(int value) {
+    public int value = 0;
+    public ListNode next;
+    public ListNode(int value) {
         this.value = value;
     }
 }
