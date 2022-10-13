@@ -10,19 +10,18 @@ public class MinStack {
     }
 
     //Space: O(N)
-    Stack<Integer> stack = new Stack<>();
+    Stack<Integer> stack = new Stack<>(); //Normal stack
     //[ number, count ]
-    Stack<int[]> minStack = new Stack<>();
+    Stack<int[]> minStack = new Stack<>(); //Keep the smallest element in the stack, use to get the Min element O(1) time.
 
     /*
     Time O(1)
      */
     public void push(int x) {
-        stack.push(x);
+        stack.push(x); //Place element in the stack
 
-        if(minStack.isEmpty() || x < minStack.peek()[0]) {
+        if(minStack.isEmpty() || x < minStack.peek()[0]) { //Keep the smallest element from this other stack
             minStack.push(new int[]{x, 1});
-
         } else if (x == minStack.peek()[0]) {
             minStack.peek()[1]++;
         }
