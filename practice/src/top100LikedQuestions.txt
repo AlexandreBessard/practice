@@ -69,3 +69,10 @@ Palindrome Partioning : 12/10/2022
 Copy List With Random Pointer : 12/10/2022
 Word Break : 12/10/2022
 Linked List Cycle 2 : 12/10/2022
+LRU Cache: 12/10/2022
+Sort List : 12/10/2022
+
+Maximum Product Subarray : 13/10/2022
+Find Minimum In Rotated Sorted Array : 13/10/2022
+Min Stack : 13/10/2022
+Rotate Array : 13/10/2022
