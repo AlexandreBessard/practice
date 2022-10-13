@@ -1,4 +1,4 @@
-package designPatterns.creationalDesignPattern.FactoryDesignPatterns;
+package designPatterns.creationalDesignPattern.factory;
 
 public class AbcNetwork extends CellularPlan {
 
