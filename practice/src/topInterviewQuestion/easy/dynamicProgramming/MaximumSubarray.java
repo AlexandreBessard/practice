@@ -9,6 +9,7 @@ public class MaximumSubarray {
         //contiguous subarray containing at least one number.
         //Explanation: [4,-1,2,1] has the largest sum = 6.
         maxSubArrayDivideAndConquer(nums2);
+        System.out.println(maxSubArrayKadaneAlgo(new int[]{-2,1,-3,4,-1}));
     }
 
     private static int[] numsArray;
@@ -47,7 +48,6 @@ public class MaximumSubarray {
         return Math.max(bestCombinedSum, Math.max(leftHalf, rightHalf));
     }
 
-
     //Approach 2: Dynamic Programming Kadane Algo
     /*
     Time complexity: O(N)
@@ -57,14 +57,11 @@ public class MaximumSubarray {
         int currentSubarray = nums[0];
         int maxSubarray = nums[0];
         for(int i = 1; i < nums.length; i++) {
-            int num = nums[i];
-            currentSubarray = Math.max(num, currentSubarray + num);
+            currentSubarray = Math.max(nums[i], currentSubarray + nums[i]);
             maxSubarray = Math.max(maxSubarray, currentSubarray);
         }
         return maxSubarray;
     }
-
-
 
     //Approach 1: Burt force
     /*
