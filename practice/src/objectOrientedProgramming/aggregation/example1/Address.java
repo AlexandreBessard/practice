@@ -1,4 +1,4 @@
-package objectOrientedProgramming.aggregation;
+package objectOrientedProgramming.aggregation.example1;
 
 public class Address {
     int streetNum;

@@ -1,4 +1,4 @@
-package objectOrientedProgramming.composition;
+package objectOrientedProgramming.composition.example1;
 
 import java.util.List;
 
