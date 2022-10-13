@@ -1,0 +1,7 @@
+https://dzone.com/articles/fluent-builder-pattern
+
+Fluent builder pattern is a style of coding which force the developer to create the object in
+sequence by calling each setter method one after the another until all required attributes are set.
+
+If your requirement is to build a complex object for which you want to set the mandatory attributes and avoid making any mistakes,
+then the fluent builder will be more useful rather than the traditional builder pattern.
