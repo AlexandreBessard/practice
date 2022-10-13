@@ -15,6 +15,7 @@ public class LRUCache {
     public LRUCache(int capacity) {
         this.size = 0;
         this.capacity = capacity;
+        //Instantiate head and tail
         head = new DLinkedNode();
         tail = new DLinkedNode();
         head.next = tail;
@@ -47,16 +48,16 @@ public class LRUCache {
     //Time: O(1)
     public void put(int key, int value) {
         DLinkedNode node = cache.get(key);
-        if (node == null) {
-            DLinkedNode newNode = new DLinkedNode();
+        if (node == null) { //New key and value added
+            DLinkedNode newNode = new DLinkedNode(); //Create a new DLinkedNode with key and value associated
             newNode.key = key;
             newNode.value = value;
             cache.put(key, newNode);
-            addNode(newNode);
+            addNode(newNode); //Add the new created DLinkedNode
             size++;
-            if (size > capacity) {
+            if (size > capacity) { // If true, we have attained the full capacity
                 //pop the tail
-                DLinkedNode tail = popTail();
+                DLinkedNode tail = popTail(); //Return the Node just before the tail
                 cache.remove(tail.key);
                 --size;
             }
@@ -67,7 +68,7 @@ public class LRUCache {
         }
     }
 
-    private DLinkedNode popTail() {
+    private DLinkedNode popTail() { //Remove element just before the tail
         //pop the current tail
         DLinkedNode res = tail.prev;
         removeNode(res);
@@ -84,7 +85,7 @@ public class LRUCache {
     }
 
 
-    class DLinkedNode {
+    static class DLinkedNode {
         int key;
         int value;
         DLinkedNode prev;
