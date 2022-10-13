@@ -11,7 +11,7 @@ public class MinStack {
 
     //Space: O(N)
     Stack<Integer> stack = new Stack<>(); //Normal stack
-    //[ number, count ]
+    //[ (smallest) element, count ]
     Stack<int[]> minStack = new Stack<>(); //Keep the smallest element in the stack, use to get the Min element O(1) time.
 
     /*
