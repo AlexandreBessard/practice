@@ -55,7 +55,7 @@ public class ZigzagTraversal {
                 }
             }
             result.add(currentLevel);
-            leftToRight = !leftToRight;
+            leftToRight = !leftToRight; //Switch false to true and true to false;
         }
         return result;
     }
