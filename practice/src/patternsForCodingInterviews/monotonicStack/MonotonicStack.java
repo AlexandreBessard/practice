@@ -19,7 +19,7 @@ public class MonotonicStack {
         };
         System.out.println(arr);
         int[] res = monotonicStack(arr);
-        System.out.println(Arrays.toString(res));
+        System.out.println("Result : " + Arrays.toString(res));
     }
 
     //Order of List<Integer> arr -> 2, 3, 1, 4, 1
