@@ -1,0 +1,20 @@
+The Faceted Builder Pattern is a sub pattern of the builder pattern.
+Its purpose is to clarify the construction of a complex object “fluently.”
+Let’s say we want to build a Person object with its personal & professional data (personal info, work adress...).
+This pattern enables us to have this:
+
+PersonBuilder pb = new PersonBuilder();
+        Person person = pb
+                .lives()   // Return PersonAddressBuilder
+                    .at("123 London Road")
+                    .in("London")
+                    .withPostcode("SW12BC")
+                .works()    //Return PersonJobBuilder
+                    .at("Fabrikam")
+                    .asA("Engineer")
+                    .earning(123000)
+                .build();
+        System.out.println(person);
+
+The idea is to define a PersonBuilder class that will have 2 subclasses:
+PersonAddressBuilder & PersonJobBuilder
