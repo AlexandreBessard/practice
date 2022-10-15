@@ -30,18 +30,19 @@ public class KthLargestElementInAnArray {
         //kth largest: N - k
         return quickselect(0, size - 1, size - k);
     }
-    private static int quickselect(int left, int right, int k_smallest) {
+    //k_largest represent the element where once sorted, the largest kth element will be
+    private static int quickselect(int left, int right, int k_largest) {
         if(left == right)
             return nums[left];
         //Random pivot
         int pivot_index = left + random.nextInt(right - left);
         pivot_index = partition(left, right, pivot_index);
-        if(k_smallest == pivot_index) {
+        if(k_largest == pivot_index) {
             return nums[pivot_index];
-        } else if(k_smallest < pivot_index) {
-            return quickselect(left, pivot_index - 1, k_smallest);
+        } else if(k_largest < pivot_index) {
+            return quickselect(left, pivot_index - 1, k_largest);
         } else {
-            return quickselect(pivot_index + 1, right, k_smallest);
+            return quickselect(pivot_index + 1, right, k_largest);
         }
     }
     private static int partition(int left, int right, int pivot_index) {
@@ -49,7 +50,7 @@ public class KthLargestElementInAnArray {
         //move pivot to the end:
         swap(pivot_index, right);
         int store_index = left;
-        //Move smaller element to the left
+        //Move smaller element go to the left
         for(int i = left; i <= right; i++) {
             if(nums[i] < pivot) {
                 swap(store_index, i);
