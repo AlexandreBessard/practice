@@ -15,3 +15,12 @@ Convert to Gb
 
 Result
 2M * 200KB => 400 GB
+-------------------------------------
+HDFS:
+https://www.youtube.com/watch?v=GJYEsEEfjvk&ab_channel=edureka%21
+
+Database Sharding:
+https://www.youtube.com/watch?v=hdxdhCpgYo8&ab_channel=BeABetterDev
+
+Bigtable: Equivalent -> Google's Cloud Bigtable and Amazon's DynamoDB
+Bigtable is a fully managed wide-column and key-value NoSQL database service for large analytical and operational workloads

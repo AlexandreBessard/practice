@@ -20,7 +20,7 @@ public class AddAndSearchWordDataStructureDesign {
         System.out.println(wordDictionary.searchTrie("b..")); // return True
         System.out.println("\nUse of HashMap :");
         //Non-optimized
-        var wordDictionary2 = new  WordDictionary2();
+        var wordDictionary2 = new WordDictionary2();
         wordDictionary2.addWord("bad");
         wordDictionary2.addWord("dad");
         wordDictionary2.addWord("mad");
@@ -30,14 +30,98 @@ public class AddAndSearchWordDataStructureDesign {
         System.out.println(wordDictionary2.search("b..")); // return True
     }
 
+    //Approach 2
+    //Optimized
+    static class WordDictionary {
+        TrieNode trie;
+
+        /**
+         * Initialize your data structure here.
+         */
+        public WordDictionary() {
+            trie = new TrieNode();
+        }
+
+        /*
+        Adds a word into the data structure
+         */
+        public void addWord(String word) {
+            TrieNode node = trie;
+            for (char ch : word.toCharArray()) {
+                if (!node.children.containsKey(ch)) {
+                    node.children.put(ch, new TrieNode());
+                }
+                node = node.children.get(ch);
+            }
+            node.word = true; //End of the word
+        }
+
+        /**
+         * Returns if the word is in the data structure.
+         * A word could contain the dot character '.' to represent any one letter.
+         */
+        public boolean searchTrie(String word) {
+            return searchInNode(word, trie);
+        }
+
+        private boolean searchInNode(String word, TrieNode node) {
+            for (int i = 0; i < word.length(); i++) {
+                char ch = word.charAt(i);
+                if (!node.children.containsKey(ch)) { //True if NOT contained
+                    // if the current character is '.'
+                    // check all possible nodes at this level
+                    if (ch == '.') {
+                        for (char x : node.children.keySet()) {
+                            TrieNode nodeChild = node.children.get(x);
+                            //Recursion, check nodes at this current level
+                            if (searchInNode(word.substring(i + 1), nodeChild)) {
+                                return true;
+                            }
+                        }
+                    } else {
+                        //In case if we do not find the letter and it is not a '.' return false.
+                        return false;
+                    }
+                } else {
+                    node = node.children.get(ch);
+                }
+            }
+            return node.word;
+        }
+    }
+
+    static class TrieNode {
+        Map<Character, TrieNode> children = new HashMap<>();
+        boolean word = false;
+
+        TrieNode() {
+        }
+    }
+
+    /**
+     * -----------------------------------------------------------------------------------------------
+     */
+
     //Approach 1 Non optimized
+    /*
+    Solution is NOT efficient finding all keys with a common prefix.
+    Enumerating a dataset of strings in lexicographical order.
+    Scaling for the large datasets. Once the hash table increases in size, there are a lot of hash collisions
+    Trie could use less space compared to hashmap when storing many keys with the same prefix.
+     */
     static class WordDictionary2 {
         Map<Integer, Set<String>> d;
-        /** Initialize your data structure here. */
+
+        /**
+         * Initialize your data structure here.
+         */
         public WordDictionary2() {
             d = new HashMap<>();
         }
-        /** Adds a word into the data structure. */
+
+        /**
+         * Adds a word into the data structure.
+         */
         public void addWord(String word) {
             int m = word.length();
             if (!d.containsKey(m)) {
@@ -45,7 +129,10 @@ public class AddAndSearchWordDataStructureDesign {
             }
             d.get(m).add(word);
         }
-        /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+
+        /**
+         * Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
+         */
         public boolean search(String word) {
             int m = word.length();
             if (d.containsKey(m)) {
@@ -61,63 +148,4 @@ public class AddAndSearchWordDataStructureDesign {
         }
     }
 
-    //Approach 2
-    //Optimized
-    static class WordDictionary {
-        TrieNode trie;
-        /**
-         * Initialize your data structure here.
-         */
-        public WordDictionary() {
-            trie = new TrieNode();
-        }
-
-        /*
-        Adds a word into the data structure
-         */
-        public void addWord(String word) {
-            TrieNode node = trie;
-            for(char ch : word.toCharArray()) {
-                if(!node.children.containsKey(ch)) {
-                    node.children.put(ch, new TrieNode());
-                }
-                node = node.children.get(ch);
-            }
-            node.word = true; //End of the word
-        }
-
-        /** Returns if the word is in the data structure.
-         * A word could contain the dot character '.' to represent any one letter. */
-        public boolean searchTrie(String word) {
-            return searchInNode(word, trie);
-        }
-        private boolean searchInNode(String word, TrieNode node) {
-            for(int i = 0; i < word.length(); i++) {
-                char ch = word.charAt(i);
-                if(!node.children.containsKey(ch)) {
-                    // if the current character is '.'
-                    // check all possible nodes at this level
-                    if(ch == '.') {
-                        for(char x : node.children.keySet()) {
-                            TrieNode child = node.children.get(x);
-                            if(searchInNode(word.substring(i + 1), child)){
-                                return true;
-                            }
-                        }
-                    } else {
-                        //In case if we do not find the letter and it is not a '.' return false.
-                        return false;
-                    }
-                } else {
-                    node = node.children.get(ch);
-                }
-            }
-            return node.word;
-        }
-    }
-    static class TrieNode {
-        Map<Character, TrieNode> children = new HashMap<>();
-        boolean word = false;
-        TrieNode() {}
-    }
 }
