@@ -80,3 +80,8 @@ Rotate Array : 13/10/2022
 House Robber : 14/10/2022
 Binary Tree Right Side View : 14/10/2022
 Number of Islands : 14/10/2022
+Course Schedule : 14/10/2022
+
+Implement Trie (Prefix Tree) : 15/10/2022
+Kth Largest Element in an Array : 15/10/2022
+Maximal Square : 15/10/2022
