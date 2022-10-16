@@ -5,7 +5,7 @@ public class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4};
         var obj = new ProductOfArrayExceptSelf();
-        for(int i : obj.productExceptSelfO1Space(nums)) {
+        for(int i : obj.productExceptSelf(nums)) {
             System.out.print(i + ", ");
         }
     }
@@ -50,6 +50,9 @@ public class ProductOfArrayExceptSelf {
     /*
     Time: O(N)
     Space: O(N)
+        [1,  2,  3, 4]
+    L   [1,  1,  2, 6]
+    R   [24, 12, 4, 1]
      */
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
