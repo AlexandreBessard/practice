@@ -21,11 +21,11 @@ public class SearchA2DMatrixII {
         int row = matrix.length-1;
         int col = 0;
 
-        while (row >= 0 && col < matrix[0].length) {
+        while (row >= 0 && col < matrix[0].length) { //Check boundaries
             if (matrix[row][col] > target) {
                 row--;
             } else if (matrix[row][col] < target) {
-                col++;
+                col++; //Move forward
             } else { // found it
                 return true;
             }

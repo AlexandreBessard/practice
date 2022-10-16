@@ -85,3 +85,9 @@ Course Schedule : 14/10/2022
 Implement Trie (Prefix Tree) : 15/10/2022
 Kth Largest Element in an Array : 15/10/2022
 Maximal Square : 15/10/2022
+Kth Smallest Element in a BST : 15/10/2022
+
+Lowest Common Ancestor Of A binary Tree : 16/10/2022
+Product Of Array Except Self : 16/10/2022
+Search a 2D Matrix || : 16/10/2022
+
