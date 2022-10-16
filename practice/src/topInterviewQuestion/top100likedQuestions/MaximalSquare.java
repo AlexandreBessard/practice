@@ -1,9 +1,6 @@
 package topInterviewQuestion.top100likedQuestions;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 //https://leetcode.com/problems/maximal-square/
 public class MaximalSquare {
@@ -41,28 +38,30 @@ public class MaximalSquare {
     static int maxLength = 0;
     //Key: row, Value: column
     static int[][] cache;
+
     static int maximalDPTopDown(char[][] matrix) {
         MaximalSquare.matrix = matrix;
         ROWS = matrix.length;
         COLS = matrix[0].length;
         cache = new int[ROWS][COLS];
-        for(int i = 0; i < ROWS; i++) {
+        for (int i = 0; i < ROWS; i++) {
             Arrays.fill(cache[i], -1);
         }
         helper(0, 0); //top left element
         return maxLength * maxLength;
     }
+
     static int helper(int row, int col) {
         //Base case
-        if(row >= ROWS || col >= COLS) {
+        if (row >= ROWS || col >= COLS) {
             return 0;
         }
-        if(cache[row][col] == -1) { //True if NOT in the cache
+        if (cache[row][col] == -1) { //True if NOT in the cache
             int down = helper(row + 1, col); //Check Down
             int right = helper(row, col + 1); //Right position
             int diag = helper(row + 1, col + 1); //Check Diagonally
             cache[row][col] = 0;
-            if(matrix[row][col] == '1') { //
+            if (matrix[row][col] == '1') { //
                 //Takes the minimum off all of these 3 values: down, right and diag
                 cache[row][col] = 1 + Math.min(down, Math.min(right, diag));
                 //Get the max length so far
@@ -84,9 +83,9 @@ public class MaximalSquare {
         int maxsqlen = 0;
         // for convenience, we add an extra all zero column and row
         // outside of the actual dp table, to simpify the transition
-        for(int i = 1; i <= rows; i++) {
-            for(int j = 1; j <= cols; j++) {
-                if(matrix[i - 1][j - 1] == '1') {
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                if (matrix[i - 1][j - 1] == '1') {
                     dp[i][j] = Math.min(
                             Math.min(dp[i][j - 1],//Check on the left side
                                     dp[i - 1][j]), //Check on the top
