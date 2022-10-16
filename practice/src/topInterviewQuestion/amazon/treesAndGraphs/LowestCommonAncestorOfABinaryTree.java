@@ -20,8 +20,40 @@ public class LowestCommonAncestorOfABinaryTree {
 
         var obj = new LowestCommonAncestorOfABinaryTree();
         //TreeNode res = obj.lowestCommonAncestor(three, five, four);
-        TreeNode res = obj.lowestCommonAncestorIterativeApproach(three, five, four);
+        TreeNode res = obj.lowestCommonAncestor(three, five, four);
         System.out.println(res.val);
+    }
+
+    //Approach: Recursive
+    /*
+    Time: O(n)
+    Space: O(n)
+    PostOrder: Left -> Right -> Node
+     */
+    static TreeNode ans = null;
+    static TreeNode lowestCommonAncestorRecursive(TreeNode root, TreeNode p, TreeNode q) {
+        //Traverse the tree
+        recurseTree(root, p, q);
+        return ans;
+    }
+    private static int recurseTree(TreeNode currNode, TreeNode p, TreeNode q) {
+        //Reach the end of the branch return false
+        if(currNode == null) {
+            return 0;
+        }
+        //Left recursion, If left recursion returns true, set left = 1 else 0
+        int left = recurseTree(currNode.left, p, q);
+        //Right recursion
+        int right = recurseTree(currNode.right, p, q);
+        // If the current node is one of p or q
+        int mid = (currNode == p || currNode == q) ? 1 : 0;
+        // If any two of the flags left, right or mid become True
+        if(mid + left + right >= 2) {
+            ans = currNode;
+            return ans.val;
+        }
+        // Return true if any one of the three bool values is True.
+        return (mid + right + left > 0) ? 1 : 0;
     }
 
 

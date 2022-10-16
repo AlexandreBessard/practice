@@ -6,7 +6,10 @@ import java.util.List;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/108/trees-and-graphs/790/
 public class KthSmallestElementInBST {
-
+    /*
+    Given the root of a binary search tree, and an integer k, return the kth smallest value (1-indexed)
+    of all the values of the nodes in the tree.
+     */
     public static void main(String[] args) {
         TreeNode five = new TreeNode(5);
         five.left = new TreeNode(3);
