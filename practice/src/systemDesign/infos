@@ -16,6 +16,8 @@ Convert to Gb
 Result
 2M * 200KB => 400 GB
 -------------------------------------
+Trois familles de distribution pour le NoSQL existent : HDFS (basé sur la distribution),
+le clustered index (basé sur le BTree) et le consistent hashing (basé sur les tables de hachage)
 HDFS:
 https://www.youtube.com/watch?v=GJYEsEEfjvk&ab_channel=edureka%21
 
