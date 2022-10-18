@@ -8,7 +8,8 @@ public class FindDuplicateNumber {
         System.out.println(findNumber(new int[]{2, 1, 3, 3, 5, 4}));
         System.out.println(findNumber(new int[]{2, 4, 1, 4, 4}));
 
-        System.out.println(findDuplicateWithoutModifyingArray(new int[] { 1, 4, 4, 3, 2 }));
+        System.out.println("Floyd's algo -> " + findDuplicateWithoutModifyingArray(new int[]{4, 3, 4, 5, 2, 4, 1}));
+        System.out.println("Result : " + findNumberBinarySearch(new int[]{4, 3, 4, 5, 2, 4, 1}));
         /*
         System.out.println(findDuplicateWithoutModifyingArray(new int[] { 2, 1, 3, 3, 5, 4 }));
         System.out.println(findDuplicateWithoutModifyingArray(new int[] { 2, 4, 1, 4, 4 }));
@@ -16,27 +17,59 @@ public class FindDuplicateNumber {
          */
     }
 
-    //TODO: Need to be reviewed
+    //Approach 5: Binary Search
+    /*
+    Time: O(n log n)
+    Space: O(1)
+     */
+    static int findNumberBinarySearch(int[] nums) {
+        // 'low' and 'high' represent the range of values of the target
+        int low = 1, high = nums.length - 1;
+        int duplicate = -1;
+        while (low <= high) {
+            int cur = (low + high) / 2;
+            // Count how many numbers in 'nums' are less than or equal to 'cur'
+            int count = 0;
+            for (int num : nums) {
+                if (num <= cur) {
+                    count++;
+                }
+            }
+            if (count > cur) { //If count exceed the number of point, means duplicate
+                duplicate = cur;
+                high = cur - 1;
+            } else {
+                low = cur + 1;
+            }
+        }
+        return duplicate;
+    }
+
     /*
     Approach 2: We do not modify input array
-
+    Floyd's algorithm
+    Time: O(n)
+    Space: O(1)
      */
-    public static int findDuplicateWithoutModifyingArray(int[] arr) {
-         int slow = 0;
-         int fast = 0;
-         do {
-             slow = arr[slow];
-             fast = arr[arr[fast]];
-         } while (slow != fast);
-         //Find cycle length
-        int current = arr[slow];
-        int cycleLength = 0;
+    public static int findDuplicateWithoutModifyingArray(int[] nums) {
+        // Find the intersection point of the two runners.
+        int slow = nums[0];
+        int fast = nums[0];
         do {
-            current = arr[current];
-            cycleLength++;
-        } while (current != arr[slow]);
-        return 0;
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
+
+        // Find the "entrance" to the cycle.
+        slow = nums[0];
+
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return fast;
     }
+
     private static int findStart(int[] arr, int cycleLength) {
 
         return 0;
