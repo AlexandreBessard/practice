@@ -29,7 +29,7 @@ public class TopKFrequentNumbers {
         for(int n : nums) {
             numFrequencyMap.put(n, numFrequencyMap.getOrDefault(n, 0) + 1);
         }
-        PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>(
+        PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>( //Smaller element are the priority
                 (e1, e2) -> e1.getValue() - e2.getValue()
         );
         // go through all numbers of the numFrequencyMap and push them in the minHeap, which
