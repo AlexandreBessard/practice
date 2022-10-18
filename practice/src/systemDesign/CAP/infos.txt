@@ -4,13 +4,14 @@ User can READ/WRITE from/to any node and will receive the same data.
 Equivalent to single up-to-date copy of the data.
 
 
-Availability (A) : Every request received by non-failing node must result in the response.
+Availability (A) :
+Every request received by non-failing node must result in the response.
 Every request must terminate.
-System's ability to remain accessible even if one or more nodes go down.
+Refers to System's ability to remain accessible even if one or more nodes go down.
 
 
 Partition Tolerance (P) :
-Partition is a communication break (or network failure) between two nodes.
+Partition is a communication break (or network failure) between any nodes.
 System continues top operate even if there are partition in the system.
 Data is sufficiently replicated across combinations of nodes and networks to keep system up through
 intermittent outages.
