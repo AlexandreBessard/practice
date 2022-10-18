@@ -8,10 +8,8 @@ import java.util.List;
 public class LongestIncreasingSubsequence {
 
     public static void main(String[] args) {
-        int[] nums = {10,9,2,5,3,7,101};
+        int[] nums = {0,1,0,3,2,3};
         //Output 4:
-        System.out.println(lengthOfLISBottomUp(nums));
-        System.out.println(lengthOfLISBuildSequence(nums));
         System.out.println(lengthOfLISBinarySearch(nums));
     }
 
@@ -22,11 +20,11 @@ public class LongestIncreasingSubsequence {
     Space complexity: O(N)
      */
     static int lengthOfLISBinarySearch(int[] nums) {
-        ArrayList<Integer> sub = new ArrayList<>();
+        List<Integer> sub = new ArrayList<>();
         sub.add(nums[0]);
-        for(int i = 1; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             int num = nums[i];
-            if(num > sub.get(sub.size() - 1)) {
+            if (num > sub.get(sub.size() - 1)) {
                 sub.add(num);
             } else {
                 int j = binarySearch(sub, num);
@@ -38,12 +36,13 @@ public class LongestIncreasingSubsequence {
     private static int binarySearch(List<Integer> sub, int num) {
         int left = 0;
         int right = sub.size() - 1;
-        int mid = (left + right) / 2;
-        while(left < right) {
-            if(sub.get(mid) == num) {
+        int mid;
+        while (left < right) {
+            mid = (left + right) / 2;
+            if (sub.get(mid) == num) {
                 return mid;
             }
-            if(sub.get(mid) < num) {
+            if (sub.get(mid) < num) {
                 left = mid + 1;
             } else {
                 right = mid;
@@ -51,8 +50,6 @@ public class LongestIncreasingSubsequence {
         }
         return left;
     }
-
-
 
         //Approach 2: Intelligently Build a Sequence
     /*
