@@ -91,3 +91,11 @@ Lowest Common Ancestor Of A binary Tree : 16/10/2022
 Product Of Array Except Self : 16/10/2022
 Search a 2D Matrix || : 16/10/2022
 
+Find The Duplicate Number : 17/10/2022
+Longest Increasing Subsequence : 17/10/2022
+Coin Change : 17/10/2022
+
+Top K Frequent Elements : 18/10/2022
+Kth Smallest Element in a Sorted Matrix :  18/10/2022
+Decode String : 18/10/2022
+Partition Equal Subset Sum : 18/10/2022
