@@ -53,13 +53,13 @@ public class KthSmallestNumberInASortedMatrix {
         int numberCount = 0;
         int result = 0;
         while (!minHeap.isEmpty()) {
-            Node node = minHeap.poll();
+            Node node = minHeap.poll(); //Get the smaller Node element from the heap
             result = matrix[node.row][node.col];
-            if (++numberCount == k) {
+            if (++numberCount == k) { //Count element, if k, we have our result
                 break;
             }
-            node.col++;
-            if (matrix[0].length > node.col) {
+            node.col++; //Increment col, we know if will be a greater value (increasing order for each row)
+            if (matrix[0].length > node.col) { //Check if not out of bounds
                 minHeap.add(node);
             }
         }
