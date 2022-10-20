@@ -56,7 +56,7 @@ public class PathSumIII {
         //process right
         preorder(node.right, currSum);
         // remove the current sum from the hashmap
-        // in order not to use it during
+        // in order not to use it during<<
         // the parallel subtree processing
         h.put(currSum, h.get(currSum) - 1);
     }

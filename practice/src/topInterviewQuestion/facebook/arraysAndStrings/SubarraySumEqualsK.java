@@ -12,9 +12,9 @@ public class SubarraySumEqualsK {
         var obj = new SubarraySumEqualsK();
         System.out.println(obj.subarraySum(nums, k));
         System.out.println(obj.subarraySumHashMap(nums, k));
+        System.out.println(subarraySumTwoPointers(nums, k));
 
     }
-
 
     //Approach 4: Using Hash-map
     /*
@@ -25,7 +25,7 @@ public class SubarraySumEqualsK {
         int count = 0;
         int sum = 0;
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1); //Value represent the count (result) and the key is (sum - k)
+        map.put(0, 1); //Key represents the (sum - k) and the value is the count (+1)
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
             if (map.containsKey(sum - k)) {

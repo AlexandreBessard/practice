@@ -22,8 +22,8 @@ find all of its contiguous subarrays whose product is less than the target numbe
     public static List<List<Integer>> findSubarrays(int[] arr, int target) {
         List<List<Integer>> result = new ArrayList<>();
         double product = 1;
-        int left = 0;
-        for (int right = 0; right < arr.length; right++) {
+        int left = 0; //Left pointer
+        for (int right = 0; right < arr.length; right++) { //Right pointer
             product *= arr[right];
             while (product >= target && left < arr.length) { //this condition allows us to have a subarray (contiguous array) less than target num
                 product /= arr[left++];

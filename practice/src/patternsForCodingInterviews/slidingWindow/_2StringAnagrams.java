@@ -7,11 +7,21 @@ import java.util.Map;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628541063154_7Unit
 public class _2StringAnagrams {
-
+/*
+Every anagram is a permutation of a string
+six anagrams of the string “abc”:
+abc
+acb
+bac
+bca
+cab
+cba
+ */
     public static void main(String[] args) {
-        System.out.println(findStringAnagrams("ppqp", "pq"));
-        /*
+        //System.out.println(findStringAnagrams("ppqp", "pq"));
+
         System.out.println(findStringAnagrams("abbcabc", "abc"));
+        /*
         System.out.println(findStringAnagrams("abab", "ab"));
 
          */
