@@ -12,8 +12,6 @@ public class SubarraySumEqualsK {
         var obj = new SubarraySumEqualsK();
         System.out.println(obj.subarraySum(nums, k));
         System.out.println(obj.subarraySumHashMap(nums, k));
-        System.out.println(subarraySumTwoPointers(nums, k));
-
     }
 
     //Approach 4: Using Hash-map
