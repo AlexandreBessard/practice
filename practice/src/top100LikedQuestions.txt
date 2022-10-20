@@ -103,3 +103,9 @@ Partition Equal Subset Sum : 18/10/2022
 Path Sum III : 19/10/2022
 Find All Anagrams in a String : 19/10/2022
 Subarray Sum Equals K : 19/10/2022
+
+Palindromic Substrings : 20/10/2022
+Subarray Sum Equals K : 20/10/2022
+Daily Temperatures : 20/10/2022
+Partition Labels : 20/10/2022
+Rotting Oranges : 20/10/2022
