@@ -81,10 +81,10 @@ public class LongestCommonSubsequence {
         int option1 = memoSolve(p1 + 1, p2);
         // Option 2: We include text1[p1] in the solution, as long as
         // a match for it in text2 at or after p2 exists.
-        int firstOccurence = text2.indexOf(text1.charAt(p1), p2); //Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.
+        int firstOccurrence = text2.indexOf(text1.charAt(p1), p2); //Returns the index within this string of the first occurrence of the specified character, starting the search at the specified index.
         int option2 = 0;
-        if (firstOccurence != -1) {
-            option2 = 1 + memoSolve(p1 + 1, firstOccurence + 1); //Means 1 occurrence
+        if (firstOccurrence != -1) { //We have one occurrence
+            option2 = 1 + memoSolve(p1 + 1, firstOccurrence + 1); //Means 1 occurrence
         }
         //Add the best answer to the memo before returning it
         memo[p1][p2] = Math.max(option1, option2);
