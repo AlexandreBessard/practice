@@ -1,0 +1,8 @@
+Time Management in System Design Interview
+
+1) Requirement Clarifications (3 - 5  min)
+2) Estimation (3 - 5 min)
+3) API Design (3 - 5 min)
+4) Database Schema Design (3 - 5 min)
+5) System's Detailed Design (20 - 25 min)
+6) Resolve bottlenecks and follow-up questions (2 - 3 min)

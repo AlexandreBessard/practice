@@ -1,0 +1,10 @@
+Time Management in Object Oriented Design Interview
+
+1) Requirement Gathering (3 - 5 min)
+2) Use Cases (3 - 6 min)
+3) Identify the Core classes (3 - 6 min)
+4) Identify the fields of each class (5 - 10 min)
+5) Identify the Relationship between the classes (5 - 10 min)
+6) Identify the Actions of the classes (5 - 10 min)
+7) Code (5 - 8 min)
+8) Follow-up questions (3 - 4 min)

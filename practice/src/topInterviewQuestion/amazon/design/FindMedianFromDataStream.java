@@ -21,7 +21,7 @@ public class FindMedianFromDataStream {
         //Length of the larger half is either n / 2 or n / 2 + 1 depend on n's parity
         PriorityQueue<Double> max = new PriorityQueue<>(Comparator.reverseOrder());
         //Length of smaller half is kept to be n / 2 at all time
-        PriorityQueue<Double> min = new PriorityQueue<>();
+        PriorityQueue<Double> min = new PriorityQueue<>(); //Smallest element is the priority
 
         /*
         Time: 3 O(log n) heap operations
