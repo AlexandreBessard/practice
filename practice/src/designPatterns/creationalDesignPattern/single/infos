@@ -4,7 +4,15 @@ only one instance and provides a global point of access to it“.
 The class must ensure that only a single instance should be
 created and a single object can be used by all other classes.
 
+A component which is instantiated only once.
+
 Advantages:
 
 It is designed to save memory.
 The object is not created on every request, instead, a single instance is reused.
+We call the constructor only once.
+
+
+Example of use cases:
+- Database repository
+- Object Factory
