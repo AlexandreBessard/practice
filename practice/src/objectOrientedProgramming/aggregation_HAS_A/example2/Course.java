@@ -1,4 +1,4 @@
-package objectOrientedProgramming.aggregation.example2;
+package objectOrientedProgramming.aggregation_HAS_A.example2;
 
 import java.util.List;
 

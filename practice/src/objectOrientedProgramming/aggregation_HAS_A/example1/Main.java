@@ -1,4 +1,4 @@
-package objectOrientedProgramming.aggregation.example1;
+package objectOrientedProgramming.aggregation_HAS_A.example1;
 
 public class Main {
 
