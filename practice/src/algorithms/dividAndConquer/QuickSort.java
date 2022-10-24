@@ -15,6 +15,7 @@ public class QuickSort {
     Based on Divide and Conquer strategy
     Unstable.
     Quicksort is preferred for arrays and works better for small array.
+    On average, it is O(N log N), but O(N2) in the worst case.
     Time: O(NlogN)
     Space(O(1)
      */
@@ -24,7 +25,7 @@ public class QuickSort {
     }
     private static void qsort(int[] lst, int lo, int hi) {
         if(lo < hi) {
-            int p = partition(lst, lo, hi);
+            int p = partition(lst, lo, hi); //return p (index) where all elements from p are smaller than the pivot
             qsort(lst, lo, p - 1);
             qsort(lst, p + 1, hi);
         }
