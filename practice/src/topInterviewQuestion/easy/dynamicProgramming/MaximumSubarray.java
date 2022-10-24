@@ -10,6 +10,8 @@ public class MaximumSubarray {
         //Explanation: [4,-1,2,1] has the largest sum = 6.
         maxSubArrayDivideAndConquer(nums2);
         System.out.println(maxSubArrayKadaneAlgo(new int[]{-2,1,-3,4,-1}));
+        System.out.println(maxSubArrayKadaneAlgo(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
+
     }
 
     private static int[] numsArray;
@@ -26,7 +28,7 @@ public class MaximumSubarray {
     private static int findBestArray(int left, int right) {
         if(left > right)
             return Integer.MIN_VALUE;
-        int mid = Math.floorDiv(left + right, 2);
+        int mid = Math.floorDiv(left + right, 2); //Take the mid equivalent of (left + right) / 2;
         int curr = 0;
         int bestLeftSum = 0;
         int bestRightSum = 0;
@@ -57,8 +59,14 @@ public class MaximumSubarray {
         int currentSubarray = nums[0];
         int maxSubarray = nums[0];
         for(int i = 1; i < nums.length; i++) {
-            currentSubarray = Math.max(nums[i], currentSubarray + nums[i]);
-            maxSubarray = Math.max(maxSubarray, currentSubarray);
+            currentSubarray = currentSubarray + nums[i];
+
+            if(currentSubarray > maxSubarray) {
+                maxSubarray = currentSubarray;
+            }
+            if(currentSubarray < 0) {
+                currentSubarray = 0;
+            }
         }
         return maxSubarray;
     }

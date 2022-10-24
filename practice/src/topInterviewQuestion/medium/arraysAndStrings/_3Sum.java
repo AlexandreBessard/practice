@@ -4,7 +4,13 @@ import java.util.*;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/776/
 public class _3Sum {
+/*
+Given an integer array nums, return all the triplets
+[nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
+Notice that the solution set must not contain duplicate triplets.
+ */
+/** {@link patternsForCodingInterviews.twoPointers.TripletSumToZero} */
     public static void main(String[] args) {
         /*
         Input: nums = [-1,0,1,2,-1,-4]
@@ -24,6 +30,9 @@ public class _3Sum {
             }
         }
     }
+
+    //Equivalent, see solution:
+    /** {@link patternsForCodingInterviews.twoPointers.TripletSumToZero} */
 
     //Approach 3 : No-Sort, -> If you can not modify the input array
     /*

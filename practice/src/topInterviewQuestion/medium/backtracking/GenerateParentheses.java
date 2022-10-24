@@ -20,6 +20,7 @@ public class GenerateParentheses {
         for (String r : res1) {
             System.out.print(r + ", ");
         }
+        System.out.println("\n"+generateParenthesis(3));
     }
 
     //Approach 2: Backtracking
@@ -34,7 +35,7 @@ public class GenerateParentheses {
                            int close,
                            int max) {
         // # If the solution is found
-        if (cur.length() == max * 2) {
+        if (cur.length() == max * 2) { //Base case
             ans.add(cur.toString());
             return;
         }
@@ -70,13 +71,13 @@ public class GenerateParentheses {
      /\  /\
     c  ↄ c ↄ
      */
-    public List<String> generateParenthesis(int n) {
+    static List<String> generateParenthesis(int n) {
         List<String> combinations = new ArrayList();
         generateAll(new char[2 * n], 0, combinations);
         return combinations;
     }
 
-    public void generateAll(char[] current, int pos, List<String> result) {
+    private static void generateAll(char[] current, int pos, List<String> result) {
         if (pos == current.length) { //Base case
             if (valid(current)) //Add to the result if it is valid
                 result.add(new String(current));
@@ -88,7 +89,7 @@ public class GenerateParentheses {
         }
     }
 
-    public boolean valid(char[] current) {
+    private static boolean valid(char[] current) {
         int balance = 0;
         for (char c : current) {
             if (c == '(')

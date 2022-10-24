@@ -16,6 +16,29 @@ public class FizzBuzz {
     public static void main(String[] args) {
         int n = 5;
         //Output: ["1","2","Fizz","4","Buzz"]
+        System.out.println(fizzBuzzWithoutModulo(28745321));
+    }
+
+    static List<String> fizzBuzzWithoutModulo(int n) {
+        List<String> ret = new ArrayList<>(n);
+        for (int i = 1, fizz = 0, buzz = 0; i <= n; i++) {
+            fizz++;
+            buzz++;
+            if (fizz == 3 && buzz == 5) {
+                ret.add("FizzBuzz");
+                fizz = 0;
+                buzz = 0;
+            } else if (fizz == 3) {
+                ret.add("Fizz");
+                fizz = 0;
+            } else if (buzz == 5) {
+                ret.add("Buzz");
+                buzz = 0;
+            } else {
+                ret.add(String.valueOf(i));
+            }
+        }
+        return ret;
     }
 
     //Approach 3: Hash it
@@ -30,18 +53,18 @@ public class FizzBuzz {
                 put(3, "Fizz");
                 put(5, "Bizz");
             }
-                };
+        };
         //List of divisors
         List<Integer> divisors = new ArrayList<>(Arrays.asList(3, 5));
-        for(int num = 1; num <= n; num++) {
+        for (int num = 1; num <= n; num++) {
             var numAnsStr = new StringBuilder();
-            for(Integer key: divisors) {
+            for (Integer key : divisors) {
                 //If num divisible by key
-                if(num % key == 0) {
+                if (num % key == 0) {
                     numAnsStr.append(fizzBizzDict.get(key));
                 }
             }
-            if(numAnsStr.equals("")) {
+            if (numAnsStr.equals("")) {
                 numAnsStr.append(Integer.toString(num));
             }
             ans.add(numAnsStr.toString());
@@ -87,14 +110,14 @@ public class FizzBuzz {
      */
     static List<String> fizzBuzz(int n) {
         List<String> ans = new ArrayList<>();
-        for(int num = 1; num <= n; num++) {
+        for (int num = 1; num <= n; num++) {
             boolean divisibleBy3 = (num % 3 == 0);
             boolean divisibleBy5 = (num % 5 == 0);
-            if(divisibleBy3 && divisibleBy5)
+            if (divisibleBy3 && divisibleBy5)
                 ans.add("FizzBuzz");
-            else if(divisibleBy3) {
+            else if (divisibleBy3) {
                 ans.add("Fizz");
-            } else if(divisibleBy5) {
+            } else if (divisibleBy5) {
                 ans.add("Buzz");
             } else {
                 ans.add(Integer.toString(num));

@@ -17,6 +17,9 @@ Given a string, find the length of the longest substring, which has all distinct
                 + findLength("abccde"));
     }
 
+    /*
+    Sliding window
+     */
     public static int findLength(String str) {
         int windowStart = 0;
         int maxLength = 0;

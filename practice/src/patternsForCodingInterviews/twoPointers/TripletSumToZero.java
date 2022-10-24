@@ -53,10 +53,10 @@ public class TripletSumToZero {
                     right--;
                 }
             } else if(targetSum > currentSum) {
-                //Need to pair with a bigger sum
+                //Need to pair with a bigger sum, arr is sorted
                 left++;
             } else {
-                //Need to pair with smaller sum
+                //Need to pair with smaller sum, arr is sorted
                 right--;
             }
         }

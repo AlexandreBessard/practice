@@ -21,14 +21,14 @@ public class LongestPalindromeSubstring {
      */
     static String longestPalTwoPointers(String str) {
         int n = str.length();
-        int longest_palindrome_start = 0;
+        int windowStart = 0;
         int longest_palindrome_len = 1;
-        for (int i = 0; i < n; i++) {
-            int right = i;
-            while (right < n && str.charAt(i) == str.charAt(right)) {
+        for (int windowEnd = 0; windowEnd < n; windowEnd++) {
+            int right = windowEnd; //right will expand from the windowEnd if same element betwen them
+            while (right < n && str.charAt(windowEnd) == str.charAt(right)) {
                 right++;
             }
-            int left = i - 1; //Left next element before ith element
+            int left = windowEnd - 1; //Left come before windowEnd to expand
             // 'right < n' below avoid IndexOutOfBoundException produced by 'str.charAt(right)'
             while (left >= 0 && right < n && str.charAt(left) == str.charAt(right)) {
                 left--;
@@ -37,10 +37,10 @@ public class LongestPalindromeSubstring {
             int palindromeLength = right - left - 1;
             if (palindromeLength > longest_palindrome_len) {
                 longest_palindrome_len = palindromeLength;
-                longest_palindrome_start = left + 1;
+                windowStart = left + 1; //Use to know where the palindrome start
             }
         }
-        return str.substring(longest_palindrome_start, longest_palindrome_start + longest_palindrome_len);
+        return str.substring(windowStart, windowStart + longest_palindrome_len);
     }
 
     static void printSubStr(String str, int low, int high) {
