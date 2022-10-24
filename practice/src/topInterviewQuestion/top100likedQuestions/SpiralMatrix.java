@@ -1,6 +1,5 @@
 package topInterviewQuestion.top100likedQuestions;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,26 +28,27 @@ public class SpiralMatrix {
      */
     static List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> res = new LinkedList<>();
-        if (matrix == null || matrix.length == 0) {
-            return res;
-        }
+        if (matrix == null || matrix.length == 0) return res;
         int n = matrix.length, m = matrix[0].length;
         int up = 0, down = n - 1;
         int left = 0, right = m - 1;
-        while (res.size() < n * m) {
+        while (res.size() < n * m) { //Chekc if res is smaller than the total element in the matrix
             for (int j = left; j <= right && res.size() < n * m; j++) //From left to right
                 res.add(matrix[up][j]);
 
+            //Excluded the latest element
             for (int i = up + 1; i <= down - 1 && res.size() < n * m; i++) //From top to bottom right side
                 res.add(matrix[i][right]); //Right gets the latest element from the row 'i'
 
-            for (int j = right; j >= left && res.size() < n * m; j--)
+            for (int j = right; j >= left && res.size() < n * m; j--) //From right to left
                 res.add(matrix[down][j]);
 
-            for (int i = down - 1; i >= up + 1 && res.size() < n * m; i--) { //Get only elements from the left side (bottom to top)
+            //Exclude the first element and the latest element
+            for (int i = down - 1; i >= up + 1 && res.size() < n * m; i--) { // (bottom to top)
                 System.out.println("matrix[i][left] --> " + matrix[i][left]);
                 res.add(matrix[i][left]);
             }
+            //Go to the next square (inner square if matrix.length = 4 && matrix[0].length = 4
             left++;
             right--;
             up++;

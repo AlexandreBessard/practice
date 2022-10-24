@@ -6,7 +6,10 @@ import java.util.PriorityQueue;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/805/
 public class MeetingsRoomsII {
-
+/*
+Given an array of meeting time intervals intervals where intervals[i] = [starti, endi],
+return the minimum number of conference rooms required.
+ */
     public static void main(String[] args) {
         int[][] nums = {
                 {0, 30},
@@ -16,7 +19,8 @@ public class MeetingsRoomsII {
         System.out.println(minMeetingRooms(nums));
         System.out.println(minMeetingRoomsChronologicalOrdering(nums));
     }
-
+    //Other approach solution :
+    /** {@link patternsForCodingInterviews.mergeIntervals._1MinimumMeetingRooms} */
 
     //Approach 1: PriorityQueues
     /*

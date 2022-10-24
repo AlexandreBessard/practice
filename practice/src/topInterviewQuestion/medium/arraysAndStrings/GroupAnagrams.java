@@ -22,8 +22,7 @@ public class GroupAnagrams {
     Space complexity: O(N) -> cause by hashmap
      */
     static List<List<String>> groupAnagramsHashMap(String[] strs) {
-        if (strs == null || strs.length == 0)
-            return new ArrayList<>();
+        if (strs == null || strs.length == 0) return new ArrayList<>();
         Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
             char[] ca = new char[26]; // new char[126] if we include all characters

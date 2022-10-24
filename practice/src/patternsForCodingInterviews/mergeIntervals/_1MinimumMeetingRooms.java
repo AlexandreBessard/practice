@@ -58,9 +58,7 @@ Given a list of intervals representing the start and end time of ‘N’ meeting
     Space: O(N) used by sorting and heap
      */
     public static int findMinimumMeetingRooms(List<Meeting> meetings) {
-        if (meetings == null || meetings.size() == 0) {
-            return 0;
-        }
+        if (meetings == null || meetings.size() == 0) return 0;
         //Sort the meeting by start time
         meetings.sort((a, b) -> a.start - b.start); //Mergesort algo -> time: O(n . log n) space: O(n)
         int minRooms = 0;
@@ -70,7 +68,10 @@ Given a list of intervals representing the start and end time of ‘N’ meeting
         );
         for (Meeting meeting : meetings) {
             ///Remove all meetings that have ended
-            while (!minHeap.isEmpty() && meeting.start >= minHeap.peek().end) {
+            while (!minHeap.isEmpty()
+                    &&
+                    meeting.start >= minHeap.peek().end)  // Not Overlapping
+            {
                 minHeap.poll();
             }
             //add the current meeting into the minHeap

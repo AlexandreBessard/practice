@@ -1,3 +1,14 @@
 Use Case Diagram Relationships Explained with Examples
 
 https://creately.com/blog/diagrams/use-case-diagram-relationships/
+
+
+<<extend>>
+extends the base case, dependant on the extended (base) use case.
+Is optional
+The extended (base) use case should be independent and must not rely on the behavior of the extending use case.
+
+
+<<include>>
+Base case incomplete without the included use case.
+included use case is mandatory and NOT optional
