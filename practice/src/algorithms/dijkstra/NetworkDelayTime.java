@@ -33,24 +33,25 @@ public class NetworkDelayTime {
             map.get(time[0]).put(time[1], time[2]);
         }
         //[0] node, [1] distance
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (a[1] - b[1])); //Smaller distance are the priority
+        //PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> (a[1] - b[1])); //Smaller distance are the priority
+        Queue<int[]> queue = new LinkedList<>();
         //[0] -> represents the node, [1] -> represents the distance
-        pq.add(new int[]{k, 0}); //initialize node k with 0 as distance.
+        queue.add(new int[]{k, 0}); //initialize node k with 0 as distance.
         boolean[] visited = new boolean[n + 1];
         int res = 0;
-        while(!pq.isEmpty()) {
-            int[] cur = pq.poll();
+        while(!queue.isEmpty()) {
+            int[] cur = queue.poll();
             int curNode = cur[0];
             int curDistance = cur[1];
             if(visited[curNode]) continue;
             visited[curNode] = true; //Set this node as visited
             res = curDistance;
             n--; //if 0 means we have reached all the nodes
-            if(map.containsKey(curNode)) {
-                for(int next : map.get(curNode).keySet()) {
-                    int distNeighbor = map.get(curNode).get(next);
+            if(map.containsKey(curNode)) { //If not contains mean this node does not have neighbors associated
+                for(int next : map.get(curNode).keySet()) { //Loop through all neighbors
+                    int distNeighbor = map.get(curNode).get(next); //Get distance from each neighbor
                     int sumDistance = curDistance + distNeighbor; //sum with previous distance node
-                    pq.add(new int[]{next, sumDistance}); //sum distance associated with that node
+                    queue.add(new int[]{next, sumDistance}); //sum distance associated with that node
                 }
             }
         }
