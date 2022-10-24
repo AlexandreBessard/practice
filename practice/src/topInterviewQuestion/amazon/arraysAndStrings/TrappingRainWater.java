@@ -24,7 +24,7 @@ public class TrappingRainWater {
             return 0;
         }
         int left = 0; int right = height.length - 1; // Pointers to both ends of the array.
-        int maxLeft = 0; int maxRight = 0;
+        int maxLeft = 0; int maxRight = 0; //Max height for left and right side
 
         int totalWater = 0;
         while (left < right) {

@@ -10,7 +10,8 @@ public class LRUCache {
     private int size;
     //Space: O(capacity)
     private int capacity;
-    private DLinkedNode head, tail;
+    private final DLinkedNode head;
+    private final DLinkedNode tail;
 
     public LRUCache(int capacity) {
         this.size = 0;
@@ -18,6 +19,7 @@ public class LRUCache {
         //Instantiate head and tail
         head = new DLinkedNode();
         tail = new DLinkedNode();
+        //Link with head and tails
         head.next = tail;
         tail.prev = head;
     }
@@ -74,7 +76,7 @@ public class LRUCache {
         removeNode(res);
         return res;
     }
-
+    /* add node just next to the head */
     private void addNode(DLinkedNode node) {
         //add the new node right after the head
         node.prev = head;

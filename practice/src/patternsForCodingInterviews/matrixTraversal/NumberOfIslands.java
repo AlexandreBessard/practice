@@ -8,21 +8,21 @@ public class NumberOfIslands {
 
     public static void main(String[] args) {
         System.out.println(countIslandsWithVisitedMatrix(
-                new int[][] {
-                        { 0, 1, 1, 1, 0 },
-                        { 0, 0, 0, 1, 1 },
-                        { 0, 1, 1, 1, 0 },
-                        { 0, 1, 1, 0, 0 },
-                        { 0, 0, 0, 0, 0 }
+                new int[][]{
+                        {0, 1, 1, 1, 0},
+                        {0, 0, 0, 1, 1},
+                        {0, 1, 1, 1, 0},
+                        {0, 1, 1, 0, 0},
+                        {0, 0, 0, 0, 0}
                 }));
 
         System.out.println(countIslandsWithVisitedMatrix(
-                new int[][] {
-                        { 1, 1, 1, 0, 0 },
-                        { 0, 1, 0, 0, 1 },
-                        { 0, 0, 1, 1, 0 },
-                        { 0, 0, 1, 0, 0 },
-                        { 0, 0, 1, 0, 0 }
+                new int[][]{
+                        {1, 1, 1, 0, 0},
+                        {0, 1, 0, 0, 1},
+                        {0, 0, 1, 1, 0},
+                        {0, 0, 1, 0, 0},
+                        {0, 0, 1, 0, 0}
                 }));
     }
 
@@ -93,9 +93,10 @@ public class NumberOfIslands {
         }
         return totalIslands;
     }
+
     private static void visitIslandBFS(int[][] matrix, int x, int y) {
         Queue<int[]> neighbors = new LinkedList<>();
-        neighbors.add(new int[] { x, y });
+        neighbors.add(new int[]{x, y});
         while (!neighbors.isEmpty()) {
             int row = neighbors.peek()[0];
             int col = neighbors.peek()[1];
@@ -109,10 +110,10 @@ public class NumberOfIslands {
             matrix[row][col] = 0; // mark the cell visited by making it a water cell
 
             // insert all neighboring cells to the queue for BFS
-            neighbors.add(new int[] { row + 1, col }); // lower cell
-            neighbors.add(new int[] { row - 1, col }); // upper cell
-            neighbors.add(new int[] { row, col + 1 }); // right cell
-            neighbors.add(new int[] { row, col - 1 }); // left cell
+            neighbors.add(new int[]{row + 1, col}); // lower cell
+            neighbors.add(new int[]{row - 1, col}); // upper cell
+            neighbors.add(new int[]{row, col + 1}); // right cell
+            neighbors.add(new int[]{row, col - 1}); // left cell
         }
     }
 
@@ -124,9 +125,9 @@ public class NumberOfIslands {
         int rows = matrix.length;
         int cols = matrix[0].length;
         int totalIslands = 0;
-        for(int i = 0; i < matrix.length; i++) {
-            for(int j = 0; j < matrix[0].length; j++) {
-                if(matrix[i][j] == 1) { //If cell is a land
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 1) { //If cell is a land
                     totalIslands++;
                     visitIslandsDFS(matrix, i, j);
                 }
@@ -136,10 +137,10 @@ public class NumberOfIslands {
     }
 
     private static void visitIslandsDFS(int[][] matrix, int x, int y) {
-        if(isNotAValidCell(matrix, x, y)) { //No valid cell
+        if (isNotAValidCell(matrix, x, y)) { //No valid cell
             return;
         }
-        if(matrix[x][y] == 0) { //If water cell
+        if (matrix[x][y] == 0) { //If water cell
             return;
         }
         matrix[x][y] = 0; //mark the cell as visited b y making it a water cell

@@ -17,6 +17,11 @@ Given a list of intervals, merge all the overlapping intervals to produce a list
             System.out.print("[" + interval.start + "," + interval.end + "] ");
         System.out.println();
 
+        System.out.print("Merged intervals without iterator: ");
+        for (Interval interval : mergeWithoutIterator(input))
+            System.out.print("[" + interval.start + "," + interval.end + "] ");
+        System.out.println();
+
         input = new ArrayList<Interval>();
         input.add(new Interval(6, 7));
         input.add(new Interval(2, 4));
@@ -68,6 +73,30 @@ Given a list of intervals, merge all the overlapping intervals to produce a list
         }
         //Add the latest interval
         mergedIntervals.add(new Interval(start, end));
+        return mergedIntervals;
+    }
+
+    //Without Iterator
+    public static List<Interval> mergeWithoutIterator(List<Interval> intervals) {
+        if (intervals.size() < 2) return intervals;
+        intervals.sort((a, b) -> a.start - b.start);
+        LinkedList<Interval> mergedIntervals = new LinkedList<>();
+        int index = 1;
+        int start = intervals.get(0).start;
+        int end = intervals.get(0).end;
+        while (index < intervals.size()) {
+            Interval currentInterval = intervals.get(index);
+            if (currentInterval.start <= end) {
+                end = Math.max(end, currentInterval.end);
+            } else {
+                mergedIntervals.add(new Interval(start, end));
+                start = currentInterval.start;
+                end = currentInterval.end;
+            }
+            index++;
+        }
+        Interval curr = new Interval(start, end);
+        mergedIntervals.add(curr);
         return mergedIntervals;
     }
 }

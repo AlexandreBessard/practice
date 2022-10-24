@@ -20,9 +20,8 @@ public class TrappingRainWater {
         int ans = 0, current = 0;
         Stack<Integer> st = new Stack<>();
         while (current < height.length) {
-            while (!st.empty() && height[current] > height[st.peek()]) {
-                int top = st.peek();
-                st.pop();
+            while (!st.empty() && height[current] > height[st.peek()]) { //Remove the smallest element
+                int top = st.pop();
                 if (st.empty())
                     break;
                 int distance = current - st.peek() - 1;
