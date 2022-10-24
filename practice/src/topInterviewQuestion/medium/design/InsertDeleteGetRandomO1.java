@@ -6,7 +6,12 @@ import java.util.*;
 public class InsertDeleteGetRandomO1 {
 
     public static void main(String[] args) {
-
+        var obj = new RandomizedSet();
+        System.out.println(obj.insert(1)); // Inserts 1 to the set. Returns true as 1 was inserted
+        System.out.println(obj.remove(2)); // Returns false as 2 does not exist in the set.
+        obj.insert(2);
+        System.out.println(obj.getRandom()); // getRandom() should return either 1 or 2 randomly.
+        System.out.println(obj.remove(1));
     }
 
     static class RandomizedSet {
@@ -16,7 +21,7 @@ public class InsertDeleteGetRandomO1 {
 
         public RandomizedSet() {
             dict = new HashMap<>();
-            list = new ArrayList<>();
+            list = new ArrayList<>(); //Size if 0
         }
         //Insert value to the set
         //Time complexity: O(1)
@@ -25,8 +30,12 @@ public class InsertDeleteGetRandomO1 {
         public boolean insert(int val){
             if(dict.containsKey(val))
                 return false;
-            dict.put(val, list.size());
-            list.add(list.size(), val);
+            int size = list.size();
+            //Ex with value to add : 1
+            //map : 1 -> 0
+            //list : idx 0 -> 1
+            dict.put(val, size);
+            list.add(size, val);
             return true;
         }
 
@@ -34,13 +43,13 @@ public class InsertDeleteGetRandomO1 {
         public boolean remove(int val) {
             if(!dict.containsKey(val))
                 return false;
-            int lastElement = list.get(list.size() - 1);
-            int idx = dict.get(val);
-            list.set(idx, lastElement);
-            dict.put(lastElement, idx);
+            int lastElement = list.get(list.size() - 1); //Take the latest element
+            int idx = dict.get(val); //get the index concerning the element to be removed
+            list.set(idx, lastElement); // replace element to be removed with the latest element
+            dict.put(lastElement, idx); // replace old by new index where was located the old element (index)
             //delete the last element
-            list.remove(list.size() - 1);
-            dict.remove(val);
+            list.remove(list.size() - 1); //Delete the latest element
+            dict.remove(val); //Remove the value from the map
             return true;
         }
         //Time complexity: O(1)
