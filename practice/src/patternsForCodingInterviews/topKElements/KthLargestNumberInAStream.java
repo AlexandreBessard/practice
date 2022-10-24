@@ -13,14 +13,15 @@ public class KthLargestNumberInAStream {
         System.out.println("4th largest number is: " + kthLargestNumber.add(4));
     }
 
+    //Minimum element in a Q are the priority, we keep the largest element
     PriorityQueue<Integer> minHeap = new PriorityQueue<>((n1, n2) -> n1 - n2);
     final int k;
 
     public KthLargestNumberInAStream(int[] nums, int k) {
         this.k = k;
         // add the numbers in the min heap
-        for(int i = 0; i < nums.length; i++) {
-            add(nums[i]);
+        for(int element : nums) {
+            add(element);
         }
     }
 

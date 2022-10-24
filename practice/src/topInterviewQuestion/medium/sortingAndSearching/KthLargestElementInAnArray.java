@@ -16,6 +16,9 @@ public class KthLargestElementInAnArray {
         System.out.println(findKthLargest(nums, k));
     }
 
+    //For other approach with heap:
+    /** {@link patternsForCodingInterviews.topKElements.KthLargestNumberInAStream} */
+
     private static int[] nums;
     private static int size;
     private final static Random random = new Random();
