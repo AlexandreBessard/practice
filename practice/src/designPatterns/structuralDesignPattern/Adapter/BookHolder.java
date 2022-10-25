@@ -1,4 +1,4 @@
-package designPatterns.structuralDesignPattern.AdapterDesignPattern;
+package designPatterns.structuralDesignPattern.Adapter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

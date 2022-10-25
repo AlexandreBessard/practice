@@ -1,4 +1,4 @@
-package designPatterns.structuralDesignPattern.DecoratorDesignPattern;
+package designPatterns.structuralDesignPattern.Decorator;
 
 public class RedShapeDecorator extends ShapeDecorator {
 

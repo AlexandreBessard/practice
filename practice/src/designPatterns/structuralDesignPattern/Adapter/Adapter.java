@@ -1,4 +1,4 @@
-package designPatterns.structuralDesignPattern.AdapterDesignPattern;
+package designPatterns.structuralDesignPattern.Adapter;
 
 public class Adapter {
 

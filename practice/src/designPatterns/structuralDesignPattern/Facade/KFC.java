@@ -1,4 +1,4 @@
-package designPatterns.structuralDesignPattern.FacadeDesignPattern;
+package designPatterns.structuralDesignPattern.Facade;
 
 public class KFC implements Franchise {
 
