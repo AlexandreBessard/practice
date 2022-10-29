@@ -24,8 +24,7 @@ public class PalindromeLinkedList {
     Space: O(1)
      */
     static boolean isPalindromeReverseSecondHalf(ListNode head) {
-        if(head == null)
-            return true;
+        if(head == null) return true;
         //Find end of first half and reserve second half
         ListNode firstHalfEnd = endFirstHalf(head);
         ListNode secondHalfStart = reverseList(firstHalfEnd.next);

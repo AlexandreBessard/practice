@@ -26,7 +26,7 @@ public class ReduceArraySizeToTheHalf {
         for (int count : counts.values()) { //Do not need to sort them
             buckets[count] += count; //Means each index represents the number of counts
         }
-        int bucket = maxCount; //start with the with the biggest bucket (index)
+        int bucket = maxCount; //start with the biggest bucket (index)
         int half = (arr.length / 2) - 1;
         int size = 0;
         while (half >= 0) {
