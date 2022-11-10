@@ -11,7 +11,7 @@ public class ChainedHashtable {
     public ChainedHashtable() {
         hashtable = new LinkedList[10];
         for (int i = 0; i < hashtable.length; i++) {
-            hashtable[i] = new LinkedList<StoredEmployee>();
+            hashtable[i] = new LinkedList<>();
         }
     }
 
