@@ -1,47 +1,38 @@
-Reviewed Algorithms:
+Week 1:
+✔ Stacks and Queue Implementation
+✔ Hash Maps Implementation
+✔ Linked Lists Operations
 
-Divide And Conquer -> 24/08 (QuickSort [23/08] & MergeSort)
-QuickSelect -> 01/09 DONE
-Depth First Search -> 03/09 DONE
-Breadth First Search -> 13/10/2022 DONE
-Two Pointers -> 05/10 DONE
-Sliding Window -> DONE 03/10
-Merge Intervals -> 11/10 DONE
-Fast and Slow pointers -> DONE 10/10
-Two Heaps -> DONE 21/08
-Top 'K' elements -> DONE 17/09 -> Kth Largest Number in a Stream included DONE
-Modified Binary Search Tree -> 12/09 Bitonic array need to be reviewed
-Subsets -> 16/09 DONE
-Matrix Traversal -> 04/10 DONE
-K way merge -> 29/08 DONE
-Cyclic sort -> 27/08 DONE
-In Place reversal of LinkedList -> 30/08 DONE
-MultiThreaded -> DONE 30/08
-Miscellaneous -> 31/08 DONE
-Topological Sort -> DONE 13/09
-Backtracking -> 24/08
-Union Find -> 31/08
-Monotonic Stack -> 05/09
-N-ary Tree -> 24/09
+Week 2:
+✔ Sorting Algorithms
+✔ Fixed-Size Sliding Window
+✔ Dynamic-Size Sliding Window
 
-Memoization
-Segment Tree
+Week 2:
+✔ Modified Binary Search
+✔ Two Pointers
+✔ Cyclic Sort
 
+Week 3:
+✔ Fast and Slow Pointer
+✔ Top K Element
+✔ Merge Intervals
 
-MUST KNOW:
-Data structures you should know: Arrays, Stacks, Queues, Linked lists, Trees, Graphs, Hash tables
+Week 4:
+✔ Depth First Search (DFS)
+✔ Island
+✔ Backtracking
 
-Algorithms you should know: Breadth First Search, Depth First Search, Binary Search, Quicksort, Mergesort, Dynamic programming, Divide and Conquer
+Week 5:
+✔ Breadth First Search (BFS)
+✔ Subsets
+✔ Topological Sort
 
-Depth First Search (250) -> DONE 13/09
-Breadth First Search(198) -> DONE 12/09
-Binary Search (186) -> DONE 12/09
-Two Pointers (147) -> DONE 13/09
-Sliding Window (72)
-Monotonic Stack (44)
-Union Find (63)
-Memoization (32)
-Topological Sort (28) -> 13/09
-Segment Tree (27)
+Week 6:
+✔ K-Way Merge
+✔ Tries
+✔ Union Find
 
-
+Week 7
+✔ Bitwise Manipulation
+✔ Dynamic Programming
