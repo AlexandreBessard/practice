@@ -23,6 +23,9 @@ public class _1IslandPerimeter {
                 }));
     }
 
+    //TODO: BFS approach:
+    //https://www.geeksforgeeks.org/islands-in-a-graph-using-bfs/
+
     /*
     Time: O(M * N)
     Space: O(M * N)
@@ -41,12 +44,15 @@ public class _1IslandPerimeter {
         return 0;
     }
     private static int islandPerimeterDFS(int[][] matrix, boolean[][] visited, int x, int y) {
-        if(x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) {
+        //Base case 1
+        if(isOutOfBoundaries(matrix, x, y)) {
             return 1; //return 1 since this a boundary cell initiated this DFS call
         }
+        //Base case 2
         if(matrix[x][y] == 0) {
             return 1; // return 1 because of the shared side b/w a water and land cell
         }
+        //Base case 3
         if(visited[x][y]) {
             return 0; // we have already taken care of this cell
         }
@@ -58,6 +64,10 @@ public class _1IslandPerimeter {
         edgeCount += islandPerimeterDFS(matrix, visited, x, y + 1); // right cell
         edgeCount += islandPerimeterDFS(matrix, visited, x, y - 1); // left cell
         return edgeCount;
+    }
+
+    private static boolean isOutOfBoundaries(int[][] matrix, int x, int y) {
+        return x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length;
     }
 
 
