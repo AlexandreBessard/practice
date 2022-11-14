@@ -8,7 +8,7 @@ public class NumberOfClosedIslands {
 
     public static void main(String[] args) {
         //Closed island  -> means surrounded by the water
-        System.out.println(countClosedIslandsBFS(
+        System.out.println(countClosedIslandsDFS(
                 new int[][] {
                         { 1, 1, 0, 0, 0 },
                         { 0, 1, 0, 0, 0 },
@@ -17,8 +17,8 @@ public class NumberOfClosedIslands {
                         { 0, 0, 0, 0, 0 }
                 }));
 
-        /*
-        System.out.println(countClosedIslands(
+
+        System.out.println(countClosedIslandsDFS(
                 new int[][] {
                         { 0, 0, 0, 0 },
                         { 0, 1, 0, 0 },
@@ -27,10 +27,15 @@ public class NumberOfClosedIslands {
                         { 0, 0, 0, 0 }
                 }));
 
-         */
+
+
+
     }
 
     //return false if out of booundaries else if 0 or visited -> continue
+    /*
+    BFS approach
+     */
     public static int countClosedIslandsBFS(int[][] matrix) {
         int rows = matrix.length;
         int cols = matrix[0].length;
@@ -59,17 +64,18 @@ public class NumberOfClosedIslands {
             int currCol = q.peek()[1];
             q.poll();
             //Check if element is not placed on the limit matrix border
-            if(isOutOfBoundaries(matrix, currRow, currCol)) {
+            if(isOutOfBoundaries(matrix, currRow, currCol)
+                    && matrix[currRow][currCol] == 1) {
                 return false;
             }
-            if(visited[currRow][currCol]) {
+            if(visited[currRow][currCol] || matrix[currRow][currCol] == 0) {
                 continue;
             }
             visited[currRow][currCol] = true;
-            q.add(new int[]{row + 1, col});
-            q.add(new int[]{row, col - 1});
-            q.add(new int[]{row - 1, col});
-            q.add(new int[]{row, col + 1});
+            q.add(new int[]{currRow + 1, currCol}); // lower cell
+            q.add(new int[]{currRow - 1, currCol}); // upper cell
+            q.add(new int[]{currRow, currCol + 1}); // right cell
+            q.add(new int[]{currRow, currCol - 1}); // left cell
         }
         return true;
     }
