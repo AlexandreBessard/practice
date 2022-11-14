@@ -42,8 +42,7 @@ public class _2NumberOfDistinctIslands {
             for(int j = 0; j < cols; j++) {
                 if(matrix[i][j] == 1 && !visited[i][j]) {
                     var strBuilder = new StringBuilder();
-                    traverseIslandBFS(matrix, visited, i, j,
-                            strBuilder, Direction.ORIGIN);
+                    traverseIslandBFS(matrix, visited, i, j, strBuilder, Direction.ORIGIN);
                     islandSet.add(strBuilder.toString());
                 }
             }
@@ -55,11 +54,12 @@ public class _2NumberOfDistinctIslands {
                                           int row, int col, StringBuilder strBuilder,
                                           Direction direction)
     {
-        Queue<int[]> q = new LinkedList<>();
-        q.add(new int[]{row, col});
+        Queue<Object[]> q = new LinkedList<>();
+        q.add(new Object[]{row, col, direction});
         while(!q.isEmpty()) {
-            int currRow = q.peek()[0];
-            int currCol = q.peek()[1];
+            Integer currRow = (Integer) q.peek()[0];
+            Integer currCol = (Integer) q.peek()[1];
+            Direction currDirection = (Direction) q.peek()[2];
             q.poll();
             if(isOutOfBoundaries(matrix, currRow, currCol)) {
                 continue;
@@ -68,11 +68,11 @@ public class _2NumberOfDistinctIslands {
                 continue;
             }
             visited[currRow][currCol] = true;
-            strBuilder.append(direction);
-            q.add(new int[]{currRow + 1, currCol}); // lower cell
-            q.add(new int[]{currRow - 1, currCol}); // upper cell
-            q.add(new int[]{currRow, currCol + 1}); // right cell
-            q.add(new int[]{currRow, currCol - 1}); // left cell
+            strBuilder.append(currDirection);
+            q.add(new Object[]{currRow + 1, currCol, Direction.DOWN}); // lower cell
+            q.add(new Object[]{currRow - 1, currCol, Direction.UP}); // upper cell
+            q.add(new Object[]{currRow, currCol + 1, Direction.RIGHT}); // right cell
+            q.add(new Object[]{currRow, currCol - 1, Direction.LEFT}); // left cell
         }
         strBuilder.append(Direction.BACK);
     }
