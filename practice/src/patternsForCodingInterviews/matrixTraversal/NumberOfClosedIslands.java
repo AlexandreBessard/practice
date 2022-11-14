@@ -1,10 +1,14 @@
 package patternsForCodingInterviews.matrixTraversal;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_62d6145eebddeUnit
 public class NumberOfClosedIslands {
 
     public static void main(String[] args) {
         //Closed island  -> means surrounded by the water
-        System.out.println(countClosedIslands(
+        System.out.println(countClosedIslandsBFS(
                 new int[][] {
                         { 1, 1, 0, 0, 0 },
                         { 0, 1, 0, 0, 0 },
@@ -26,15 +30,61 @@ public class NumberOfClosedIslands {
          */
     }
 
-    //TODO: BFS approach
     //return false if out of booundaries else if 0 or visited -> continue
+    public static int countClosedIslandsBFS(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int countClosedIslands = 0;
+        boolean[][] visited = new boolean[rows][cols];
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                if(matrix[i][j] == 1 && !visited[i][j]) {
+                    if(isClosedIslandBFS(matrix, visited, i, j)) {
+                        countClosedIslands++;
+                    }
+                }
+            }
+        }
+        return countClosedIslands;
+    }
+    private static boolean isClosedIslandBFS(int[][] matrix,
+                                             boolean[][] visited,
+                                             int row,
+                                             int col)
+    {
+        Queue<int[]> q = new LinkedList<>();
+        q.add(new int[]{row, col});
+        while(!q.isEmpty()) {
+            int currRow = q.peek()[0];
+            int currCol = q.peek()[1];
+            q.poll();
+            //Check if element is not placed on the limit matrix border
+            if(isOutOfBoundaries(matrix, currRow, currCol)) {
+                return false;
+            }
+            if(visited[currRow][currCol]) {
+                continue;
+            }
+            visited[currRow][currCol] = true;
+            q.add(new int[]{row + 1, col});
+            q.add(new int[]{row, col - 1});
+            q.add(new int[]{row - 1, col});
+            q.add(new int[]{row, col + 1});
+        }
+        return true;
+    }
+
+    private static boolean isOutOfBoundaries(int[][] matrix, int row, int col) {
+        return row >= matrix.length - 1 || col >= matrix[0].length - 1
+                || row < 1 || col < 1;
+    }
 
     //Approach DFS
     /*
     Time: O(N)
     Space: O(1)
      */
-    public static int countClosedIslands(int[][] matrix) {
+    public static int countClosedIslandsDFS(int[][] matrix) {
         int rows = matrix.length;
         int cols = matrix[0].length;
         int countClosedIslands = 0;
