@@ -7,6 +7,7 @@ import java.util.Map;
 public class LongestSubstringWithDistinctCharacters {
 /*
 Given a string, find the length of the longest substring, which has all distinct characters.
+Longest Substring Without Repeating Characters
  */
     public static void main(String[] args) {
         System.out.println("Length of the longest substring: "
@@ -15,6 +16,8 @@ Given a string, find the length of the longest substring, which has all distinct
                 + findLength("abbbb"));
         System.out.println("Length of the longest substring: "
                 + findLength("abccde"));
+        System.out.println("Length of the longest substring: "
+                + findLength("bbbbbbb"));
     }
 
     /*

@@ -50,12 +50,14 @@ public class RomanToInteger {
         if(s.length() < 2) //If we only have 1 Roman number
             return map.get(s.charAt(0));
         for(int i = 0; i < s.length(); i++) {
-            if(i < s.length() - 1 && map.get(s.charAt(i + 1)) > map.get(s.charAt(i)))
+            char nextElement = s.charAt(i + 1);
+            char currElement = s.charAt(i);
+            if(i < s.length() - 1 && map.get(nextElement) > map.get(currElement))
             {
-                number += map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
+                number += map.get(nextElement) - map.get(currElement);
                 i++;
             } else {
-                number += map.get(s.charAt(i));
+                number += map.get(currElement);
             }
         }
         return number;
