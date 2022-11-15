@@ -19,6 +19,7 @@ Given a sorted array, create a new array containing squares of all the numbers o
     /*
     Time: O(N)
     Space: O(N)
+    Array is sorted
      */
     public static int[] makeSquares(int[] arr) {
         int n = arr.length;
