@@ -26,9 +26,9 @@ public class LongestCommonPrefix {
             minLen = Math.min(minLen, str.length()); //4
         }
         int low = 1; //Start with index 1-indexed
-        int high = minLen; // 4 // End with 1-indexed
+        int high = minLen; // 4 // End with 1-indexed because we exclude the latest element with substring()
         //Binary Search
-        while (low <= high) {
+        while (low <= high) {  // 1, 2, 3, 4
             int middle = low + (high - low) / 2; //2
             if (isCommonPrefix(strs, middle)) {
                 low = middle + 1;

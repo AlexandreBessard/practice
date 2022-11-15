@@ -8,7 +8,7 @@ public class IntegerToEnglishWords {
         //Output: "Twelve Thousand Three Hundred Forty Five"
         var obj = new IntegerToEnglishWords();
         //System.out.println(obj.numberToWords(n));
-        System.out.println(obj.numberToWordsOtherSolution2(1234));
+        System.out.println(obj.numberToWordsOtherSolution2(1254));
     }
 
     //Other approach
@@ -18,8 +18,8 @@ public class IntegerToEnglishWords {
         int i = 0;
         String words = "";
         while(num > 0) {
-            if(num % 1000 != 0) { //True if 1001 or above
-                System.out.println("helper1(num % 1000) -> " + helper1(num % 1000));
+            if(num % 1000 != 0) { //Ex: 254 % 1000 -> 254 || 1254 % 1000 -> 1
+                System.out.println("helper1(num % 1000) -> " + num % 1000);
                 words = helper1(num % 1000) + THOUSANDS1[i] + " " + words;
                 num /= 1000;
                 i++;
