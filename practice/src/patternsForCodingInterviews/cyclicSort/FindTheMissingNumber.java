@@ -16,7 +16,7 @@ public class FindTheMissingNumber {
         int i = 0;
         while (i < nums.length) {
             if(nums[i] < nums.length && nums[i] != nums[nums[i]]) {
-                swap(nums, i, nums[i]);
+                swap(nums, i, nums[i]); //Do not increment i
             } else {
                 i++;
             }
