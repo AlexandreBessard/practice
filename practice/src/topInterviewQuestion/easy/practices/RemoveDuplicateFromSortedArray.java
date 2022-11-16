@@ -19,9 +19,9 @@ public class RemoveDuplicateFromSortedArray {
             return 0;
         if(nums.length < 2)
             return 1;
-        int i = 0;
-        for(int j = 1; j < nums.length; j++) {
-            if(nums[i] != nums[j]) {
+        int i = 0; //Pointer for the first element
+        for(int j = 1; j < nums.length; j++) { //Pointer for the second element
+            if(nums[i] != nums[j]) { //Compare these 2 elements
                 i++;
                 nums[i] = nums[j];
             }
