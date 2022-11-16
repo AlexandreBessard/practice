@@ -22,10 +22,10 @@ public class ContainsDuplicate {
     static boolean containsDuplicateHashTable(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for(int x : nums) {
-            if(set.contains(x)) {
+            if(set.contains(x)) { //true if we have a duplicate
                 return true;
             }
-            set.add(x);
+            set.add(x); //We do not have a duplicate
         }
         return false;
     }

@@ -3,13 +3,36 @@ package topInterviewQuestion.easy.array;
 import java.util.*;
 
 public class SingleNumber {
-
+/*
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+ */
     public static void main(String[] args) {
         int[] nums = {4,1,2,1,2};
         //Unique element is 4
-        System.out.println(singleNumber(nums));
+        System.out.println(singleNumberHashTable(nums));
         System.out.println(singleNumberBitManipulation(nums));
+        System.out.println(singleNumberMath(nums));
     }
+
+    //Approach 2: HashTable
+    /*
+    Time complexity: O(n . 1) = O(n) loop is O(n), time complexity of hashtable operation is O(1)
+    Space complexity: O(n) caused by the hashtable
+     */
+    static int singleNumberHashTable(int[] nums) {
+        Map<Integer, Integer> hash_table = new HashMap<>();
+        for(int i : nums) {
+            hash_table.put(i, hash_table.getOrDefault(i, 0) + 1);
+        }
+        for(int i : nums) {
+            if(hash_table.get(i) == 1) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
 
 
     //Approach 4: Bit Manipulation
@@ -26,33 +49,15 @@ public class SingleNumber {
     static int singleNumberMath(int[] nums) {
         int sumOfSet = 0, sumOfNums = 0;
         Set<Integer> set = new HashSet<>();
-        for(int num : nums) {
-            if(!set.contains(num)) {
+        for (int num : nums) {
+            if (!set.contains(num)) {
                 set.add(num);
                 sumOfSet += num;
             }
+            sumOfNums += num;
         }
-        return 0;
+        return 2 * sumOfSet - sumOfNums;
     }
-        //Approach 2: HashTable
-    /*
-    Time complexity: O(n . 1) = O(n)
-    Space complexity: O(n)
-     */
-    static int singleNumberHashTable(int[] nums) {
-        Map<Integer, Integer> hash_table = new HashMap<>();
-        for(int i : nums) {
-            hash_table.put(i, hash_table.getOrDefault(i, 0) + 1);
-        }
-        for(int i : nums) {
-            if(hash_table.get(i) == 1) {
-                return i;
-            }
-        }
-        return 0;
-    }
-
-
 
         //Approach 1: List operation
     /*
