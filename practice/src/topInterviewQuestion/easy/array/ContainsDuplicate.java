@@ -9,7 +9,8 @@ public class ContainsDuplicate {
 
     public static void main(String[] args) {
         int[] nums = {1,2,3,1};
-        System.out.println(containsDuplicate(nums));
+        System.out.println(containsDuplicateHashTable(nums));
+        System.out.println(containsDuplicateHashTable(new int[]{1, 2, 3, 4}));
     }
 
 
@@ -21,8 +22,9 @@ public class ContainsDuplicate {
     static boolean containsDuplicateHashTable(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for(int x : nums) {
-            if(set.contains(x))
-                return false;
+            if(set.contains(x)) {
+                return true;
+            }
             set.add(x);
         }
         return false;
