@@ -6,8 +6,22 @@ public class BestTimeToBuyAndSell2 {
     public static void main(String[] args) {
         //int[] prices = {7, 1, 5, 3, 6, 4};
         int[] prices = {7, 1, 5, 3, 6};
-        System.out.println(maxProft(prices));
-        System.out.println(maxProfitValleyApproach(prices));
+        System.out.println(maxProfit(prices));
+        //System.out.println(maxProfitValleyApproach(prices));
+    }
+
+    //Approach 3: Single pass
+    /*
+    Time complexity: O(n)
+    Space: 0(1)
+     */
+    public static int maxProfit(int[] prices) {
+        int maxprofit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) //If current price greater than previous, sell it.
+                maxprofit += prices[i] - prices[i - 1];
+        }
+        return maxprofit;
     }
 
     //Brut force
@@ -33,20 +47,6 @@ public class BestTimeToBuyAndSell2 {
             max = Math.max(maxProfit, max);
         }
         return max;
-    }
-
-    //Approach 3: Single pass
-    /*
-    Time complexity: O(n)
-    Space: 0(1)
-     */
-    public int maxProfit(int[] prices) {
-        int maxprofit = 0;
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1])
-                maxprofit += prices[i] - prices[i - 1];
-        }
-        return maxprofit;
     }
 
     //Approach 2

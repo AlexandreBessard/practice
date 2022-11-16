@@ -32,12 +32,13 @@ public class RotateArray {
      */
     static void rotateExtraArrayOptimized(int[] nums, int k) {
         k %= nums.length; // 3 % 7 -> 3  // Use for this case example : k = 10 and [1, 2, 3, 4, 5, 6, 7] -> index 3
-        reverse(nums, 0, nums.length - 1); // [7, 6, 5, 4, 3, 2, 1]
-        reverse(nums, 0, k - 1); // [5, 6, 7, 4, 3, 2, 1]
-        reverse(nums, k, nums.length - 1); //[5, 6, 7, 1, 2, 3, 4]
+        reverse(nums, 0, nums.length - 1); // [7, 6, 5, 4, 3, 2, 1] reverse the entire array
+        reverse(nums, 0, k - 1); // [5, 6, 7, 4, 3, 2, 1] reverse only the concerned part before the 'k' element
+        reverse(nums, k, nums.length - 1); //[5, 6, 7, 1, 2, 3, 4] reverse the other remaining part after the 'k' element
     }
 
     private static void reverse(int[] nums, int start, int end) {
+        //Reverse the start to the end and the end to the start placement
         while(start < end) {
             int temp = nums[start];
             nums[start] = nums[end];
