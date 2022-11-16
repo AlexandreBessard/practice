@@ -14,6 +14,10 @@ public class BreakPalindrome {
     }
 
     //Approach 1: Greedy
+    /*
+    Time: O(N)
+    Space: O(N) because we change the string to a character array.
+     */
     public String breakPalindrome(String palindrome) {
         int length = palindrome.length();
         if(length == 1)
