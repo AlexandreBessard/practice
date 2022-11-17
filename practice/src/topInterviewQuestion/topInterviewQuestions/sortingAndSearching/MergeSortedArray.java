@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.sortingAndSearching;
+package topInterviewQuestion.topInterviewQuestions.sortingAndSearching;
 
 import java.util.Arrays;
 
@@ -23,12 +23,12 @@ public class MergeSortedArray {
                                                   int n)
     {
         //Set pointer at the end of the array
-        int p1 = m - 1; //Get the latest index (with number) from nums1
-        int p2 = n - 1; //Get the latest valid index (with number) from nums2
-        for(int p = m + n - 1; p >= 0; p--) { // p = latest index from the biggest num.
+        int p1 = m - 1; //Get the latest index from nums1
+        int p2 = n - 1; //Get the latest index from nums2
+        for(int p = (m + n - 1); p >= 0; p--) { // p = latest index from the biggest num.
             if(p2 < 0) //if true means we have treated all numbers from nums2 array
                 break;
-            if (p1 >= 0 && nums1[p1] > nums2[p2]) {
+            if (p1 >= 0 && nums1[p1] > nums2[p2]) { //Bigger value comes first
                 nums1[p] = nums1[p1--];
             } else {
                 nums1[p] = nums2[p2--];

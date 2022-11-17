@@ -1,13 +1,12 @@
-package topInterviewQuestion.easy.sortingAndSearching;
+package topInterviewQuestion.topInterviewQuestions.sortingAndSearching;
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/96/sorting-and-searching/774/
 public class FirstBadVersion {
 
     public static void main(String[] args) {
         int n = 5;
-        int bad = 4;
+        //The bad version is hardcoded into the class
         System.out.println(firstBadVersion(5));
     }
-
 
     //Approach 2: Binary Search
     /*
@@ -20,16 +19,16 @@ public class FirstBadVersion {
         while(left <= right) {
             int mid = left + (right - left) / 2;
             System.out.println("Check version : " + mid );
-            if(isBadVersion(mid)){
+            if(isBadVersion(mid)){ //If true check previous version
                 right = mid - 1;
             } else {
-                left = mid + 1;
+                left = mid + 1; //Check most recent version
             }
         }
         return left;
     }
     private static boolean isBadVersion(int num) {
-        return num == 4;
+        return num == 4; //bab version hardcoded
     }
 
 
