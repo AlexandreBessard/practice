@@ -1,14 +1,22 @@
-package topInterviewQuestion.easy.design;
+package topInterviewQuestion.topInterviewQuestions.design;
 
 import java.util.Stack;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/98/design/562/
 public class MinStack {
-
-
+    public static void main(String[] args) {
+        var minStack = new MinStackApproach2();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        System.out.println(minStack.getMin()); // return -3
+        minStack.pop();
+        System.out.println(minStack.top());    // return 0
+        System.out.println(minStack.getMin()); // return -2
+    }
 }
 
-//Approach 3: Improved Two Stacks
+//Approach 3: Improved Two Stacks (see below for same logic without improved)
 /*
 Time complexity: O(1)
 Space complexity: O(N)
@@ -57,11 +65,13 @@ class MinStackApproach2 {
     public MinStackApproach2 () {}
     public void push(int x) {
         stack.push(x);
-        if(minStack.isEmpty() ||x <= minStack.peek()) {
+        if(minStack.isEmpty() || x <= minStack.peek()) {
+            //Find new smaller element to get our minimum
             minStack.push(x);
         }
     }
     public void pop() {
+        //Check if they have same value in both stack
         if(stack.peek().equals(minStack.peek())) {
             minStack.pop();
         }

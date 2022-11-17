@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.design;
+package topInterviewQuestion.topInterviewQuestions.design;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +21,15 @@ class Approach2 {
 
     public Approach2(int[] nums) {
         this.array = nums;
-        this.original = nums.clone();
+        this.original = nums.clone(); //Must clone the array!
     }
 
+    //min: include, max : exclude
     private int randRange(int min, int max) {
-        System.out.println((max - min) + min);
+        //Means take random number from min (included) to max (excluded)
         return rand.nextInt(max - min) + min;
     }
+
     private void swap(int i, int j) {
         int temp = array[i];
         array[i] = array[j];
@@ -36,14 +38,16 @@ class Approach2 {
 
     public int[] shuffle() {
         for(int i = 0; i < array.length; i++) {
-            swap(i, randRange(i, array.length));
+            int randomIdx = randRange(i, array.length);
+            swap(i, randomIdx);
         }
         return array;
     }
 
     public int[] reset() {
         this.array = original;
-        this.original = original.clone();
+        //Keep the original untouched from the Stack
+        this.original = original.clone(); //Create a new reference
         return original;
     }
 }
