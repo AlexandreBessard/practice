@@ -1,7 +1,8 @@
-package topInterviewQuestion.amazon.arraysAndStrings;
+package topInterviewQuestion.topInterviewQuestions.strings;
 //https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2962/
 public class StringToInteger {
-
+    //See image below
+    /** {@link  /resources/State.png} */
     public static void main(String[] args) {
         //Different use case:
         /*
