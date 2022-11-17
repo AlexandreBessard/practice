@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.dynamicProgramming;
+package topInterviewQuestion.topInterviewQuestions.dynamicProgramming;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,8 +21,9 @@ public class ClimbingStairs {
     Time: O(2^n)
     Space: O(n)
      */
-    static int climbStairsRecursion(int n) {
-        //Base case
+    //We start from the top
+    static int climbStairsRecursion(int n) { //n represent the current stair
+        //Base cases
         if(n == 0) return 0;
         if(n == 1) return 1; //At stair 1, we only 1 unique way to reach the index 0
         if(n == 2) return 2; //At stair 2, we know that we have 2 ways to reaching index 0
@@ -38,6 +39,7 @@ public class ClimbingStairs {
      */
     static int climbStairsRecursionWithMemoization(int n) {
         Map<Integer, Integer> memo = new HashMap<>();
+        //Key: the current stair, Value: the number of ways to go to that stair
         memo.put(1, 1);
         memo.put(2, 2);
         return climbingStairsHelper(n, memo);
@@ -50,7 +52,8 @@ public class ClimbingStairs {
             return memo.get(n);
         }
         //Recursion
-        memo.put(n, climbingStairsHelper(n - 1, memo) + climbingStairsHelper(n - 2, memo));
+        memo.put(n, climbingStairsHelper(n - 1, memo)  //climb 1 step
+                + climbingStairsHelper(n - 2, memo)); //climb 2 steps
         //Return from cache
         return memo.get(n);
     }

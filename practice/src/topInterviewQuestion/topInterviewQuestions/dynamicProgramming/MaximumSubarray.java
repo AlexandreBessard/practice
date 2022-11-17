@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.dynamicProgramming;
+package topInterviewQuestion.topInterviewQuestions.dynamicProgramming;
 
 public class MaximumSubarray {
 
@@ -64,7 +64,7 @@ public class MaximumSubarray {
             if(currentSubarray > maxSubarray) {
                 maxSubarray = currentSubarray;
             }
-            if(currentSubarray < 0) {
+            if(currentSubarray < 0) { //if true reinitialize, new subarray
                 currentSubarray = 0;
             }
         }
@@ -80,6 +80,7 @@ public class MaximumSubarray {
         int maxSubarray = Integer.MAX_VALUE;
         for(int i = 0; i < nums.length; i++) {
             int currentSubarray = 0;
+            //Loop through each element of that current subarray 'i'
             for(int j = i; j < nums.length; j++) {
                 currentSubarray += nums[j];
                 maxSubarray = Math.max(maxSubarray, currentSubarray);
