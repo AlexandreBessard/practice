@@ -1,11 +1,10 @@
-package topInterviewQuestion.easy.math;
+package topInterviewQuestion.leetcode.math;
 
 import java.util.HashMap;
 import java.util.Map;
 //Solution:
 //https://leetcode.com/problems/roman-to-integer/discuss/852501/Java-Easy-Solution-%3A-Runtime-5ms-Space-Linear
 public class RomanToInteger {
-
     /*
     Symbol       Value
     I             1
@@ -47,16 +46,19 @@ public class RomanToInteger {
      */
     int romanToInt(String s) { //"MCMXCIV"
         int number = 0;
-        if(s.length() < 2) //If we only have 1 Roman number
+        if(s.length() < 2) {//If we only have 1 Roman number
             return map.get(s.charAt(0));
+        }
         for(int i = 0; i < s.length(); i++) {
             char nextElement = s.charAt(i + 1);
             char currElement = s.charAt(i);
             if(i < s.length() - 1 && map.get(nextElement) > map.get(currElement))
             {
+                //Subtract ex: 'CM' -> 1000 - 100 == 900
                 number += map.get(nextElement) - map.get(currElement);
                 i++;
             } else {
+                //Addition
                 number += map.get(currElement);
             }
         }

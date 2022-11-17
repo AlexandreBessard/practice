@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.math;
+package topInterviewQuestion.leetcode.math;
 
 public class PowerOfThree {
 
