@@ -1,9 +1,16 @@
-package topInterviewQuestion.easy.strings;
+package topInterviewQuestion.topInterviewQuestions.strings;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ValidAnagram {
+    /*
+    Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+    An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+    typically using all the original letters exactly once.
+     */
 
     /*
     We can use SLIDING WINDOW
@@ -19,6 +26,35 @@ public class ValidAnagram {
         System.out.println(isAnagram(s, t));
         System.out.println(isAnagramFrequencyCounter(s, t));
         System.out.println(isAnagramFrequencyCounterV2(s, t));
+        System.out.println(isAnagramSlidingWindow(s, t));
+    }
+
+    //Approach: Sliding Window
+    /*
+    Time: O(n)
+    Space: O(n)
+     */
+    public static boolean isAnagramSlidingWindow(String s1, String s2) {
+        if(s1.length() != s2.length()) return false;
+        int matched = 0;
+        Map<Character, Integer> charFreqMap = new HashMap<>();
+        for(char chr : s1.toCharArray()) { //count each element and insert it to the map
+            charFreqMap.put(chr, charFreqMap.getOrDefault(chr, 0) + 1);
+        }
+        for(int windowEnd = 0; windowEnd < s1.length(); windowEnd++) {
+            char rightChar = s1.charAt(windowEnd);
+            if(charFreqMap.containsKey(rightChar)) {
+                charFreqMap.put(rightChar, charFreqMap.get(rightChar) - 1); //Decrement by 1
+                if(charFreqMap.get(rightChar) < 0) {
+                    return false;
+                }
+                matched++;
+            }
+            if(matched == charFreqMap.size()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /*

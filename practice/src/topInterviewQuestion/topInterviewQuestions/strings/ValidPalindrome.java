@@ -1,7 +1,12 @@
-package topInterviewQuestion.easy.strings;
+package topInterviewQuestion.topInterviewQuestions.strings;
 
 public class ValidPalindrome {
+/*
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all
+non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 
+Given a string s, return true if it is a palindrome, or false otherwise.
+ */
     public static void main(String[] args) {
         String s = "A man, a plan, a canal: Panama";
         //Output true
@@ -23,9 +28,9 @@ public class ValidPalindrome {
             while(left < right && !Character.isLetterOrDigit(s.charAt(right))) {
                 right--;
             }
-            if(Character.toLowerCase(s.charAt(left))
-                    != Character.toLowerCase(s.charAt(right)))
+            if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
                 return false;
+            }
         }
         return true;
     }
