@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.trees;
+package topInterviewQuestion.topInterviewQuestions.trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -53,14 +53,19 @@ public class SymmetricTree {
         return helper(root, root);
     }
     static boolean helper(TreeNode t1, TreeNode t2) {
-        if(t1 == null && t2 == null)
+        //Base case 1
+        if(t1 == null && t2 == null) {
             return true;
-        if(t1 == null || t2 == null)
+        }
+        //Base case 2
+        if(t1 == null || t2 == null) {
             return false;
-        if(t1.val != t2.val)
+        }
+        //Base case 3
+        if(t1.val != t2.val) {
             return false;
-        return helper(t1.left, t2.right)
-                && helper(t1.right, t2.left);
+        }
+        return helper(t1.left, t2.right) && helper(t1.right, t2.left);
     }
 
     //Approach 2: Iterative

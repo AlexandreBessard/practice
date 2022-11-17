@@ -1,6 +1,6 @@
-package topInterviewQuestion.easy.trees;
+package topInterviewQuestion.topInterviewQuestions.trees;
 
-import java.util.ArrayDeque;
+
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Stack;
@@ -10,7 +10,7 @@ public class ValidateBinarySearchTree {
 
     public static void main(String[] args) {
 
-        TreeNode two = new TreeNode(2);
+        var two = new TreeNode(2);
         two.left = new TreeNode(1);
         two.right = new TreeNode(3);
         System.out.println(isValidBSTIterativeInorderTraversal(two));
@@ -23,7 +23,7 @@ public class ValidateBinarySearchTree {
         Integer prev = null;
         while(!stack.isEmpty() || root != null) {
             while(root != null) {
-                stack.push(root);
+                stack.push(root); //Put all left node to the stack
                 root = root.left;
             }
             root = stack.pop();
@@ -48,7 +48,7 @@ public class ValidateBinarySearchTree {
         prev = null;
         return inorder(root);
     }
-    static boolean inorder(TreeNode root) {
+    private static boolean inorder(TreeNode root) {
         if(root == null) { //Base case
             return true;
         }

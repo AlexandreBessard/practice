@@ -1,9 +1,12 @@
-package topInterviewQuestion.easy.trees;
+package topInterviewQuestion.topInterviewQuestions.trees;
 
 import java.util.LinkedList;
-
+//https://leetcode.com/explore/featured/card/top-interview-questions-easy/94/trees/555/
 public class MaximumDepthOfBinaryTree {
-
+/*
+Given the root of a binary tree, return its maximum depth.
+A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+ */
     public static void main(String[] args) {
         TreeNode three = new TreeNode(3);
         three.left = new TreeNode(9);
@@ -12,7 +15,7 @@ public class MaximumDepthOfBinaryTree {
         three.right.right = new TreeNode(7);
 
         System.out.println(maxDepthIteration(three));
-
+        System.out.println(maxDepthRecursion(three));
     }
 
     //Approach 2: Iteration
@@ -29,7 +32,7 @@ public class MaximumDepthOfBinaryTree {
         depths.add(1);
 
         int depth = 0, current_depth = 0;
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             root = stack.pollLast();
             current_depth = depths.pollLast();
             if (root != null) {
@@ -50,13 +53,13 @@ public class MaximumDepthOfBinaryTree {
     It tree is balanced: height of tree would be log(N) -> O(log(n))
      */
     static int maxDepthRecursion(TreeNode root) {
-        if(root == null)
+        //Base case 1
+        if (root == null) {
             return 0;
-        else {
-            int left_height = maxDepthRecursion(root.left);
-            int right_height = maxDepthRecursion(root.right);
-            return Math.max(left_height, right_height) + 1;
         }
+        int left_height = maxDepthRecursion(root.left);
+        int right_height = maxDepthRecursion(root.right);
+        return Math.max(left_height, right_height) + 1; // + 1 means to include this current node
     }
 
 }

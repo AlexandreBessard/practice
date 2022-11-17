@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.trees;
+package topInterviewQuestion.topInterviewQuestions.trees;
 
 import java.util.Random;
 
@@ -7,8 +7,12 @@ public class ConvertSortedArrayToBinaryTree {
 
     public static void main(String[] args) {
         int[] nums = {-10,-3,0,5,9};
+        /*
         System.out.println(sortedArrayPreorderRecursive(nums));
         System.out.println(sortedArrayToBST(nums));
+
+         */
+        System.out.println(sortedArrayToBSTRightMiddleNodeAsRoot(new int[]{-10,-3,0,5,9}));
     }
 
     //Approach 2: Preorder Traversal: Always Choose right Middle Node as a Root
@@ -19,16 +23,18 @@ public class ConvertSortedArrayToBinaryTree {
         return helperSortedArrayToBST(0, nums.length - 1);
     }
     private static TreeNode helperSortedArrayToBST(int left, int right) {
-        if(left > right)
+        if(left > right) {
             return null;
+        }
         //Choose middle node as root node
         int mid = left + (right - left) / 2;
-        if((left + right) % 2 == 1)
+        if((left + right) % 2 == 1) {
             mid++;
+        }
         //Preorder Traversal
         TreeNode root = new TreeNode(nums[mid]);
-        root.left = helperSortedArrayToBST(left, mid - 1);
-        root.right = helperSortedArrayToBST(mid + 1, right);
+        root.left = helperSortedArrayToBST(left, mid - 1); //left side
+        root.right = helperSortedArrayToBST(mid + 1, right); //right side
         return root;
     }
 
@@ -73,8 +79,9 @@ public class ConvertSortedArrayToBinaryTree {
         return helper(0, nums.length  - 1);
     }
     private static TreeNode helper(int left, int right) {
-        if(left > right)
+        if(left > right) {
             return null;
+        }
         //Choose middle
         int mid = left - (right + left) / 2;
         TreeNode root = new TreeNode(nums[mid]);
