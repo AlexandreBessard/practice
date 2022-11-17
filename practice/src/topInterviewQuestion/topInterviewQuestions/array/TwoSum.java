@@ -1,8 +1,7 @@
-package topInterviewQuestion.easy.array;
+package topInterviewQuestion.topInterviewQuestions.array;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class TwoSum {
 

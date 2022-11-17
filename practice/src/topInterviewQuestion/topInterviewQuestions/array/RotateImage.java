@@ -1,9 +1,14 @@
 
-package topInterviewQuestion.easy.array;
+package topInterviewQuestion.topInterviewQuestions.array;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/770/
 public class RotateImage {
+/*
+You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
 
+You have to rotate the image in-place, which means you have to modify the input 2D matrix directly.
+DO NOT allocate another 2D matrix and do the rotation.
+ */
     public static void main(String[] args) {
         int[][] matrix = {
                 {1, 2, 3},
@@ -26,28 +31,35 @@ public class RotateImage {
         reflect(matrix);
     }
     /*
+                {1,2,3},
+                {4,5,6},
+                {7,8,9}
     Result after transpose:
                 {1,4,7},
                 {2,5,8},
                 {3,6,9}
      */
     private static void transpose(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = i + 1; j < matrix.length; j++) {
-                int tmp = matrix[j][i];
-                matrix[j][i] = matrix[i][j];
-                matrix[i][j] = tmp;
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = row + 1; col < matrix.length; col++) {
+                int tmp = matrix[col][row];
+                matrix[col][row] = matrix[row][col];
+                matrix[row][col] = tmp;
             }
         }
     }
-
+/*
+                {7,4,1},
+                {8,5,2},
+                {9,6,3}
+ */
     private static void reflect(int[][] matrix) {
         int n = matrix.length;
-        for (int i = 0; i < n; i++) { //rows
-            for (int j = 0; j < n / 2; j++) { //cols
-                int tmp = matrix[i][j];
-                matrix[i][j] = matrix[i][n - j - 1];
-                matrix[i][n - j - 1] = tmp;
+        for (int row = 0; row < n; row++) { //rows
+            for (int col = 0; col < n / 2; col++) { //cols
+                int tmp = matrix[row][col];
+                matrix[row][col] = matrix[row][n - col - 1];
+                matrix[row][n - col - 1] = tmp;
             }
         }
     }

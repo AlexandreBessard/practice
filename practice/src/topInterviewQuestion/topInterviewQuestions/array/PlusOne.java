@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.array;
+package topInterviewQuestion.topInterviewQuestions.array;
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/559/
 public class PlusOne {
     /*

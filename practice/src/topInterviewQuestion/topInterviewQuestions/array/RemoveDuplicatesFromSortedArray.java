@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.array;
+package topInterviewQuestion.topInterviewQuestions.array;
 
 public class RemoveDuplicatesFromSortedArray {
 

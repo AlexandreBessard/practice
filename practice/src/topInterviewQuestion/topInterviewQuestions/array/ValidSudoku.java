@@ -1,7 +1,6 @@
-package topInterviewQuestion.easy.array;
+package topInterviewQuestion.topInterviewQuestions.array;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/769/

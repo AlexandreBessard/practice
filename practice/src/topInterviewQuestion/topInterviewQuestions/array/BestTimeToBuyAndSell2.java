@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.array;
+package topInterviewQuestion.topInterviewQuestions.array;
 
 //https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/solution/
 public class BestTimeToBuyAndSell2 {
