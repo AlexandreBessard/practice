@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.practices;
+package topInterviewQuestion.topInterviewQuestions.strings;
 
 public class ReverseString {
 
@@ -17,8 +17,29 @@ public class ReverseString {
         }
     }
 
-    //Recursive approach
     /*
+    Approach 1
+    Two Pointers (without recursion)
+    Time complexity: O(n)
+    Space complexity: 0(1)
+     */
+    static void reverseString(char[] s) {
+        if(s.length < 2) {
+            return;
+        }
+        int left = 0; //Pointer 1
+        int right = s.length - 1; //Pointer 2
+        while(left < right) {
+            //reverse
+            char temp = s[left];
+            s[left++] = s[right];
+            s[right--] = temp;
+        }
+    }
+
+    /*
+    Approach 2
+    Recursion
     Time complexity: 0(N)
     Space complexity: 0(N) recursion stack.
      */
@@ -34,22 +55,4 @@ public class ReverseString {
         s[right] = tmp;
         helper(left + 1, right - 1, s);
     }
-
-
-    /*
-    Time complexity: O(n)
-    Space complexity: 0(1)
-     */
-    static void reverseString(char[] s) {
-        if(s.length < 2)
-            return;
-        int left = 0;
-        int right = s.length - 1;
-        while(left < right) {
-            char temp = s[left];
-            s[left++] = s[right];
-            s[right--] = temp;
-        }
-    }
-
 }

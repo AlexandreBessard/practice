@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.strings;
+package topInterviewQuestion.topInterviewQuestions.strings;
 
 //Bit Manipulation
 public class ReverseInteger {
