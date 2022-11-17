@@ -19,13 +19,15 @@ public class BinaryTreePathSum {
     Space complexity: O(N), space used to store the recursion stack.
      */
     public static boolean hasPath(TreeNode root, int  sum) {
-        if(root == null)
+        //Base case 1
+        if(root == null) {
             return false;
-        if(root.val == sum && root.left == null && root.right == null)
-            return true ;
-        return hasPath(root.left, sum - root.val)
-                || hasPath(root.right, sum - root.val);
+        }
+        //Base case 2 :                 check if leaf node
+        if(root.val == sum && (root.left == null && root.right == null)) {
+            return true;
+        }
+        return hasPath(root.left, sum - root.val) || hasPath(root.right, sum - root.val);
     }
-
 
 }

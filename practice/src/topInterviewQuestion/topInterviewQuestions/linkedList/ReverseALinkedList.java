@@ -1,4 +1,4 @@
-package patternsForCodingInterviews.inPlaceReversalOfALinkedList;
+package topInterviewQuestion.topInterviewQuestions.linkedList;
 
 public class ReverseALinkedList {
 
@@ -22,15 +22,16 @@ public class ReverseALinkedList {
     Space: O(1)
      */
     public static ListNode reverse(ListNode head) {
+        //3 pointers
         ListNode current = head;
         ListNode previous = null;
         ListNode next = null;
         while(current != null) {
-            next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
+            next = current.next; //Get the next one
+            current.next = previous; //set pointer to the previous one.
+            previous = current; // previous become current for our next iteration
+            current = next; // move forward
         }
-        return previous;
+        return previous; //Represent the head since both next and current are null (end of the linkedList)
     }
 }

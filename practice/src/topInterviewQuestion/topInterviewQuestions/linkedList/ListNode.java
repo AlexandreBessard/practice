@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.linkedList;
+package topInterviewQuestion.topInterviewQuestions.linkedList;
 
 public class ListNode {
     public int val;

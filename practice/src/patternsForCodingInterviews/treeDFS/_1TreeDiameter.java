@@ -23,14 +23,17 @@ public class _1TreeDiameter {
     /*
     Time complexity: O(N), traverse each node
     Space complexity: O(N) recursion stack
+
+    Post Order: Left -> Right -> Node
      */
     public static int findDiameter(TreeNode root) {
         calculateHeight(root);
         return treeDiameter;
     }
     private static int calculateHeight(TreeNode currentNode) {
-        if(currentNode == null)
+        if(currentNode == null) {
             return 0;
+        }
         int leftTreeHeight = calculateHeight(currentNode.left);
         int rightTreeHeight = calculateHeight(currentNode.right);
         //If the current node does not have a left and right subtree, we can not have a path passing through it.

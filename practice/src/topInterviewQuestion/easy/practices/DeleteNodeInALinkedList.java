@@ -1,6 +1,6 @@
 package topInterviewQuestion.easy.practices;
 
-import topInterviewQuestion.easy.linkedList.ListNode;
+import topInterviewQuestion.topInterviewQuestions.linkedList.ListNode;
 
 public class DeleteNodeInALinkedList {
 

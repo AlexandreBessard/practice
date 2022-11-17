@@ -23,14 +23,17 @@ public class _2PathWithMaximumSum {
     }
 
     private static int globalMaximumSum;
+
     public static int findMaximumPathSum(TreeNode root) {
-        globalMaximumSum = Integer.MAX_VALUE;
+        globalMaximumSum = Integer.MIN_VALUE; //Want to find the bigger sum
         findMaximumPathSumRecursive(root);
         return globalMaximumSum;
     }
+    //Post Order -> Left, Right , Node
     private static int findMaximumPathSumRecursive(TreeNode currentNode) {
-        if(currentNode == null)
+        if(currentNode == null) {
             return 0;
+        }
         int maxSumFromLeft = findMaximumPathSumRecursive(currentNode.left);
         int maxSumFromRight = findMaximumPathSumRecursive(currentNode.right);
         //Ignore paths with negative sums.
@@ -40,6 +43,7 @@ public class _2PathWithMaximumSum {
         int localMaximumSum = maxSumFromLeft + maxSumFromRight + currentNode.val;
         //Update the global maximum
         globalMaximumSum = Math.max(globalMaximumSum, localMaximumSum);
+        //return the max from left OR right branch (include current node)
         return Math.max(maxSumFromLeft, maxSumFromRight) + currentNode.val;
     }
 

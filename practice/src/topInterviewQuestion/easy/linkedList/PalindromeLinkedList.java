@@ -1,5 +1,7 @@
 package topInterviewQuestion.easy.linkedList;
 
+import topInterviewQuestion.topInterviewQuestions.linkedList.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,26 +35,27 @@ public class PalindromeLinkedList {
         ListNode p2 = secondHalfStart;
         boolean result = true;
         while (result && p2 != null) {
-            if (p1.val != p2.val)
+            if (p1.val != p2.val) {
                 result = false;
+            }
             p1 = p1.next;
             p2 = p2.next;
         }
-        //Restore the list and return the result, Keep in mind, firstHalfEnd is just one node in the middle of the linkedList
+        //Restore the list and return the result, Keep in mind, firstHalfEnd is just one node in the middle of the linkedList (pointer)
         firstHalfEnd = reverseList(secondHalfStart);
         return result;
     }
 
     private static ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode tmp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = tmp;
+        ListNode previous = null;
+        ListNode current = head;
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
-        return prev;
+        return previous;
     }
 
     private static ListNode endFirstHalf(ListNode head) {
@@ -62,7 +65,7 @@ public class PalindromeLinkedList {
             fast = fast.next.next;
             slow = slow.next;
         }
-        return slow;
+        return slow; //Get the middle of that linkedList
     }
 
     //Approach 1 Copy into Array List and then Use Two Pointer Technique

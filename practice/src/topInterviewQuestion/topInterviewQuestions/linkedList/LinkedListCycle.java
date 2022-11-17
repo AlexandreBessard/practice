@@ -1,4 +1,6 @@
-package topInterviewQuestion.easy.linkedList;
+package topInterviewQuestion.topInterviewQuestions.linkedList;
+
+import topInterviewQuestion.topInterviewQuestions.linkedList.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +15,7 @@ public class LinkedListCycle {
         three.next.next = new ListNode(0);
         three.next.next.next = new ListNode(-4);
         three.next.next.next.next = two;
-        System.out.println(hasCycle(three));
+        System.out.println(hasCycleFlyodCycleAlgo(three));
     }
 
     //Approach 2: Flyod's CycleFinding Algo
@@ -22,18 +24,19 @@ public class LinkedListCycle {
     Space complexity: O(1)
      */
     static boolean hasCycleFlyodCycleAlgo(ListNode head) {
-        if(head == null)
+        if(head == null) {
             return false;
+        }
         ListNode slow = head;
         ListNode fast = head;
-        while(slow != fast) {
-            if(fast == null || fast.next == null) {
-                return false;
-            }
+        while(fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
+            if(slow == fast) {
+                return true; //found a cycle
+            }
         }
-        return true;
+        return false;
     }
 
     //Approach 1: HashTable

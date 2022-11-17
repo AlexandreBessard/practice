@@ -1,5 +1,7 @@
 package topInterviewQuestion.easy.linkedList;
 
+import topInterviewQuestion.topInterviewQuestions.linkedList.ListNode;
+
 public class ReverseLinkedList {
 
     public static void main(String[] args) {

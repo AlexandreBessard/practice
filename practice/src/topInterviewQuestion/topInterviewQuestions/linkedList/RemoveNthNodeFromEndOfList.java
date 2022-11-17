@@ -1,15 +1,20 @@
-package topInterviewQuestion.easy.linkedList;
+package topInterviewQuestion.topInterviewQuestions.linkedList;
 
 public class RemoveNthNodeFromEndOfList {
 
+    /*
+    Given the head of a linked list, remove the nth node from the end of the list and return its head.
+     */
+
     public static void main(String[] args) {
-        var one = new ListNode(1);
-        one.next = new ListNode(2);
-        one.next.next = new ListNode(3);
-        one.next.next.next = new ListNode(4);
-        one.next.next.next.next = new ListNode(5);
         //ListNode res = removeNthFromEnd(one, 2);
-        ListNode res = removeNthFromEndOnePass(one, 2);
+        ListNode res = removeNthFromEndOnePass(createLinkedList(), 2);
+        while(res != null) {
+            System.out.print(res.val + ", ");
+            res = res.next;
+        }
+        System.out.println("Second list\n");
+        res = removeNthFromEnd(createLinkedList(), 2);
         while(res != null) {
             System.out.print(res.val + ", ");
             res = res.next;
@@ -22,18 +27,18 @@ public class RemoveNthNodeFromEndOfList {
     there are 2L - n
     Space complexity: O(1)
      */
-    static ListNode removeNthFromEnd(ListNode head, int n) {
+    static ListNode removeNthFromEnd(ListNode head, int n) { //Remove nth node from the end 1-indexed based
         ListNode dummy = new ListNode(0);
-        dummy.next = head;
+        dummy.next = head; //dummy allows you to return the head
         int length = 0;
         ListNode first = head;
         while(first != null) {
-            length++;
+            length++; //count the length of the linkedList
             first = first.next;
         }
-        length -= n;
-        first = dummy;
-        while(length > 0) {
+        length -= n; //5 - 2 == 3
+        first = dummy; //We start from dummy
+        while(length > 0) {// we start from dummy because we want the previous node where the next node have to be deleted
             length--;
             first = first.next;
         }
@@ -63,6 +68,15 @@ public class RemoveNthNodeFromEndOfList {
         }
         second.next = second.next.next; //second pointer point just before the node which must be deleted
         return dummy.next; //Return the head (original node)
+    }
+
+    private static ListNode createLinkedList() {
+        var one = new ListNode(1);
+        one.next = new ListNode(2);
+        one.next.next = new ListNode(3);
+        one.next.next.next = new ListNode(4);
+        one.next.next.next.next = new ListNode(5);
+        return one;
     }
 
 }

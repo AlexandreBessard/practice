@@ -20,21 +20,25 @@ public class PathWithGivenSequence {
     Space complexity: O(N) to store the recursion stack.
      */
     public static boolean findPath(TreeNode root, int[] sequence) {
-        if(root == null)
+        if(root == null) {
             return sequence.length == 0;
+        }
+        //sequenceIdx used for our char[] array
         return findPathRecursive(root, sequence, 0);
     }
 
     private static boolean findPathRecursive(TreeNode currentNode, int[] sequence, int sequenceIndex) {
-        if(currentNode == null)
+        //Base case 1
+        if(currentNode == null) {
             return false;
+        }
         //Check if index is out of bound OR does not have the same value as the sequence
         if(sequenceIndex >= sequence.length || currentNode.val != sequence[sequenceIndex])
         {
             return false;
         }
-        if(currentNode.left == null && currentNode.right == null
-                && sequenceIndex == sequence.length - 1)
+        if(currentNode.left == null && currentNode.right == null //means we are at a leaf node
+                && sequenceIndex == sequence.length - 1) // we reached the end of our sequence array
         {
             return true;
         }

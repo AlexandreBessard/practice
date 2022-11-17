@@ -34,13 +34,14 @@ public class AllPathsForASum {
                                            List<Integer> currentPath,
                                            List<List<Integer>> allPaths)
     {
-        if(currentNode == null)
+        //Base case 1
+        if(currentNode == null) {
             return;
+        }
         //Add the current node to the path
         currentPath.add(currentNode.val);
-        if(currentNode.val == sum
-                && currentNode.left == null
-                && currentNode.right == null)
+        //Base case 2
+        if(currentNode.val == sum && currentNode.left == null && currentNode.right == null)
         {
             allPaths.add(new ArrayList<>(currentPath));
         }
