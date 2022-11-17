@@ -1,4 +1,4 @@
-package algorithms.NaryTreeDefinition.conclusion;
+package algorithms.naryTreeDefinition.conclusion;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

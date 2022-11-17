@@ -1,4 +1,4 @@
-package algorithms.NaryTreeDefinition.traversal;
+package algorithms.naryTreeDefinition.traversal;
 
 import java.util.ArrayList;
 import java.util.List;

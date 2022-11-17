@@ -1,4 +1,4 @@
-package algorithms.NaryTreeDefinition.traversal;
+package algorithms.naryTreeDefinition.traversal;
 //https://leetcode.com/explore/learn/card/n-ary-tree/130/traversal/915/
 
 import java.util.ArrayList;

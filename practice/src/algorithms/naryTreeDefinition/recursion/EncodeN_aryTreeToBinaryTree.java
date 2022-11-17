@@ -1,4 +1,4 @@
-package algorithms.NaryTreeDefinition.recursion;
+package algorithms.naryTreeDefinition.recursion;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
