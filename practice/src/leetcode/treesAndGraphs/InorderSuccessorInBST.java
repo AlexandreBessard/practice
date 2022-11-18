@@ -1,20 +1,22 @@
-package topInterviewQuestion.medium.treesAndGraphs;
+package leetcode.treesAndGraphs;
+
+import topInterviewQuestion.medium.treesAndGraphs.TreeNode;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/108/trees-and-graphs/791/
 public class InorderSuccessorInBST {
 
 
     public static void main(String[] args) {
-        TreeNode five = new TreeNode(5);
-        five.left = new TreeNode(3);
-        five.left.left = new TreeNode(2);
-        five.left.left.left = new TreeNode(1);
-        TreeNode four = new TreeNode(4);
+        topInterviewQuestion.medium.treesAndGraphs.TreeNode five = new topInterviewQuestion.medium.treesAndGraphs.TreeNode(5);
+        five.left = new topInterviewQuestion.medium.treesAndGraphs.TreeNode(3);
+        five.left.left = new topInterviewQuestion.medium.treesAndGraphs.TreeNode(2);
+        five.left.left.left = new topInterviewQuestion.medium.treesAndGraphs.TreeNode(1);
+        topInterviewQuestion.medium.treesAndGraphs.TreeNode four = new topInterviewQuestion.medium.treesAndGraphs.TreeNode(4);
         five.left.right = four;
-        TreeNode six = new TreeNode(6);
+        topInterviewQuestion.medium.treesAndGraphs.TreeNode six = new topInterviewQuestion.medium.treesAndGraphs.TreeNode(6);
         five.right = six;
         //p -> successor of node p is the node with the smallest key greater than p.val
-        TreeNode res = inorderSuccessorBST(five, four);
+        topInterviewQuestion.medium.treesAndGraphs.TreeNode res = inorderSuccessorBST(five, four);
     }
 
 
@@ -24,8 +26,8 @@ public class InorderSuccessorInBST {
     O(log N) for balanced tree.
     Space complexity: O(1)
      */
-    static TreeNode inorderSuccessorBST(TreeNode root, TreeNode p) {
-        TreeNode successor = null;
+    static topInterviewQuestion.medium.treesAndGraphs.TreeNode inorderSuccessorBST(topInterviewQuestion.medium.treesAndGraphs.TreeNode root, topInterviewQuestion.medium.treesAndGraphs.TreeNode p) {
+        topInterviewQuestion.medium.treesAndGraphs.TreeNode successor = null;
         while (root != null) {
             if (p.val >= root.val) { //If true we go to the right side
                 root = root.right;
@@ -37,19 +39,18 @@ public class InorderSuccessorInBST {
         return successor;
     }
 
-
-    static TreeNode previous;
-    static TreeNode inorderSuccessorNode;
+    static topInterviewQuestion.medium.treesAndGraphs.TreeNode previous;
+    static topInterviewQuestion.medium.treesAndGraphs.TreeNode inorderSuccessorNode;
 
     //Approach 1: Without using BST properties
     /*
     Time complexity: O(N)
     Space complexity: O(N) for the second case.
      */
-    static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+    static topInterviewQuestion.medium.treesAndGraphs.TreeNode inorderSuccessor(topInterviewQuestion.medium.treesAndGraphs.TreeNode root, topInterviewQuestion.medium.treesAndGraphs.TreeNode p) {
         //Need to find the leftmost node
         if (p.right != null) {
-            TreeNode leftmost = p.right;
+            topInterviewQuestion.medium.treesAndGraphs.TreeNode leftmost = p.right;
             while (leftmost.left != null) {
                 leftmost = leftmost.left;
             }
@@ -61,7 +62,7 @@ public class InorderSuccessorInBST {
         return inorderSuccessorNode;
     }
 
-    private static void inorderCase2(TreeNode node, TreeNode p) {
+    private static void inorderCase2(topInterviewQuestion.medium.treesAndGraphs.TreeNode node, TreeNode p) {
         if (node == null)
             return;
         //Recurse on the left side

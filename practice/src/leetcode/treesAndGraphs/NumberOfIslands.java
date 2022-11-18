@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.treesAndGraphs;
+package leetcode.treesAndGraphs;
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/108/trees-and-graphs/792/
 public class NumberOfIslands {
 
@@ -11,6 +11,9 @@ public class NumberOfIslands {
         };
 
     }
+
+    //See link Grokking coding interview for both DFS and BFS approach
+    /** {@link patternsForCodingInterviews.matrixTraversal.NumberOfIslands} */
 
     //Approach 1: DFS
     /*
@@ -48,7 +51,5 @@ public class NumberOfIslands {
         dfs(grid, r, c - 1);
         dfs(grid, r, c + 1);
     }
-
-
 
 }

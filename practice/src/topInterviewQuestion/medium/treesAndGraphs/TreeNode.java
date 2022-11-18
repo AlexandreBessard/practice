@@ -1,9 +1,9 @@
 package topInterviewQuestion.medium.treesAndGraphs;
 
 public class TreeNode {
-    int val;
-    TreeNode left, right;
-    TreeNode(int val) {
+    public int val;
+    public TreeNode left, right;
+    public TreeNode(int val) {
         this.val = val;
     }
 }
