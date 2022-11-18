@@ -1,6 +1,6 @@
 package topInterviewQuestion.easy.linkedList;
 
-import topInterviewQuestion.leetcode.linkedList.ListNode;
+import leetcode.linkedList.ListNode;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package topInterviewQuestion.easy.practices;
 
-import topInterviewQuestion.leetcode.linkedList.ListNode;
+import leetcode.linkedList.ListNode;
 
 public class DeleteNodeInALinkedList {
 
