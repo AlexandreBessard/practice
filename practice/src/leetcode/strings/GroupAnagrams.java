@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.arraysAndStrings;
+package leetcode.strings;
 
 import java.util.*;
 

@@ -1,16 +1,19 @@
-package topInterviewQuestion.medium.arraysAndStrings;
+package leetcode.strings;
 
 import java.util.HashMap;
 import java.util.Map;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/779/
-public class LongestSubstringWithoutRepeatingCharacter {
+public class LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args) {
         String s = "pwwkew";
         //Output: 3
-        lengthOfLongestSubstringSlidingWindowOptimized(s);
+        int res = lengthOfLongestSubstringSlidingWindowOptimized(s);
     }
+
+    //Sliding window pattern Grokking coding interview:
+    /** {@link patternsForCodingInterviews.slidingWindow.LongestSubstringWithDistinctCharacters} */
 
     //Approach 3: Sliding Window Optimized
     static int lengthOfLongestSubstringSlidingWindowOptimized(String s) { // pwwkew
@@ -28,7 +31,7 @@ public class LongestSubstringWithoutRepeatingCharacter {
         return ans;
     }
 
-        //Approach 2: Sliding Window
+    //Approach 2: Sliding Window
     /*
     Time complexity: O(N) in worst case scenario like 'AAAAAAAAAAAB'
     Space compelexity:O(1)
