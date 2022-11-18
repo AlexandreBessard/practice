@@ -21,7 +21,7 @@ public class Permutations {
     //Approach 1: BackTracking Recursive (Subsets 2 containing duplicates)
     public static List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> output = new ArrayList<>();
-        Arrays.sort(nums);
+        Arrays.sort(nums); //Must be sorted
         backtrack(output, new ArrayList<>(), nums, 0);
         return output;
     }
@@ -38,7 +38,7 @@ public class Permutations {
     }
 
     /*
-    Iterative
+    Iterative, like a BFS
     O(N)
     Space: O(N * N)
      */

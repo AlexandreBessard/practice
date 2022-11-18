@@ -1,4 +1,4 @@
-package algorithms.backtracking.subsets;
+package leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.List;
 public class Subsets {
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
+        int[] nums = {1, 3, 2};
         for(List<Integer> res : subsets(nums)) {
             System.out.println(res);
         }
@@ -20,7 +20,7 @@ public class Subsets {
     Space: O(N)
      */
     static List<List<Integer>> subsets(int[] nums) {
-        Arrays.sort(nums);
+        Arrays.sort(nums); //Not need to be sorted
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < nums.length + 1; ++i) { // 0 -> 1 -> 2 -> 3
             backtrack(0, new LinkedList<>(), nums, res, i);
@@ -28,7 +28,11 @@ public class Subsets {
         return res;
     }
 
-    private static void backtrack(int start, LinkedList<Integer> curr, int[] nums, List<List<Integer>> res, int maxSizeCurrArray) {
+    private static void backtrack(int start,
+                                  LinkedList<Integer> curr,
+                                  int[] nums, List<List<Integer>> res,
+                                  int maxSizeCurrArray)
+    {
         // if the combination is done
         if (curr.size() == maxSizeCurrArray) {
             res.add(new ArrayList<>(curr));

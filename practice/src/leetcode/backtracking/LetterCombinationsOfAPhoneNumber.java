@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.backtracking;
+package leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +30,12 @@ public class LetterCombinationsOfAPhoneNumber {
     static String phoneDigits;  //23
 
     static List<String> letterCombinations(String digits) {
-        if(digits.length() == 0)
+        if(digits.length() == 0) {
             return combinations;
+        }
         //Initiate backtracking with an empty path and starting index of 0
         phoneDigits = digits;
-        backtracking(0, new StringBuilder());
+        backtracking(0, new StringBuilder()); //Start at index 0
         return combinations;
     }
     private static void backtracking(int index, StringBuilder path) {

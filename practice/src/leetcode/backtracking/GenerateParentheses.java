@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.backtracking;
+package leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
