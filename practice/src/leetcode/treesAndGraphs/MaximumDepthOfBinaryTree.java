@@ -1,4 +1,4 @@
-package leetcode.trees;
+package leetcode.treesAndGraphs;
 
 import java.util.LinkedList;
 //https://leetcode.com/explore/featured/card/top-interview-questions-easy/94/trees/555/

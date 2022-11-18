@@ -1,4 +1,4 @@
-package leetcode.trees;
+package leetcode.treesAndGraphs;
 
 import java.util.LinkedList;
 import java.util.Queue;
