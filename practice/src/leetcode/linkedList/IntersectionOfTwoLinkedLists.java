@@ -1,8 +1,8 @@
-package topInterviewQuestion.medium.linkedList;
+package leetcode.linkedList;
 
 import java.util.HashSet;
 import java.util.Set;
-
+//https://leetcode.com/explore/interview/card/top-interview-questions-medium/107/linked-list/785/
 public class IntersectionOfTwoLinkedLists {
 
     public static void main(String[] args) {
@@ -22,15 +22,14 @@ public class IntersectionOfTwoLinkedLists {
         five.next.next.next.next.next = new ListNode(5);
 
         System.out.println("TEST");
-        ListNode result = getIntersectionNodeTwoPointers(four, five);
+        ListNode result = getIntersectionNodeHashTable(four, five);
         while(result != null) {
             System.out.print(result.val + ", ");
             result = result.next;
         }
     }
 
-
-    //Approach 3: Two pointers
+    //Approach 3: Two pointers (more difficult to find this solution)
     /*
     Time complexity: O(N + M)
     Space complexity: O(1)
@@ -41,8 +40,8 @@ public class IntersectionOfTwoLinkedLists {
         ListNode pA = headA;
         ListNode pB = headB;
         while (pA != pB) {
-            pA = pA == null ? headB : pA.next;
-            pB = pB == null ? headA : pB.next;
+            pA = (pA == null) ? headB : pA.next;
+            pB = (pB == null) ? headA : pB.next;
         }
         return pA;
         // Note: In the case lists do not intersect, the pointers for A and B
@@ -58,7 +57,7 @@ public class IntersectionOfTwoLinkedLists {
      */
     static ListNode getIntersectionNodeHashTable(ListNode headA, ListNode headB) {
         Set<ListNode> nodesInB = new HashSet<>();
-        while(headB != null) {
+        while(headB != null) { //Put all nodes from B to a set (unique element)
             nodesInB.add(headB);
             headB = headB.next;
         }
@@ -80,8 +79,9 @@ public class IntersectionOfTwoLinkedLists {
         while (headA != null) {
             ListNode pB = headB;
             while(pB != null) {
-                if(headA == pB)
+                if(headA == pB) {
                     return headA;
+                }
                 pB = pB.next;
             }
             headA = headA.next;
