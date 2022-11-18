@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.arraysAndStrings;
+package leetcode.strings;
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/4153/
 public class CountAndSay {
 
