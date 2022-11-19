@@ -1,13 +1,20 @@
-package topInterviewQuestion.medium.sortingAndSearching;
+package leetcode.sortingAndSearching;
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/802/
 public class SearchForARange {
-
+/*
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+If target is not found in the array, return [-1, -1].
+You must write an algorithm with O(log n) runtime complexit
+ */
     public static void main(String[] args) {
         int[] nums = {5, 7, 7, 8, 8, 10};
         for(int i : searchRange(nums, 8)) {
             System.out.print(i + ", ");
         }
     }
+
+    //Grokking the coding interview, same logic:
+    /** {@link patternsForCodingInterviews.modifiedBinarySearch.NumberRange} */
 
     //Approach 1: Binary Search
     /*
@@ -24,30 +31,30 @@ public class SearchForARange {
     }
     private static int findBound(int[] nums, int target, boolean isFirst) {
         int N = nums.length;
-        int begin = 0, end = N - 1;
-        while(begin <= end) {
-            int mid = (begin + end) / 2;
+        int left = 0, right = N - 1;
+        while(left <= right) {
+            int mid = (left + right) / 2;
             if(nums[mid] == target) {
                 if(isFirst) {
                     //Find our lower bound
-                    if(mid == begin || nums[mid - 1] != target) {
+                    if(mid == left || nums[mid - 1] != target) {
                         return mid;
                     } else {
                         //Search on left side
-                        end = mid - 1;
+                        right = mid - 1;
                     }
                 } else {
-                    if(mid == end || nums[mid + 1] != target)
+                    if(mid == right || nums[mid + 1] != target) {
                         return mid;
+                    }
                 }
             } else if(nums[mid] > target) {
                 //Left side
-                end = mid - 1;
+                right = mid - 1;
             } else {
-                begin = mid + 1;
+                left = mid + 1;
             }
         }
-
         return -1;
     }
 

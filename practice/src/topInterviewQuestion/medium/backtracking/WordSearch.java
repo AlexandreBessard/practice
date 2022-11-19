@@ -43,8 +43,7 @@ The same letter cell may not be used more than once.
         while (!q.isEmpty()) {
             int currRow = q.peek()[0];
             int currCol = q.peek()[1];
-            int currIndex = q.peek()[2];
-            q.poll();
+            int currIndex = q.poll()[2];
             if (currIndex == word.length()) { //true means we found the entire word
                 return true;
             }
@@ -81,7 +80,7 @@ The same letter cell may not be used more than once.
     private static int COLS;
 
     static boolean exist(char[][] board, String word) {
-        WordSearch.board = board;
+        WordSearch.board = board.clone();
         WordSearch.ROWS = board.length;
         WordSearch.COLS = board[0].length;
         for (int row = 0; row < ROWS; row++) {

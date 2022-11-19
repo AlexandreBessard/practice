@@ -1,10 +1,12 @@
-package topInterviewQuestion.medium.sortingAndSearching;
+package leetcode.sortingAndSearching;
 
 import java.util.*;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/798/
 public class TopKFrequentElements {
-
+/*
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+ */
     public static void main(String[] args) {
         int[] nums = {1, 1, 1, 2, 2, 3};
         int[] nums2 = {1, 1, 1, 2, 2, 2, 3, 3, 3};
@@ -17,8 +19,7 @@ public class TopKFrequentElements {
 
          */
     }
-
-    //Other approach:
+    //Other approach easier to understand using MinHeap:
     /**
      * {@link patternsForCodingInterviews.topKElements.TopKFrequentNumbers}
      */

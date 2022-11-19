@@ -1,7 +1,6 @@
-package topInterviewQuestion.medium.sortingAndSearching;
+package leetcode.sortingAndSearching;
 
-import java.util.PriorityQueue;
-import java.util.Random;
+import java.util.*;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/800/
 public class KthLargestElementInAnArray {
@@ -14,10 +13,26 @@ public class KthLargestElementInAnArray {
         int[] nums = {3,2,1,5,6,4};
         int k = 2;
         System.out.println(findKthLargest(nums, k));
+        System.out.println(findKthLargestElementUsingHeap(nums, k));
     }
 
-    //For other approach with heap:
+    //For other approach with heap see below:
     /** {@link patternsForCodingInterviews.topKElements.KthLargestNumberInAStream} */
+    /*
+    Time: O(N * log K)
+    Space: O(K) because we store 'K' smallest numbers in the heap
+     */
+    public static int findKthLargestElementUsingHeap(int[] nums, int k) {
+        //Smallest element are the priority
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
+        for(int num : nums) {
+            minHeap.add(num);
+            if(minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+        return (minHeap.size() > 0) ? minHeap.peek() : -1;
+    }
 
     private static int[] nums;
     private static int size;

@@ -27,21 +27,21 @@ public class NumberRange {
 
     // modified Binary Search
     private static int search(int[] arr, int key, boolean findMaxIndex) {
-        int keyIndex = -1;
-        int start = 0;
-        int end = arr.length - 1;
-        while(start <= end) {
-            int mid = start + (end - start) / 2;
-            if(key < arr[mid]) {
-                end = mid - 1;
-            } else if(key > arr[mid]) {
-                start = mid + 1;
-            } else { // key == arr[mid]
+        int keyIndex = -1; //If element not found, we return -1 by default
+        int left = 0;
+        int right = arr.length - 1;
+        while(left <= right) {
+            int mid = left + (right - left) / 2;
+            if(key < arr[mid]) { //Get a smaller element to match with the key
+                right = mid - 1;
+            } else if(key > arr[mid]) { //Get a greater element to match with the key
+                left = mid + 1;
+            } else { // key == arr[mid] -> same element as the key
                 keyIndex = mid;
                 if(findMaxIndex) {
-                    start = mid + 1; // search ahead to find the last index of 'key'
+                    left = mid + 1; // search last index of 'key'
                 } else {
-                    end = mid - 1; // search behind to find the first index of 'key'
+                    right = mid - 1; // search first index of 'key'
                 }
             }
         }

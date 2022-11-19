@@ -1,7 +1,9 @@
-package topInterviewQuestion.medium.sortingAndSearching;
+package leetcode.sortingAndSearching;
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/801/
 public class FindPeakElement {
-
+/*
+A peak element is an element that is strictly greater than its neighbors.
+ */
     public static void main(String[] args) {
         //1,2,3,1
         //Output 2: Return index
@@ -15,20 +17,20 @@ public class FindPeakElement {
      */
     //Approach 3: Iterative Binary Search
     /*
-    Time complexity: O(log²(n))
+    Time complexity: O(log N) where N in the total element in the array
     Space complexity: O(1)
      */
     static int findPeakElementIterativeBinarySearchTree(int[] nums) {
-        int l = 0, r = nums.length - 1;
-        while (l < r) {
-            int mid = (l + r) / 2;
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
             if(nums[mid] > nums[mid + 1]) {
-                r = mid;
+                right = mid;
             } else {
-                l = mid + 1; // mid + 1 because we already checked the next number with 'nums[mid + 1]'
+                left = mid + 1; // mid + 1 because we already checked the next number with 'nums[mid + 1]'
             }
         }
-        return l;
+        return left; //Return the peak
     }
 
     //Approach 2: Recursive Binary Search
