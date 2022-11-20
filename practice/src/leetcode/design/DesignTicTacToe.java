@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.design;
+package leetcode.design;
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/112/design/814/
 public class DesignTicTacToe {
 
@@ -12,8 +12,8 @@ public class DesignTicTacToe {
     //Approach 2:
     static class TicTacToeOptimized {
 
-        private int[] rows;
-        private int[] cols;
+        private final int[] rows;
+        private final int[] cols;
         int diagonal;
         int antiDiagonal;
 
@@ -53,10 +53,12 @@ public class DesignTicTacToe {
 
     /*
     NON OPTIMIZED
+    Time: O(n) for every move we are iterating over n cells 4 times to check for each column, row, diagonal row, anti-diagonal
+    Space: O(n2) as we are storing 2-dimensional array
      */
     static class TicTacToe {
-        private int[][] board;
-        private int n;
+        private final int[][] board;
+        private final int n;
 
         public TicTacToe(int n) {
             board = new int[n][n];
@@ -75,10 +77,10 @@ public class DesignTicTacToe {
             if(checkRow(row, player)
                     || checkColumn(col, player)
                     || row == col && checkDiagonal(player)
-                    || col == n - row - 1 && checkDiagonal(player)) {
-                return player;
+                    || col == n - row - 1 && checkAntiDiagonal(player)) {
+                return player; //This player won
             }
-            return 0;
+            return 0; //Nobody wins
         }
 
         private boolean checkAntiDiagonal(int player) {
@@ -91,31 +93,31 @@ public class DesignTicTacToe {
 
         private boolean checkDiagonal(int player) {
             for(int row = 0; row < n; row++) {
-                if(board[row][row] != player){
+                if(board[row][row] != player){ //Check diagonal
                     return false;
                 }
             }
             return true;
         }
 
-        private boolean checkColumn(int col, int player) {
+        private boolean checkColumn(int col, int player) { //Check the entire column
             for(int row = 0; row < n; row++) {
-                if(board[row][col] != player)
+                if(board[row][col] != player) {
                     return false;
+                }
             }
-            return true;
+            return true; //Means we have the same value vertically
         }
 
 
-        private boolean checkRow(int row, int player) {
+        private boolean checkRow(int row, int player) { //Check the entire row
             for(int col = 0; col < n; col++) {
                 if(board[row][col] != player){
                     return false;
                 }
             }
-            return true;
+            return true; //Means we have the same value horizontally
         }
-
 
     }
 
