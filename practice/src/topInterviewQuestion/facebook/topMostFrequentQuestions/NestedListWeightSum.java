@@ -1,14 +1,22 @@
 package topInterviewQuestion.facebook.topMostFrequentQuestions;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 //https://leetcode.com/problems/nested-list-weight-sum/
 public class NestedListWeightSum {
-
+//TODO: Do not understand
     public static void main(String[] args) {
         //Input: nestedList = [1,[4,[6]]]
+        var two = new NestedInteger(2);
+        var first = new NestedInteger(1);
+        var first1 = new NestedInteger(1);
+        var firstMain = new NestedInteger();
+        firstMain.add(first);
+        firstMain.add(first1);
+        two.add(firstMain);
+        List<NestedInteger> list = new ArrayList<>();
+        list.add(two);
+        System.out.println(depthSumDFS(list)); //17
     }
 
     //DFS
@@ -37,25 +45,22 @@ public class NestedListWeightSum {
     Time: O(N)
     Space: O(N)
      */
-    static int depthSumBFS(List<NestedInteger> nestedList) {
-        if (nestedList == null) return 0;
-        int sum = 0;
-        int level = 1;
-        Queue<NestedInteger> queue = new LinkedList<>(nestedList);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                //Each number is : NestedInteger object, These are NOT integer
-                NestedInteger ni = queue.poll();
-                if (ni.isInteger()) {
-                    sum += ni.getInteger() * level;
-                } else {
-                    queue.addAll(ni.getList());
+    static int depthSumBFS(List<NestedInteger> nestedList) { // [1,[4,[6]]]
+        Queue<NestedInteger> q = new LinkedList<>(nestedList);
+        int prevSum = 0, total = 0;
+        while(!q.isEmpty()){
+            int size = q.size();
+            for(int i = 0; i < size; ++i){
+                NestedInteger ni = q.poll();
+                if(ni.isInteger()){
+                    prevSum += ni.getInteger();
+                }else{
+                    q.addAll(ni.getList());
                 }
             }
-            level++;
+            total += prevSum;
         }
-        return sum;
+        return total;
     }
 }
 
@@ -65,29 +70,33 @@ class NestedInteger {
     List<NestedInteger> list;
 
     public NestedInteger() {
+        list = new ArrayList<>();
     }
 
     public NestedInteger(int value) {
+        this.value = value;
+        list = new ArrayList<>();
     }
 
     // @return true if this NestedInteger holds a single integer, rather than a nested list.
     public boolean isInteger() {
-        return false;
+        return getList().isEmpty();
     }
 
     // Return null if this NestedInteger holds a nested list
     public Integer getInteger() {
-        return null;
+        return this.value;
     }
 
     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
     public void add(NestedInteger ni) {
-        this.ni = ni;
+        this.value = ni.value;
+        list.add(ni);
     }
 
     // @return the nested list that this NestedInteger holds, if it holds a nested list
     // Return empty list if this NestedInteger holds a single integer
     public List<NestedInteger> getList() {
-        return null;
+        return this.list;
     }
 }
