@@ -1,10 +1,14 @@
-package topInterviewQuestion.medium.others;
+package leetcode.others;
 
 import java.util.Random;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/114/others/825/
 public class FindTheCelebrity {
-
+    /*
+    Suppose you are at a party with n people labeled from 0 to n - 1 and among them, there may exist one celebrity.
+    The definition of a celebrity is that all the other n - 1 people know the celebrity,
+    but the celebrity does not know any of them.
+     */
     public static void main(String[] args) {
         int[][] graph = {{1,1,0},{0,1,0},{1,1,1}};
         System.out.println(Relation.knows(1, 2));
