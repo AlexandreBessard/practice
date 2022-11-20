@@ -18,30 +18,30 @@ public class _2SearchInRotatedArray {
     Space: O(1)
      */
     public static int searchDuplicate(int[] arr, int key) {
-        int start = 0, end = arr.length - 1;
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-            if (arr[mid] == key)
+        int left = 0, right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == key) {
                 return mid;
-
+            }
             // the only difference from the previous solution,
-            // if numbers at indexes start, mid, and end are same, we can't choose a side
+            // if numbers at indexes left, mid, and right are same, we can't choose a side
             // the best we can do, is to skip one number from both ends as key != arr[mid]
-            if ((arr[start] == arr[mid]) && (arr[end] == arr[mid])) {
-                ++start;
-                --end;
+            if ((arr[left] == arr[mid]) && (arr[right] == arr[mid])) {
+                ++left; //Move to the next element
+                --right;
             //Decide which part of the array is sorted
-            } else if (arr[start] <= arr[mid]) { // left side is sorted in ascending order
-                if (key >= arr[start] && key < arr[mid]) {
-                    end = mid - 1;
+            } else if (arr[left] <= arr[mid]) { // left side is sorted in ascending order (left part)
+                if (key >= arr[left] && key < arr[mid]) { //Check if it is in the range
+                    right = mid - 1;
                 } else { //key > arr[mid]
-                    start = mid + 1;
+                    left = mid + 1;
                 }
-            } else { // right side is sorted in ascending order
-                if (key > arr[mid] && key <= arr[end]) {
-                    start = mid + 1;
+            } else { // right side is sorted in ascending order (right part)
+                if (key > arr[mid] && key <= arr[right]) { //check if it is in the range
+                    left = mid + 1;
                 } else {
-                    end = mid - 1;
+                    right = mid - 1;
                 }
             }
         }

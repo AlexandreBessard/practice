@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.sortingAndSearching;
+package leetcode.sortingAndSearching;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -28,28 +28,23 @@ return the minimum number of conference rooms required.
     Space complexity: O(N) for the heap
      */
     static int minMeetingRooms(int[][] intervals) {
-        if(intervals.length == 0)
-            return 0;
-        //Min heap
-        PriorityQueue<Integer> allocator = new PriorityQueue<>(
-                intervals.length,
-                new Comparator<Integer>() {
-                    @Override
-                    public int compare(Integer a, Integer b) {
-                        return a - b;
-                    }
-                }
-        );
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
-        allocator.add(intervals[0][1]);
-
-        for(int i = 1; i < intervals.length; i++) {
-            if(intervals[i][0] >= allocator.peek()) {
-                allocator.poll();
-            }
-            allocator.add(intervals[i][1]);
+        if(intervals == null || intervals.length < 1) return 0; //null or empty return 0 room
+        if(intervals.length == 1) { // Only 1 element, return 1 room
+            return 1;
         }
-        return allocator.size();
+        //Min heap
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b); //Smallest element are the priority
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]); //sort by start
+        minHeap.add(intervals[0][1]);
+        for(int i = 1; i < intervals.length; i++) {
+            int currentStart = intervals[i][0];
+            int currentEnd = intervals[i][1];
+            if(currentStart >= minHeap.peek()) { //true means not overlapping with the smallest element
+                minHeap.poll(); //Remove the meeting which end earlier
+            }
+            minHeap.add(currentEnd);
+        }
+        return minHeap.size();
     }
 
     //Approach 2: Chronological Ordering

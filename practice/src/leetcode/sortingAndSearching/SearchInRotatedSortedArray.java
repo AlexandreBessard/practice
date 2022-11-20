@@ -1,7 +1,10 @@
-package topInterviewQuestion.medium.sortingAndSearching;
+package leetcode.sortingAndSearching;
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/804/
 public class SearchInRotatedSortedArray {
-
+/*
+Given the array nums after the possible rotation and an integer target, return the index
+of target if it is in nums, or -1 if it is not in nums.
+ */
     public static void main(String[] args) {
         //Array not rotated below
         //int[] nums = {2, 5, 6, 7, 0, 1, 4};
@@ -9,6 +12,9 @@ public class SearchInRotatedSortedArray {
         int[] nums2 = {4,5,6,7,0,1,2};
         System.out.println(searchOnePass(nums2, 0));
     }
+
+    //Grokking the coding interview, same logic
+    /** {@link patternsForCodingInterviews.modifiedBinarySearch._2SearchInRotatedArray} */
 
 
     //Approach 2: BinarySearch One pass
