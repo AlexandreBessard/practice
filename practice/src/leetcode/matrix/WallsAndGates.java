@@ -1,4 +1,4 @@
-package leetcode.array;
+package leetcode.matrix;
 
 import java.util.LinkedList;
 import java.util.Queue;
