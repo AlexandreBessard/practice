@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.design;
+package leetcode.design;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,9 @@ import java.util.NoSuchElementException;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/112/design/811/
 public class Flatten2DVector {
-
+/*
+Design an iterator to flatten a 2D vector. It should support the next and hasNext operations.
+ */
     public static void main(String[] args) {
         int[][] vectors = {
                 {1, 2},
@@ -30,7 +32,7 @@ public class Flatten2DVector {
     Space complexity: O(1)
      */
     static class Vector2DTwoPointers {
-        private int[][] vector;
+        private final int[][] vector;
         private int inner = 0;
         private int outer = 0;
         //Time complexity: O(1)
@@ -39,7 +41,7 @@ public class Flatten2DVector {
         }
         //Time complexity: O(1)
         public int next() {
-            if(!hasNext()) {
+            if(!hasNext()) { //false means out of bound exception
                 throw new NoSuchElementException();
             }
             return vector[outer][inner++];
@@ -50,7 +52,7 @@ public class Flatten2DVector {
             return outer < vector.length;
         }
         private void advanceToNext() {
-            while(outer < vector.length && inner == vector[outer].length) {
+            while(outer < vector.length && inner == vector[outer].length) { //true, initialize inner and outer
                 inner = 0;
                 outer++;
             }

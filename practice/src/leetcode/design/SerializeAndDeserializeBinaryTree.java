@@ -1,4 +1,4 @@
-package topInterviewQuestion.medium.design;
+package leetcode.design;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -14,9 +14,11 @@ public class SerializeAndDeserializeBinaryTree {
         one.right.left = new TreeNode(4);
         one.right.right = new TreeNode(5);
         var obj = new Codec();
+        /*
         String res = obj.serialize(one);
         System.out.println("res serialize in String format : \n" + res);
         TreeNode res2 = obj.deserializeDFS(res);
+         */
         String res3 = obj.serializeBFS(one);
         System.out.println("res3 serialize in String format using BFS : \n" + res3);
         TreeNode res4 = obj.deserializeBFS(res3);
@@ -34,27 +36,28 @@ public class SerializeAndDeserializeBinaryTree {
         The nodes on higher level would be visited before the ones with lower levels.
          */
         public String serializeBFS(TreeNode root) {
-            if(root == null)
+            if (root == null) {
                 return "";
-            Queue<TreeNode> qu = new LinkedList<>();
-            StringBuilder sb = new StringBuilder();
-            qu.offer(root);
-            sb.append(String.valueOf(root.val));
+            }
+            Queue<TreeNode> queue = new LinkedList<>(); //BFS queue
+            var sb = new StringBuilder();
+            queue.offer(root);
+            sb.append(root.val);
             sb.append(' ');
-            while(!qu.isEmpty()) {
-                TreeNode x = qu.poll();
-                if(x.left == null) {
+            while (!queue.isEmpty()) {
+                TreeNode x = queue.poll();
+                if (x.left == null) {
                     sb.append("null ");
                 } else {
-                    qu.offer(x.left);
-                    sb.append(String.valueOf(x.left.val));
+                    queue.offer(x.left);
+                    sb.append(x.left.val);
                     sb.append(' ');
                 }
-                if(x.right == null) {
+                if (x.right == null) {
                     sb.append("null ");
                 } else {
-                    qu.offer(x.right);
-                    sb.append(String.valueOf(x.right.val));
+                    queue.offer(x.right);
+                    sb.append(x.right.val);
                     sb.append(' ');
                 }
             }
@@ -63,31 +66,34 @@ public class SerializeAndDeserializeBinaryTree {
 
 
         public TreeNode deserializeBFS(String data) {
-            if(data.length() == 0)
+            if (data.length() == 0) {
                 return null;
+            }
             String[] node = data.split(" ");
             Queue<TreeNode> qu = new LinkedList<>();
-            TreeNode root = new TreeNode(Integer.parseInt(node[0]));
+            TreeNode root = new TreeNode(Integer.parseInt(node[0])); //Get the first element and returned as head for our result
             qu.offer(root);
             int i = 1;
-            while(!qu.isEmpty()) {
+            while (!qu.isEmpty()) {
                 //Queue<TreeNode> nextQu = new LinkedList<>();
                 //while(!qu.isEmpty()) {
-                    TreeNode x = qu.poll();
-                    if(node[i].equals("null"))
-                        x.left = null;
-                    else {
-                        x.left = new TreeNode(Integer.parseInt(node[i]));
-                        qu.offer(x.left);
-                    }
-                    i++;
-                    if(node[i].equals("null"))
-                        x.right = null;
-                    else {
-                        x.right = new TreeNode(Integer.parseInt(node[i]));
-                        qu.offer(x.right);
-                    }
-                    i++;
+                TreeNode x = qu.poll(); //Parent node
+                if (node[i].equals("null")) { //Check if the parent node has children node
+                    x.left = null;
+                }
+                else {
+                    x.left = new TreeNode(Integer.parseInt(node[i]));
+                    qu.offer(x.left);
+                }
+                i++; //increment to get the right node
+                if (node[i].equals("null")) {
+                    x.right = null;
+                }
+                else {
+                    x.right = new TreeNode(Integer.parseInt(node[i]));
+                    qu.offer(x.right);
+                }
+                i++; //move to the next node
                 //}
                 //qu = nextQu;
             }
@@ -104,8 +110,9 @@ public class SerializeAndDeserializeBinaryTree {
             LinkedList<String> data_list = new LinkedList<>(Arrays.asList(data_array));
             return rdeserialize(data_list);
         }
+
         private TreeNode rdeserialize(LinkedList<String> l) {
-            if(l.get(0).equals("null")){
+            if (l.get(0).equals("null")) {
                 l.pollFirst();
                 return null;
             }
@@ -116,13 +123,13 @@ public class SerializeAndDeserializeBinaryTree {
         }
 
 
-
         //ENCODE
         public String serialize(TreeNode root) {
             return rserialize(root, new StringBuilder()).toString();
         }
+
         private StringBuilder rserialize(TreeNode root, StringBuilder str) {
-            if(root == null)
+            if (root == null)
                 str.append("null,");
             else {
                 str.append(root.val).append(",");
@@ -137,6 +144,7 @@ public class SerializeAndDeserializeBinaryTree {
     static class TreeNode {
         int val;
         TreeNode left, right;
+
         TreeNode(int x) {
             val = x;
         }
