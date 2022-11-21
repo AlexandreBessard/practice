@@ -1,18 +1,23 @@
 package leetcode.sortingAndSearching;
 
 import java.util.Arrays;
-
+//https://leetcode.com/problems/merge-sorted-array/
 public class MergeSortedArray {
+/*
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+ */
 
     public static void main(String[] args) {
         int[] nums1 = {1,2,3,0,0,0};
         int m = 3;
         int[] nums2 = {2,5,6};
         int n = 3;
-        mergeThreePointersStartFromTheEnd(nums1, m, nums2, n);
+        mergeThreePointers(nums1, m, nums2, n);
         System.out.println(Arrays.toString(nums1));
     }
-
 
     //Approach 3: Three pointers (Start from the end)
     //O(n + m)
@@ -59,7 +64,8 @@ public class MergeSortedArray {
         for(int p = 0; p < m + n; p++) {
             // We also need to ensure that p1 and p2 aren't over the boundaries
             // of their respective arrays.
-            if(p2 >= n || (p1 < m && nums1Copy[p1] < nums2[p2]))
+            if(p2 >= n  //we are at the end of the second array
+                    || (p1 < m && nums1Copy[p1] < nums2[p2]))
                 nums1[p] = nums1Copy[p1++];
             else
                 nums1[p] = nums2[p2++];
@@ -78,7 +84,7 @@ public class MergeSortedArray {
         for(int i = 0; i < n; i++) {
             nums1[i + m] = nums2[i];
         }
-        Arrays.sort(nums1);
+        Arrays.sort(nums1); //merge sort algo
     }
 
 }

@@ -35,7 +35,10 @@ public class ValidAnagram {
     Space: O(n)
      */
     public static boolean isAnagramSlidingWindow(String s1, String s2) {
-        if(s1.length() != s2.length()) return false;
+        //Anagram is a word using all the original letters exactly once
+        if(s1.length() != s2.length()) {
+            return false;
+        }
         int matched = 0;
         Map<Character, Integer> charFreqMap = new HashMap<>();
         for(char chr : s1.toCharArray()) { //count each element and insert it to the map
@@ -45,7 +48,7 @@ public class ValidAnagram {
             char rightChar = s1.charAt(windowEnd);
             if(charFreqMap.containsKey(rightChar)) {
                 charFreqMap.put(rightChar, charFreqMap.get(rightChar) - 1); //Decrement by 1
-                if(charFreqMap.get(rightChar) < 0) {
+                if(charFreqMap.get(rightChar) < 0) { //More letter than needed
                     return false;
                 }
                 matched++;
