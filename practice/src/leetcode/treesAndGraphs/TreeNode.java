@@ -2,10 +2,10 @@ package leetcode.treesAndGraphs;
 
 public class TreeNode {
 
-    public int val;
+    public Integer val;
     public TreeNode left;
     public TreeNode right;
-    public TreeNode(int val) {
+    public TreeNode(Integer val) {
         this.val = val;
     }
 

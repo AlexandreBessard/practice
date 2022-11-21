@@ -1,4 +1,4 @@
-package topInterviewQuestion.facebook.treesAndGraphs;
+package leetcode.treesAndGraphs;
 
 import java.util.*;
 
@@ -6,19 +6,22 @@ import java.util.*;
 public class BinaryTreeVerticalOrderTraversal {
 
     public static void main(String[] args) {
-        TreeNode three = new TreeNode(3);
-        three.left = new TreeNode(9);
-        three.left.left = new TreeNode(4);
-        three.left.right = new TreeNode(0);
-        three.left.right.left = new TreeNode(5);
-        three.right = new TreeNode(8);
-        three.right.left = new TreeNode(1);
-        three.right.left.right = new TreeNode(2);
-        three.right.right = new TreeNode(7);
+        Integer[] nums = {3, 9, 20, null, null, 15, 7};
+        TreeNode tree = ConstructBinaryTree.constructTreeNode(nums);
         var obj = new BinaryTreeVerticalOrderTraversal();
-        var res = obj.verticalOrderWithoutSorting(three);
+        var res = obj.verticalOrderWithoutSorting(tree);
         for (var o : res) {
-            System.out.println(o);
+            if (o.size() == 1 && o.get(0) == null) {  //True if we have unique null element from this list
+                continue;
+            }
+            System.out.print("[ ");
+            for (Integer el : o) {
+                if (el == null) { //If element null, do not display
+                    continue;
+                }
+                System.out.print(el + ", ");
+            }
+            System.out.println("] \n");
         }
     }
 
@@ -43,17 +46,22 @@ public class BinaryTreeVerticalOrderTraversal {
             Pair<TreeNode, Integer> p = queue.poll();
             root = p.root;
             column = p.column;
-            if (root != null) {
-                if (!columnTable.containsKey(column)) {
-                    columnTable.put(column, new ArrayList<Integer>());
-                }
-                columnTable.get(column).add(root.val);
-                minColumn = Math.min(minColumn, column);
-                maxColumn = Math.max(maxColumn, column);
+            if (!columnTable.containsKey(column)) {
+                columnTable.put(column, new ArrayList<Integer>());
+            }
+            columnTable.put(column, columnTable.getOrDefault(column, new ArrayList<>())); //Initialize first time and skip it
+            columnTable.get(column).add(root.val);
+            //Allows you to know the range of all column combined
+            minColumn = Math.min(minColumn, column);
+            maxColumn = Math.max(maxColumn, column);
+            if (root.left != null) {
                 queue.offer(new Pair<>(root.left, column - 1));
+            }
+            if (root.right != null) {
                 queue.offer(new Pair<>(root.right, column + 1));
             }
         }
+        //Loop in ascending order
         for (int i = minColumn; i < maxColumn + 1; ++i) { //Avoid to sort by fetching the corresponding column via array's index directly
             output.add(columnTable.get(i));
         }
@@ -63,6 +71,7 @@ public class BinaryTreeVerticalOrderTraversal {
 
     //Approach 1 : BFS
     /*
+    TreeMap time complexity: O(log(n))
     Time: O(N log N) where N is the number of nodes in the tree
     In the second part, in order to return the ordered results, we then sort the obtained hash table by its keys,
     which could result in the O(NlogN) time complexity in the worst case scenario where the binary tree is extremely
@@ -71,28 +80,31 @@ public class BinaryTreeVerticalOrderTraversal {
      */
     public List<List<Integer>> verticalOrder(TreeNode root) {
         List<List<Integer>> output = new ArrayList<>();
-        if (root == null)
+        if (root == null) {
             return null;
-        Map<Integer, List<Integer>> columnTable = new HashMap<>();
+        }
+        //Key: column, Value: value of the node inside that column
+        //TreeMap: keys are sorted in natural order (ascending order)
+        TreeMap<Integer, List<Integer>> columnTable = new TreeMap<>();
         Queue<Pair<TreeNode, Integer>> queue = new ArrayDeque<>();
-        int column = 0;
-        queue.offer(new Pair<>(root, column));
+        int column = 0; //Initialize with column 0
+        queue.offer(new Pair<>(root, column)); //head his column is 0, left node is -1 and right is +1
         while (!queue.isEmpty()) {
             Pair<TreeNode, Integer> p = queue.poll();
-            root = p.root;
-            column = p.column;
-            if (root != null) {
-                if (!columnTable.containsKey(column)) {
-                    columnTable.put(column, new ArrayList<>());
-                }
-                columnTable.get(column).add(root.val);
-                queue.offer(new Pair<>(root.left, column - 1));
-                queue.offer(new Pair<>(root.right, column + 1));
+            root = p.root; //get the current node
+            column = p.column; //Get the column of this current node
+            if (!columnTable.containsKey(column)) {
+                columnTable.put(column, new ArrayList<>());
+            }
+            columnTable.get(column).add(root.val);
+            if (root.left != null) {
+                queue.offer(new Pair<>(root.left, column - 1)); // left node decrement column by 1
+            }
+            if (root.right != null) {
+                queue.offer(new Pair<>(root.right, column + 1)); //right node increment column by 1
             }
         }
-        List<Integer> sortedKeys = new ArrayList<>(columnTable.keySet());
-        Collections.sort(sortedKeys);
-        for (int k : sortedKeys) {
+        for (int k : columnTable.keySet()) {
             output.add(columnTable.get(k));
         }
         return output;
@@ -100,8 +112,9 @@ public class BinaryTreeVerticalOrderTraversal {
 
 
     static class Pair<T, U> {
-        T root;
-        U column;
+        T root; //TreeNode
+        U column; //Num of column where this Node is located
+
         Pair(T root, U column) {
             this.root = root;
             this.column = column;
