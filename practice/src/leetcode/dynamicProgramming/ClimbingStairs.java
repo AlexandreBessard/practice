@@ -24,7 +24,7 @@ public class ClimbingStairs {
     //We start from the top
     static int climbStairsRecursion(int n) { //n represent the current stair
         //Base cases
-        if(n == 0) return 0;
+        if(n == 0) return 0; //We do not have remaining stairs so return 0
         if(n == 1) return 1; //At stair 1, we only 1 unique way to reach the index 0
         if(n == 2) return 2; //At stair 2, we know that we have 2 ways to reaching index 0
         //Recursion
