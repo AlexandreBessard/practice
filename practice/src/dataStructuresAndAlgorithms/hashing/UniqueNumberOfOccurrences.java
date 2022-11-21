@@ -22,13 +22,13 @@ public class UniqueNumberOfOccurrences {
      */
     static boolean uniqueOccurrences(int[] nums) {
         Map<Integer, Integer> count = new HashMap<>();
-        for(int num : nums) {
+        for(int num : nums) { //Count each element
             count.put(num, count.getOrDefault(num, 0) + 1);
         }
         Set<Integer> set = new HashSet<>();
         for(int freq : count.values()) {
             // If this set already contains the element, the call leaves the set unchanged and returns false else return true
-            if(!set.add(freq)) {
+            if(!set.add(freq)) { //Put freq on the set. if it is contained, return false
                 return false;
             }
         }

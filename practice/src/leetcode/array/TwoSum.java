@@ -25,6 +25,7 @@ public class TwoSum {
     Space complexity: O(n)
      */
     static int[] twoSumHashTableOnePass(int[] nums, int target) {
+        //Key: current element, Value: index (location of that value)
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];

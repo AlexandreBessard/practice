@@ -32,15 +32,17 @@ public class _1PalindromeLinkedList {
             slow = slow.next;
             fast = fast.next.next;
         }
+        //slow points to the middle
         ListNode headSecondhalf = reverse(slow); //reverse the second half
         //Store the head of reverse part to revert back later
         // 2 -> 4 -> (6 -> null) <- 4 <- 2
-        ListNode copyHeadSecondHalf = headSecondhalf;
+        ListNode copyHeadSecondHalf = headSecondhalf; //Used to know the head
         //compare the first and the second half
         while(head != null && headSecondhalf != null) {
             if(head.value != headSecondhalf.value) {
-                break; //No palindrome
+                break; //No palindrome, exit the while loop
             }
+            //Move to the next element for each linkedList
             head = head.next;
             headSecondhalf = headSecondhalf.next;
         }
@@ -51,14 +53,14 @@ public class _1PalindromeLinkedList {
         return false;
     }
     private static ListNode reverse(ListNode head) {
-        ListNode prev = null;
-        while(head != null) {
-            ListNode next = head.next;
+        ListNode prev = null; //1 pointer
+        while(head != null) { //2 pointer
+            ListNode next = head.next; //3 pointer
             head.next = prev;
             prev = head;
             head = next;
         }
-        return prev;
+        return prev; //Head of the reversed linkedList
     }
 
 }

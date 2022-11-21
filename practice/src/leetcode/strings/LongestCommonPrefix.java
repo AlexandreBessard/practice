@@ -43,7 +43,7 @@ public class LongestCommonPrefix {
     private static boolean isCommonPrefix(String[] strs, int length) {
         String str1 = strs[0].substring(0, length);
         for (int i = 1; i < strs.length; i++) { //If array of length 1, it is not true, skip the for loop
-            if (!strs[i].startsWith(str1))
+            if (!strs[i].startsWith(str1)) //Test if string starts with the specified prefix
                 return false;
         }
         return true;

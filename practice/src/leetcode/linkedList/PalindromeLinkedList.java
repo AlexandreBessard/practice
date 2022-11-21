@@ -1,4 +1,4 @@
-package topInterviewQuestion.easy.linkedList;
+package leetcode.linkedList;
 
 import leetcode.linkedList.ListNode;
 
@@ -19,6 +19,9 @@ public class PalindromeLinkedList {
             head = head.next;
         }
     }
+
+    // Grokking the coding interview
+    /** {@link patternsForCodingInterviews.fastAndSlowPointers._1PalindromeLinkedList} */
 
     //Approach 3: Reverse Second Half In-place
     /*
