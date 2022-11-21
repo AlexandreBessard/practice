@@ -34,9 +34,8 @@ public class BinaryTreeVerticalOrderTraversal {
     Space: O(N)
      */
     public List<List<Integer>> verticalOrderWithoutSorting(TreeNode root) {
-        List<List<Integer>> output = new ArrayList<>();
         if (root == null) {
-            return output;
+            return new ArrayList<>();
         }
         //Key: number of column, Value: each node's value associated to this column
         Map<Integer, List<Integer>> columnTable = new HashMap<>();
@@ -50,10 +49,10 @@ public class BinaryTreeVerticalOrderTraversal {
             root = p.root;
             column = p.column;
             if (!columnTable.containsKey(column)) {
-                columnTable.put(column, new ArrayList<Integer>());
+                columnTable.put(column, new ArrayList<>());
             }
             columnTable.put(column, columnTable.getOrDefault(column, new ArrayList<>())); //Initialize first time and skip it
-            columnTable.get(column).add(root.val);
+            columnTable.get(column).add(root.val); //Used for our result final
             //Allows you to know the range of all column combined
             minColumn = Math.min(minColumn, column);
             maxColumn = Math.max(maxColumn, column);
@@ -64,6 +63,7 @@ public class BinaryTreeVerticalOrderTraversal {
                 queue.offer(new Pair<>(root.right, column + 1));
             }
         }
+        final List<List<Integer>> output = new ArrayList<>();
         //Loop in ascending order
         for (int i = minColumn; i < maxColumn + 1; ++i) { //Avoid to sort by fetching the corresponding column via array's index directly
             output.add(columnTable.get(i));

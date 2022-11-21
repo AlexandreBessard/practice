@@ -24,6 +24,7 @@ public class RomanToInteger {
         var obj = new RomanToInteger();
         //MCMXXV
         //System.out.println(obj.romanToInt("MCMXXV"));
+        System.out.println(obj.romanToInt("III"));
         System.out.println(obj.romanToInt("MCMXCIV"));
     }
 
@@ -50,13 +51,14 @@ public class RomanToInteger {
             return map.get(s.charAt(0));
         }
         for(int i = 0; i < s.length(); i++) {
-            char nextElement = s.charAt(i + 1);
+            //if not out of bond, get the next one else get the current one
+            char nextElement = (i < s.length() - 1) ? s.charAt(i + 1) : s.charAt(i); //avoid out of bond exception ex: III
             char currElement = s.charAt(i);
-            if(i < s.length() - 1 && map.get(nextElement) > map.get(currElement))
+            if(i < s.length() - 1 && map.get(nextElement) > map.get(currElement)) //next element greather than current one
             {
                 //Subtract ex: 'CM' -> 1000 - 100 == 900
                 number += map.get(nextElement) - map.get(currElement);
-                i++;
+                i++; //Increment i because we processed both the current and next one
             } else {
                 //Addition
                 number += map.get(currElement);
