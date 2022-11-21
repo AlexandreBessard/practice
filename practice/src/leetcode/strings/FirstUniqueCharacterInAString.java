@@ -18,22 +18,22 @@ Given a string s, find the first non-repeating character in it and return its in
     //Same logic as below with one pass by using an array instead of LinkedHashMap
     static int firstUniqueCharacterWithArray(String s) {
         Set<Character> set = new HashSet<>();
-        int[] pos = new int[26];
+        int[] pos = new int[26]; //Used to store the index
         Arrays.fill(pos, -1);
         for (int i = 0; i < s.length(); i++) { //loop through each character
             char c = s.charAt(i);
             if (!set.contains(c)) {
                 set.add(c);
-                //Store the index
+                //Store the index, used to get the smaller index (first non-repeating character)
                 pos[c - 'a'] = i;
-            } else {
+            } else { //Duplicate
                 pos[c - 'a'] = -1; //-1 is a marker to know that we have a duplicate
             }
         }
         int minIndex = Integer.MAX_VALUE;
         for (int i = 0; i < 26; i++) {  //Loop to get the smallest index which means it is the first non-repeating character
-            if (pos[i] != -1) {
-                //Get min index (First non-repeating character)
+            if (pos[i] != -1) { //-1 means it is a duplicate
+                //Get min index (First non-repeating character located by the index)
                 minIndex = Math.min(minIndex, pos[i]);
             }
         }
