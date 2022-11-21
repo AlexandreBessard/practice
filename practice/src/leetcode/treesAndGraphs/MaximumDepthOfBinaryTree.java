@@ -1,5 +1,7 @@
 package leetcode.treesAndGraphs;
 
+import leetcode.treesAndGraphs.helper.TreeNode;
+
 import java.util.LinkedList;
 //https://leetcode.com/explore/featured/card/top-interview-questions-easy/94/trees/555/
 public class MaximumDepthOfBinaryTree {

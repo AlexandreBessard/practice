@@ -1,4 +1,4 @@
-package leetcode.treesAndGraphs;
+package leetcode.treesAndGraphs.helper;
 
 public class TreeNode {
 

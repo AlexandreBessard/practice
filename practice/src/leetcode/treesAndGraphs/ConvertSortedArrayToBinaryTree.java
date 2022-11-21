@@ -1,5 +1,7 @@
 package leetcode.treesAndGraphs;
 
+import leetcode.treesAndGraphs.helper.TreeNode;
+
 import java.util.Random;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/94/trees/631/
