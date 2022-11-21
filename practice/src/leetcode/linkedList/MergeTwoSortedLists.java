@@ -1,24 +1,17 @@
 package leetcode.linkedList;
 
+import leetcode.linkedList.helper.Helper;
+
 public class MergeTwoSortedLists {
 
     public static void main(String[] args) {
-
-        var one1 = new ListNode(1);
-        one1.next = new ListNode(2);
-        one1.next.next = new ListNode(4);
-
-        var one2 = new ListNode(1);
-        one2.next = new ListNode(3);
-        one2.next.next = new ListNode(4);
-
-        ListNode res = mergeTwoLists(one1, one2);
-        ListNode curr = res;
+        var one1 = Helper.generateLinkedList(1, 2, 4);
+        var one2 = Helper.generateLinkedList(1, 3, 4);
+        ListNode curr = mergeTwoLists(one1, one2);;
         while(curr != null) {
             System.out.print(curr.val + ", ");
             curr = curr.next;
         }
-
     }
 
     /*
@@ -31,10 +24,10 @@ public class MergeTwoSortedLists {
         ListNode preHead = new ListNode(-1); //Used to return the head of our LinkedList at the end
         ListNode prev = preHead; //prev start from the preHead
         while(l1 != null && l2 != null) {
-            if(l1.val <= l2.val) {
+            if(l1.val <= l2.val) { //Smaller value comes first
                 prev.next = l1;
                 l1 = l1.next;
-            } else {
+            } else { //Value is greater
                 prev.next = l2;
                 l2 = l2.next;
             }
