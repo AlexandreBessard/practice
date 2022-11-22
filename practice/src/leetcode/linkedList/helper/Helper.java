@@ -18,4 +18,12 @@ public class Helper {
         }
         return head;
     }
+
+    public static void printLinkedList(ListNode node) {
+        ListNode curr = node;
+        while(curr != null) {
+            System.out.print(curr.val + ", ");
+            curr = curr.next;
+        }
+    }
 }
