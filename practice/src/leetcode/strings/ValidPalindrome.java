@@ -22,6 +22,7 @@ Given a string s, return true if it is a palindrome, or false otherwise.
      */
     static boolean isPalindrome(String s) {
         for(int left = 0, right = s.length() - 1; left < right; left++, right--) {
+            //Skip if it is not a letter (num, space, coma)
             while(left < right && !Character.isLetterOrDigit(s.charAt(left))){
                 left++;
             }
