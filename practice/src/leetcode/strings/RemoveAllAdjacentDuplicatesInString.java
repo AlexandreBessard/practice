@@ -1,8 +1,5 @@
 package leetcode.strings;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class RemoveAllAdjacentDuplicatesInString {
 /*
 Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.
