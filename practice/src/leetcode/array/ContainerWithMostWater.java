@@ -1,4 +1,4 @@
-package topInterviewQuestion.amazon.arraysAndStrings;
+package leetcode.array;
 //https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2963/
 public class ContainerWithMostWater {
 
@@ -8,24 +8,25 @@ public class ContainerWithMostWater {
         System.out.println(maxAreaTwoPointers(height));
     }
 
-
-    //Approach 2: Two pointer
+    //Approach 2: Two pointers
     /*
     Time complexity: O(n)
     Space complexity: 0(1)
      */
     static int maxAreaTwoPointers(int[] height) {
-        int maxArea = 0;
-        int left = 0;
-        int right = height.length - 1;
+        int maxArea = 0; //our result
+        //Two pointers
+        int left = 0; //Pointer 1
+        int right = height.length - 1; //Pointer 2
         while(left < right) {
-            int width = right - left;
+            int width = right - left; //calcul width (largeur)
             maxArea = Math.max(maxArea,
-                    Math.min(height[left], height[right]) * width);
+                    Math.min(height[left], height[right])  //Get the min height
+                            * width); //multiply by the width (largeur)
             if(height[left] <= height[right]) {
-                left++;
+                left++; //If left is smaller or equal move left forward
             } else {
-                right--;
+                right--; //If right is smaller, move right backward
             }
         }
         return maxArea;
