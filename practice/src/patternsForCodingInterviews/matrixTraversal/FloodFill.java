@@ -54,8 +54,7 @@ public class FloodFill {
         q.add(new int[]{x, y});
         while(!q.isEmpty()) {
             int row = q.peek()[0];
-            int col = q.peek()[1];
-            q.poll();
+            int col = q.poll()[1];
             if(isNotAValidCell(matrix, row, col)) {
                 continue;
             }
