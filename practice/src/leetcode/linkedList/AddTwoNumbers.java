@@ -1,6 +1,8 @@
 package leetcode.linkedList;
 
 
+import leetcode.linkedList.helper.Helper;
+
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/107/linked-list/783/
 public class  AddTwoNumbers {
 /*
@@ -11,14 +13,8 @@ Add the two numbers and return the sum as a linked list.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself
  */
     public static void main(String[] args) {
-        var two = new ListNode(2);
-        two.next = new ListNode(4);
-        two.next.next = new ListNode(3);
-
-        var five = new ListNode(5);
-        five.next = new ListNode(6);
-        five.next.next = new ListNode(4);
-
+        var two = Helper.generateLinkedList(2, 4, 3);
+        var five = Helper.generateLinkedList(5, 6, 4);
         ListNode curr = addTwoNumbers(two, five);;
         while(curr != null) {
             System.out.print(curr.val + ", ");

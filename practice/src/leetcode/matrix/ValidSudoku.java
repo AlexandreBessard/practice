@@ -5,7 +5,13 @@ import java.util.Set;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/769/
 public class ValidSudoku {
+/*
+Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
 
+Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+ */
     public static void main(String[] args) {
         char[][] board =
                 {{'5','3','.','.','7','.','.','.','.'}
@@ -58,7 +64,7 @@ public class ValidSudoku {
                  a number in the range from 0 to 8. I.e. the square
                  located at (r, c) belongs to the box (r/3) * 3 + (c/3).
                  */
-                int idx = (r / 3) * 3 + c / 3;
+                int idx = (r / 3) * 3 + c / 3; //Define the index box
                 if(boxes[idx].contains(val)) {
                     return false;
                 }
