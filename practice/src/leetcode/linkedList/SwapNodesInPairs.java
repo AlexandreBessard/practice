@@ -1,19 +1,21 @@
-package algorithms.recursion;
+package leetcode.linkedList;
 
+import leetcode.linkedList.helper.Helper;
+//https://leetcode.com/problems/swap-nodes-in-pairs/
 public class SwapNodesInPairs {
-
+/*
+Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
+ */
     public static void main(String[] args) {
-        ListNode n = swapPairsRecursive(newInstance());
-        while(n != null) {
-            System.out.print(n.val + ", ");
-            n = n.next;
-        }
-        System.out.println();
-        ListNode n2 = swapPairsIterative(newInstance());
-        while(n2 != null) {
-            System.out.print(n2.val + ",  ");
-            n2 = n2.next;
-        }
+        ListNode n = Helper.generateLinkedList(1, 2, 3, 4);
+        n = swapPairsRecursive(n);
+
+        Helper.printLinkedList(n);
+
+        n = Helper.generateLinkedList(1, 2, 3, 4);
+        ListNode n2 = swapPairsIterative(n);
+
+        Helper.printLinkedList(n2);
     }
 
     //Approach 2: Iterative approach
@@ -28,7 +30,7 @@ public class SwapNodesInPairs {
             var firstNode = head;
             var secondNode = head.next;
             //Swapping
-            prevNode.next = secondNode;
+            prevNode.next = secondNode; //Put the second Node first
             firstNode.next = secondNode.next;
             secondNode.next = firstNode;
             // Reinitializing the head and prevNode for next swap
@@ -57,26 +59,4 @@ public class SwapNodesInPairs {
         // Now the head is the second node
         return secondNode;
     }
-
-    private static ListNode newInstance() {
-        ListNode one = new ListNode(1);
-        one.next = new ListNode(2);
-        one.next.next = new ListNode(3);
-        one.next.next.next = new ListNode(4);
-        return one;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode() {}
-        ListNode(int val) {
-            this.val = val;
-        }
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
 }
