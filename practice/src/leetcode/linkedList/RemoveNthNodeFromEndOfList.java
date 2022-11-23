@@ -1,5 +1,7 @@
 package leetcode.linkedList;
 
+import leetcode.linkedList.helper.Helper;
+
 public class RemoveNthNodeFromEndOfList {
 
     /*
@@ -8,17 +10,11 @@ public class RemoveNthNodeFromEndOfList {
 
     public static void main(String[] args) {
         //ListNode res = removeNthFromEnd(one, 2);
-        ListNode res = removeNthFromEndOnePass(createLinkedList(), 2);
-        while(res != null) {
-            System.out.print(res.val + ", ");
-            res = res.next;
-        }
-        System.out.println("Second list\n");
-        res = removeNthFromEnd(createLinkedList(), 2);
-        while(res != null) {
-            System.out.print(res.val + ", ");
-            res = res.next;
-        }
+        ListNode res = Helper.generateLinkedList(1, 2, 3, 4, 5);
+        Helper.printLinkedList(res);
+        System.out.println("\nAfter removing nth node from the end:");
+        res = removeNthFromEnd(res, 2);
+        Helper.printLinkedList(res);
     }
 
     //Approach 1 Two pass algo
@@ -30,20 +26,20 @@ public class RemoveNthNodeFromEndOfList {
     static ListNode removeNthFromEnd(ListNode head, int n) { //Remove nth node from the end 1-indexed based
         ListNode dummy = new ListNode(0);
         dummy.next = head; //dummy allows you to return the head
-        int length = 0;
+        int lengthLinkedList = 0;
         ListNode first = head;
         while(first != null) {
-            length++; //count the length of the linkedList
+            lengthLinkedList++; //count the lengthLinkedList of the linkedList
             first = first.next;
         }
-        length -= n; //5 - 2 == 3
-        first = dummy; //We start from dummy
-        while(length > 0) {// we start from dummy because we want the previous node where the next node have to be deleted
-            length--;
+        lengthLinkedList -= n; //5 - 2 == 3
+        first = dummy; //We start from dummy (beginning of the list counting the dummy)
+        while(lengthLinkedList > 0) {// we start from dummy because we want the previous node where the next node have to be deleted
+            lengthLinkedList--;
             first = first.next;
         }
-        first.next = first.next.next;
-        return dummy.next;
+        first.next = first.next.next; //Remove the node
+        return dummy.next; //Return the beginning of that list
     }
 
     /*
@@ -70,13 +66,5 @@ public class RemoveNthNodeFromEndOfList {
         return dummy.next; //Return the head (original node)
     }
 
-    private static ListNode createLinkedList() {
-        var one = new ListNode(1);
-        one.next = new ListNode(2);
-        one.next.next = new ListNode(3);
-        one.next.next.next = new ListNode(4);
-        one.next.next.next.next = new ListNode(5);
-        return one;
-    }
 
 }
