@@ -43,6 +43,8 @@ public class AnalyzeUserWebsiteVisitPattern {
 
      */
     /*
+    The score of a pattern is the number of users that visited all the websites in the pattern in the same order they appeared in the pattern.
+
     [username[i], website[i], timestamp[i]] indicates that the user
     username[i] visited the website website[i] at time timestamp[i].
      */
