@@ -54,8 +54,7 @@ public class NumberOfIslands {
         neighbors.add(new int[]{x, y});
         while (!neighbors.isEmpty()) {
             int row = neighbors.peek()[0];
-            int col = neighbors.peek()[1];
-            neighbors.poll();
+            int col = neighbors.poll()[1]; //Get and remove the element from the Q
             if (isNotAValidCell(matrix, row, col))  //If condition is true, not valid
                 continue; // continue, if it is not a valid cell
             if (matrix[row][col] == 0 || visited[row][col])

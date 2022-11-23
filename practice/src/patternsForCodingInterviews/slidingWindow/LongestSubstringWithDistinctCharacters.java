@@ -22,6 +22,8 @@ Longest Substring Without Repeating Characters
 
     /*
     Sliding window
+    Time: O(N)
+    Space: O(K) where K is the number of distinct characters in the input string
      */
     public static int findLength(String str) {
         int windowStart = 0;
