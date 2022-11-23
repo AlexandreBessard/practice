@@ -17,6 +17,7 @@ public class AnalyzeUserWebsiteVisitPattern {
     Also, if the pattern is ["luffy", "luffy", "luffy"], the score is the number of users x such that x visited "luffy" three different times at different timestamps.
     Return the pattern with the largest score. If there is more than one pattern with the same largest score, return the lexicographically smallest such pattern.
      */
+    //Correction: https://leetcode.com/problems/analyze-user-website-visit-pattern/discuss/355606/Java-Very-Easy-Understand-With-Explanation
     public static void main(String[] args) {
         String[] username = {"joe", "joe", "joe", "james", "james", "james", "james", "mary", "mary", "mary"};
         int[] timestamp = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -55,7 +56,7 @@ public class AnalyzeUserWebsiteVisitPattern {
         //Key: username, value: (timestamp, website)
         Map<String, List<Pair>> map = new HashMap<>();
         int length = username.length;
-        //Each user have Pair<Timestamp, Website>
+        //Each user have Pair<Timestamp, Website>, Structure our data
         for (int i = 0; i < length; i++) {
             map.putIfAbsent(username[i], new ArrayList<>());
             int currTimestamp = timestamp[i];
