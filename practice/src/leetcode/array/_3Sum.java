@@ -10,6 +10,7 @@ Given an integer array nums, return all the triplets
 
 Notice that the solution set must not contain duplicate triplets.
  */
+    //Solution below avoid duplicate
 /** {@link patternsForCodingInterviews.twoPointers.TripletSumToZero} */
     public static void main(String[] args) {
         /*
@@ -31,7 +32,7 @@ Notice that the solution set must not contain duplicate triplets.
         }
     }
 
-    //Equivalent, see solution:
+    //Equivalent, see solution: also avoid duplicate
     /** {@link patternsForCodingInterviews.twoPointers.TripletSumToZero} */
 
     //Approach 3 : No-Sort, -> If you can not modify the input array

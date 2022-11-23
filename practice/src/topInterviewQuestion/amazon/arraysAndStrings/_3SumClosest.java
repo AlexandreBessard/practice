@@ -1,10 +1,19 @@
 package topInterviewQuestion.amazon.arraysAndStrings;
 
-import java.util.Arrays;
-
 //https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2967/
 public class _3SumClosest {
+/*
+Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target.
 
+Return the sum of the three integers.
+
+You may assume that each input would have exactly one solution.
+
+Example 1:
+Input: nums = [-1,2,1,-4], target = 1
+Output: 2
+Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+ */
     public static void main(String[] args) {
 
 
@@ -14,6 +23,10 @@ public class _3SumClosest {
         System.out.println(threeSumClosest(nums, target));
 
     }
+
+    //See equivalent solution Grokking the coding interview:
+    /** {@link patternsForCodingInterviews.twoPointers.TripletSumCloseToTarget} */
+
 
     /*
     If an interviewer asks you whether you can achieve O(1) memory complexity

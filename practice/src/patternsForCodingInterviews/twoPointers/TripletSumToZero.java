@@ -25,7 +25,7 @@ public class TripletSumToZero {
         List<List<Integer>> triplets = new ArrayList<>();
         for(int i = 0; i < arr.length - 2; i++) {
             //Skip same element to avoid duplicate triplets
-            if(i > 0 && arr[i] == arr[i - 1]) {
+            if(i > 0 && arr[i] == arr[i - 1]) { //check with the previous elment to avoid duplicate
                 continue;
             }
             searchPair(arr, -arr[i], i + 1, triplets);
@@ -44,10 +44,12 @@ public class TripletSumToZero {
                 triplets.add(Arrays.asList(-targetSum, arr[left], arr[right]));
                 left++;
                 right--;
+                //Check with previous element to avoid duplicate
                 while(left < right && arr[left] == arr[left - 1]) {
                     //Skip same element to avoid duplicate triplets
                     left++;
                 }
+                //Check with previous element to avoid duplicate
                 while(left < right && arr[right] == arr[right + 1]){
                     //Skip same element to avoid duplciate
                     right--;

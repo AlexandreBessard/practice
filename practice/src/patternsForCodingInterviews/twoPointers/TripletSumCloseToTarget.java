@@ -1,7 +1,6 @@
 package patternsForCodingInterviews.twoPointers;
 
 import java.util.Arrays;
-import java.util.Map;
 
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743457252_5Unit
 public class TripletSumCloseToTarget {
@@ -24,10 +23,10 @@ public class TripletSumCloseToTarget {
         if(arr == null || arr.length < 3)
             throw new IllegalArgumentException();
         Arrays.sort(arr);
-        int smallestDifference = Integer.MAX_VALUE;
-        for(int i = 0; i < arr.length - 2; i++) {
-            int left = i + 1;
-            int right = arr.length - 1;
+        int smallestDiffSoFar = Integer.MAX_VALUE;
+        for(int i = 0; i < arr.length - 2; i++) { // i represent the first element
+            int left = i + 1; //Second element
+            int right = arr.length - 1; //Third element
             while(left < right) {
                 //Comparing the sum of three numbers to the targetSum
                 int targetDiff = targetSum - arr[i] - arr[left]- arr[right];
@@ -35,12 +34,12 @@ public class TripletSumCloseToTarget {
                     return targetSum; //Return sum of all numbers
                 }
                 //Second part, find smallest difference
-                if (Math.abs(targetDiff) < Math.abs(smallestDifference)
-                        || (Math.abs(targetDiff) == Math.abs(smallestDifference)
-                        && targetDiff > smallestDifference))
+                if (Math.abs(targetDiff) < Math.abs(smallestDiffSoFar)
+                        || (Math.abs(targetDiff) == Math.abs(smallestDiffSoFar)
+                        && targetDiff > smallestDiffSoFar))
                 {
                     //Save the closest and the biggest difference.
-                    smallestDifference = targetDiff;
+                    smallestDiffSoFar = targetDiff;
                 }
                 if(targetDiff > 0) {
                     left++; //Need triplet with a bigger sum
@@ -50,6 +49,6 @@ public class TripletSumCloseToTarget {
                 }
             }
         }
-        return targetSum - smallestDifference; //smallestDiff -> sum of this triplet
+        return targetSum - smallestDiffSoFar; //smallestDiff -> sum of this triplet
     }
 }

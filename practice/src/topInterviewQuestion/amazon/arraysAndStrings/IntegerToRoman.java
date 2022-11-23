@@ -7,6 +7,7 @@ public class IntegerToRoman {
         Input: num = 1994
         Output: "MCMXCIV"
          */
+        System.out.println(intToRoman(1994));
     }
 
     private static final int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
@@ -21,9 +22,9 @@ public class IntegerToRoman {
     Space complexity: O(1)
      */
     static String intToRoman(int num) {
-        var sb = new StringBuilder();
+        var sb = new StringBuilder();//Our result
         for(int i = 0; i < values.length && num > 0; i++) {
-            while(values[i] <= num) {
+            while(values[i] <= num) { //True, we decrement num with the highest value possible
                 num -= values[i];
                 sb.append(symbols[i]);
             }

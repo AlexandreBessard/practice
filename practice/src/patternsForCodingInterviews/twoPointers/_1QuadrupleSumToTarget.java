@@ -22,7 +22,7 @@ public class _1QuadrupleSumToTarget {
     public static List<List<Integer>> searchQuadruplets(int[] arr, int target) {
         Arrays.sort(arr); //sorting the array will take O(N * logN)
         List<List<Integer>> quadruplets = new ArrayList<>();
-        for (int i = 0; i < arr.length - 3; i++) {
+        for (int i = 0; i < arr.length - 3; i++) { //
             //Avoid duplicate quadruplets
             if (i > 0 && arr[i - 1] == arr[i]) { //check if previous number is the same, avoid duplicate
                 continue;
