@@ -54,12 +54,12 @@ DO NOT allocate another 2D matrix and do the rotation.
                 {9,6,3}
  */
     private static void reflect(int[][] matrix) {
-        int n = matrix.length;
-        for (int row = 0; row < n; row++) { //rows
-            for (int col = 0; col < n / 2; col++) { //cols
+        int length = matrix.length;
+        for (int row = 0; row < length; row++) { //rows
+            for (int col = 0; col < length / 2; col++) { //cols
                 int tmp = matrix[row][col];
-                matrix[row][col] = matrix[row][n - col - 1];
-                matrix[row][n - col - 1] = tmp;
+                matrix[row][col] = matrix[row][length - col - 1];
+                matrix[row][length - col - 1] = tmp;
             }
         }
     }

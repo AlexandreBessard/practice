@@ -1,4 +1,4 @@
-package topInterviewQuestion.facebook.arraysAndStrings;
+package leetcode.array;
 
 import java.util.Arrays;
 
