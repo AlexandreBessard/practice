@@ -36,15 +36,15 @@ You must implement the functions of the class such that each function works in a
         //worst case is O(N) when operations exceed the capacity of currently allocated array/hashmap
         //and invokes space reallocation
         public boolean insert(int val){
-            if(dict.containsKey(val)) {
+            if(dict.containsKey(val)) { //item is already present, return false
                 return false;
             }
-            int sizeAsIndex  = list.size(); //Allows you to know the index where the element is going to be stored in the map
+            int latestIndex  = list.size(); //Allows you to know the index where the element is going to be stored in the map
             //Ex with value to add : 1
             //map : 1 -> 0
             //list : idx 0 -> 1
-            dict.put(val, sizeAsIndex );
-            list.add(sizeAsIndex , val); //Add value at this index
+            dict.put(val, latestIndex);
+            list.add(latestIndex , val); //Add value at this index
             return true;
         }
 
