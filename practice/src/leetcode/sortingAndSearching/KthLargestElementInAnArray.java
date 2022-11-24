@@ -4,7 +4,13 @@ import java.util.*;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/110/sorting-and-searching/800/
 public class KthLargestElementInAnArray {
+/*
+Given an integer array nums and an integer k, return the kth largest element in the array.
 
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+You must solve it in O(n) time complexity.
+ */
     public static void main(String[] args) {
         //This approach is a slight modification of the previous approach.
         // If the array is almost/fully sorted and if we pick the rightmost
@@ -48,18 +54,18 @@ public class KthLargestElementInAnArray {
         //kth largest: N - k
         return quickselect(0, size - 1, size - k);
     }
-    //k_largest represent the element where once sorted, the largest kth element will be
+    //k_largest represent the element where once sorted, the largest kth element is located
     private static int quickselect(int left, int right, int k_largest) {
         if(left == right)
             return nums[left];
-        //Random pivot
-        int pivot_index = left + random.nextInt(right - left);
+        //Get random pivot from that range (left (included) - right (excluded))
+        int pivot_index = left + random.nextInt(right - left); //From pivot left side, it is in ascending order
         pivot_index = partition(left, right, pivot_index);
-        if(k_largest == pivot_index) {
+        if(k_largest == pivot_index) { //
             return nums[pivot_index];
-        } else if(k_largest < pivot_index) {
+        } else if(k_largest < pivot_index) { //because from pivot left side it is sorted so get a smaller range to get the Kth element
             return quickselect(left, pivot_index - 1, k_largest);
-        } else {
+        } else { //Need bigger element
             return quickselect(pivot_index + 1, right, k_largest);
         }
     }
@@ -70,7 +76,7 @@ public class KthLargestElementInAnArray {
         int store_index = left;
         //Move smaller element go to the left
         for(int i = left; i <= right; i++) {
-            if(nums[i] < pivot) {
+            if(nums[i] < pivot) { //Move smaller element to the left
                 swap(store_index, i);
                 store_index++;
             }

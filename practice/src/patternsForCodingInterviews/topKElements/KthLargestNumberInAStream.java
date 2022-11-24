@@ -14,6 +14,10 @@ public class KthLargestNumberInAStream {
     }
 
     //Minimum element in a Q are the priority, we keep the largest element
+    /*
+    Time: O(log K) because we are inserting the new number in the heap
+    Space: O(k) for storing numbers in the heap
+     */
     PriorityQueue<Integer> minHeap = new PriorityQueue<>((n1, n2) -> n1 - n2);
     final int k;
 
