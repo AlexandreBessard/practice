@@ -1,4 +1,4 @@
-package topInterviewQuestion.amazon.arraysAndStrings;
+package leetcode.array;
 
 //https://leetcode.com/explore/interview/card/amazon/76/array-and-strings/2967/
 public class _3SumClosest {
@@ -15,13 +15,10 @@ Output: 2
 Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
  */
     public static void main(String[] args) {
-
-
         int[] nums = {-1,2,1,-4};
         int target = 1;
         // Output 2 because closest to target 1: (-1 + 2 + 1 = 2)
         System.out.println(threeSumClosest(nums, target));
-
     }
 
     //See equivalent solution Grokking the coding interview:
