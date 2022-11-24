@@ -4,7 +4,11 @@ import java.util.*;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/778/
 public class GroupAnagrams {
+/*
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+ */
     public static void main(String[] args) {
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
         //Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
@@ -23,6 +27,7 @@ public class GroupAnagrams {
      */
     static List<List<String>> groupAnagramsHashMap(String[] strs) {
         if (strs == null || strs.length == 0) return new ArrayList<>();
+        //Key: Unique word, Values: word composed with the word letter from the key
         Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
             char[] ca = new char[26]; // new char[126] if we include all characters
@@ -35,6 +40,7 @@ public class GroupAnagrams {
             }
             map.get(keyStr).add(s);
         }
+        //Constructs a list containing the elements of the specified collection
         return new ArrayList<>(map.values());
     }
 
