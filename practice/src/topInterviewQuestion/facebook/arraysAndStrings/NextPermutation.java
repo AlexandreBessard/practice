@@ -30,18 +30,18 @@ public class NextPermutation {
     6: Done
      */
     /*0*/ public static int[] nextPermutationOtherApproach(int[] nums) {
-        // pivot is the element just before the non-increasing (weakly decreasing) suffix
-        /*2*/   int pivot = indexOfLastPeak(nums);
-        // paritions nums into [prefix pivot suffix]
-        if (pivot != -1) {
-            //Get first index from the end greater than nums[pivot]
-            int nextPrefix = lastIndexOfGreater(nums, nums[pivot]); // in the worst case it's suffix[0]
-            // next prefix must exist because pivot < suffix[0], otherwise pivot would be part of suffix
+        // pivotIdx is the element just before the non-increasing (weakly decreasing) suffix
+        /*2*/   int pivotIdx = indexOfLastPeak(nums);
+        // paritions nums into [prefix pivotIdx suffix]
+        if (pivotIdx != -1) { //If -1 means elements are in decreasing order ex: [5, 4, 3, 2, 1]
+            //Get first index from the end greater than nums[pivotIdx]
+            int nextPrefixIdx = lastIndexOfGreater(nums, nums[pivotIdx]); // in the worst case it's suffix[0]
+            // next prefix must exist because pivotIdx < suffix[0], otherwise pivotIdx would be part of suffix
             /*4*/
-            swap(nums, pivot, nextPrefix); // this minimizes the change in prefix
+            swap(nums, pivotIdx, nextPrefixIdx); // this minimizes the change in prefix
         }
         //5
-        reverseSuffix(nums, pivot + 1); // reverses the whole list if there was no pivot
+        reverseSuffix(nums, pivotIdx + 1); // reverses the whole list if there was no pivotIdx
         //6 done
         return nums;
         }
