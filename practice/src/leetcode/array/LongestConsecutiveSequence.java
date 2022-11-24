@@ -1,4 +1,4 @@
-package topInterviewQuestion.top100likedQuestions;
+package leetcode.array;
 
 import java.util.*;
 
@@ -8,6 +8,11 @@ public class LongestConsecutiveSequence {
     Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
 
     You must write an algorithm that runs in O(n) time.
+
+    Example 1:
+Input: nums = [100,4,200,1,3,2]
+Output: 4
+Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.
      */
     public static void main(String[] args) {
         int[] nums1 = {100, 4, 200, 1, 3, 2};
@@ -18,12 +23,39 @@ public class LongestConsecutiveSequence {
         System.out.println("UF -> " + longestConsecutiveUnionFind(new int[]{100, 4, 200, 1, 3, 2}));
     }
 
+    //Approach 3: HashSet and Intelligent Sequence Building
+    /*
+    Time: O(n)
+    Space: O(n)
+     */
+    static int longestConsecutiveHashSet(int[] nums) {
+        Set<Integer> num_set = new HashSet<>();
+        for (int num : nums) {
+            num_set.add(num);
+        }
+        int longestStreak = 0; //our result
+        for (int num : num_set) {
+            //true if the value is not contained
+            //-1 because we want to make sure that is the first unique num in the set
+            if (!num_set.contains(num - 1)) { //Constant operation
+                int currentNum = num;
+                int currentStreak = 1;
+                //true if value is contained
+                while (num_set.contains(currentNum + 1)) { //Constant operation
+                    currentNum++;
+                    currentStreak++;
+                }
+                longestStreak = Math.max(longestStreak, currentStreak);
+            }
+        }
+        return longestStreak;
+    }
+
     //Union Find:  https://leetcode.com/problems/longest-consecutive-sequence/discuss/166544/Union-Find-Thinking-Process
     /*
     A node is a value of an element in nums in this case.
     Two nodes are connected if they are consecutive.
     Time: O(n)
-
      */
     static int longestConsecutiveUnionFind(int[] nums) {
         UF uf = new UF(nums.length);
@@ -83,32 +115,6 @@ public class LongestConsecutiveSequence {
             return maxSize;
         }
     }
-
-    //Approach 3: HashSet and Intelligent Sequence Building
-    /*
-    Time: O(n)
-    Space: O(n)
-     */
-    static int longestConsecutiveHashSet(int[] nums) {
-        Set<Integer> num_set = new HashSet<>();
-        for (int num : nums) {
-            num_set.add(num);
-        }
-        int longestStreak = 0;
-        for (int num : num_set) {
-            if (!num_set.contains(num - 1)) { //Constant operation
-                int currentNum = num;
-                int currentStreak = 1;
-                while (num_set.contains(currentNum + 1)) { //Constant operation
-                    currentNum++;
-                    currentStreak++;
-                }
-                longestStreak = Math.max(longestStreak, currentStreak);
-            }
-        }
-        return longestStreak;
-    }
-
 
     //Approach 2: Sorting
     /*
