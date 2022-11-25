@@ -23,6 +23,32 @@ public class MaximumLengthOfRepeatedSubarray {
         int[] nums3 = {2, 3, 4, 5, 7};
         int[] nums4 = {3, 4, 5, 8};
         System.out.println(findLengthDFS(nums3, nums4));
+        System.out.println(findLengthDP(nums3, nums4));
+    }
+
+    //Approach 3: Dynamic Programming
+    /*
+    Time: O(M * N)
+    Space: O(M * N)
+     */
+    public static int findLengthDP(int[] A, int[] B) {
+        int result = 0;
+        //Create a matrix
+        //+1 because we want a buffer for first iteration -> memo[i+1][j+1]
+        int[][] memo = new int[A.length + 1][ B.length + 1];
+        //i and j reprensent the index where letter is located to be compared
+        for (int i = A.length - 1; i >= 0; --i) {
+            for (int j = B.length - 1; j >= 0; --j) {
+                if (A[i] == B[j]) { //Same letter
+                    //memo[i+1][j+1] means take the previous element (diagly) (see dfs below to understand)
+                    memo[i][j] = memo[i+1][j+1] + 1;
+                    if (result < memo[i][j])  {
+                        result = memo[i][j];
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     //Correction: https://leetcode.com/problems/maximum-length-of-repeated-subarray/discuss/1325431/Easy-Java-DFS
