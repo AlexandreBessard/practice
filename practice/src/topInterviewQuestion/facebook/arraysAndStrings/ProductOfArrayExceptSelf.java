@@ -4,13 +4,49 @@ import java.util.Arrays;
 
 //https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3016/
 public class ProductOfArrayExceptSelf {
+/*
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
 
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation.
+ */
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4};
         //Output: [24,12,8,6]
         var obj = new ProductOfArrayExceptSelf();
-        System.out.println(Arrays.toString(obj.productExceptSelf(nums)));
+        System.out.println(Arrays.toString(obj.productExceptSelfSpaceO1(nums)));
     }
+
+    //Approach 2: O(1) Space approach
+    //Time: O(N)
+    //Space: O(1)
+    public int[] productExceptSelfSpaceO1(int[] nums) {
+        int length = nums.length;
+        int[] answer = new int[length]; //Initialize with 0 values
+        // answer[i] contains the product of all the elements to the left
+        // Note: for the element at index '0', there are no elements to the left,
+        // so the answer[0] would be 1
+        answer[0] = 1;
+        for(int i = 1; i < length; i++) {
+            // answer[i - 1] already contains the product of elements to the left of 'i - 1'
+            // Simply multiplying it with nums[i - 1] would give the product of all
+            // elements to the left of index 'i'
+            answer[i] = nums[i - 1] *   answer[i - 1];
+        }
+        // R contains the product of all the elements to the right
+        // Note: for the element at index 'length - 1', there are no elements to the right,
+        // so the R would be 1
+        int R = 1;
+        for(int i = length - 1; i >= 0; i--) {
+            // For the index 'i', R would contain the
+            // product of all elements to the right. We update R accordingly
+            answer[i] = answer[i] * R;
+            R *= nums[i];
+        }
+        return answer;
+    }
+
 
     //Approach 1: Left and Right product lists
     //Time: O(N)
@@ -49,35 +85,6 @@ public class ProductOfArrayExceptSelf {
             // For the last element of the array, product except self would be L[i]
             // Else, multiple product of all elements to the left and to the right
             answer[i] = L[i] * R[i];
-        }
-        return answer;
-    }
-
-    //Approach 2: O(1) Space approach
-    //Time: O(N)
-    //Space: O(1)
-    public int[] productExceptSelfSpaceO1(int[] nums) {
-        int length = nums.length;
-        int[] answer = new int[length];
-        // answer[i] contains the product of all the elements to the left
-        // Note: for the element at index '0', there are no elements to the left,
-        // so the answer[0] would be 1
-        answer[0] = 1;
-        for(int i = 1; i < length; i++) {
-            // answer[i - 1] already contains the product of elements to the left of 'i - 1'
-            // Simply multiplying it with nums[i - 1] would give the product of all
-            // elements to the left of index 'i'
-            answer[i] = nums[i - 1] *   answer[i - 1];
-        }
-        // R contains the product of all the elements to the right
-        // Note: for the element at index 'length - 1', there are no elements to the right,
-        // so the R would be 1
-        int R = 1;
-        for(int i = length - 1; i >= 0; i--) {
-            // For the index 'i', R would contain the
-            // product of all elements to the right. We update R accordingly
-            answer[i] = answer[i] * R;
-            R *= nums[i];
         }
         return answer;
     }
