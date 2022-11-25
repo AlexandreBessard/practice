@@ -28,6 +28,7 @@ public class _1QuadrupleSumToTarget {
                 continue;
             }
             for (int j = i + 1; j < arr.length - 2; j++) {
+                //Avoid duplicate, same logic above
                 if (j > i + 1 && arr[j] == arr[j - 1]) {
                     continue;
                 }
