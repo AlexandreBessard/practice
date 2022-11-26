@@ -40,7 +40,7 @@ public class DesignUndergroundSystem {
 
     //Correction: https://leetcode.com/problems/design-underground-system/discuss/672744/Java-solution-for-easy-understanding-using-OOPS
     static class UndergroundSystem {
-        //Key: Id of passenger, Value: passenger associated to this key
+        //Key: Id of passenger, Value: trip associated to the passenger id
         Map<Integer, Trip> currentPassengerMap;
         //Use to calculate our average per route
         //Key: string composed [startLocation + endLocation], Value: the object info for this route
@@ -57,8 +57,8 @@ public class DesignUndergroundSystem {
          */
         public void checkIn(int id, String stationName, int t) {
             if(!currentPassengerMap.containsKey(id)) {
-                Trip passenger = new Trip(stationName, t);
-                currentPassengerMap.put(id, passenger);
+                Trip trip = new Trip(stationName, t);
+                currentPassengerMap.put(id, trip);
             }
         }
 

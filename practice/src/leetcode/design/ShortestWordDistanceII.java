@@ -49,11 +49,10 @@ public class ShortestWordDistanceII {
         }
 
         public int shortest(String s1, String s2) {
-            List<Integer> list1 = map.get(s1);
+            List<Integer> list1 = map.get(s1); //List where this word appears (indexes)
             List<Integer> list2 = map.get(s2);
             int result = Integer.MAX_VALUE;
-            for (int i = 0, j = 0;
-                 i < list1.size() && j < list2.size(); ) {
+            for (int i = 0, j = 0; i < list1.size() && j < list2.size();) {
                 int index1 = list1.get(i);
                 int index2 = list2.get(j);
                 if (index1 < index2) {
