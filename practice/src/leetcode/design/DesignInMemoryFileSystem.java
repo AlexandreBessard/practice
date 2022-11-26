@@ -24,9 +24,9 @@ String readContentFromFile(String filePath) Returns the content in the file at f
         FileSystem fileSystem = new FileSystem();
         System.out.println(fileSystem.ls("/"));                         // return []
         fileSystem.mkdir("/a/b/c");
-        fileSystem.addContentToFile("/a/b/c/d", "hello");
+        fileSystem.addContentToFile("/a/b/c/d", "hello"); //Latest element d is a file from c directory
         System.out.println(fileSystem.ls("/"));                         // return ["a"]
-        System.out.println(fileSystem.ls("/a/b/c"));
+        System.out.println("-> " + fileSystem.ls("/a/b/c")); //c is considered a file stored from b directory
         System.out.println(fileSystem.readContentFromFile("/a/b/c/d")); // return "hello"
     }
 
@@ -46,11 +46,14 @@ String readContentFromFile(String filePath) Returns the content in the file at f
                 for(int i = 1; i < dirs.length - 1; i++) {
                     currDir = currDir.dirs.get(dirs[i]);
                 }
-                if(currDir.files.containsKey(dirs[dirs.length - 1])) {
-                    files.add(dirs[dirs.length - 1]);
+                String requestedFile = dirs[dirs.length - 1];
+                //If path is a file path, returns a list that only contains this file's name.
+                if(currDir.files.containsKey(requestedFile)) { //true if this directory contains that requested file
+                    files.add(requestedFile);
                     return files;
                 } else {
-                    currDir = currDir.dirs.get(dirs[dirs.length - 1]);
+                    //If path is a directory path, returns the list of file and directory names in this directory.
+                    currDir = currDir.dirs.get(requestedFile);
                 }
             }
             files.addAll(new ArrayList<>(currDir.dirs.keySet()));
@@ -79,6 +82,7 @@ String readContentFromFile(String filePath) Returns the content in the file at f
                 currDir = currDir.dirs.get(d);
             }
             String latestDir = dir[dir.length - 1];
+            //Create a file from the existing directory
             currDir.files.put(latestDir, currDir.files.getOrDefault(latestDir, "") + content);
         }
 
