@@ -34,7 +34,6 @@ public class ShortestWordDistanceII {
 
         //Key: word, Value: List of indexes where this word is located from the array
         private Map<String, List<Integer>> map;
-
         //Time: O(N)
         //Space: O(N)
         WordDistance(String[] words) {
