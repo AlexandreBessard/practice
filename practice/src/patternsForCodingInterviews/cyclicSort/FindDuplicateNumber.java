@@ -4,12 +4,15 @@ package patternsForCodingInterviews.cyclicSort;
 public class FindDuplicateNumber {
 
     public static void main(String[] args) {
+        //Unsorted
         System.out.println(findNumber(new int[]{1, 4, 4, 3, 2}));
         System.out.println(findNumber(new int[]{2, 1, 3, 3, 5, 4}));
         System.out.println(findNumber(new int[]{2, 4, 1, 4, 4}));
 
         System.out.println("Floyd's algo -> " + findDuplicateWithoutModifyingArray(new int[]{4, 3, 4, 5, 2, 4, 1}));
-        System.out.println("Result : " + findNumberBinarySearch(new int[]{4, 3, 4, 5, 2, 4, 1}));
+        //System.out.println("Result Binary Search : " + findNumberBinarySearch(new int[]{4, 3, 4, 5, 2, 4, 1}));
+        System.out.println("Result Binary Search : " + findNumberBinarySearch(new int[]{1, 4, 4, 3, 2}));
+
         /*
         System.out.println(findDuplicateWithoutModifyingArray(new int[] { 2, 1, 3, 3, 5, 4 }));
         System.out.println(findDuplicateWithoutModifyingArray(new int[] { 2, 4, 1, 4, 4 }));
@@ -22,24 +25,24 @@ public class FindDuplicateNumber {
     Time: O(n log n)
     Space: O(1)
      */
-    static int findNumberBinarySearch(int[] nums) {
+    static int findNumberBinarySearch(int[] nums) { //  1, 4, 4, 3, 2
         // 'low' and 'high' represent the range of values of the target
         int low = 1, high = nums.length - 1;
         int duplicate = -1;
         while (low <= high) {
-            int cur = (low + high) / 2;
-            // Count how many numbers in 'nums' are less than or equal to 'cur'
+            int pivot = (low + high) / 2; //Get the middle element
+            // Count how many numbers in 'nums' are less than or equal to 'pivot'
             int count = 0;
             for (int num : nums) {
-                if (num <= cur) {
+                if (num <= pivot) {
                     count++;
                 }
             }
-            if (count > cur) { //If count exceed the number of point, means duplicate
-                duplicate = cur;
-                high = cur - 1;
+            if (count > pivot) { //If count exceed the number of point, means duplicate
+                duplicate = pivot;
+                high = pivot - 1;
             } else {
-                low = cur + 1;
+                low = pivot + 1;
             }
         }
         return duplicate;
@@ -81,7 +84,7 @@ public class FindDuplicateNumber {
     Time: O(N)
     Space: O(1)
      */
-    public static int findNumber(int[] nums) {
+    public static int findNumber(int[] nums) { // 1, 4, 4, 3, 2
         int i = 0;
         while (i < nums.length) {
             if (nums[i] != i + 1) {
