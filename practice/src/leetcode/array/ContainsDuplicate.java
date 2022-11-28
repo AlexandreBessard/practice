@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/578/
-public class ContainsDuplicate {
+public class ContainsDuplicate { //Find duplicate
 /*
 Given an integer array nums, return true if any value appears at least twice in the array,
 and return false if every element is distinct.
