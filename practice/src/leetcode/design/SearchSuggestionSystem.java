@@ -62,7 +62,6 @@ class Trie {
         return resultBuffer;
     }
 
-    //Iterative
     private void dfsWithPrefix(Node currNode, String word) {
         //Limit result size to 3
         if(resultBuffer.size() == 3) { //Base case 1
