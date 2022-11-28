@@ -1,5 +1,7 @@
 package leetcode.linkedList;
 
+import leetcode.linkedList.helper.Helper;
+
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/107/linked-list/784/
 public class OddEvenLinkedList {
 /*
@@ -9,11 +11,8 @@ Note that the relative order inside both the even and odd groups should remain a
 You must solve the problem in O(1) extra space complexity and O(n) time complex
  */
     public static void main(String[] args) {
-        var one = new ListNode(1);
-        one.next = new ListNode(2);
-        one.next.next = new ListNode(3);
-        one.next.next.next = new ListNode(4);
-        one.next.next.next.next = new ListNode(5);
+        var one = Helper.generateLinkedList(1, 2, 3, 4, 5);
+
         ListNode res = oddEvenList(one);
         while(res != null) {
             System.out.print(res.val + ", ");

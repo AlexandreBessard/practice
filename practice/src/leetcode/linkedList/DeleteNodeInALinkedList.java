@@ -1,5 +1,7 @@
 package leetcode.linkedList;
 
+import leetcode.linkedList.helper.Helper;
+
 //https://leetcode.com/explore/interview/card/top-interview-questions-easy/93/linked-list/553/
 public class DeleteNodeInALinkedList {
 

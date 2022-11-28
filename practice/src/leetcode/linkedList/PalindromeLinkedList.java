@@ -1,6 +1,7 @@
 package leetcode.linkedList;
 
 import leetcode.linkedList.ListNode;
+import leetcode.linkedList.helper.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +9,8 @@ import java.util.List;
 public class PalindromeLinkedList {
 
     public static void main(String[] args) {
-        var one = new ListNode(1);
-        one.next = new ListNode(2);
-        one.next.next = new ListNode(2);
-        one.next.next.next = new ListNode(1);
+        var one = Helper.generateLinkedList(1, 2, 2, 1);
+
         System.out.println(isPalindromeReverseSecondHalf(one));
         ListNode head = one;
         while (head != null) {

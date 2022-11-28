@@ -1,5 +1,7 @@
 package leetcode.linkedList;
 
+import leetcode.linkedList.helper.Helper;
+
 import java.util.HashSet;
 import java.util.Set;
 //https://leetcode.com/explore/interview/card/top-interview-questions-medium/107/linked-list/785/
@@ -8,20 +10,9 @@ public class IntersectionOfTwoLinkedLists {
     public static void main(String[] args) {
         //4,1,8,4,5
         //5,6,1,8,4,5
-        ListNode four = new ListNode(4);
-        four.next = new ListNode(1);
-        four.next.next = new ListNode(8);
-        four.next.next.next = new ListNode(4);
-        four.next.next.next.next = new ListNode(5);
+        var four = Helper.generateLinkedList(4, 1, 8, 4, 5);
+        var five = Helper.generateLinkedList(5, 6, 1, 8, 4, 5);
 
-        ListNode five = new ListNode(5);
-        five.next = new ListNode(6);
-        five.next.next = new ListNode(1);
-        five.next.next.next = new ListNode(8);
-        five.next.next.next.next = new ListNode(4);
-        five.next.next.next.next.next = new ListNode(5);
-
-        System.out.println("TEST");
         ListNode result = getIntersectionNodeHashTable(four, five);
         while(result != null) {
             System.out.print(result.val + ", ");
