@@ -71,10 +71,20 @@ int move(String direction) Returns the score of the game after applying one dire
             int rowHead = body.peekFirst() / width;
             int colHead = body.peekFirst() % width;
             switch (direction) {
-                case "U" -> rowHead--;
-                case "D" -> rowHead++;
-                case "L" -> colHead--;
-                default -> colHead++; //Move to the right by default
+                case "U":
+                    rowHead--;
+                    break;
+                case "D":
+                    rowHead++;
+                    break;
+                case "L":
+                    colHead--;
+                    break;
+                case "R":
+                    colHead++;
+                    break;
+                default:
+                    throw new IllegalStateException("Invalid");
             }
             int head = rowHead * width + colHead;
             //case 1: out of boundary or eating body
