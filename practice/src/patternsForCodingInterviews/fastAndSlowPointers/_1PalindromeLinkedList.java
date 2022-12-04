@@ -1,4 +1,5 @@
 package patternsForCodingInterviews.fastAndSlowPointers;
+
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_1628743582805_17Unit
 public class _1PalindromeLinkedList {
 
@@ -22,13 +23,13 @@ public class _1PalindromeLinkedList {
     Space: O(1)
      */
     public static boolean isPalindrome(ListNode head) {
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return true;
         }
         //Find middle of the LinkedList
         ListNode slow = head;
         ListNode fast = head;
-        while(fast != null && fast.next != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -38,8 +39,8 @@ public class _1PalindromeLinkedList {
         // 2 -> 4 -> (6 -> null) <- 4 <- 2
         ListNode copyHeadSecondHalf = headSecondhalf; //Used to know the head
         //compare the first and the second half
-        while(head != null && headSecondhalf != null) {
-            if(head.value != headSecondhalf.value) {
+        while (head != null && headSecondhalf != null) {
+            if (head.value != headSecondhalf.value) {
                 break; //No palindrome, exit the while loop
             }
             //Move to the next element for each linkedList
@@ -47,14 +48,15 @@ public class _1PalindromeLinkedList {
             headSecondhalf = headSecondhalf.next;
         }
         reverse(copyHeadSecondHalf); // Revert the reverse of the second half
-        if(head == null || headSecondhalf == null) { //If both halves match
+        if (head == null || headSecondhalf == null) { //If both halves match
             return true;
         }
         return false;
     }
+
     private static ListNode reverse(ListNode head) {
         ListNode prev = null; //1 pointer
-        while(head != null) { //2 pointer
+        while (head != null) { //2 pointer
             ListNode next = head.next; //3 pointer
             head.next = prev;
             prev = head;
