@@ -53,7 +53,7 @@ public class _1PalindromeLinkedList {
         }
         return false;
     }
-    //comment
+
     private static ListNode reverse(ListNode head) {
         ListNode prev = null; //1 pointer
         while (head != null) { //2 pointer
