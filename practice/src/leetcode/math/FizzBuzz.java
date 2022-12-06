@@ -125,4 +125,17 @@ public class FizzBuzz {
         }
         return ans;
     }
+
+    //Question asked during a real interview
+    static void fizzBuzz() {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 7 == 0) {
+                System.out.println(i + " Multiple of 3 and 7");
+            } else if (i % 3 == 0) {
+                System.out.println(i + " Multiple of 3");
+            } else if (i % 7 == 0) {
+                System.out.println(i + " Multiple of 7");
+            }
+        }
+    }
 }
