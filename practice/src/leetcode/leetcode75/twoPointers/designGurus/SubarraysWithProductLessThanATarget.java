@@ -13,8 +13,13 @@ public class SubarraysWithProductLessThanATarget {
     }
 
     /*
+    Sliding Window
+
     Given an array with positive numbers and a positive target number,
     find all of its contiguous subarrays whose product is less than the target number.
+
+    Time: O(N3) since we have 2 for-loops and 1 while-loop
+    Space: O(N) which is used for the tempList.
      */
     public static List<List<Integer>> findSubarrays(int[] arr, int target) { // 2, 5, 3, 10
         List<List<Integer>> result = new ArrayList<>();
