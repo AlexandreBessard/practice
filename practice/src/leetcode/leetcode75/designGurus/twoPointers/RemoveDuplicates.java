@@ -1,4 +1,4 @@
-package leetcode.leetcode75.twoPointers.designGurus;
+package leetcode.leetcode75.designGurus.twoPointers;
 
 //https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/63dda4ad488110f74a93371d
 public class RemoveDuplicates {

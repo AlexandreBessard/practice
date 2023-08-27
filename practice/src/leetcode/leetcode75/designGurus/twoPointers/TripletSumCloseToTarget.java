@@ -1,4 +1,4 @@
-package leetcode.leetcode75.twoPointers.designGurus;
+package leetcode.leetcode75.designGurus.twoPointers;
 
 import java.util.Arrays;
 
