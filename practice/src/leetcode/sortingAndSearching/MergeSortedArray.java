@@ -75,7 +75,7 @@ The result of the merge is [1,2,2,3,5,6] with the underlined elements coming fro
 
     //Approach 1: Merge and sort
     /*
-    Time complexity: O(n + m)log(n + m)
+    Time complexity: O(n + m)log(n + m) ==  O -> Quick sort algorithm.
     We're sorting a list of length n + m
 
     Space complexity: O(n) caused by built-in sorting algo
