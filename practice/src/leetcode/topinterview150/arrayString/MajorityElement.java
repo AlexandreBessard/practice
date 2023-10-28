@@ -14,6 +14,10 @@ public class MajorityElement {
         nums = new int[]{2, 2, 1, 1, 1, 2, 2};
         System.out.println(majorityElementHashMapSimplified(nums));
         nums = new int[]{2, 2, 1, 1, 1, 2, 2};
+        //System.out.println(majorityElementHashMapMooreVotingAlgorithm(nums));
+        //at least two instances of majority candidate will be adjacent to each other
+        nums = new int[]{3, 2, 3, 2, 1, 2}; // will not work using this array
+        nums = new int[]{3, 3, 2, 1, 2};
         System.out.println(majorityElementHashMapMooreVotingAlgorithm(nums));
     }
 

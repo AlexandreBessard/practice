@@ -42,7 +42,7 @@ public class ReverseVowelsOfAString {
             while (start < end && vowels.indexOf(word[end]) == -1) {
                 end--;
             }
-            //Swap the vowel
+            //Swap the vowelo
             char temp = word[start];
             word[start] = word[end];
             word[end] = temp;
