@@ -48,11 +48,16 @@ public class RansomNote {
         return true;
     }
 
+    /*
+    HashMap
+    Time: O(m + n)
+    Space: O(1), hashmap will contain 26 elements which is constant.
+     */
     static boolean canConstructHashMap(String ransomNote, String magazine) {
         if (ransomNote.length() > magazine.length()) {
             return false;
         }
-        Map<Character, Integer> charCount = new HashMap<>();
+        Map<Character, Integer> charCount = new HashMap<>(26);
         for (char c : magazine.toCharArray()) {
             charCount.put(c, charCount.getOrDefault(c, 0) + 1);
         }
