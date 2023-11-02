@@ -17,6 +17,11 @@ https://leetcode.com/studyplan/top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-inter
 - Intervals <p>
   SummaryRanges -> 2 November 2023
 
+- Stack <p>
+  Valid Parentheses -> 2 November 2023
+
+
+
   
 
 
