@@ -1,6 +1,6 @@
-package GrokkingCodingInterviewPatterns.TwoPointers.LinkedList;
+package leetcode.topinterview150.linkedlist;
 
-class ListNode {
+public class ListNode {
     int val;
     ListNode next;
 
