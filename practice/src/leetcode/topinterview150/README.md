@@ -24,6 +24,12 @@ https://leetcode.com/studyplan/top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-inter
 <hr>
 - Binary Tree <p>
   Maximum Depth Of Binary Tree -> 3 November 2023
+<hr>
+- Binary Tree BFS <p>
+  Binary Tree Right Side View -> 5 November 2023
+<hr>
+- Binary Search <p>
+  Search Insert Position ->  November 2023
 
 
 

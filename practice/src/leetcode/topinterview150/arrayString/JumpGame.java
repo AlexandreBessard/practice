@@ -19,7 +19,8 @@ public class JumpGame {
      */
     static boolean canJump(int[] nums) {
         int indexReachable = 0;
-        for (int currentIndex = 0; currentIndex < nums.length && (indexReachable < nums.length - 1); currentIndex++) {
+        for (int currentIndex = 0; currentIndex < nums.length
+                && (indexReachable < nums.length - 1); currentIndex++) {
             if (currentIndex > indexReachable) {
                 return false;
             }
