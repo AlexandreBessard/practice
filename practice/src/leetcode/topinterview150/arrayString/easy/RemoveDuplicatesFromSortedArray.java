@@ -1,4 +1,4 @@
-package leetcode.topinterview150.arrayString;
+package leetcode.topinterview150.arrayString.easy;
 
 public class RemoveDuplicatesFromSortedArray {
 

@@ -1,4 +1,4 @@
-package leetcode.topinterview150.arrayString;
+package leetcode.topinterview150.arrayString.easy;
 
 import java.util.Arrays;
 import java.util.HashMap;
