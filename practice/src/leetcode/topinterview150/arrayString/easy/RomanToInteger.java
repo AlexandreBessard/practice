@@ -29,7 +29,7 @@ public class RomanToInteger {
 
         for (int i = 0; i < s.length(); i++) {
             int currentVal = map.get(s.charAt(i));
-            // Get the next element to the current one
+            // Get the next element based on the current one
             int nextVal = (i < s.length() - 1) ? map.get(s.charAt(i + 1)) : 0;
 
             if (currentVal < nextVal) {

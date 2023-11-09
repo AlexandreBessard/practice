@@ -1,4 +1,4 @@
-package leetcode.topinterview150.hashmap;
+package leetcode.topinterview150.hashmap.easy;
 
 import java.util.HashMap;
 import java.util.Map;

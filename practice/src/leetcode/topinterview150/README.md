@@ -31,8 +31,8 @@ https://leetcode.com/studyplan/top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-inter
 - Binary Search <p>
   Search Insert Position ->  November 2023
 
-
-
+<p>--------------------------------------------------------------</p>
+Array / String -> EASY: 7th November 2023
 
   
 
