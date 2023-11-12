@@ -33,8 +33,9 @@ public class IsomorphicStrings {
 
             char charS = s.charAt(i);
             char charT = t.charAt(i);
-
+            // true means it is the first time we process this letter
             if (map[charS] == 0) {
+                // Associate this letter in the array with the second input
                 map[charS] = charT;
             } else if (map[charS] != charT) {
                 return false;

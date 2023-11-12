@@ -1,4 +1,4 @@
-package leetcode.topinterview150.slidingWindow;
+package leetcode.topinterview150.slidingWindow.medium;
 
 public class MinimumSizeSubArraySum {
 
