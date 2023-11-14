@@ -1,4 +1,4 @@
-package leetcode.topinterview150.intervals;
+package leetcode.topinterview150.intervals.easy;
 
 import java.util.ArrayList;
 import java.util.List;
