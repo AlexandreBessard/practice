@@ -1,4 +1,7 @@
 package patternsForCodingInterviews.multiThreaded;
+
+import java.util.Stack;
+
 //https://designgurus.org/path-player?courseid=grokking-the-coding-interview&unit=grokking-the-coding-interview_62bcedcfddd2aUnit
 public class InvertBinaryTree {
 
@@ -17,6 +20,15 @@ public class InvertBinaryTree {
         System.out.println(root.left.right.val == 14);
         System.out.println(root.left.left.val == 19);
         System.out.println(root.left.left.left.val == 20);
+
+        TreeNode root1 = new TreeNode(4);
+        root1.left = new TreeNode(2);
+        root1.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+        root1.right = new TreeNode(7);
+        root1.right.left = new TreeNode(6);
+        root1.right.right = new TreeNode(9);
+        TreeNode res = InvertBinaryTree.invertBinaryTreeNonRecursive(root1);
     }
 
     /*
@@ -57,7 +69,36 @@ public class InvertBinaryTree {
         return root;
     }
 
+    // Non recursive
     /*
+    Time: O(n) where n is the number of nodes in the binary tree
+    Space: O(n) In balanced binary tree contains half of the total nodes
+     */
+    static TreeNode invertBinaryTreeNonRecursive(TreeNode root) {
+        if (root == null)
+            return null;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            // Get the current node from the stack
+            TreeNode node = stack.pop();
+            //Invert children of the current node
+            TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+            // If child nodes are not null, push them to the stack
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+        return root;
+    }
+
+    /*
+    Recursive
     Time: O(N)
     Space O(H)
      */
