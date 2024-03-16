@@ -13,7 +13,8 @@ public class BestTimeToBuyAndSell {
         //System.out.println(maxProfitValleyApproach(prices));
     }
 
-    //
+    // Time: O(n) Iterates through the stock once.
+    // Space: O(1) No need additional space regardless of the size of the input array.
     public static int maxProfit1(int[] prices) {
         int maxProfit = 0;
         int minimumPrice = prices[0];
