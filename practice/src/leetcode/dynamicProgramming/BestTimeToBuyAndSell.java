@@ -6,10 +6,24 @@ public class BestTimeToBuyAndSell {
     public static void main(String[] args) {
         //int[] prices = {7, 1, 5, 3, 6, 4};
         int[] prices = {7, 1, 5, 3, 6};
+        System.out.println(maxProfit1(prices));
         System.out.println(maxProfit(prices));
         System.out.println(maxProfitValleyApproach(prices));
         //System.out.println(maxProfitBrutForce(prices));
         //System.out.println(maxProfitValleyApproach(prices));
+    }
+
+    //
+    public static int maxProfit1(int[] prices) {
+        int maxProfit = 0;
+        int minimumPrice = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            // Calculate the current maxProfit we can have with the minimum
+            maxProfit = Math.max(maxProfit, prices[i] - minimumPrice);
+            // Get the new minimum
+            minimumPrice = Math.min(prices[i], minimumPrice);
+        }
+        return maxProfit;
     }
 
     //Approach 3: Single pass
@@ -57,6 +71,7 @@ public class BestTimeToBuyAndSell {
         int peak = prices[0]; //max value
         int maxProfit = 0;
         while(i < prices.length - 1) {
+            // If the current element is greater than or equal to the element next to it.
             while(i < prices.length - 1 && prices[i] >= prices[i + 1]) {
                 i++;
             }
