@@ -22,6 +22,44 @@ public class LowestCommonAncestorOfABinaryTree {
         //TreeNode res = obj.lowestCommonAncestor(three, five, four);
         TreeNode res = obj.lowestCommonAncestor(three, five, four);
         System.out.println(res.val);
+
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(4);
+        root.right.left = new TreeNode(7);
+        root.right.right = new TreeNode(9);
+        root.left.right.left = new TreeNode(3);
+        root.left.right.right = new TreeNode(5);
+
+        TreeNode p = new TreeNode(2);
+        TreeNode q = new TreeNode(5);
+
+        TreeNode lca = lowestCommonAncestorNonRecursive(root, p, q);
+        System.out.println("Lowest Common Ancestor of " + p.val + " and " + q.val + " is: " + lca.val);
+    }
+
+    /*
+    Time complexity: O(h)
+    Space complexity: O(1)
+     */
+    public static TreeNode lowestCommonAncestorNonRecursive(TreeNode root, TreeNode p, TreeNode q) {
+        while (root != null) {
+            // If both p and q are smaller than the current node, move to the left child
+            if (p.val < root.val && q.val < root.val) {
+                root = root.left;
+            }
+            // If both p and q are greater than the current node, move to the right child
+            else if (p.val > root.val && q.val > root.val) {
+                root = root.right;
+            }
+            // If one node is smaller and the other is greater, then current node is the LCA
+            else {
+                return root;
+            }
+        }
+        return null; // Return null if root is null
     }
 
     //Approach: Recursive

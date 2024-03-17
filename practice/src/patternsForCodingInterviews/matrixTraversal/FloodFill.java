@@ -65,6 +65,7 @@ public class FloodFill {
             if(isNotAValidCell(matrix, row, col)) {
                 continue;
             }
+            // skip if we already changed the old color by a new one
             if(matrix[row][col] != oldColor) {
                 continue;
             }
