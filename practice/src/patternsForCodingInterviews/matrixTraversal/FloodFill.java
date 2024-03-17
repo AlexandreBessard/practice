@@ -25,6 +25,13 @@ public class FloodFill {
                         {0, 0, 1, 0, 0}
                 }, 3, 2, 5));
 
+        print2DArray("BFS", floodFillBFS(
+                new int[][]{
+                        {1, 1, 1},
+                        {1, 1, 0},
+                        {1, 0, 1}
+                }, 1, 1, 2));
+
     }
 
     private static void print2DArray(String algo, int[][] matrix) {

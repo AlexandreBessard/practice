@@ -22,8 +22,10 @@ You must write an algorithm with O(log n) runtime complexity.
                 return mid;
             }
             if(target < nums[mid]) { //True means -> get smaller element
+                // Look on the left side because target is smaller (ascending order)
                 right = mid - 1;
             } else { //Get greater element
+                // Look on the right side
                 left = mid + 1;
             }
         }
