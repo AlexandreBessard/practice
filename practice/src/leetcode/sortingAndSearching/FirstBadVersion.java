@@ -28,7 +28,7 @@ public class FirstBadVersion {
         return left;
     }
     private static boolean isBadVersion(int num) {
-        return num == 4; //bab version hardcoded
+        return num == 4; //bad version hardcoded
     }
 
 
