@@ -21,12 +21,15 @@ public class RansomNote {
     /*
     Time: O(m)
     Space: O(k) / O(1)
-     */
 
+
+    true -> means ransomNote can be constructed by using the letters from magazine.
+     */
     static boolean canConstructOneHashMap(String ransomNote, String magazine) {
         if (ransomNote.length() > magazine.length()) {
             return false;
         }
+        // Count the number of letters from magazine.
         Map<Character, Integer> magazineCounts = makeCountsMap(magazine);
         for (char c : ransomNote.toCharArray()) {
             int countInMagazine = magazineCounts.getOrDefault(c, 0);
@@ -34,6 +37,7 @@ public class RansomNote {
             if (countInMagazine == 0) {
                 return false;
             }
+            // Decrease the number of letter from magazine.
             magazineCounts.put(c, countInMagazine - 1);
         }
         return true;
