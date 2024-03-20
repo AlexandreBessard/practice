@@ -1,6 +1,8 @@
 package leetcode.leetcode75.arrayandstring;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 //https://leetcode.com/problems/reverse-words-in-a-string/?envType=study-plan-v2&envId=leetcode-75
 public class ReverseWordsInAString {
@@ -34,7 +36,9 @@ public class ReverseWordsInAString {
     public static String reverseWords(String s) {
         //Split between one or more spaces.
         // trim -> leading and trailing space removed.
-        String[] words = s.trim().split("\\s+");
+        // String[] words = s.trim().split("\\s+");
+        List<String> wordsList = stringToArrayWithoutSpace(s);
+        String[] words = wordsList.toArray(new String[0]);
         reverseArray(words);
         return Arrays.toString(words);
     }
@@ -51,6 +55,23 @@ public class ReverseWordsInAString {
             left++;
             right--;
         }
+    }
+
+    private static List<String> stringToArrayWithoutSpace(String s) {
+        var strBuilder = new StringBuilder();
+        List<String> words = new ArrayList<>();
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            // True means  it is NOT a space, append the current word.
+            if (Character.isLetter(currentChar)) {
+                strBuilder.append(currentChar);
+            } else { // We have a space
+                words.add(strBuilder.toString());
+                // reset
+                strBuilder.setLength(0);
+            }
+        }
+        return words;
     }
 
     //Follow-up: If the string data type is mutable char[] in your language,
