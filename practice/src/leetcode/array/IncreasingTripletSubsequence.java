@@ -11,6 +11,8 @@ public class IncreasingTripletSubsequence {
         int[] nums = {2,1,5,0,4,6};
         //true -> 0 < 4 < 6
         System.out.println(increasingTriplet(nums));
+        nums = new int[] {5,4,3,2,1};
+        System.out.println(increasingTriplet(nums));
     }
 
     //Approach 1: Linear scan
@@ -24,6 +26,7 @@ public class IncreasingTripletSubsequence {
         int secondBiggerNum = Integer.MAX_VALUE; // second element
         for(int currValue : nums) { //Loop through each value
             if(currValue <= firstSmallerNum) { //Update first to get the smallest value
+                // We have a smaller value than the previous one.
                 firstSmallerNum = currValue;
             } else if(currValue <= secondBiggerNum) { //Update second to get a bigger value
                 secondBiggerNum = currValue;
@@ -31,6 +34,7 @@ public class IncreasingTripletSubsequence {
                 return true; //We know that the current element is bigger than the first and second element
             }
         }
+        // We did not find any triplets.
         return false;
     }
 
