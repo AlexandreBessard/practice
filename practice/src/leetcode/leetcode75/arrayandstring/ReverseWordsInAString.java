@@ -3,7 +3,7 @@ package leetcode.leetcode75.arrayandstring;
 import java.util.Arrays;
 
 //https://leetcode.com/problems/reverse-words-in-a-string/?envType=study-plan-v2&envId=leetcode-75
-public class ReverseWordInAString {
+public class ReverseWordsInAString {
 
     public static void main(String[] args) {
         String input1 = "the sky is blue";
@@ -44,6 +44,7 @@ public class ReverseWordInAString {
         int left = 0;
         int right = arr.length - 1;
         while (left < right) {
+            // Swap the words
             String temp = arr[left];
             arr[left] = arr[right];
             arr[right] = temp;

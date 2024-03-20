@@ -25,6 +25,7 @@ public class MergeStringsAlternately {
         var result = new StringBuilder();
         int i = 0;
         while (i < word1.length() || i < word2.length()) {
+            // true means we have a letter to appended
             if (i < word1.length()) {
                 result.append(word1.charAt(i));
             }
