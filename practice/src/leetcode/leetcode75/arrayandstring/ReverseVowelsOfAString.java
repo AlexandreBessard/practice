@@ -39,6 +39,7 @@ public class ReverseVowelsOfAString {
             while (start < end && vowels.indexOf(word[start]) == -1) {
                 start++;
             }
+            // Get the first vowel from the right side (from the end of the word)
             while (start < end && vowels.indexOf(word[end]) == -1) {
                 end--;
             }

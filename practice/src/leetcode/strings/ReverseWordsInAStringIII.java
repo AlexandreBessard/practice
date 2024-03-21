@@ -17,6 +17,8 @@ public class ReverseWordsInAStringIII {
         String s1 = "God Ding";
         System.out.println(reverseWords(s));
         System.out.println(reverseWords(s1));
+        s = "hello world";
+        System.out.println(reverseWords(s));
     }
 
     //Approach 2: Two pointers
