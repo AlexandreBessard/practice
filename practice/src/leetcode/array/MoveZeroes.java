@@ -13,6 +13,32 @@ public class MoveZeroes {
         int[] nums = {0, 1, 0, 3, 12};
         moveZeroes(nums);
         System.out.println(Arrays.toString(nums));
+        nums = new int[] {0, 1, 0, 3, 12};
+        moveZeroesTwoPointers(nums);
+        System.out.println(Arrays.toString(nums));
+    }
+
+    /*
+    Two pointers
+    Time: O(n)
+    Space: O(1)
+     */
+    static void moveZeroesTwoPointers(int[] nums) {
+        // Pointer used to know where a zero is located
+        int left = 0;
+        int current = 0;
+        while (current < nums.length) {
+            if (nums[current] != 0) {
+                // Swap non zero to the left side
+                int temp = nums[left];
+                nums[left] = nums[current];
+                nums[current] = temp;
+                // move pointer to the next position
+                left++;
+            }
+            // It is a 0, move to the next position
+            current++;
+        }
     }
 
     //Image: practice/resources/moveZeroes.png
